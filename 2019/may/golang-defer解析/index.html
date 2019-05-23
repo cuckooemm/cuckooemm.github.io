@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Cuckooemm">
+  <meta name="description" content="个人博客">
+  <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
+  
+  
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Golang defer解析 | Cuckooemm&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Golang defer解析 | Cuckooemm&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/cuckooemm.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Golang defer解析",
+    "headline" : "Golang defer解析",
+    "description" : "Golang defer解析 概念 在go语言中，defer 是用来在函数作用域结束之后执行函数的关键字，在当前函数返回前调用。延迟函数defer的实现是由编译器很运行时共同完成的。\n作用域 func main() { { defer fmt.Println(\x26quot;defer runs\x26quot;) fmt.Println(\x26quot;code block ends\x26quot;) } fmt.Println(\x26quot;func ends\x26quot;) }  从这里我们可以看出，defer并不是在退出当前代码块的作用域之前执行的，defer只会在当前函数返回之前被调用。\ndefer规则 1、执行顺序 定义defer类似于入栈，defer的执行顺序类似于出栈，即先出现的defer最后执行。 例如在for循环中defer打印的结果为：4、3、2、1、0。\nfunc main() { for i := 0; i \x26lt; 5; i\x2b\x2b { defer fmt.Println(i) } }  defer的设计初衷是简化函数返回时资源清理的动作。 资源往往有依赖，如申请A资源，在A的基础上申请B资源，再在B的基础上申请C资源，资源的申请顺序为：A-\x26gt;B-\x26gt;C;释放时则需要反向进行：C-\x26gt;B-\x26gt;A。这就是把defer设计成FIFO的原因。\n2、参数确定 Golang中所有的函数参数传递都是值传递，延迟函数的参数在defer定义时就已确定下来。\nfunc main() { \/\/ main函数没有参数也没有返回值 i := 0 defer fmt.Println(i) i\x2b\x2b }  在defer定义时就已经把参数通过值传递传给了defer函数，在defer函数之后对参数i的操作并不会影响defer函数中的参数i的值，因此函数的打印结果为0。 接下来再看一段代码\nfunc main(){ i := 0 defer func(i int) { fmt.",
+    "inLanguage" : "zh-CN",
+    "author" : "Cuckooemm",
+    "creator" : "Cuckooemm",
+    "publisher": "Cuckooemm",
+    "accountablePerson" : "Cuckooemm",
+    "copyrightHolder" : "Cuckooemm",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-05-18 22:17:27 \x2b0800 CST",
+    "dateModified" : "2019-05-18 22:17:27 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/may\/golang-defer%E8%A7%A3%E6%9E%90\/",
+    "wordCount" : "149",
+    "keywords" : [ "golang语法", "Cuckooemm\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://cuckooemm.xyz/">Cuckooemm&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://cuckooemm.xyz/">Cuckooemm&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Golang defer解析</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-05-18 itemprop="datePublished">May 18, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://cuckooemm.xyz/categories/golang/"> golang </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="golang-defer解析">Golang defer解析</h1>
+
+<h3 id="概念">概念</h3>
+
+<p>在go语言中，<code>defer</code> 是用来在<strong>函数作用域结束之后执行函数的关键字</strong>，在当前函数返回前调用。延迟函数<code>defer</code>的实现是由编译器很运行时共同完成的。</p>
+
+<h3 id="作用域">作用域</h3>
+
+<pre><code class="language-golang">func main() {
+    {
+        defer fmt.Println(&quot;defer runs&quot;)
+        fmt.Println(&quot;code block ends&quot;)
+    }
+    
+    fmt.Println(&quot;func ends&quot;)
+}
+</code></pre>
+
+<p>从这里我们可以看出，<code>defer</code>并不是在退出当前代码块的作用域之前执行的，<code>defer</code>只会在当前函数返回之前被调用。</p>
+
+<h3 id="defer规则">defer规则</h3>
+
+<h4 id="1-执行顺序">1、执行顺序</h4>
+
+<p>定义<code>defer</code>类似于入栈，<code>defer</code>的执行顺序类似于出栈，即先出现的<code>defer</code>最后执行。
+例如在<code>for</code>循环中<code>defer</code>打印的结果为：4、3、2、1、0。</p>
+
+<pre><code class="language-golang">func main() {
+    for i := 0; i &lt; 5; i++ {
+        defer fmt.Println(i)
+    }
+}
+</code></pre>
+
+<p><code>defer</code>的设计初衷是简化函数返回时资源清理的动作。
+资源往往有依赖，如申请A资源，在A的基础上申请B资源，再在B的基础上申请C资源，资源的申请顺序为：A-&gt;B-&gt;C;释放时则需要反向进行：C-&gt;B-&gt;A。这就是把<code>defer</code>设计成<strong>FIFO</strong>的原因。</p>
+
+<h4 id="2-参数确定">2、参数确定</h4>
+
+<p>Golang中所有的函数参数传递都是值传递，延迟函数的参数在<code>defer</code>定义时就已确定下来。</p>
+
+<pre><code class="language-golang">func main() {  // main函数没有参数也没有返回值
+    i := 0 
+    defer fmt.Println(i)
+    i++
+}
+</code></pre>
+
+<p>在<code>defer</code>定义时就已经把参数通过值传递传给了<code>defer</code>函数，在<code>defer</code>函数之后对参数i的操作并不会影响<code>defer</code>函数中的参数i的值，因此函数的打印结果为0。
+接下来再看一段代码</p>
+
+<pre><code class="language-golang">func main(){
+    i := 0
+    defer func(i int) {
+        fmt.Println(&amp;i) 结果为0xc00000a0d8
+    }(i)
+    fmt.Println(&amp;i)  // 结果为0xc00000a0d0
+}
+</code></pre>
+
+<p>从这里可以看出<code>defer</code>中的参数<strong>i</strong>与代码中的参数<strong>i</strong>已经不是一个参数了。</p>
+
+<pre><code class="language-golang">func main() {
+    var i *int
+    i = new(int) // 申请内存
+    *i = 0
+    defer func(i *int) {
+        fmt.Println(i) // 结果为 0xc000062080
+        fmt.Println(*i) // 结果为1
+    }(i)
+    *i++
+    fmt.Println(i) // 结果为 0xc000062080
+}
+</code></pre>
+
+<p>对于指针类型，延迟函数的参数是一个地址值，而在这样的情况下，<code>defer</code>后面的语句对变量的修改可能会影响延迟函数的参数值，而<code>defer</code>函数中的指针参数与<code>defer</code>外的指针参数又是两个不同的变量，也就是说为指针赋予新的地址值同样不会影响<code>defer</code>中的指针值。</p>
+
+<h4 id="3-延迟函数可能操作主函数的具名返回值">3、延迟函数可能操作主函数的具名返回值</h4>
+
+<p>函数返回的<code>return</code>语句并不是一个原子操作，实际上<code>return</code>只代理汇编指令<code>ret</code>，即跳转程序执行。
+如</p>
+
+<pre><code class="language-golang">return i
+</code></pre>
+
+<p>实际上分两部执行，即将<strong>i</strong>值存入栈中作为返回值，然后执行跳转，而<code>defer</code>的执行时机正是跳转前，所以说defer执行时是有机会操作返回值的。</p>
+
+<pre><code class="language-golang">func deferFuncReturn() (result int) {
+    i := 1
+
+    defer func() {
+       result++
+    }()
+
+    return i
+}
+</code></pre>
+
+<p>该函数的<code>return</code>语句可以拆分成下面两行</p>
+
+<pre><code class="language-golang">result = i
+return
+</code></pre>
+
+<p>延迟函数的执行正是<code>return</code>之前，加入<code>defer</code>后的执行过程如下</p>
+
+<pre><code class="language-golang">result = i
+result++
+return
+</code></pre>
+
+<p>函数实际返回i++的值。</p>
+
+<h3 id="应用场景">应用场景</h3>
+
+<ul>
+<li>关闭文件描述符</li>
+<li>关闭数据库连接</li>
+<li>资源解锁</li>
+<li>recover捕获错误</li>
+<li>等</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Cuckooemm </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/>https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/golang%E8%AF%AD%E6%B3%95/">
+                    #golang语法</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://cuckooemm.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://cuckooemm.xyz/">Cuckooemm</a></span> 
+         
+
+         
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

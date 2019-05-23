@@ -2,19 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://cuckooemm.xyz/about/</loc>
+      <loc>https://cuckooemm.xyz/categories/</loc>
       
-      <lastmod>2019-05-18T17:02:29+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://cuckooemm.xyz/</loc>
-      
-      <lastmod>2019-05-18T17:02:29+08:00</lastmod>
+      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
       
       
       
@@ -24,7 +14,31 @@
     </url>
   
     <url>
-      <loc>https://cuckooemm.xyz/categories/</loc>
+      <loc>https://cuckooemm.xyz/</loc>
+      
+      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/</loc>
+      
+      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://cuckooemm.xyz/posts/</loc>
+      
+      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
       
       
       
@@ -36,9 +50,45 @@
     <url>
       <loc>https://cuckooemm.xyz/tags/</loc>
       
+      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
+      
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://cuckooemm.xyz/categories/golang/</loc>
+      
+      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://cuckooemm.xyz/tags/golang%E8%AF%AD%E6%B3%95/</loc>
+      
+      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://cuckooemm.xyz/about/</loc>
+      
+      <lastmod>2019-05-18T17:02:29+08:00</lastmod>
+      
+      
       
       
     </url>
