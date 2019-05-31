@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 May 2019 22:17:27 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2019 22:18:40 +0800</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>git</title>
+      <link>https://cuckooemm.xyz/tags/git/</link>
+      <pubDate>Fri, 31 May 2019 22:18:40 +0800</pubDate>
+      
+      <guid>https://cuckooemm.xyz/tags/git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>golang语法</title>

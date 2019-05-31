@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Cuckooemm">
+  <meta name="description" content="个人博客">
+  <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
+  
+  <link rel="prev" href="https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/may/git2/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/may/git1/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Git(1) | Cuckooemm&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Git(1) | Cuckooemm&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/cuckooemm.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Git(1)",
+    "headline" : "Git(1)",
+    "description" : "Git命令 写一下git的命令以便忘记时查找\n获取帮助 git help \x26lt;verb\x26gt; git \x26lt;verb\x26gt; --help man git-\x26lt;verv\x26gt;  config  git config针对一个git仓库 git config \x26ndash;global针对一个用户 sudo git config \x26ndash;system针对一个系统，因为是针对整个系统的，所以必须使用sudo  个人信息 用于提交git时显示的个人信息\n git config \x26ndash;global user.name \x26ldquo;your name\x26rdquo; git config \x26ndash;global user.email \x26ldquo;your email\x26rdquo;\n 仓库独立指定  git config user.name \x26ldquo;your name\x26rdquo; git config user.email \x26ldquo;your email\x26rdquo;\n 不加\x26ndash;global\n配置编辑器 默认缺省编辑器 为vi or vim。 如想使用emacs\n git config \x26ndash;global core.editor emacs\n 配置比较工具 用于解决合并时的冲突，如vimdiff",
+    "inLanguage" : "zh-CN",
+    "author" : "Cuckooemm",
+    "creator" : "Cuckooemm",
+    "publisher": "Cuckooemm",
+    "accountablePerson" : "Cuckooemm",
+    "copyrightHolder" : "Cuckooemm",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-05-23 22:50:06 \x2b0800 CST",
+    "dateModified" : "2019-05-23 22:50:06 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/may\/git1\/",
+    "wordCount" : "335",
+    "keywords" : [ "git", "Cuckooemm\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://cuckooemm.xyz/">Cuckooemm&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://cuckooemm.xyz/">Cuckooemm&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Git(1)</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-05-23 itemprop="datePublished">May 23, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://cuckooemm.xyz/categories/git/"> Git </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="git命令">Git命令</h2>
+
+<p>写一下git的命令以便忘记时查找</p>
+
+<h3 id="获取帮助">获取帮助</h3>
+
+<pre><code class="language-git">git help &lt;verb&gt;
+git &lt;verb&gt; --help
+man git-&lt;verv&gt;
+</code></pre>
+
+<h3 id="config">config</h3>
+
+<ul>
+<li>git config针对一个git仓库</li>
+<li>git config &ndash;global针对一个用户</li>
+<li>sudo git config &ndash;system针对一个系统，因为是针对整个系统的，所以必须使用sudo</li>
+</ul>
+
+<h4 id="个人信息">个人信息</h4>
+
+<p>用于提交git时显示的个人信息</p>
+
+<blockquote>
+<p>git config &ndash;global user.name &ldquo;your name&rdquo;
+git config &ndash;global user.email &ldquo;your email&rdquo;</p>
+</blockquote>
+
+<h4 id="仓库独立指定">仓库独立指定</h4>
+
+<blockquote>
+<p>git config user.name &ldquo;your name&rdquo;
+git config user.email &ldquo;your email&rdquo;</p>
+</blockquote>
+
+<p>不加&ndash;global</p>
+
+<h4 id="配置编辑器">配置编辑器</h4>
+
+<p>默认缺省编辑器 为vi or vim。 如想使用emacs</p>
+
+<blockquote>
+<p>git config &ndash;global core.editor emacs</p>
+</blockquote>
+
+<h4 id="配置比较工具">配置比较工具</h4>
+
+<p>用于解决合并时的冲突，如vimdiff</p>
+
+<blockquote>
+<p>git config &ndash;global merge.tool vimdiff</p>
+</blockquote>
+
+<h4 id="配置别名">配置别名</h4>
+
+<p>如 git status 设置别名 st</p>
+
+<blockquote>
+<p>git config &ndash;global alias.st status</p>
+</blockquote>
+
+<p>推荐设置别名</p>
+
+<blockquote>
+<p>git config &ndash;global alias.lg &ldquo;log &ndash;color &ndash;graph &ndash;pretty=format:&lsquo;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&rsquo; &ndash;abbrev-commit&rdquo;</p>
+</blockquote>
+
+<p>输入<code>q</code>退出</p>
+
+<h4 id="检查配置">检查配置</h4>
+
+<blockquote>
+<p>git config &ndash;list</p>
+</blockquote>
+
+<h4 id="删除config-key值">删除config key值</h4>
+
+<blockquote>
+<p>git config &ndash;global &ndash;unset key</p>
+</blockquote>
+
+<h4 id="gitignore文件">.gitignore文件</h4>
+
+<p>设置文件监控规则
+文档描述gitignore语法规则有五条：</p>
+
+<ul>
+<li>忽略空白行或以#开始的行（注释）；</li>
+<li>按照标准glob工作，并递归应用于整个工作目录（参考glob）；</li>
+<li>模式以/打头，禁止递归工作；</li>
+<li>模式以/结尾，限定特定目录；</li>
+<li>使用感叹号!对模式含义取反；</li>
+</ul>
+
+<p>gitignore规则细化补充如下：</p>
+
+<ul>
+<li>通用的规则应该写在前面，专有的放后面。</li>
+<li>规则中不含有/的，则当作通配符处理，每个目录迭代检查；</li>
+<li>规则以/结尾的，仅限于目录，而不包含同名的链接和文件；</li>
+<li>模式以连续两个星号和/打头(**/)时，和移除**/含义相同；</li>
+<li>模式以连续两个型号结尾时，表示匹配其下一切内容，含子目录；</li>
+<li>模式中间包含/**/时，**匹配0个或多个目录；比如：</li>
+</ul>
+
+<h3 id="克隆git仓库到本地">克隆git仓库到本地</h3>
+
+<h4 id="clone">clone</h4>
+
+<blockquote>
+<p>git clone url //支持git、http(s)、ssh等协议</p>
+</blockquote>
+
+<p>默认只有<code>master</code>分支</p>
+
+<h5 id="链接分支">链接分支</h5>
+
+<ul>
+<li>在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致</li>
+<li>建立本地分支和远程分支的关联，使用git branch &ndash;set-upstream branch-name origin/branch-name</li>
+</ul>
+
+<h4 id="fetch">fetch</h4>
+
+<p>拉取远程更新到本地，可指定分支 对本地代码无影响</p>
+
+<blockquote>
+<p>git fetch &lt;shortname&gt; &lt;分支名&gt;</p>
+</blockquote>
+
+<h4 id="pull">pull</h4>
+
+<p>拉取远程分支的更新并合并 远程分支与当前分支合并可省略<code>:</code>后部分</p>
+
+<blockquote>
+<p>git pull &lt;shortname&gt; &lt;远程分之名&gt;:&lt;本地分支名&gt;</p>
+</blockquote>
+
+<p>默认在本地分支与远程分支建立追踪关系
+也可以手动建立追踪关系</p>
+
+<blockquote>
+<p>git branch &ndash;set-upstream &lt;分支&gt; &lt;分支&gt;</p>
+</blockquote>
+
+<p>如果远程分支已删除 pull不会删除本地分支</p>
+
+<blockquote>
+<p>git pull -p //本地删除远程已删除的分支</p>
+</blockquote>
+
+<h4 id="push">push</h4>
+
+<p>推送本地更新，与 pull相仿
+如果远程分支不存在，则新建</p>
+
+<blockquote>
+<p>git push &lt;shortname&gt; &lt;本地分支&gt;:&lt;远程分支&gt;</p>
+</blockquote>
+
+<p>省略本地分支名 等于删除远程分支</p>
+
+<blockquote>
+<p>git push &lt;shortname&gt; :&lt;远程分支&gt;
+等同
+git push &lt;shortname&gt; &ndash;delete master</p>
+</blockquote>
+
+<p>如果存在多个远程追踪关系，使用<code>-u</code>指定一个默认主机</p>
+
+<h3 id="添加文件">添加文件</h3>
+
+<blockquote>
+<p>git add .  // 把所有变化提交到暂存区 包括修改和新建 不包括删除
+git add -u // 把添加的文件中修改的文件提交到暂存区(包含删除) 不添加新文件
+git add -A // all
+git add &lt;file&gt;&hellip; // 可添加多个文件</p>
+</blockquote>
+
+<p><a href="https://git-scm.com/docs/git-add" rel="nofollow noreferrer" target="_blank">官网文档</a></p>
+
+<h3 id="查看当前文件状态">查看当前文件状态</h3>
+
+<blockquote>
+<p>git status</p>
+</blockquote>
+
+<h4 id="查看已暂存和未暂存的更改">查看已暂存和未暂存的更改</h4>
+
+<blockquote>
+<p>git diff</p>
+</blockquote>
+
+<h4 id="以暂存的和上次提交的更改">以暂存的和上次提交的更改</h4>
+
+<blockquote>
+<p>git diff &ndash;cached
+git diff &ndash;staged</p>
+</blockquote>
+
+<h3 id="提交">提交</h3>
+
+<blockquote>
+<p>git commit //启动默认编辑器输入更新说明
+git commit -m &ldquo;更新内容&rdquo; // 加-m 在之后输入更新说明</p>
+</blockquote>
+
+<h4 id="跳过使用暂存区域">跳过使用暂存区域</h4>
+
+<blockquote>
+<p>git commit -a // 跳过 add 步骤</p>
+</blockquote>
+
+<h3 id="移除文件">移除文件</h3>
+
+<ul>
+<li>rm &lt;file&gt;&hellip;
+移除版本控制并从工作目录中删除</li>
+<li>git rm -f &lt;file&gt;&hellip;
+移除已添加到暂存区的文件</li>
+<li>git rm &ndash;cached &lt;file&gt;
+不进行版本控制但保留文件</li>
+</ul>
+
+<h3 id="移动文件-or-改名">移动文件 or 改名</h3>
+
+<blockquote>
+<p>git mv file_from file_to</p>
+</blockquote>
+
+<p>运行<code>git mv</code>相当于下面三条命令</p>
+
+<pre><code class="language-git">mv README.txt README
+git rm README.txt
+git add README
+</code></pre>
+
+<h3 id="撤销修改">撤销修改</h3>
+
+<p>使文件回到最后一次<code>add</code> or <code>commit</code> 时的状态</p>
+
+<blockquote>
+<p>git checkout &ndash; &lt;file&gt;</p>
+</blockquote>
+
+<h3 id="版本回退">版本回退</h3>
+
+<blockquote>
+<p>git log  查看记录</p>
+</blockquote>
+
+<ul>
+<li>HEAD 表示当前版本</li>
+<li>上一个为 HEAD^</li>
+<li>上上个为 HEAD^^</li>
+<li>上100个为 HEAD~100</li>
+</ul>
+
+<p>也可指定回退版本的commitid
+&ndash;hard 彻底回退到某个版本
+&ndash;soft 只回退 commit 信息</p>
+
+<blockquote>
+<p>git rest &ndash;hard HEAD^</p>
+</blockquote>
+
+<h3 id="撤销回退">撤销回退</h3>
+
+<blockquote>
+<p>git rest &ndash;hard commitid</p>
+</blockquote>
+
+<p><code>git reflog</code> 记录HEAD的修改</p>
+
+<h3 id="远程库管理">远程库管理</h3>
+
+<h4 id="列出管理的远程库">列出管理的远程库</h4>
+
+<blockquote>
+<p>git remote -v</p>
+</blockquote>
+
+<h4 id="本地关联远程库">本地关联远程库</h4>
+
+<blockquote>
+<p>git remote add &lt;shortname&gt; url</p>
+</blockquote>
+
+<h4 id="远程库重命名">远程库重命名</h4>
+
+<blockquote>
+<p>git remote rename &lt;oldname&gt; &lt;newname&gt;</p>
+</blockquote>
+
+<h4 id="删除关联远程库">删除关联远程库</h4>
+
+<blockquote>
+<p>git remote rm &lt;shortname&gt;</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Cuckooemm </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://cuckooemm.xyz/2019/may/git1/>https://cuckooemm.xyz/2019/may/git1/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/git/">
+                    #git</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://cuckooemm.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/" class="prev" rel="prev" title="Golang defer解析"><i class="iconfont icon-left"></i>&nbsp;Golang defer解析</a>
+         
+        
+        <a href="https://cuckooemm.xyz/2019/may/git2/" class="next" rel="next" title="Git(2)">Git(2)&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://cuckooemm.xyz/">Cuckooemm</a></span> 
+         
+
+         
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
