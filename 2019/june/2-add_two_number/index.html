@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "LeetCode - 2 - Add Two Numbers [Medium]",
     "headline" : "LeetCode - 2 - Add Two Numbers [Medium]",
-    "description" : "1.Tow Sum 地址 难度：Medium\n题目描述 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.\n给定两个非空链表用来表示两个非负整数，它们各自的位数是按照逆序的方式存储的，并且每个节点只能存储一位数字。用链表返回它们的和。 你可以假设它们都不会以0开头，除了数字0。\n示例 Input: (2 -\x26gt; 4 -\x26gt; 3) \x2b (5 -\x26gt; 6 -\x26gt; 4)",
+    "description" : "2.Add Two Numbers 地址\n难度：Medium\n题目描述 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.\n给定两个非空链表用来表示两个非负整数，它们各自的位数是按照逆序的方式存储的，并且每个节点只能存储一位数字。用链表返回它们的和。\n你可以假设它们都不会以0开头，除了数字0。\n示例 Input: (2 -\x26gt; 4 -\x26gt; 3) \x2b (5 -\x26gt; 6 -\x26gt; 4)",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -57,7 +57,7 @@
     "datePublished": "2019-06-01 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-06-01 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/2-add_two_number\/",
-    "wordCount" : "249",
+    "wordCount" : "280",
     "keywords" : [ "algorithm","LeetCode", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -148,10 +148,10 @@
 
           
 
-<h1 id="1-tow-sum">1.Tow Sum</h1>
+<h1 id="2-add-two-numbers">2.Add Two Numbers</h1>
 
-<p><a href="https://leetcode.com/problems/add-two-numbers/" rel="nofollow noreferrer" target="_blank">地址</a>
-难度：<strong>Medium</strong></p>
+<p><a href="https://leetcode.com/problems/add-two-numbers/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
@@ -159,23 +159,28 @@
 
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
 
-<p>给定两个非空链表用来表示两个非负整数，它们各自的位数是按照逆序的方式存储的，并且每个节点只能存储一位数字。用链表返回它们的和。
+<p>给定两个非空链表用来表示两个非负整数，它们各自的位数是按照逆序的方式存储的，并且每个节点只能存储一位数字。用链表返回它们的和。<br />
 你可以假设它们都不会以0开头，除了数字0。</p>
 
 <h3 id="示例">示例</h3>
 
-<p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</p>
-
-<p><strong>Output:</strong> 7 -&gt; 0 -&gt; 8</p>
-
-<p><strong>Explanation:</strong> 342 + 465 = 807.</p>
+<p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br />
+<strong>Output:</strong> 7 -&gt; 0 -&gt; 8<br />
+<strong>Explanation:</strong> 342 + 465 = 807.</p>
 
 <h3 id="思路">思路</h3>
 
-<p>用l1作为结果存放位置，节省空间与内存申请的时间。
-之前用第三个链表保存结果，这次写博客有想到了用<code>l1</code>参数自身保存结果，空间复杂度降到了<code>O(1)</code>。
-没什么说的，挺简单的中等难度题。
+<p>用l1作为结果存放位置，节省空间与内存申请的时间。<br />
+之前用第三个链表保存结果，这次写博客又想到了用<code>l1</code>参数自身保存结果，空间复杂度降到了<code>O(1)</code>。<br />
+没什么说的，挺简单的中等难度题。<br />
 <strong>时间复杂度:</strong><code>O(l1 + l2)</code>, <strong>空间复杂度：</strong><code>O(1)</code>。</p>
+
+<h3 id="ac">AC</h3>
+
+<ul>
+<li>Runtime: 20 ms, faster than 97.42% of C++ online submissions for Add Two Numbers.</li>
+<li>Memory Usage: 9.9 MB, less than 96.42% of C++ online submissions for Add Two Numbers.</li>
+</ul>
 
 <h3 id="代码">代码</h3>
 

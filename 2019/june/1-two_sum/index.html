@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "LeetCode - 1 - Two Sum [Easy]",
     "headline" : "LeetCode - 1 - Two Sum [Easy]",
-    "description" : "1.Tow Sum 地址 难度：Easy\n题目描述 Given an array of integers, return indices of the two numbers such that they add up to a specific target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n给定一个整型数组，返回数组中值的和target的数组索引，可以假定每个输入都有一个解，且同一个元素不能使用两次。\n示例 Given nums = [2, 7, 11, 15], target = 9,\nBecause nums[0] \x2b nums[1] = 2 \x2b 7 = 9, return [0, 1].",
+    "description" : "1.Tow Sum 地址\n难度：Easy\n题目描述 Given an array of integers, return indices of the two numbers such that they add up to a specific target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n给定一个整型数组，返回数组中值的和target的数组索引，可以假定每个输入都有一个解，且同一个元素不能使用两次。\n示例 Given nums = [2, 7, 11, 15], target = 9,\nBecause nums[0] \x2b nums[1] = 2 \x2b 7 = 9,\nreturn [0, 1].",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -57,7 +57,7 @@
     "datePublished": "2019-06-01 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-06-01 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/1-two_sum\/",
-    "wordCount" : "154",
+    "wordCount" : "178",
     "keywords" : [ "algorithm","LeetCode", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -150,8 +150,8 @@
 
 <h1 id="1-tow-sum">1.Tow Sum</h1>
 
-<p><a href="https://leetcode.com/problems/two-sum/" rel="nofollow noreferrer" target="_blank">地址</a>
-难度：<strong>Easy</strong></p>
+<p><a href="https://leetcode.com/problems/two-sum/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Easy</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
@@ -163,22 +163,28 @@
 
 <h3 id="示例">示例</h3>
 
-<p>Given nums = [2, 7, 11, 15], target = 9,</p>
-
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,
+<p>Given nums = [2, 7, 11, 15], target = 9,<br />
+Because nums[0] + nums[1] = 2 + 7 = 9,<br />
 return [0, 1].</p>
 
 <h3 id="思路">思路</h3>
 
 <ul>
-<li><p>空间复杂度优先:
+<li><p>空间复杂度优先:<br />
 首先对数组进行排序，左指针指向数组头，右指针指向数组长度-1，左指针+右指针。
-如果结果大于target,右指针&ndash;，反之左指针++。
+如果结果大于target,右指针&ndash;，反之左指针++。<br />
 <strong>时间复杂度:</strong><code>O(nlogn)</code>, <strong>空间复杂度：</strong><code>O(1)</code>。</p></li>
 
-<li><p>时间复杂度优先
-字典法,顺序读取元素，把target-element的值保存字典。
+<li><p>时间复杂度优先:<br />
+字典法,顺序读取元素，把target-element的值保存字典。<br />
 <strong>时间复杂度:</strong><code>O(n)</code>, <strong>空间复杂度：</strong><code>O(n)</code>。</p></li>
+</ul>
+
+<h3 id="ac">AC</h3>
+
+<ul>
+<li>Runtime: 4 ms, faster than 99.94% of C++ online submissions for Two Sum.</li>
+<li>Memory Usage: 10.4 MB, less than 21.52% of C++ online submissions for Two Sum.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
@@ -188,14 +194,13 @@ return [0, 1].</p>
 <pre><code class="language-c++">class Solution {
 public:
     vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
-	int size = nums.size();
-	unordered_map&lt;int, int&gt; map(size);
+	unordered_map&lt;int, int&gt; map(nums.size());
 	vector&lt;int&gt; result(2);
-	for(int i = 0; i &lt; size; i++) // 元素大小为key,value为索引
+	for(int i = 0; i &lt; nums.size(); i++) // 元素大小为key,value为索引
 	{
 		map[nums[i]] = i;
 	}
-	for (int i = 0; i &lt; size; i++)
+	for (int i = 0; i &lt; nums.size(); i++)
 	{
 		int t = target - nums[i];
 		if (map.count(t) &amp;&amp; map[t] != i) // 判断不是同一个元素
