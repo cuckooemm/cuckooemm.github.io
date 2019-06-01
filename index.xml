@@ -5,8 +5,166 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LeetCode - 1 - Two Sum [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/1-two_sum/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/1-two_sum/</guid>
+      <description>
+
+&lt;h1 id=&#34;1-tow-sum&#34;&gt;1.Tow Sum&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/two-sum/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;
+难度：&lt;strong&gt;Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific &lt;code&gt;target&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You may assume that each input would have exactly one solution, and you may not use the same element twice.&lt;/p&gt;
+
+&lt;p&gt;给定一个整型数组，返回数组中值的和&lt;code&gt;target&lt;/code&gt;的数组索引，可以假定每个输入都有一个解，且同一个元素不能使用两次。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;p&gt;Given nums = [2, 7, 11, 15], target = 9,&lt;/p&gt;
+
+&lt;p&gt;Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;空间复杂度优先:
+首先对数组进行排序，左指针指向数组头，右指针指向数组长度-1，左指针+右指针。
+如果结果大于target,右指针&amp;ndash;，反之左指针++。
+&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(nlogn)&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;时间复杂度优先
+字典法,顺序读取元素，把target-element的值保存字典。
+&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(n)&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(n)&lt;/code&gt;。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;h4 id=&#34;字典法&#34;&gt;字典法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
+	int size = nums.size();
+	unordered_map&amp;lt;int, int&amp;gt; map(size);
+	vector&amp;lt;int&amp;gt; result(2);
+	for(int i = 0; i &amp;lt; size; i++) // 元素大小为key,value为索引
+	{
+		map[nums[i]] = i;
+	}
+	for (int i = 0; i &amp;lt; size; i++)
+	{
+		int t = target - nums[i];
+		if (map.count(t) &amp;amp;&amp;amp; map[t] != i) // 判断不是同一个元素
+		{
+			result[0] = i;
+			result[1] = map[t];
+			break;
+		}
+	}
+	return result;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 2 - Add Two Numbers [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/2-add_two_number/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/2-add_two_number/</guid>
+      <description>
+
+&lt;h1 id=&#34;1-tow-sum&#34;&gt;1.Tow Sum&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/add-two-numbers/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;
+难度：&lt;strong&gt;Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.&lt;/p&gt;
+
+&lt;p&gt;You may assume the two numbers do not contain any leading zero, except the number 0 itself.&lt;/p&gt;
+
+&lt;p&gt;给定两个非空链表用来表示两个非负整数，它们各自的位数是按照逆序的方式存储的，并且每个节点只能存储一位数字。用链表返回它们的和。
+你可以假设它们都不会以0开头，除了数字0。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; (2 -&amp;gt; 4 -&amp;gt; 3) + (5 -&amp;gt; 6 -&amp;gt; 4)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Output:&lt;/strong&gt; 7 -&amp;gt; 0 -&amp;gt; 8&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; 342 + 465 = 807.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;用l1作为结果存放位置，节省空间与内存申请的时间。
+之前用第三个链表保存结果，这次写博客有想到了用&lt;code&gt;l1&lt;/code&gt;参数自身保存结果，空间复杂度降到了&lt;code&gt;O(1)&lt;/code&gt;。
+没什么说的，挺简单的中等难度题。
+&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(l1 + l2)&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        int t = 0;   //保存进位
+        ListNode* list = l1;  // 保存头结点
+        ListNode* pre; // 保存l1的上一个节点
+        while(l1 != NULL &amp;amp;&amp;amp; l2 != NULL){
+            t += l1-&amp;gt;val + l2-&amp;gt;val;
+            pre = l1;
+            l1-&amp;gt;val = t % 10;
+            t /= 10;
+            l1 = l1-&amp;gt;next;
+            l2 = l2-&amp;gt;next;
+        }
+        if(l2 != NULL){  // l2 不为NULL 
+           pre-&amp;gt;next = l2; // 则把l2接到l1
+           l1 = pre-&amp;gt;next; // 之前的l1指针已被更改 需重新赋值
+        }
+        while(l1 != NULL){
+            if(t != 0){  // 循环 存在 1 + 9一直存在进位的情况
+                t += l1-&amp;gt;val;
+                pre = l1;
+                l1-&amp;gt;val = t % 10;
+                t /= 10;
+                l1 = l1-&amp;gt;next;
+            }else{
+                return list; // t=0 直接返回
+            }
+        }
+        if(t != 0){  // 如果l1 l2 同时为NULL 则可能产生进位情况
+            pre-&amp;gt;next = new ListNode(t);
+        }
+        return list;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Git(2)</title>
@@ -139,7 +297,7 @@ git push &amp;lt;host&amp;gt; --tags // 推送所有
       <guid>https://cuckooemm.xyz/2019/may/git1/</guid>
       <description>
 
-&lt;h2 id=&#34;git命令&#34;&gt;Git命令&lt;/h2&gt;
+&lt;h1 id=&#34;git命令&#34;&gt;Git命令&lt;/h1&gt;
 
 &lt;p&gt;写一下git的命令以便忘记时查找&lt;/p&gt;
 
