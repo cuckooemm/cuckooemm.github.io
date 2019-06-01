@@ -6,7 +6,7 @@
     <description>Recent content in golang语法 on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 May 2019 22:17:27 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/tags/golang%E8%AF%AD%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Golang defer解析</title>
       <link>https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/</link>
-      <pubDate>Sat, 18 May 2019 22:17:27 +0800</pubDate>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/</guid>
       <description>Golang defer解析 概念 在go语言中，defer 是用来在函数作用域结束之后执行函数的关键字，在当前函数返回前调用。延迟函数defer的实现是由编译器很运行时共同完成的。

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on Cuckooemm&#39;s Blog</title>
+    <link>https://cuckooemm.xyz/tags/algorithm/</link>
+    <description>Recent content in algorithm on Cuckooemm&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://cuckooemm.xyz/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1-TwoSum</title>
+      <link>https://cuckooemm.xyz/2019/june/1-two_sum/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/1-two_sum/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
