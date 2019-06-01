@@ -118,7 +118,7 @@ public:
 &lt;p&gt;用l1作为结果存放位置，节省空间与内存申请的时间。&lt;br /&gt;
 之前用第三个链表保存结果，这次写博客又想到了用&lt;code&gt;l1&lt;/code&gt;参数自身保存结果，空间复杂度降到了&lt;code&gt;O(1)&lt;/code&gt;。&lt;br /&gt;
 没什么说的，挺简单的中等难度题。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(max(l1 + l2))&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;
+&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(max(l1,l2))&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;
 
 &lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
 
