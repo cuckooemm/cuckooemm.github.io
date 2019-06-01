@@ -386,8 +386,8 @@ git add README
 &lt;/ul&gt;
 
 &lt;p&gt;也可指定回退版本的commitid
-&lt;code&gt;- -hard&lt;/code&gt; 彻底回退到某个版本
-&lt;code&gt;- -soft&lt;/code&gt; 只回退 commit 信息&lt;/p&gt;
+&lt;code&gt;--hard&lt;/code&gt; 彻底回退到某个版本
+&lt;code&gt;--soft&lt;/code&gt; 只回退 commit 信息&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git rest --hard HEAD^
 &lt;/code&gt;&lt;/pre&gt;
