@@ -5,8 +5,17 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>1-TwoSum</title>
+      <link>https://cuckooemm.xyz/2019/june/1-two_sum/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/1-two_sum/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Git(2)</title>
@@ -22,66 +31,57 @@
 
 &lt;p&gt;&lt;code&gt;-b&lt;/code&gt; 表示创建并切换&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git checkout -b &amp;lt;name&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git checkout -b &amp;lt;name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;等同于&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git branch &amp;lt;name&amp;gt;
-git checkout &amp;lt;name&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git branch &amp;lt;name&amp;gt;
+git checkout &amp;lt;name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;查看当前分支&#34;&gt;查看当前分支&lt;/h4&gt;
 
 &lt;p&gt;&lt;code&gt;git branch&lt;/code&gt;命令会列出所有分支，当前分支前面会标一个&lt;code&gt;*&lt;/code&gt;号。&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git branch&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git branch
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;切换分支&#34;&gt;切换分支&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git checkout &amp;lt;name&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git checkout &amp;lt;name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;合并分支&#34;&gt;合并分支&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git merge &amp;lt;name&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git merge &amp;lt;name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;git merge&lt;/code&gt;命令用于合并指定分支到当前分支。 &lt;code&gt;Fast-forward&lt;/code&gt; 信息表示快进模式&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git merge &amp;ndash;no-ff -m &amp;ldquo;merge with no-ff&amp;rdquo; &amp;lt;name&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git merge --no-ff -m &amp;quot;merge with no-ff&amp;quot; &amp;lt;name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;--no-ff&lt;/code&gt;参数，表示禁用&lt;code&gt;Fast forward&lt;/code&gt;
 因为本次合并要创建一个新的commit，所以加上&lt;code&gt;-m&lt;/code&gt;参数，把&lt;code&gt;commit&lt;/code&gt;描述写进去。&lt;/p&gt;
 
 &lt;h4 id=&#34;删除分支&#34;&gt;删除分支&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git branch -d &amp;lt;name&amp;gt;
-git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git branch -d &amp;lt;name&amp;gt; 
+git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;环境保存与恢复&#34;&gt;环境保存与恢复&lt;/h3&gt;
 
 &lt;h4 id=&#34;保存现场&#34;&gt;保存现场&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git stash&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git stash
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;查看现场保存位置&#34;&gt;查看现场保存位置&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git stash list&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git stash list
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;现场恢复&#34;&gt;现场恢复&lt;/h4&gt;
 
@@ -90,9 +90,8 @@ git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;git stash pop&lt;/code&gt; 恢复且删除&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git stash &amp;lt;apply or pop&amp;gt; &amp;lt;stash&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git stash &amp;lt;apply or pop&amp;gt; &amp;lt;stash&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;标签&#34;&gt;标签&lt;/h3&gt;
 
@@ -100,52 +99,44 @@ git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除&lt;/p&gt;
 
 &lt;p&gt;在当前分支打标签&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git tag &amp;lt;tagname&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag &amp;lt;tagname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;指定commitid 打标签&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git tag  &amp;lt;tagname&amp;gt; &amp;lt;commitid&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag  &amp;lt;tagname&amp;gt; &amp;lt;commitid&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;为标签添加说明&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git tag -a &amp;lt;tagname&amp;gt; -m &amp;ldquo;explain&amp;rdquo; &amp;lt;commitid&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag -a &amp;lt;tagname&amp;gt; -m &amp;quot;explain&amp;quot; &amp;lt;commitid&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;查看所有标签&#34;&gt;查看所有标签&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git tag&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag 
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;查看标签信息&#34;&gt;查看标签信息&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git show &amp;lt;tagname&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git show &amp;lt;tagname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;标签删除&#34;&gt;标签删除&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git tag -d &amp;lt;tagname&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag -d &amp;lt;tagname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h5 id=&#34;远程删除&#34;&gt;远程删除&lt;/h5&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git push &amp;lt;host&amp;gt; :refs/tags/&amp;lt;tagname&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;host&amp;gt; :refs/tags/&amp;lt;tagname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;标签推送&#34;&gt;标签推送&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git push &amp;lt;host&amp;gt; &amp;lt;tagname&amp;gt;
-git push &amp;lt;host&amp;gt; &amp;ndash;tags // 推送所有&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;host&amp;gt; &amp;lt;tagname&amp;gt;
+git push &amp;lt;host&amp;gt; --tags // 推送所有
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -180,63 +171,55 @@ man git-&amp;lt;verv&amp;gt;
 
 &lt;p&gt;用于提交git时显示的个人信息&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git config &amp;ndash;global user.name &amp;ldquo;your name&amp;rdquo;
-git config &amp;ndash;global user.email &amp;ldquo;your email&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global user.name &amp;quot;your name&amp;quot;
+git config --global user.email &amp;quot;your email&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;仓库独立指定&#34;&gt;仓库独立指定&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git config user.name &amp;ldquo;your name&amp;rdquo;
-git config user.email &amp;ldquo;your email&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config user.name &amp;quot;your name&amp;quot;
+git config user.email &amp;quot;your email&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;不加&amp;ndash;global&lt;/p&gt;
+&lt;p&gt;不加 - -global&lt;/p&gt;
 
 &lt;h4 id=&#34;配置编辑器&#34;&gt;配置编辑器&lt;/h4&gt;
 
 &lt;p&gt;默认缺省编辑器 为vi or vim。 如想使用emacs&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git config &amp;ndash;global core.editor emacs&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global core.editor emacs
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;配置比较工具&#34;&gt;配置比较工具&lt;/h4&gt;
 
 &lt;p&gt;用于解决合并时的冲突，如vimdiff&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git config &amp;ndash;global merge.tool vimdiff&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global merge.tool vimdiff
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;配置别名&#34;&gt;配置别名&lt;/h4&gt;
 
 &lt;p&gt;如 git status 设置别名 st&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git config &amp;ndash;global alias.st status&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global alias.st status
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;推荐设置别名&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git config &amp;ndash;global alias.lg &amp;ldquo;log &amp;ndash;color &amp;ndash;graph &amp;ndash;pretty=format:&amp;lsquo;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&amp;rsquo; &amp;ndash;abbrev-commit&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global alias.lg &amp;quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&#39; --abbrev-commit&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;输入&lt;code&gt;q&lt;/code&gt;退出&lt;/p&gt;
 
 &lt;h4 id=&#34;检查配置&#34;&gt;检查配置&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git config &amp;ndash;list&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --list
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;删除config-key值&#34;&gt;删除config key值&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git config &amp;ndash;global &amp;ndash;unset key&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global --unset key
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;gitignore文件&#34;&gt;.gitignore文件&lt;/h4&gt;
 
@@ -266,9 +249,8 @@ git config user.email &amp;ldquo;your email&amp;rdquo;&lt;/p&gt;
 
 &lt;h4 id=&#34;clone&#34;&gt;clone&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git clone url //支持git、http(s)、ssh等协议&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git clone url //支持git、http(s)、ssh等协议
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;默认只有&lt;code&gt;master&lt;/code&gt;分支&lt;/p&gt;
 
@@ -283,109 +265,99 @@ git config user.email &amp;ldquo;your email&amp;rdquo;&lt;/p&gt;
 
 &lt;p&gt;拉取远程更新到本地，可指定分支 对本地代码无影响&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git fetch &amp;lt;shortname&amp;gt; &amp;lt;分支名&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git fetch &amp;lt;shortname&amp;gt; &amp;lt;分支名&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;pull&#34;&gt;pull&lt;/h4&gt;
 
 &lt;p&gt;拉取远程分支的更新并合并 远程分支与当前分支合并可省略&lt;code&gt;:&lt;/code&gt;后部分&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git pull &amp;lt;shortname&amp;gt; &amp;lt;远程分之名&amp;gt;:&amp;lt;本地分支名&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git pull &amp;lt;shortname&amp;gt; &amp;lt;远程分之名&amp;gt;:&amp;lt;本地分支名&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;默认在本地分支与远程分支建立追踪关系
 也可以手动建立追踪关系&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git branch &amp;ndash;set-upstream &amp;lt;分支&amp;gt; &amp;lt;分支&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git branch --set-upstream &amp;lt;分支&amp;gt; \&amp;lt;分支&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;如果远程分支已删除 pull不会删除本地分支&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git pull -p //本地删除远程已删除的分支&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git pull -p //本地删除远程已删除的分支
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;push&#34;&gt;push&lt;/h4&gt;
 
 &lt;p&gt;推送本地更新，与 pull相仿
 如果远程分支不存在，则新建&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git push &amp;lt;shortname&amp;gt; &amp;lt;本地分支&amp;gt;:&amp;lt;远程分支&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;shortname&amp;gt; &amp;lt;本地分支&amp;gt;:&amp;lt;远程分支&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;省略本地分支名 等于删除远程分支&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git push &amp;lt;shortname&amp;gt; :&amp;lt;远程分支&amp;gt;
-等同
-git push &amp;lt;shortname&amp;gt; &amp;ndash;delete master&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;shortname&amp;gt; :&amp;lt;远程分支&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;等同&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;shortname&amp;gt; --delete master
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;如果存在多个远程追踪关系，使用&lt;code&gt;-u&lt;/code&gt;指定一个默认主机&lt;/p&gt;
 
 &lt;h3 id=&#34;添加文件&#34;&gt;添加文件&lt;/h3&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git add .  // 把所有变化提交到暂存区 包括修改和新建 不包括删除
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git add .  // 把所有变化提交到暂存区 包括修改和新建 不包括删除
 git add -u // 把添加的文件中修改的文件提交到暂存区(包含删除) 不添加新文件
 git add -A // all
-git add &amp;lt;file&amp;gt;&amp;hellip; // 可添加多个文件&lt;/p&gt;
-&lt;/blockquote&gt;
+git add &amp;lt;file&amp;gt;... // 可添加多个文件
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://git-scm.com/docs/git-add&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;官网文档&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;查看当前文件状态&#34;&gt;查看当前文件状态&lt;/h3&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git status&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git status
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;查看已暂存和未暂存的更改&#34;&gt;查看已暂存和未暂存的更改&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git diff&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git diff
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;以暂存的和上次提交的更改&#34;&gt;以暂存的和上次提交的更改&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git diff &amp;ndash;cached
-git diff &amp;ndash;staged&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git diff --cached 
+git diff --staged
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;提交&#34;&gt;提交&lt;/h3&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git commit //启动默认编辑器输入更新说明
-git commit -m &amp;ldquo;更新内容&amp;rdquo; // 加-m 在之后输入更新说明&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git commit //启动默认编辑器输入更新说明
+git commit -m &amp;quot;更新内容&amp;quot; // 加-m 在之后输入更新说明
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;跳过使用暂存区域&#34;&gt;跳过使用暂存区域&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git commit -a // 跳过 add 步骤&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git commit -a // 跳过 add 步骤
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;移除文件&#34;&gt;移除文件&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;rm &amp;lt;file&amp;gt;&amp;hellip;
+&lt;li&gt;&lt;code&gt;rm &amp;lt;file&amp;gt;...&lt;/code&gt;
 移除版本控制并从工作目录中删除&lt;/li&gt;
-&lt;li&gt;git rm -f &amp;lt;file&amp;gt;&amp;hellip;
+&lt;li&gt;&lt;code&gt;git rm -f &amp;lt;file&amp;gt;...&lt;/code&gt;
 移除已添加到暂存区的文件&lt;/li&gt;
-&lt;li&gt;git rm &amp;ndash;cached &amp;lt;file&amp;gt;
+&lt;li&gt;&lt;code&gt;git rm --cached &amp;lt;file&amp;gt;&lt;/code&gt;
 不进行版本控制但保留文件&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;移动文件-or-改名&#34;&gt;移动文件 or 改名&lt;/h3&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git mv file_from file_to&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git mv file_from file_to 
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;运行&lt;code&gt;git mv&lt;/code&gt;相当于下面三条命令&lt;/p&gt;
 
@@ -398,15 +370,13 @@ git add README
 
 &lt;p&gt;使文件回到最后一次&lt;code&gt;add&lt;/code&gt; or &lt;code&gt;commit&lt;/code&gt; 时的状态&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git checkout &amp;ndash; &amp;lt;file&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git checkout -- &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;版本回退&#34;&gt;版本回退&lt;/h3&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git log  查看记录&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git log  查看记录
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
 &lt;li&gt;HEAD 表示当前版本&lt;/li&gt;
@@ -416,18 +386,16 @@ git add README
 &lt;/ul&gt;
 
 &lt;p&gt;也可指定回退版本的commitid
-&amp;ndash;hard 彻底回退到某个版本
-&amp;ndash;soft 只回退 commit 信息&lt;/p&gt;
+&lt;code&gt;- -hard&lt;/code&gt; 彻底回退到某个版本
+&lt;code&gt;- -soft&lt;/code&gt; 只回退 commit 信息&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git rest &amp;ndash;hard HEAD^&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git rest --hard HEAD^
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;撤销回退&#34;&gt;撤销回退&lt;/h3&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git rest &amp;ndash;hard commitid&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git rest --hard commitid
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;git reflog&lt;/code&gt; 记录HEAD的修改&lt;/p&gt;
 
@@ -435,27 +403,23 @@ git add README
 
 &lt;h4 id=&#34;列出管理的远程库&#34;&gt;列出管理的远程库&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git remote -v&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote -v 
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;本地关联远程库&#34;&gt;本地关联远程库&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git remote add &amp;lt;shortname&amp;gt; url&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote add &amp;lt;shortname&amp;gt; url
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;远程库重命名&#34;&gt;远程库重命名&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git remote rename &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote rename &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;删除关联远程库&#34;&gt;删除关联远程库&lt;/h4&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;git remote rm &amp;lt;shortname&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote rm &amp;lt;shortname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

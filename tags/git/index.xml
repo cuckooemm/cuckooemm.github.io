@@ -18,18 +18,11 @@
       
       <guid>https://cuckooemm.xyz/2019/may/git2/</guid>
       <description>分支 创建分支 -b 表示创建并切换
- git checkout -b &amp;lt;name&amp;gt;
- 等同于
- git branch &amp;lt;name&amp;gt; git checkout &amp;lt;name&amp;gt;
- 查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。
- git branch
- 切换分支  git checkout &amp;lt;name&amp;gt;
- 合并分支  git merge &amp;lt;name&amp;gt;
- git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式
- git merge &amp;ndash;no-ff -m &amp;ldquo;merge with no-ff&amp;rdquo; &amp;lt;name&amp;gt;
- --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
-删除分支  git branch -d &amp;lt;name&amp;gt; git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除
- 环境保存与恢复 保存现场  git stash</description>
+git checkout -b &amp;lt;name&amp;gt;  等同于
+git branch &amp;lt;name&amp;gt; git checkout &amp;lt;name&amp;gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。
+git branch  切换分支 git checkout &amp;lt;name&amp;gt;  合并分支 git merge &amp;lt;name&amp;gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式
+git merge --no-ff -m &amp;quot;merge with no-ff&amp;quot; &amp;lt;name&amp;gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
+删除分支 git branch -d &amp;lt;name&amp;gt; git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除  git stash &amp;lt;apply or pop&amp;gt; &amp;lt;stash&amp;gt;  标签 创建标签 在当前分支打标签</description>
     </item>
     
     <item>
@@ -40,12 +33,10 @@
       <guid>https://cuckooemm.xyz/2019/may/git1/</guid>
       <description>Git命令 写一下git的命令以便忘记时查找
 获取帮助 git help &amp;lt;verb&amp;gt; git &amp;lt;verb&amp;gt; --help man git-&amp;lt;verv&amp;gt;  config  git config针对一个git仓库 git config &amp;ndash;global针对一个用户 sudo git config &amp;ndash;system针对一个系统，因为是针对整个系统的，所以必须使用sudo  个人信息 用于提交git时显示的个人信息
- git config &amp;ndash;global user.name &amp;ldquo;your name&amp;rdquo; git config &amp;ndash;global user.email &amp;ldquo;your email&amp;rdquo;
- 仓库独立指定  git config user.name &amp;ldquo;your name&amp;rdquo; git config user.email &amp;ldquo;your email&amp;rdquo;
- 不加&amp;ndash;global
+git config --global user.name &amp;quot;your name&amp;quot; git config --global user.email &amp;quot;your email&amp;quot;  仓库独立指定 git config user.name &amp;quot;your name&amp;quot; git config user.email &amp;quot;your email&amp;quot;  不加 - -global
 配置编辑器 默认缺省编辑器 为vi or vim。 如想使用emacs
- git config &amp;ndash;global core.editor emacs
- 配置比较工具 用于解决合并时的冲突，如vimdiff</description>
+git config --global core.editor emacs  配置比较工具 用于解决合并时的冲突，如vimdiff
+git config --global merge.</description>
     </item>
     
   </channel>

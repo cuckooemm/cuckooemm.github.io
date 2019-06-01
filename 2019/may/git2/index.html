@@ -10,7 +10,7 @@
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
   <link rel="prev" href="https://cuckooemm.xyz/2019/may/git1/" />
-  
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/1-two_sum/" />
   <link rel="canonical" href="https://cuckooemm.xyz/2019/may/git2/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Git(2)",
     "headline" : "Git(2)",
-    "description" : "分支 创建分支 -b 表示创建并切换\n git checkout -b \x26lt;name\x26gt;\n 等同于\n git branch \x26lt;name\x26gt; git checkout \x26lt;name\x26gt;\n 查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。\n git branch\n 切换分支  git checkout \x26lt;name\x26gt;\n 合并分支  git merge \x26lt;name\x26gt;\n git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式\n git merge \x26ndash;no-ff -m \x26ldquo;merge with no-ff\x26rdquo; \x26lt;name\x26gt;\n --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。\n删除分支  git branch -d \x26lt;name\x26gt; git branch -D \x26lt;name\x26gt; \/\/未合并过的分支删除\n 环境保存与恢复 保存现场  git stash",
+    "description" : "分支 创建分支 -b 表示创建并切换\ngit checkout -b \x26lt;name\x26gt;  等同于\ngit branch \x26lt;name\x26gt; git checkout \x26lt;name\x26gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。\ngit branch  切换分支 git checkout \x26lt;name\x26gt;  合并分支 git merge \x26lt;name\x26gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式\ngit merge --no-ff -m \x26quot;merge with no-ff\x26quot; \x26lt;name\x26gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。\n删除分支 git branch -d \x26lt;name\x26gt; git branch -D \x26lt;name\x26gt; \/\/未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除  git stash \x26lt;apply or pop\x26gt; \x26lt;stash\x26gt;  标签 创建标签 在当前分支打标签",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -154,66 +154,57 @@
 
 <p><code>-b</code> 表示创建并切换</p>
 
-<blockquote>
-<p>git checkout -b &lt;name&gt;</p>
-</blockquote>
+<pre><code class="language-git">git checkout -b &lt;name&gt;
+</code></pre>
 
 <p>等同于</p>
 
-<blockquote>
-<p>git branch &lt;name&gt;
-git checkout &lt;name&gt;</p>
-</blockquote>
+<pre><code class="language-git">git branch &lt;name&gt;
+git checkout &lt;name&gt;
+</code></pre>
 
 <h4 id="查看当前分支">查看当前分支</h4>
 
 <p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。</p>
 
-<blockquote>
-<p>git branch</p>
-</blockquote>
+<pre><code class="language-git">git branch
+</code></pre>
 
 <h4 id="切换分支">切换分支</h4>
 
-<blockquote>
-<p>git checkout &lt;name&gt;</p>
-</blockquote>
+<pre><code class="language-git">git checkout &lt;name&gt;
+</code></pre>
 
 <h4 id="合并分支">合并分支</h4>
 
-<blockquote>
-<p>git merge &lt;name&gt;</p>
-</blockquote>
+<pre><code class="language-git">git merge &lt;name&gt;
+</code></pre>
 
 <p><code>git merge</code>命令用于合并指定分支到当前分支。 <code>Fast-forward</code> 信息表示快进模式</p>
 
-<blockquote>
-<p>git merge &ndash;no-ff -m &ldquo;merge with no-ff&rdquo; &lt;name&gt;</p>
-</blockquote>
+<pre><code class="language-git">git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;
+</code></pre>
 
 <p><code>--no-ff</code>参数，表示禁用<code>Fast forward</code>
 因为本次合并要创建一个新的commit，所以加上<code>-m</code>参数，把<code>commit</code>描述写进去。</p>
 
 <h4 id="删除分支">删除分支</h4>
 
-<blockquote>
-<p>git branch -d &lt;name&gt;
-git branch -D &lt;name&gt; //未合并过的分支删除</p>
-</blockquote>
+<pre><code class="language-git">git branch -d &lt;name&gt; 
+git branch -D &lt;name&gt; //未合并过的分支删除
+</code></pre>
 
 <h3 id="环境保存与恢复">环境保存与恢复</h3>
 
 <h4 id="保存现场">保存现场</h4>
 
-<blockquote>
-<p>git stash</p>
-</blockquote>
+<pre><code class="language-git">git stash
+</code></pre>
 
 <h4 id="查看现场保存位置">查看现场保存位置</h4>
 
-<blockquote>
-<p>git stash list</p>
-</blockquote>
+<pre><code class="language-git">git stash list
+</code></pre>
 
 <h4 id="现场恢复">现场恢复</h4>
 
@@ -222,9 +213,8 @@ git branch -D &lt;name&gt; //未合并过的分支删除</p>
 <li><code>git stash pop</code> 恢复且删除</li>
 </ul>
 
-<blockquote>
-<p>git stash &lt;apply or pop&gt; &lt;stash&gt;</p>
-</blockquote>
+<pre><code class="language-git">git stash &lt;apply or pop&gt; &lt;stash&gt;
+</code></pre>
 
 <h3 id="标签">标签</h3>
 
@@ -232,52 +222,44 @@ git branch -D &lt;name&gt; //未合并过的分支删除</p>
 
 <p>在当前分支打标签</p>
 
-<blockquote>
-<p>git tag &lt;tagname&gt;</p>
-</blockquote>
+<pre><code class="language-git">git tag &lt;tagname&gt;
+</code></pre>
 
 <p>指定commitid 打标签</p>
 
-<blockquote>
-<p>git tag  &lt;tagname&gt; &lt;commitid&gt;</p>
-</blockquote>
+<pre><code class="language-git">git tag  &lt;tagname&gt; &lt;commitid&gt;
+</code></pre>
 
 <p>为标签添加说明</p>
 
-<blockquote>
-<p>git tag -a &lt;tagname&gt; -m &ldquo;explain&rdquo; &lt;commitid&gt;</p>
-</blockquote>
+<pre><code class="language-git">git tag -a &lt;tagname&gt; -m &quot;explain&quot; &lt;commitid&gt;
+</code></pre>
 
 <h4 id="查看所有标签">查看所有标签</h4>
 
-<blockquote>
-<p>git tag</p>
-</blockquote>
+<pre><code class="language-git">git tag 
+</code></pre>
 
 <h4 id="查看标签信息">查看标签信息</h4>
 
-<blockquote>
-<p>git show &lt;tagname&gt;</p>
-</blockquote>
+<pre><code class="language-git">git show &lt;tagname&gt;
+</code></pre>
 
 <h4 id="标签删除">标签删除</h4>
 
-<blockquote>
-<p>git tag -d &lt;tagname&gt;</p>
-</blockquote>
+<pre><code class="language-git">git tag -d &lt;tagname&gt;
+</code></pre>
 
 <h5 id="远程删除">远程删除</h5>
 
-<blockquote>
-<p>git push &lt;host&gt; :refs/tags/&lt;tagname&gt;</p>
-</blockquote>
+<pre><code class="language-git">git push &lt;host&gt; :refs/tags/&lt;tagname&gt;
+</code></pre>
 
 <h4 id="标签推送">标签推送</h4>
 
-<blockquote>
-<p>git push &lt;host&gt; &lt;tagname&gt;
-git push &lt;host&gt; &ndash;tags // 推送所有</p>
-</blockquote>
+<pre><code class="language-git">git push &lt;host&gt; &lt;tagname&gt;
+git push &lt;host&gt; --tags // 推送所有
+</code></pre>
 
     </div>
 
@@ -323,6 +305,8 @@ git push &lt;host&gt; &ndash;tags // 推送所有</p>
         
         <a href="https://cuckooemm.xyz/2019/may/git1/" class="prev" rel="prev" title="Git(1)"><i class="iconfont icon-left"></i>&nbsp;Git(1)</a>
          
+        
+        <a href="https://cuckooemm.xyz/2019/june/1-two_sum/" class="next" rel="next" title="1-TwoSum">1-TwoSum&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
