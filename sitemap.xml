@@ -2,13 +2,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://cuckooemm.xyz/categories/</loc>
+      <loc>https://cuckooemm.xyz/2019/june/1-two_sum/</loc>
       
-      <lastmod>2019-05-31T22:18:40+08:00</lastmod>
+      <lastmod>2019-06-01T15:47:43+08:00</lastmod>
       
       
-      
-      <priority>0</priority>
       
       
     </url>
@@ -16,7 +14,7 @@
     <url>
       <loc>https://cuckooemm.xyz/</loc>
       
-      <lastmod>2019-05-31T22:18:40+08:00</lastmod>
+      <lastmod>2019-06-01T15:47:43+08:00</lastmod>
       
       
       
@@ -26,9 +24,9 @@
     </url>
   
     <url>
-      <loc>https://cuckooemm.xyz/categories/git/</loc>
+      <loc>https://cuckooemm.xyz/posts/</loc>
       
-      <lastmod>2019-05-31T22:18:40+08:00</lastmod>
+      <lastmod>2019-06-01T15:47:43+08:00</lastmod>
       
       
       
@@ -43,42 +41,6 @@
       <lastmod>2019-05-31T22:18:40+08:00</lastmod>
       
       
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://cuckooemm.xyz/posts/</loc>
-      
-      <lastmod>2019-05-31T22:18:40+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://cuckooemm.xyz/tags/</loc>
-      
-      <lastmod>2019-05-31T22:18:40+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://cuckooemm.xyz/tags/git/</loc>
-      
-      <lastmod>2019-05-31T22:18:40+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -104,35 +66,31 @@
     </url>
   
     <url>
-      <loc>https://cuckooemm.xyz/categories/golang/</loc>
-      
-      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://cuckooemm.xyz/tags/golang%E8%AF%AD%E6%B3%95/</loc>
-      
-      <lastmod>2019-05-18T22:17:27+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://cuckooemm.xyz/about/</loc>
       
       <lastmod>2019-05-18T17:02:29+08:00</lastmod>
       
       
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://cuckooemm.xyz/categories/</loc>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://cuckooemm.xyz/tags/</loc>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>

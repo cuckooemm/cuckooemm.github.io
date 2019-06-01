@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/may/git1/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/1-two_sum/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/may/git2/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/may/git2/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/1-two_sum/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Git(2) | Cuckooemm&#39;s Blog
+           1-TwoSum | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Git(2) | Cuckooemm&#39;s Blog">
+  <meta name="title" content="1-TwoSum | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Git(2)",
-    "headline" : "Git(2)",
-    "description" : "分支 创建分支 -b 表示创建并切换\n git checkout -b \x26lt;name\x26gt;\n 等同于\n git branch \x26lt;name\x26gt; git checkout \x26lt;name\x26gt;\n 查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。\n git branch\n 切换分支  git checkout \x26lt;name\x26gt;\n 合并分支  git merge \x26lt;name\x26gt;\n git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式\n git merge \x26ndash;no-ff -m \x26ldquo;merge with no-ff\x26rdquo; \x26lt;name\x26gt;\n --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。\n删除分支  git branch -d \x26lt;name\x26gt; git branch -D \x26lt;name\x26gt; \/\/未合并过的分支删除\n 环境保存与恢复 保存现场  git stash",
+    "name" : "1-TwoSum",
+    "headline" : "1-TwoSum",
+    "description" : "",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-31 22:18:40 \x2b0800 CST",
-    "dateModified" : "2019-05-31 22:18:40 \x2b0800 CST",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/may\/git2\/",
-    "wordCount" : "126",
-    "keywords" : [ "[git]", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-06-01 15:47:43 \x2b0800 CST",
+    "dateModified" : "2019-06-01 15:47:43 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/1-two_sum\/",
+    "wordCount" : "0",
+    "keywords" : [ "[algorithm leetcode]", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -116,11 +116,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Git(2)</h1>
+        <h1 class="post-title" itemprop="name headline">1-TwoSum</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-05-31 itemprop="datePublished">May 31, 2019</time>
+                on <time datetime=2019-06-01 itemprop="datePublished">June 1, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -146,138 +146,6 @@
           
 
           
-
-<h3 id="分支">分支</h3>
-
-<h4 id="创建分支">创建分支</h4>
-
-<p><code>-b</code> 表示创建并切换</p>
-
-<blockquote>
-<p>git checkout -b &lt;name&gt;</p>
-</blockquote>
-
-<p>等同于</p>
-
-<blockquote>
-<p>git branch &lt;name&gt;
-git checkout &lt;name&gt;</p>
-</blockquote>
-
-<h4 id="查看当前分支">查看当前分支</h4>
-
-<p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。</p>
-
-<blockquote>
-<p>git branch</p>
-</blockquote>
-
-<h4 id="切换分支">切换分支</h4>
-
-<blockquote>
-<p>git checkout &lt;name&gt;</p>
-</blockquote>
-
-<h4 id="合并分支">合并分支</h4>
-
-<blockquote>
-<p>git merge &lt;name&gt;</p>
-</blockquote>
-
-<p><code>git merge</code>命令用于合并指定分支到当前分支。 <code>Fast-forward</code> 信息表示快进模式</p>
-
-<blockquote>
-<p>git merge &ndash;no-ff -m &ldquo;merge with no-ff&rdquo; &lt;name&gt;</p>
-</blockquote>
-
-<p><code>--no-ff</code>参数，表示禁用<code>Fast forward</code>
-因为本次合并要创建一个新的commit，所以加上<code>-m</code>参数，把<code>commit</code>描述写进去。</p>
-
-<h4 id="删除分支">删除分支</h4>
-
-<blockquote>
-<p>git branch -d &lt;name&gt;
-git branch -D &lt;name&gt; //未合并过的分支删除</p>
-</blockquote>
-
-<h3 id="环境保存与恢复">环境保存与恢复</h3>
-
-<h4 id="保存现场">保存现场</h4>
-
-<blockquote>
-<p>git stash</p>
-</blockquote>
-
-<h4 id="查看现场保存位置">查看现场保存位置</h4>
-
-<blockquote>
-<p>git stash list</p>
-</blockquote>
-
-<h4 id="现场恢复">现场恢复</h4>
-
-<ul>
-<li><code>git stash apply</code> 恢复现场但不删除记录，调用<code>git stash drop</code>删除</li>
-<li><code>git stash pop</code> 恢复且删除</li>
-</ul>
-
-<blockquote>
-<p>git stash &lt;apply or pop&gt; &lt;stash&gt;</p>
-</blockquote>
-
-<h3 id="标签">标签</h3>
-
-<h4 id="创建标签">创建标签</h4>
-
-<p>在当前分支打标签</p>
-
-<blockquote>
-<p>git tag &lt;tagname&gt;</p>
-</blockquote>
-
-<p>指定commitid 打标签</p>
-
-<blockquote>
-<p>git tag  &lt;tagname&gt; &lt;commitid&gt;</p>
-</blockquote>
-
-<p>为标签添加说明</p>
-
-<blockquote>
-<p>git tag -a &lt;tagname&gt; -m &ldquo;explain&rdquo; &lt;commitid&gt;</p>
-</blockquote>
-
-<h4 id="查看所有标签">查看所有标签</h4>
-
-<blockquote>
-<p>git tag</p>
-</blockquote>
-
-<h4 id="查看标签信息">查看标签信息</h4>
-
-<blockquote>
-<p>git show &lt;tagname&gt;</p>
-</blockquote>
-
-<h4 id="标签删除">标签删除</h4>
-
-<blockquote>
-<p>git tag -d &lt;tagname&gt;</p>
-</blockquote>
-
-<h5 id="远程删除">远程删除</h5>
-
-<blockquote>
-<p>git push &lt;host&gt; :refs/tags/&lt;tagname&gt;</p>
-</blockquote>
-
-<h4 id="标签推送">标签推送</h4>
-
-<blockquote>
-<p>git push &lt;host&gt; &lt;tagname&gt;
-git push &lt;host&gt; &ndash;tags // 推送所有</p>
-</blockquote>
-
     </div>
 
     <div class="post-copyright">
@@ -291,7 +159,7 @@ git push &lt;host&gt; &ndash;tags // 推送所有</p>
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/may/git2/>https://cuckooemm.xyz/2019/may/git2/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/1-two_sum/>https://cuckooemm.xyz/2019/june/1-two_sum/</span>
             </p>
             
              
@@ -308,7 +176,7 @@ git push &lt;host&gt; &ndash;tags // 推送所有</p>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags//">
-                    #[git]</a></span>
+                    #[algorithm leetcode]</a></span>
             
             </section>
         
@@ -320,10 +188,8 @@ git push &lt;host&gt; &ndash;tags // 推送所有</p>
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/may/git1/" class="prev" rel="prev" title="Git(1)"><i class="iconfont icon-left"></i>&nbsp;Git(1)</a>
+        <a href="https://cuckooemm.xyz/2019/may/git2/" class="prev" rel="prev" title="Git(2)"><i class="iconfont icon-left"></i>&nbsp;Git(2)</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/june/1-two_sum/" class="next" rel="next" title="1-TwoSum">1-TwoSum&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -58,7 +58,7 @@
     "dateModified" : "2019-05-18 22:17:27 \x2b0800 CST",
     "url" : "https:\/\/cuckooemm.xyz\/2019\/may\/golang-defer%E8%A7%A3%E6%9E%90\/",
     "wordCount" : "149",
-    "keywords" : [ "golang语法", "Cuckooemm\x27s Blog"]
+    "keywords" : [ "[golang语法]", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -125,7 +125,6 @@
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://cuckooemm.xyz/categories/golang/"> golang </a>
                         
                 </span>
         </div>
@@ -300,8 +299,8 @@ return
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/golang%E8%AF%AD%E6%B3%95/">
-                    #golang语法</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags//">
+                    #[golang语法]</a></span>
             
             </section>
         
@@ -322,6 +321,29 @@ return
           
                  
           
+          
+<div id="gitalk-container/" style="border:0" ></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css/" style="border:0" >
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js/" style="border:0" ></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'b9a368387109551e31bd  ',
+    clientSecret: '83d5e0526e549e07ca398f1e9f9cce8a2f5e5384',
+    repo: 'cuckooemm.github.io',
+    owner: 'Cuckooemm',
+    admin: ['Cuckooemm'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
     </div>
 </article>
           </div>
