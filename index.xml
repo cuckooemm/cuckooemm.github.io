@@ -64,14 +64,14 @@ public:
     vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
 	unordered_map&amp;lt;int, int&amp;gt; map(nums.size());
 	vector&amp;lt;int&amp;gt; result(2);
-	for(int i = 0; i &amp;lt; nums.size(); i++) // 元素大小为key,value为索引
+	for(int i = 0; i &amp;lt; nums.size(); i++)    // 元素大小为key,value为索引
 	{
 		map[nums[i]] = i;
 	}
 	for (int i = 0; i &amp;lt; nums.size(); i++)
 	{
 		int t = target - nums[i];
-		if (map.count(t) &amp;amp;&amp;amp; map[t] != i) // 判断不是同一个元素
+		if (map.count(t) &amp;amp;&amp;amp; map[t] != i)    // 判断不是同一个元素
 		{
 			result[0] = i;
 			result[1] = map[t];
@@ -140,9 +140,9 @@ public:
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        int t = 0;   //保存进位
-        ListNode* list = l1;  // 保存头结点
-        ListNode* pre; // 保存l1的上一个节点
+        int t = 0;                 //保存进位
+        ListNode* list = l1;       // 保存头结点
+        ListNode* pre;             // 保存l1的上一个节点
         while(l1 != NULL &amp;amp;&amp;amp; l2 != NULL){
             t += l1-&amp;gt;val + l2-&amp;gt;val;
             pre = l1;
@@ -151,22 +151,22 @@ public:
             l1 = l1-&amp;gt;next;
             l2 = l2-&amp;gt;next;
         }
-        if(l2 != NULL){  // l2 不为NULL 
-           pre-&amp;gt;next = l2; // 则把l2接到l1
-           l1 = pre-&amp;gt;next; // 之前的l1指针已被更改 需重新赋值
+        if(l2 != NULL){           // l2 不为NULL 
+           pre-&amp;gt;next = l2;        // 则把l2接到l1
+           l1 = pre-&amp;gt;next;        // 之前的l1指针已被更改 需重新赋值
         }
         while(l1 != NULL){
-            if(t != 0){  // 循环 存在 1 + 9一直存在进位的情况
+            if(t != 0){           // 循环 存在 1 + 9一直存在进位的情况
                 t += l1-&amp;gt;val;
                 pre = l1;
                 l1-&amp;gt;val = t % 10;
                 t /= 10;
                 l1 = l1-&amp;gt;next;
             }else{
-                return list; // t=0 直接返回
+                return list;     // t=0 直接返回
             }
         }
-        if(t != 0){  // 如果l1 l2 同时为NULL 则可能产生进位情况
+        if(t != 0){              // 如果l1 l2 同时为NULL 则可能产生进位情况
             pre-&amp;gt;next = new ListNode(t);
         }
         return list;
@@ -179,7 +179,7 @@ public:
     <item>
       <title>Git(2)</title>
       <link>https://cuckooemm.xyz/2019/may/git2/</link>
-      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://cuckooemm.xyz/2019/may/git2/</guid>
       <description>
@@ -585,7 +585,7 @@ git add README
     <item>
       <title>About</title>
       <link>https://cuckooemm.xyz/about/</link>
-      <pubDate>Sat, 18 May 2019 17:02:29 +0800</pubDate>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://cuckooemm.xyz/about/</guid>
       <description>
@@ -593,10 +593,12 @@ git add README
 &lt;h1 id=&#34;about-me&#34;&gt;About me&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Cuckooemm&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;cuckooemm@gmail.com&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Cuckooemm&lt;/li&gt;
+&lt;li&gt;cuckooemm@gmail.com&lt;/li&gt;
+&lt;li&gt;后端工程师&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;博客刚开通&lt;/p&gt;
 </description>
     </item>
     

@@ -195,9 +195,9 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        int t = 0;   //保存进位
-        ListNode* list = l1;  // 保存头结点
-        ListNode* pre; // 保存l1的上一个节点
+        int t = 0;                 //保存进位
+        ListNode* list = l1;       // 保存头结点
+        ListNode* pre;             // 保存l1的上一个节点
         while(l1 != NULL &amp;&amp; l2 != NULL){
             t += l1-&gt;val + l2-&gt;val;
             pre = l1;
@@ -206,22 +206,22 @@ public:
             l1 = l1-&gt;next;
             l2 = l2-&gt;next;
         }
-        if(l2 != NULL){  // l2 不为NULL 
-           pre-&gt;next = l2; // 则把l2接到l1
-           l1 = pre-&gt;next; // 之前的l1指针已被更改 需重新赋值
+        if(l2 != NULL){           // l2 不为NULL 
+           pre-&gt;next = l2;        // 则把l2接到l1
+           l1 = pre-&gt;next;        // 之前的l1指针已被更改 需重新赋值
         }
         while(l1 != NULL){
-            if(t != 0){  // 循环 存在 1 + 9一直存在进位的情况
+            if(t != 0){           // 循环 存在 1 + 9一直存在进位的情况
                 t += l1-&gt;val;
                 pre = l1;
                 l1-&gt;val = t % 10;
                 t /= 10;
                 l1 = l1-&gt;next;
             }else{
-                return list; // t=0 直接返回
+                return list;     // t=0 直接返回
             }
         }
-        if(t != 0){  // 如果l1 l2 同时为NULL 则可能产生进位情况
+        if(t != 0){              // 如果l1 l2 同时为NULL 则可能产生进位情况
             pre-&gt;next = new ListNode(t);
         }
         return list;

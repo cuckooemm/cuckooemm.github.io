@@ -196,14 +196,14 @@ public:
     vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
 	unordered_map&lt;int, int&gt; map(nums.size());
 	vector&lt;int&gt; result(2);
-	for(int i = 0; i &lt; nums.size(); i++) // 元素大小为key,value为索引
+	for(int i = 0; i &lt; nums.size(); i++)    // 元素大小为key,value为索引
 	{
 		map[nums[i]] = i;
 	}
 	for (int i = 0; i &lt; nums.size(); i++)
 	{
 		int t = target - nums[i];
-		if (map.count(t) &amp;&amp; map[t] != i) // 判断不是同一个元素
+		if (map.count(t) &amp;&amp; map[t] != i)    // 判断不是同一个元素
 		{
 			result[0] = i;
 			result[1] = map[t];
