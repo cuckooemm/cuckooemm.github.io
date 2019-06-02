@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/1-two_sum/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/2-add_two_number/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/may/git2/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/2-add_two_number/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           LeetCode - 2 - Add Two Numbers [Medium] | Cuckooemm&#39;s Blog
+           LeetCode - 3 - Longest Substring Without Repeating Characters [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="LeetCode - 2 - Add Two Numbers [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 3 - Longest Substring Without Repeating Characters [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "LeetCode - 2 - Add Two Numbers [Medium]",
-    "headline" : "LeetCode - 2 - Add Two Numbers [Medium]",
-    "description" : "2.Add Two Numbers 地址\n难度：Medium\n题目描述 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.\n给定两个非空链表用来表示两个非负整数，它们各自的位数是按照逆序的方式存储的，并且每个节点只能存储一位数字。用链表返回它们的和。\n你可以假设它们都不会以0开头，除了数字0。\n示例 Input: (2 -\x26gt; 4 -\x26gt; 3) \x2b (5 -\x26gt; 6 -\x26gt; 4)",
+    "name" : "LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]",
+    "headline" : "LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]",
+    "description" : "3.Longest Substring Without Repeating Characters 地址\n难度：Medium\n题目描述 Given a string, find the length of the longest substring without repeating characters.\n给定一个字符串，找出不含重复字符的最长子串。\n示例 Example 1 Input: \x26ldquo;abcabcbb\x26rdquo;\nOutput: 3\nExplanation: The answer is \x26ldquo;abc\x26rdquo;, with the length of 3.\nExample 2 Input: \x26ldquo;bbbbb\x26rdquo;\nOutput: 1\nExplanation: The answer is \x26ldquo;b\x26rdquo;, with the length of 1.\nExample 3 Input: \x26ldquo;bbbbb\x26rdquo;\nOutput: 1\nExplanation: The answer is \x26ldquo;b\x26rdquo;, with the length of 1.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -56,8 +56,8 @@
     "copyrightYear" : "2019",
     "datePublished": "2019-06-01 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-06-01 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/2-add_two_number\/",
-    "wordCount" : "278",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/3-longest_substring_without_repeating_characters\/",
+    "wordCount" : "167",
     "keywords" : [ "algorithm","LeetCode", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">LeetCode - 2 - Add Two Numbers [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
@@ -148,83 +148,66 @@
 
           
 
-<h1 id="2-add-two-numbers">2.Add Two Numbers</h1>
+<h1 id="3-longest-substring-without-repeating-characters">3.Longest Substring Without Repeating Characters</h1>
 
-<p><a href="https://leetcode.com/problems/add-two-numbers/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<p><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" rel="nofollow noreferrer" target="_blank">地址</a><br />
 <strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>Given a string, find the length of the longest substring without repeating characters.</p>
 
-<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
-
-<p>给定两个非空链表用来表示两个非负整数，它们各自的位数是按照逆序的方式存储的，并且每个节点只能存储一位数字。用链表返回它们的和。<br />
-你可以假设它们都不会以0开头，除了数字0。</p>
+<p>给定一个字符串，找出不含重复字符的最长子串。</p>
 
 <h3 id="示例">示例</h3>
 
-<p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br />
-<strong>Output:</strong> 7 -&gt; 0 -&gt; 8<br />
-<strong>Explanation:</strong> 342 + 465 = 807.</p>
+<h4 id="example-1">Example 1</h4>
+
+<p><strong>Input:</strong> &ldquo;abcabcbb&rdquo;<br />
+<strong>Output:</strong> 3<br />
+<strong>Explanation:</strong> The answer is &ldquo;abc&rdquo;, with the length of 3.</p>
+
+<h4 id="example-2">Example 2</h4>
+
+<p><strong>Input:</strong> &ldquo;bbbbb&rdquo;<br />
+<strong>Output:</strong> 1<br />
+<strong>Explanation:</strong> The answer is &ldquo;b&rdquo;, with the length of 1.</p>
+
+<h4 id="example-3">Example 3</h4>
+
+<p><strong>Input:</strong> &ldquo;bbbbb&rdquo;<br />
+<strong>Output:</strong> 1<br />
+<strong>Explanation:</strong> The answer is &ldquo;b&rdquo;, with the length of 1.</p>
 
 <h3 id="思路">思路</h3>
 
-<p>用l1作为结果存放位置，节省空间与内存申请的时间。<br />
-之前用第三个链表保存结果，这次写博客又想到了用<code>l1</code>参数自身保存结果，空间复杂度降到了<code>O(1)</code>。<br />
-没什么说的，挺简单的中等难度题。<br />
-<strong>时间复杂度:</strong><code>O(max(l1,l2))</code>, <strong>空间复杂度：</strong><code>O(1)</code>。</p>
+<h4 id="双指针">双指针</h4>
+
+<p>用7位ASCII码值作为key保存出现过的字符，定义一个左指针，循环比较字典中保存的字符的索引是否大于左指针，如果当前字典中字符的值大于左指针，说明之前已经出现，把上次出现的索引保存到start,然后把新的出现的位置保存到字典，再比较本次长度与上次长度比较赋值给len,返回最大长度。<br />
+<strong>时间复杂度:</strong><code>O(n)</code>, <strong>空间复杂度：</strong><code>O(1)</code>。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 20 ms, faster than 97.42% of C++ online submissions for Add Two Numbers.</li>
-<li>Memory Usage: 9.9 MB, less than 96.42% of C++ online submissions for Add Two Numbers.</li>
+<li>Runtime: 12 ms, faster than 94.97% of C++ online submissions for Longest Substring Without Repeating Characters.</li>
+<li>Memory Usage: 9.8 MB, less than 85.66% of C++ online submissions for Longest Substring Without Repeating Characters.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
-<pre><code class="language-c++">/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
+<pre><code class="language-c++">class Solution {
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        int t = 0;                 //保存进位
-        ListNode* list = l1;       // 保存头结点
-        ListNode* pre;             // 保存l1的上一个节点
-        while(l1 != NULL &amp;&amp; l2 != NULL){
-            t += l1-&gt;val + l2-&gt;val;
-            pre = l1;
-            l1-&gt;val = t % 10;
-            t /= 10;
-            l1 = l1-&gt;next;
-            l2 = l2-&gt;next;
-        }
-        if(l2 != NULL){           // l2 不为NULL 
-           pre-&gt;next = l2;        // 则把l2接到l1
-           l1 = pre-&gt;next;        // 之前的l1指针已被更改 需重新赋值
-        }
-        while(l1 != NULL){
-            if(t != 0){           // 循环 存在 1 + 9一直存在进位的情况
-                t += l1-&gt;val;
-                pre = l1;
-                l1-&gt;val = t % 10;
-                t /= 10;
-                l1 = l1-&gt;next;
-            }else{
-                return list;     // t=0 直接返回
+    int lengthOfLongestSubstring(string s) {
+        vector&lt;int&gt; dict(128,-1);     // 用ASCII作key，初始值为-1(int数组无法赋初始值为-1，踩了半天这坑)。
+        int start = -1,len = 0;       // 初始左指针位置
+        for(int i = 0; i &lt; s.size(); ++i){
+            if(dict[s[i]] &gt; start){   // 值大于start说明出现重复
+                start = dict[s[i]];   // 把重复的位置保存到左指针
             }
+            dict[s[i]] = i;           // 根据key把值改为索引
+            len = max(len,i - start); // 比较每次的字符串长度
         }
-        if(t != 0){              // 如果l1 l2 同时为NULL 则可能产生进位情况
-            pre-&gt;next = new ListNode(t);
-        }
-        return list;
+        return len;
     }
 };
 </code></pre>
@@ -242,7 +225,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/2-add_two_number/>https://cuckooemm.xyz/2019/june/2-add_two_number/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/>https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/</span>
             </p>
             
              
@@ -274,10 +257,10 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/" class="prev" rel="prev" title="LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/may/git2/" class="prev" rel="prev" title="Git(2)"><i class="iconfont icon-left"></i>&nbsp;Git(2)</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/1-two_sum/" class="next" rel="next" title="LeetCode - 1 - Two Sum [Easy]">LeetCode - 1 - Two Sum [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/2-add_two_number/" class="next" rel="next" title="LeetCode - 2 - Add Two Numbers [Medium]">LeetCode - 2 - Add Two Numbers [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

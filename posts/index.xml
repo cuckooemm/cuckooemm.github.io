@@ -43,6 +43,27 @@ You may assume the two numbers do not contain any leading zero, except the numbe
     </item>
     
     <item>
+      <title>LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/</guid>
+      <description>3.Longest Substring Without Repeating Characters 地址
+难度：Medium
+题目描述 Given a string, find the length of the longest substring without repeating characters.
+给定一个字符串，找出不含重复字符的最长子串。
+示例 Example 1 Input: &amp;ldquo;abcabcbb&amp;rdquo;
+Output: 3
+Explanation: The answer is &amp;ldquo;abc&amp;rdquo;, with the length of 3.
+Example 2 Input: &amp;ldquo;bbbbb&amp;rdquo;
+Output: 1
+Explanation: The answer is &amp;ldquo;b&amp;rdquo;, with the length of 1.
+Example 3 Input: &amp;ldquo;bbbbb&amp;rdquo;
+Output: 1
+Explanation: The answer is &amp;ldquo;b&amp;rdquo;, with the length of 1.</description>
+    </item>
+    
+    <item>
       <title>Git(2)</title>
       <link>https://cuckooemm.xyz/2019/may/git2/</link>
       <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
