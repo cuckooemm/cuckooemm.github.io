@@ -5,8 +5,307 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LeetCode - 6 - ZigZag Conversion [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/6-zigzag_conversion/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/6-zigzag_conversion/</guid>
+      <description>
+
+&lt;h1 id=&#34;6-zigzag-conversion&#34;&gt;6.ZigZag Conversion&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/zigzag-conversion/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;The string &lt;code&gt;&amp;quot;PAYPALISHIRING&amp;quot;&lt;/code&gt; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)&lt;br /&gt;
+使字符串以给定行数上进行Z字形书写，像下面这样。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;P   A   H   N
+A P L S I I G
+Y   I   R
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then read line by line: &lt;code&gt;&amp;quot;PAHNAPLSIIGYIR&amp;quot;&lt;/code&gt;&lt;br /&gt;
+然后一行一行的读。&lt;br /&gt;
+Write the code that will take a string and make this conversion given a number of rows:&lt;br /&gt;
+编写代码。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;string convert(string s, int numRows);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; s = &amp;ldquo;PAYPALISHIRING&amp;rdquo;, numRows = 3&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;PAHNAPLSIIGYIR&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; s = &amp;ldquo;PAYPALISHIRING&amp;rdquo;, numRows = 4&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;PINALSIGYAHRPI&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;P     I    N
+A   L S  I G
+Y A   H R
+P     I
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;就是计算字符串下标。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;行&lt;code&gt;0&lt;/code&gt;中的字符位于索引&lt;code&gt;k&lt;/code&gt;(2 * numRows - 2)处。&lt;/li&gt;
+&lt;li&gt;行&lt;code&gt;numRows-1&lt;/code&gt;中的字符位于索引&lt;code&gt;k&lt;/code&gt;(2 * numRows − 2) + numRows − 1处;&lt;/li&gt;
+&lt;li&gt;内部的行&lt;code&gt;i&lt;/code&gt;中的字符位于索引&lt;code&gt;k&lt;/code&gt;(2 * numRows − 2) + i 以及 (2 * numRows − 2) − i处;&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(n)&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 12 ms, faster than 94.01% of C++ online submissions for ZigZag Conversion.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 10.2 MB, less than 85.33% of C++ online submissions for ZigZag Conversion.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    string convert(string s, int numRows) {
+        if(s.size() == 0 | numRows == 1){
+            return s;
+        }
+        string res = &amp;quot;&amp;quot;;
+        int n = s.size();
+        int size = (numRows &amp;lt;&amp;lt; 1) - 2;
+        int temp = 0;
+        for(int i = 0; i &amp;lt; numRows; ++i){
+            for(int j = i; j &amp;lt; n; j += size){
+                res += s[j];
+                temp = j + size - (i &amp;lt;&amp;lt; 1);
+                if(i != 0 &amp;amp;&amp;amp; i != numRows - 1 &amp;amp;&amp;amp; temp &amp;lt; n)
+                    res += s[temp];
+            }
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 7 - Reverse Integer [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/7-reverse_integer/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/7-reverse_integer/</guid>
+      <description>
+
+&lt;h1 id=&#34;7-reverse-integer&#34;&gt;7.Reverse Integer&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/reverse-integer/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a 32-bit signed integer, reverse digits of an integer.&lt;/p&gt;
+
+&lt;p&gt;给定一个32位有符号整数，对整数的每位数字进行反转。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 123&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 321&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; -123&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; -321&lt;/p&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 120&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 21&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.&lt;/p&gt;
+
+&lt;p&gt;假设我们的环境只能存储32位范围内的带符号整数：[−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1]。整数反转溢出时返回0。&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;主要是溢出判断&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(log&lt;sub&gt;10&lt;/sub&gt;(x)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Reverse Integer.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.5 MB, less than 54.65% of C++ online submissions for Reverse Integer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    int reverse(int x) {
+        int rev = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            if (rev &amp;gt; INT_MAX / 10 || (rev == INT_MAX / 10 &amp;amp;&amp;amp; pop &amp;gt; 7)) return 0;
+            if (rev &amp;lt; INT_MIN / 10 || (rev == INT_MIN / 10 &amp;amp;&amp;amp; pop &amp;lt; -8)) return 0;
+            rev = rev * 10 + pop;
+        }
+        return rev;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 8 - String to Integer(atoi) [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/</guid>
+      <description>
+
+&lt;h1 id=&#34;8-string-to-integer-atoi&#34;&gt;8.String to Integer(atoi)&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/string-to-integer-atoi/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Implement atoi which converts a string to an integer.&lt;/p&gt;
+
+&lt;p&gt;The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.&lt;/p&gt;
+
+&lt;p&gt;The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.&lt;/p&gt;
+
+&lt;p&gt;If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.&lt;/p&gt;
+
+&lt;p&gt;If no valid conversion could be performed, a zero value is returned.&lt;/p&gt;
+
+&lt;p&gt;请你来实现一个 atoi 函数，使其能将字符串转换成整数。&lt;/p&gt;
+
+&lt;p&gt;首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。&lt;/p&gt;
+
+&lt;p&gt;当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。&lt;/p&gt;
+
+&lt;p&gt;该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。&lt;/p&gt;
+
+&lt;p&gt;注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。&lt;/p&gt;
+
+&lt;p&gt;在任何情况下，若函数不能进行有效的转换时，请返回 0。&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;Only the space character &amp;lsquo; &amp;rsquo; is considered as whitespace character.
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1]. If the numerical value is out of the range of representable values, INT_MAX (2&lt;sup&gt;31&lt;/sup&gt; − 1) or INT_MIN (−2&lt;sup&gt;31&lt;/sup&gt;) is returned.&lt;/p&gt;
+
+&lt;p&gt;假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1]。如果数值超过这个范围，qing返回  INT_MAX (2&lt;sup&gt;31&lt;/sup&gt; − 1) 或 INT_MIN (−2&lt;sup&gt;31&lt;/sup&gt;) 。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;42&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 42&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;   -42&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; -42&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; 第一个非空白字符为 &amp;lsquo;-&amp;rsquo;, 它是一个负号。我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。&lt;/p&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;4193 with words&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 4193&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; 转换截止于数字 &amp;lsquo;3&amp;rsquo; ，因为它的下一个字符不为数字。&lt;/p&gt;
+
+&lt;h4 id=&#34;example-4&#34;&gt;Example 4:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;words and 987&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 0&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; 第一个非空字符是 &amp;lsquo;w&amp;rsquo;, 但它不是数字或正、负号。因此无法执行有效的转换。&lt;/p&gt;
+
+&lt;h4 id=&#34;example-5&#34;&gt;Example 5:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;-91283472332&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; -2147483648&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; 数字 &amp;ldquo;-91283472332&amp;rdquo; 超过 32 位有符号整数范围。 因此返回 INT_MIN (−2&lt;sup&gt;31&lt;/sup&gt;) 。&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;先排除空格与确定正负号，遇到除了空格、数字和正负号的情况返回0。&lt;br /&gt;
+用long long 类型做结果储存，减少冗余的判断溢出代码。&lt;br /&gt;
+用字符的ASCII码减去48(&amp;lsquo;0&amp;rsquo;)即为int型数字。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 4 ms, faster than 96.33% of C++ online submissions for String to Integer (atoi).&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.3 MB, less than 87.42% of C++ online submissions for String to Integer (atoi).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    int myAtoi(string str) {
+        int i = 0,flag = 1;              // 用 1、-1控制数字正负
+        for(;i &amp;lt; str.size();++i){
+            if(str[i] &amp;gt; 47 &amp;amp;&amp;amp; str[i] &amp;lt; 58){
+                break;
+            }else if(str[i] == &#39;+&#39;){
+                ++i;
+                break;
+            }else if(str[i] == &#39;-&#39;){
+                ++i;
+                flag = -1;               // 负数置flag为-1
+                break;
+            }else if(str[i] == &#39; &#39;){  
+                continue;
+            }else{
+                return 0;
+            }
+        }
+        long long res = 0;
+        for(;i &amp;lt; str.size();++i){
+            if(str[i] &amp;gt; 47 &amp;amp;&amp;amp; str[i] &amp;lt; 58){
+                res = res * 10 + str[i] - 48;
+                if(res * flag &amp;lt; INT_MIN) // 判断溢出
+                    return INT_MIN;
+                if(res * flag &amp;gt; INT_MAX)
+                    return INT_MAX;
+            }else{                       // 不为数字则不继续转换
+                break;
+            }
+        }
+        return res * flag;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>LeetCode - 1 - Two Sum [Easy]</title>
@@ -41,11 +340,11 @@ return [0, 1].&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;空间复杂度优先:&lt;br /&gt;
 首先对数组进行排序，左指针指向数组头，右指针指向数组长度-1，左指针+右指针。
 如果结果大于target,右指针&amp;ndash;，反之左指针++。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(nlogn)&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;&lt;/li&gt;
+&lt;strong&gt;时间复杂度:O(nlogn), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;时间复杂度优先:&lt;br /&gt;
 字典法,顺序读取元素，把target-element的值保存字典。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(n)&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(n)&lt;/code&gt;。&lt;/p&gt;&lt;/li&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(n)&lt;/strong&gt;。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
@@ -118,7 +417,7 @@ public:
 &lt;p&gt;用l1作为结果存放位置，节省空间与内存申请的时间。&lt;br /&gt;
 之前用第三个链表保存结果，这次写博客又想到了用&lt;code&gt;l1&lt;/code&gt;参数自身保存结果，空间复杂度降到了&lt;code&gt;O(1)&lt;/code&gt;。&lt;br /&gt;
 没什么说的，挺简单的中等难度题。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(max(l1,l2))&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;
+&lt;strong&gt;时间复杂度:O(max(l1,l2)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
 
@@ -220,7 +519,7 @@ public:
 &lt;h4 id=&#34;双指针&#34;&gt;双指针&lt;/h4&gt;
 
 &lt;p&gt;用7位ASCII码值作为key保存出现过的字符，定义一个左指针，循环比较字典中保存的字符的索引是否大于左指针，如果当前字典中字符的值大于左指针，说明之前已经出现，把上次出现的索引保存到start,然后把新的出现的位置保存到字典，再比较本次长度与上次长度比较赋值给len,返回最大长度。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:&lt;/strong&gt;&lt;code&gt;O(n)&lt;/code&gt;, &lt;strong&gt;空间复杂度：&lt;/strong&gt;&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
 

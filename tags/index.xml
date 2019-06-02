@@ -6,24 +6,42 @@
     <description>Recent content in Tags on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>LeetCode</title>
-      <link>https://cuckooemm.xyz/tags/leetcode/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <title>LeetCode-1~100</title>
+      <link>https://cuckooemm.xyz/tags/leetcode-1~100/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/tags/leetcode/</guid>
+      <guid>https://cuckooemm.xyz/tags/leetcode-1~100/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Easy</title>
+      <link>https://cuckooemm.xyz/tags/leetcode-easy/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/tags/leetcode-easy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LeetCode-Medium</title>
+      <link>https://cuckooemm.xyz/tags/leetcode-medium/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/tags/leetcode-medium/</guid>
       <description></description>
     </item>
     
     <item>
       <title>algorithm</title>
       <link>https://cuckooemm.xyz/tags/algorithm/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://cuckooemm.xyz/tags/algorithm/</guid>
       <description></description>
