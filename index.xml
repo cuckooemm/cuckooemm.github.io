@@ -27,7 +27,7 @@
 
 &lt;p&gt;给定 n 个非负整数 a&lt;sub&gt;1&lt;/sub&gt;，a&lt;sub&gt;2&lt;/sub&gt;，&amp;hellip;，a&lt;sub&gt;n&lt;/sub&gt;，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
 
 &lt;p&gt;You may not slant the container and n is at least 2.&lt;br /&gt;
 你不能倾斜容器，且 n 的值至少为 2。&lt;/p&gt;
@@ -331,6 +331,241 @@ public:
 	    return res;
     }
 
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 14 - Longest_Common_Prefix [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/14-longest_common_prefix/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/14-longest_common_prefix/</guid>
+      <description>
+
+&lt;h1 id=&#34;14-longest-common-prefix&#34;&gt;14.Longest_Common_Prefix&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/longest-common-prefix/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Write a function to find the longest common prefix string amongst an array of strings.&lt;/p&gt;
+
+&lt;p&gt;If there is no common prefix, return an empty string &amp;ldquo;&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;编写一个函数来查找字符串数组中的最长公共前缀。&lt;/p&gt;
+
+&lt;p&gt;如果不存在公共前缀，返回空字符串 &amp;ldquo;&amp;ldquo;。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [&amp;ldquo;flower&amp;rdquo;,&amp;ldquo;flow&amp;rdquo;,&amp;ldquo;flight&amp;rdquo;]&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;fl&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [&amp;ldquo;dog&amp;rdquo;,&amp;ldquo;racecar&amp;rdquo;,&amp;ldquo;car&amp;rdquo;]&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; There is no common prefix among the input strings.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;把第一个元素拷贝，然后依次比较之后的string。&lt;br /&gt;
+遇到不同则裁剪字符串并跳去循环，开始下一个string。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(S), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 4 ms, faster than 98.77% of C++ online submissions for Longest Common Prefix.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.8 MB, less than 85.87% of C++ online submissions for Longest Common Prefix.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) {
+	if (strs.size() == 0) return &amp;quot;&amp;quot;;
+    string result = strs[0];
+	for (int i = 1; i &amp;lt; strs.size(); i++) {
+		for (int j = 0; j &amp;lt; result.length(); j++) {
+			if (result[j] != strs[i][j]) {
+				result = result.substr(0, j);
+				break;
+			}
+		}
+	}
+	return result;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 15 - 3Sum [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/15-3sum/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/15-3sum/</guid>
+      <description>
+
+&lt;h1 id=&#34;15-3sum&#34;&gt;15.3Sum&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/3sum/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given an array nums of n integers, are there elements a, b, c in &lt;code&gt;nums&lt;/code&gt; such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.&lt;/p&gt;
+
+&lt;p&gt;给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;The solution set must not contain duplicate triplets.&lt;/p&gt;
+
+&lt;p&gt;答案中不可以包含重复的三元组。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;Given array nums = [-1, 0, 1, 2, -1, -4],
+
+A solution set is:
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。
+&lt;strong&gt;时间复杂度:O(n&lt;sup&gt;2&lt;/sup&gt;), 空间复杂度：O(n)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 92 ms, faster than 98.40% of C++ online submissions for 3Sum.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 14.8 MB, less than 76.43% of C++ online submissions for 3Sum.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; threeSum(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+        vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res;
+        if(nums.size() &amp;lt; 3) return res;
+        sort(nums.begin(),nums.end());                                  // 排序
+        vector&amp;lt;int&amp;gt; t(3);
+        int begin,end,sum;
+ 
+        for(int i = 0; i &amp;lt; nums.size() - 2; ++i){
+            if(nums[i] &amp;gt; 0) break;                                      // 如果值大于0，那么和无论如何不会等于0
+            if(i &amp;gt; 0 &amp;amp;&amp;amp; nums[i] == nums[i - 1]) continue;               // 排除重复
+            begin = i + 1;
+            end = nums.size() - 1;
+            while(begin &amp;lt; end){
+                sum = nums[i] + nums[begin] + nums[end];
+                if(sum &amp;gt; 0) --end;
+                else if(sum &amp;lt; 0) ++begin;
+                else{
+                    t[0] = nums[i];
+                    t[1] = nums[begin];
+                    t[2] = nums[end];
+                    res.push_back(t);
+                    while(begin &amp;lt; end &amp;amp;&amp;amp; nums[begin] == t[1]) ++begin;  //排除重复
+                    while(begin &amp;lt; end &amp;amp;&amp;amp; nums[end] == t[2]) --end;      //排除重复
+                }
+            }
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 16 - 3Sum Closest [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/16-3sum_closest/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/16-3sum_closest/</guid>
+      <description>
+
+&lt;h1 id=&#34;16-3sum-closest&#34;&gt;16.3Sum Closest&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/3sum-closest/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.&lt;/p&gt;
+
+&lt;p&gt;给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;p&gt;Given array nums = [-1, 2, 1, -4], and target = 1.&lt;/p&gt;
+
+&lt;p&gt;The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;同样排序与双指针。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n&lt;sup&gt;2&lt;/sup&gt;), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 8 ms, faster than 94.76% of C++ online submissions for 3Sum Closest.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.9 MB, less than 51.23% of C++ online submissions for 3Sum Closest.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;class Solution {
+public:
+    int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
+        if(nums.size() &amp;lt; 3) return 0;
+        int res = nums[0] + nums[1] + nums[2];                                     // 先计算一个近似值
+        int begin,end,sum;
+        sort(nums.begin(),nums.end());
+        for(int i = 0; i &amp;lt; nums.size() -2; ++i){
+            if(i &amp;gt; 0 &amp;amp;&amp;amp; nums[i] == nums[i - 1]) continue;                          // 排除重复
+            begin = i + 1;
+            end = nums.size() - 1;
+            while(begin &amp;lt; end){
+                sum = nums[i] + nums[begin] + nums[end];
+                if(abs(res - target) &amp;gt; abs(sum - target)){                         // 如果新值比旧值近似则更改
+                    res = sum;
+                }
+                if(sum &amp;lt; target){
+                    ++begin;
+                    while(begin &amp;lt; end &amp;amp;&amp;amp; nums[begin] == nums[begin - 1]) ++begin;  // 排除重复
+                }
+                else if(sum &amp;gt; target) {
+                    --end;
+                    while(begin &amp;lt; end &amp;amp;&amp;amp; nums[end] == nums[end + 1]) --end;        // 排除重复
+                }
+                else{
+                    return sum;                                                    // 相等直接返回
+                }
+            }
+        }
+        return res;
+    }
 };
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -1350,159 +1585,6 @@ git add README
 
 &lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote rm &amp;lt;shortname&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://cuckooemm.xyz/about/</link>
-      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/about/</guid>
-      <description>
-
-&lt;h1 id=&#34;about-me&#34;&gt;About me&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Cuckooemm&lt;/li&gt;
-&lt;li&gt;cuckooemm@gmail.com&lt;/li&gt;
-&lt;li&gt;后端工程师&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客刚开通&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Golang defer解析</title>
-      <link>https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/</link>
-      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/may/golang-defer%E8%A7%A3%E6%9E%90/</guid>
-      <description>
-
-&lt;h1 id=&#34;golang-defer解析&#34;&gt;Golang defer解析&lt;/h1&gt;
-
-&lt;h3 id=&#34;概念&#34;&gt;概念&lt;/h3&gt;
-
-&lt;p&gt;在go语言中，&lt;code&gt;defer&lt;/code&gt; 是用来在&lt;strong&gt;函数作用域结束之后执行函数的关键字&lt;/strong&gt;，在当前函数返回前调用。延迟函数&lt;code&gt;defer&lt;/code&gt;的实现是由编译器很运行时共同完成的。&lt;/p&gt;
-
-&lt;h3 id=&#34;作用域&#34;&gt;作用域&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;func main() {
-    {
-        defer fmt.Println(&amp;quot;defer runs&amp;quot;)
-        fmt.Println(&amp;quot;code block ends&amp;quot;)
-    }
-    
-    fmt.Println(&amp;quot;func ends&amp;quot;)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;从这里我们可以看出，&lt;code&gt;defer&lt;/code&gt;并不是在退出当前代码块的作用域之前执行的，&lt;code&gt;defer&lt;/code&gt;只会在当前函数返回之前被调用。&lt;/p&gt;
-
-&lt;h3 id=&#34;defer规则&#34;&gt;defer规则&lt;/h3&gt;
-
-&lt;h4 id=&#34;1-执行顺序&#34;&gt;1、执行顺序&lt;/h4&gt;
-
-&lt;p&gt;定义&lt;code&gt;defer&lt;/code&gt;类似于入栈，&lt;code&gt;defer&lt;/code&gt;的执行顺序类似于出栈，即先出现的&lt;code&gt;defer&lt;/code&gt;最后执行。
-例如在&lt;code&gt;for&lt;/code&gt;循环中&lt;code&gt;defer&lt;/code&gt;打印的结果为：4、3、2、1、0。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;func main() {
-    for i := 0; i &amp;lt; 5; i++ {
-        defer fmt.Println(i)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;defer&lt;/code&gt;的设计初衷是简化函数返回时资源清理的动作。
-资源往往有依赖，如申请A资源，在A的基础上申请B资源，再在B的基础上申请C资源，资源的申请顺序为：A-&amp;gt;B-&amp;gt;C;释放时则需要反向进行：C-&amp;gt;B-&amp;gt;A。这就是把&lt;code&gt;defer&lt;/code&gt;设计成&lt;strong&gt;FIFO&lt;/strong&gt;的原因。&lt;/p&gt;
-
-&lt;h4 id=&#34;2-参数确定&#34;&gt;2、参数确定&lt;/h4&gt;
-
-&lt;p&gt;Golang中所有的函数参数传递都是值传递，延迟函数的参数在&lt;code&gt;defer&lt;/code&gt;定义时就已确定下来。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;func main() {  // main函数没有参数也没有返回值
-    i := 0 
-    defer fmt.Println(i)
-    i++
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在&lt;code&gt;defer&lt;/code&gt;定义时就已经把参数通过值传递传给了&lt;code&gt;defer&lt;/code&gt;函数，在&lt;code&gt;defer&lt;/code&gt;函数之后对参数i的操作并不会影响&lt;code&gt;defer&lt;/code&gt;函数中的参数i的值，因此函数的打印结果为0。
-接下来再看一段代码&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;func main(){
-    i := 0
-    defer func(i int) {
-        fmt.Println(&amp;amp;i) 结果为0xc00000a0d8
-    }(i)
-    fmt.Println(&amp;amp;i)  // 结果为0xc00000a0d0
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;从这里可以看出&lt;code&gt;defer&lt;/code&gt;中的参数&lt;strong&gt;i&lt;/strong&gt;与代码中的参数&lt;strong&gt;i&lt;/strong&gt;已经不是一个参数了。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;func main() {
-    var i *int
-    i = new(int) // 申请内存
-    *i = 0
-    defer func(i *int) {
-        fmt.Println(i) // 结果为 0xc000062080
-        fmt.Println(*i) // 结果为1
-    }(i)
-    *i++
-    fmt.Println(i) // 结果为 0xc000062080
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;对于指针类型，延迟函数的参数是一个地址值，而在这样的情况下，&lt;code&gt;defer&lt;/code&gt;后面的语句对变量的修改可能会影响延迟函数的参数值，而&lt;code&gt;defer&lt;/code&gt;函数中的指针参数与&lt;code&gt;defer&lt;/code&gt;外的指针参数又是两个不同的变量，也就是说为指针赋予新的地址值同样不会影响&lt;code&gt;defer&lt;/code&gt;中的指针值。&lt;/p&gt;
-
-&lt;h4 id=&#34;3-延迟函数可能操作主函数的具名返回值&#34;&gt;3、延迟函数可能操作主函数的具名返回值&lt;/h4&gt;
-
-&lt;p&gt;函数返回的&lt;code&gt;return&lt;/code&gt;语句并不是一个原子操作，实际上&lt;code&gt;return&lt;/code&gt;只代理汇编指令&lt;code&gt;ret&lt;/code&gt;，即跳转程序执行。
-如&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;return i
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;实际上分两部执行，即将&lt;strong&gt;i&lt;/strong&gt;值存入栈中作为返回值，然后执行跳转，而&lt;code&gt;defer&lt;/code&gt;的执行时机正是跳转前，所以说defer执行时是有机会操作返回值的。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;func deferFuncReturn() (result int) {
-    i := 1
-
-    defer func() {
-       result++
-    }()
-
-    return i
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;该函数的&lt;code&gt;return&lt;/code&gt;语句可以拆分成下面两行&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;result = i
-return
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;延迟函数的执行正是&lt;code&gt;return&lt;/code&gt;之前，加入&lt;code&gt;defer&lt;/code&gt;后的执行过程如下&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;result = i
-result++
-return
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;函数实际返回i++的值。&lt;/p&gt;
-
-&lt;h3 id=&#34;应用场景&#34;&gt;应用场景&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;关闭文件描述符&lt;/li&gt;
-&lt;li&gt;关闭数据库连接&lt;/li&gt;
-&lt;li&gt;资源解锁&lt;/li&gt;
-&lt;li&gt;recover捕获错误&lt;/li&gt;
-&lt;li&gt;等&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

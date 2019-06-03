@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/6-zigzag_conversion/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/16-3sum_closest/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/9-palindrome_number/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/16-3sum_closest/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/14-longest_common_prefix/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/15-3sum/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           LeetCode - 9 - Palindrome Number [Easy] | Cuckooemm&#39;s Blog
+           LeetCode - 15 - 3Sum [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="LeetCode - 9 - Palindrome Number [Easy] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 15 - 3Sum [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "LeetCode - 9 - Palindrome Number [Easy]",
-    "headline" : "LeetCode - 9 - Palindrome Number [Easy]",
-    "description" : "9.Palindrome Number 地址\n难度：Easy\n题目描述 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.\n判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。\n示例 Example 1: Input: 121\nOutput: true\nExample 2: Input: -121\nOutput: false\nExplanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.\nExample 3: Input: 10\nOutput: false\nExplanation: Reads 01 from right to left.",
+    "name" : "LeetCode - 15 - 3Sum [Medium]",
+    "headline" : "LeetCode - 15 - 3Sum [Medium]",
+    "description" : "15.3Sum 地址\n难度：Medium\n题目描述 Given an array nums of n integers, are there elements a, b, c in nums such that a \x2b b \x2b c = 0? Find all unique triplets in the array which gives the sum of zero.\n给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a \x2b b \x2b c = 0 ？找出所有满足条件且不重复的三元组。\nNote: The solution set must not contain duplicate triplets.\n答案中不可以包含重复的三元组。\n示例 Example: Given array nums = [-1, 0, 1, 2, -1, -4], A solution set is: [ [-1, 0, 1], [-1, -1, 2] ]  思路 首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。 时间复杂度:O(n2), 空间复杂度：O(n)。",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -56,9 +56,9 @@
     "copyrightYear" : "2019",
     "datePublished": "2019-06-03 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-06-03 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/9-palindrome_number\/",
-    "wordCount" : "175",
-    "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/15-3sum\/",
+    "wordCount" : "237",
+    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">LeetCode - 9 - Palindrome Number [Easy]</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 15 - 3Sum [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
@@ -148,62 +148,79 @@
 
           
 
-<h1 id="9-palindrome-number">9.Palindrome Number</h1>
+<h1 id="15-3sum">15.3Sum</h1>
 
-<p><a href="https://leetcode.com/problems/palindrome-number/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Easy</strong></p>
+<p><a href="https://leetcode.com/problems/3sum/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.<br />
-判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<p>Given an array nums of n integers, are there elements a, b, c in <code>nums</code> such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
+
+<p>给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</p>
+
+<h4 id="note">Note:</h4>
+
+<p>The solution set must not contain duplicate triplets.</p>
+
+<p>答案中不可以包含重复的三元组。</p>
 
 <h3 id="示例">示例</h3>
 
-<h4 id="example-1">Example 1:</h4>
+<h4 id="example">Example:</h4>
 
-<p><strong>Input:</strong> 121<br />
-<strong>Output:</strong> true</p>
+<pre><code class="language-c">Given array nums = [-1, 0, 1, 2, -1, -4],
 
-<h4 id="example-2">Example 2:</h4>
-
-<p><strong>Input:</strong> -121<br />
-<strong>Output:</strong> false<br />
-<strong>Explanation:</strong> From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</p>
-
-<h4 id="example-3">Example 3:</h4>
-
-<p><strong>Input:</strong> 10<br />
-<strong>Output:</strong> false<br />
-<strong>Explanation:</strong> Reads 01 from right to left. Therefore it is not a palindrome.</p>
+A solution set is:
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+</code></pre>
 
 <h3 id="思路">思路</h3>
 
-<p>首先把负值、除0外末尾为0的数字排除。<br />
-判断数字是否回文，我们可以翻转数字一半与前一半比较是否相等。<br />
-当<strong>x</strong>小于新的数时则完成了对半。<br />
-数字个数有奇有偶，如果为偶，则新数等于x,如果为奇，则中间数字应在新数的个位上，新数除以10则长度与x相等，判断数是否相等。<br />
-<strong>时间复杂度:O(log<sub>10</sub>(n)), 空间复杂度：O(1)</strong>。</p>
+<p>首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。
+<strong>时间复杂度:O(n<sup>2</sup>), 空间复杂度：O(n)</strong>。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 12 ms, faster than 93.35% of C++ online submissions for Palindrome Number.</li>
-<li>Memory Usage: 8.1 MB, less than 71.09% of C++ online submissions for Palindrome Number.</li>
+<li>Runtime: 92 ms, faster than 98.40% of C++ online submissions for 3Sum.</li>
+<li>Memory Usage: 14.8 MB, less than 76.43% of C++ online submissions for 3Sum.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
 public:
-    bool isPalindrome(int x) {
-        if (x &lt; 0 || x % 10 == 0 &amp;&amp; x != 0) return false;   // 负值、除0外末尾为0的数字返回false
-        int res = 0;
-        while(x &gt; res){
-            res = res * 10 + x % 10;                        // 反转数字
-            x /= 10;
+    vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) {
+        vector&lt;vector&lt;int&gt;&gt; res;
+        if(nums.size() &lt; 3) return res;
+        sort(nums.begin(),nums.end());                                  // 排序
+        vector&lt;int&gt; t(3);
+        int begin,end,sum;
+ 
+        for(int i = 0; i &lt; nums.size() - 2; ++i){
+            if(nums[i] &gt; 0) break;                                      // 如果值大于0，那么和无论如何不会等于0
+            if(i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) continue;               // 排除重复
+            begin = i + 1;
+            end = nums.size() - 1;
+            while(begin &lt; end){
+                sum = nums[i] + nums[begin] + nums[end];
+                if(sum &gt; 0) --end;
+                else if(sum &lt; 0) ++begin;
+                else{
+                    t[0] = nums[i];
+                    t[1] = nums[begin];
+                    t[2] = nums[end];
+                    res.push_back(t);
+                    while(begin &lt; end &amp;&amp; nums[begin] == t[1]) ++begin;  //排除重复
+                    while(begin &lt; end &amp;&amp; nums[end] == t[2]) --end;      //排除重复
+                }
+            }
         }
-        return x == res || res / 10 == x;
+        return res;
     }
 };
 </code></pre>
@@ -221,7 +238,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/9-palindrome_number/>https://cuckooemm.xyz/2019/june/9-palindrome_number/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/15-3sum/>https://cuckooemm.xyz/2019/june/15-3sum/</span>
             </p>
             
              
@@ -240,8 +257,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-easy/">
-                    #LeetCode-Easy</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
+                    #LeetCode-Medium</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -256,10 +273,10 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/6-zigzag_conversion/" class="prev" rel="prev" title="LeetCode - 6 - ZigZag Conversion [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 6 - ZigZag Conversion [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/june/16-3sum_closest/" class="prev" rel="prev" title="LeetCode - 16 - 3Sum Closest [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 16 - 3Sum Closest [Medium]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/16-3sum_closest/" class="next" rel="next" title="LeetCode - 16 - 3Sum Closest [Medium]">LeetCode - 16 - 3Sum Closest [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/14-longest_common_prefix/" class="next" rel="next" title="LeetCode - 14 - Longest_Common_Prefix [Easy]">LeetCode - 14 - Longest_Common_Prefix [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

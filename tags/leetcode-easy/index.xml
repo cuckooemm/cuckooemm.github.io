@@ -25,6 +25,29 @@ Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written a
     </item>
     
     <item>
+      <title>LeetCode - 14 - Longest_Common_Prefix [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/14-longest_common_prefix/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/14-longest_common_prefix/</guid>
+      <description>14.Longest_Common_Prefix 地址
+难度：Easy
+题目描述 Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string &amp;ldquo;&amp;rdquo;.
+编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 &amp;ldquo;&amp;ldquo;。
+示例 Example 1: Input: [&amp;ldquo;flower&amp;rdquo;,&amp;ldquo;flow&amp;rdquo;,&amp;ldquo;flight&amp;rdquo;]
+Output: &amp;ldquo;fl&amp;rdquo;
+Example 2: Input: [&amp;ldquo;dog&amp;rdquo;,&amp;ldquo;racecar&amp;rdquo;,&amp;ldquo;car&amp;rdquo;]
+Output: &amp;ldquo;&amp;rdquo;
+Explanation: There is no common prefix among the input strings.
+思路 把第一个元素拷贝，然后依次比较之后的string。
+遇到不同则裁剪字符串并跳去循环，开始下一个string。
+时间复杂度:O(S), 空间复杂度：O(1)。
+AC  Runtime: 4 ms, faster than 98.77% of C++ online submissions for Longest Common Prefix.</description>
+    </item>
+    
+    <item>
       <title>LeetCode - 9 - Palindrome Number [Easy]</title>
       <link>https://cuckooemm.xyz/2019/june/9-palindrome_number/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
