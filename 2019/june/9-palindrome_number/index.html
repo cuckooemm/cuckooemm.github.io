@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/7-reverse_integer/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/9-palindrome_number/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/6-zigzag_conversion/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/6-zigzag_conversion/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/13-roman_to_integer/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/9-palindrome_number/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           LeetCode - 6 - ZigZag Conversion [Medium] | Cuckooemm&#39;s Blog
+           LeetCode - 9 - Palindrome Number [Easy] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="LeetCode - 6 - ZigZag Conversion [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 9 - Palindrome Number [Easy] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "LeetCode - 6 - ZigZag Conversion [Medium]",
-    "headline" : "LeetCode - 6 - ZigZag Conversion [Medium]",
-    "description" : "6.ZigZag Conversion 地址\n难度：Medium\n题目描述 The string \x26quot;PAYPALISHIRING\x26quot; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)\n使字符串以给定行数上进行Z字形书写，像下面这样。\nP A H N A P L S I I G Y I R  And then read line by line: \x26quot;PAHNAPLSIIGYIR\x26quot;\n然后一行一行的读。\nWrite the code that will take a string and make this conversion given a number of rows:",
+    "name" : "LeetCode - 9 - Palindrome Number [Easy]",
+    "headline" : "LeetCode - 9 - Palindrome Number [Easy]",
+    "description" : "9.Palindrome Number 地址\n难度：Easy\n题目描述 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.\n判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。\n示例 Example 1: Input: 121\nOutput: true\nExample 2: Input: -121\nOutput: false\nExplanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.\nExample 3: Input: 10\nOutput: false\nExplanation: Reads 01 from right to left.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-02 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-06-02 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/6-zigzag_conversion\/",
-    "wordCount" : "274",
-    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-06-03 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-03 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/9-palindrome_number\/",
+    "wordCount" : "175",
+    "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -116,11 +116,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">LeetCode - 6 - ZigZag Conversion [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 9 - Palindrome Number [Easy]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-06-02 itemprop="datePublished">June 2, 2019</time>
+                on <time datetime=2019-06-03 itemprop="datePublished">June 3, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -148,87 +148,62 @@
 
           
 
-<h1 id="6-zigzag-conversion">6.ZigZag Conversion</h1>
+<h1 id="9-palindrome-number">9.Palindrome Number</h1>
 
-<p><a href="https://leetcode.com/problems/zigzag-conversion/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Medium</strong></p>
+<p><a href="https://leetcode.com/problems/palindrome-number/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Easy</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>The string <code>&quot;PAYPALISHIRING&quot;</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)<br />
-使字符串以给定行数上进行Z字形书写，像下面这样。</p>
-
-<pre><code class="language-git">P   A   H   N
-A P L S I I G
-Y   I   R
-</code></pre>
-
-<p>And then read line by line: <code>&quot;PAHNAPLSIIGYIR&quot;</code><br />
-然后一行一行的读。<br />
-Write the code that will take a string and make this conversion given a number of rows:<br />
-编写代码。</p>
-
-<pre><code class="language-c++">string convert(string s, int numRows);
-</code></pre>
+<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.<br />
+判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
 
 <h3 id="示例">示例</h3>
 
 <h4 id="example-1">Example 1:</h4>
 
-<p><strong>Input:</strong> s = &ldquo;PAYPALISHIRING&rdquo;, numRows = 3<br />
-<strong>Output:</strong> &ldquo;PAHNAPLSIIGYIR&rdquo;</p>
+<p><strong>Input:</strong> 121<br />
+<strong>Output:</strong> true</p>
 
 <h4 id="example-2">Example 2:</h4>
 
-<p><strong>Input:</strong> s = &ldquo;PAYPALISHIRING&rdquo;, numRows = 4<br />
-<strong>Output:</strong> &ldquo;PINALSIGYAHRPI&rdquo;<br />
-<strong>Explanation:</strong></p>
+<p><strong>Input:</strong> -121<br />
+<strong>Output:</strong> false<br />
+<strong>Explanation:</strong> From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</p>
 
-<pre><code class="language-c++">P     I    N
-A   L S  I G
-Y A   H R
-P     I
-</code></pre>
+<h4 id="example-3">Example 3:</h4>
+
+<p><strong>Input:</strong> 10<br />
+<strong>Output:</strong> false<br />
+<strong>Explanation:</strong> Reads 01 from right to left. Therefore it is not a palindrome.</p>
 
 <h3 id="思路">思路</h3>
 
-<p>就是计算字符串下标。</p>
-
-<ul>
-<li>行<code>0</code>中的字符位于索引<code>k</code>(2 * numRows - 2)处。</li>
-<li>行<code>numRows-1</code>中的字符位于索引<code>k</code>(2 * numRows − 2) + numRows − 1处;</li>
-<li>内部的行<code>i</code>中的字符位于索引<code>k</code>(2 * numRows − 2) + i 以及 (2 * numRows − 2) − i处;<br />
-<strong>时间复杂度:O(n), 空间复杂度：O(n)</strong>。</li>
-</ul>
+<p>首先把负值、除0外末尾为0的数字排除。<br />
+判断数字是否回文，我们可以翻转数字一半与前一半比较是否相等。<br />
+当<strong>x</strong>小于新的数时则完成了对半。<br />
+数字个数有奇有偶，如果为偶，则新数等于x,如果为奇，则中间数字应在新数的个位上，新数除以10则长度与x相等，判断数是否相等。<br />
+<strong>时间复杂度:O(log<sub>10</sub>(n)), 空间复杂度：O(1)</strong>。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 12 ms, faster than 94.01% of C++ online submissions for ZigZag Conversion.</li>
-<li>Memory Usage: 10.2 MB, less than 85.33% of C++ online submissions for ZigZag Conversion.</li>
+<li>Runtime: 12 ms, faster than 93.35% of C++ online submissions for Palindrome Number.</li>
+<li>Memory Usage: 8.1 MB, less than 71.09% of C++ online submissions for Palindrome Number.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
 public:
-    string convert(string s, int numRows) {
-        if(s.size() == 0 | numRows == 1){
-            return s;
+    bool isPalindrome(int x) {
+        if (x &lt; 0 || x % 10 == 0 &amp;&amp; x != 0) return false;   // 负值、除0外末尾为0的数字返回false
+        int res = 0;
+        while(x &gt; res){
+            res = res * 10 + x % 10;                        // 反转数字
+            x /= 10;
         }
-        string res = &quot;&quot;;
-        int n = s.size();
-        int size = (numRows &lt;&lt; 1) - 2;
-        int temp = 0;
-        for(int i = 0; i &lt; numRows; ++i){
-            for(int j = i; j &lt; n; j += size){
-                res += s[j];
-                temp = j + size - (i &lt;&lt; 1);
-                if(i != 0 &amp;&amp; i != numRows - 1 &amp;&amp; temp &lt; n)
-                    res += s[temp];
-            }
-        }
-        return res;
+        return x == res || res / 10 == x;
     }
 };
 </code></pre>
@@ -246,7 +221,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/6-zigzag_conversion/>https://cuckooemm.xyz/2019/june/6-zigzag_conversion/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/9-palindrome_number/>https://cuckooemm.xyz/2019/june/9-palindrome_number/</span>
             </p>
             
              
@@ -265,8 +240,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
-                    #LeetCode-Medium</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-easy/">
+                    #LeetCode-Easy</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -281,10 +256,10 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/7-reverse_integer/" class="prev" rel="prev" title="LeetCode - 7 - Reverse Integer [Easy]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 7 - Reverse Integer [Easy]</a>
+        <a href="https://cuckooemm.xyz/2019/june/6-zigzag_conversion/" class="prev" rel="prev" title="LeetCode - 6 - ZigZag Conversion [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 6 - ZigZag Conversion [Medium]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/9-palindrome_number/" class="next" rel="next" title="LeetCode - 9 - Palindrome Number [Easy]">LeetCode - 9 - Palindrome Number [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/13-roman_to_integer/" class="next" rel="next" title="LeetCode - 13 - Roman to Integer [Easy]">LeetCode - 13 - Roman to Integer [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

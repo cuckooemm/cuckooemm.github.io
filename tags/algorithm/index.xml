@@ -6,10 +6,68 @@
     <description>Recent content in algorithm on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LeetCode - 11 - Container With Most Water [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/11-container_with_most_water/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/11-container_with_most_water/</guid>
+      <description>11.Container With Most Water 地址
+难度：Medium
+题目描述 Given n non-negative integers a1, a2, &amp;hellip;, an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+给定 n 个非负整数 a1，a2，&amp;hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 12 - Integer to Roman [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/12-integer_to_roman/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/12-integer_to_roman/</guid>
+      <description>12.Integer to Roman 地址
+难度：Medium
+题目描述 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。
+Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written as II in Roman numeral, just two one&amp;rsquo;s added together. Twelve is written as, XII, which is simply X + II.</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 13 - Roman to Integer [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/13-roman_to_integer/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/13-roman_to_integer/</guid>
+      <description>13.Roman to Integer 地址
+难度：Easy
+题目描述 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。
+Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written as II in Roman numeral, just two one&amp;rsquo;s added together. Twelve is written as, XII, which is simply X + II.</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 9 - Palindrome Number [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/9-palindrome_number/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/9-palindrome_number/</guid>
+      <description>9.Palindrome Number 地址
+难度：Easy
+题目描述 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
+示例 Example 1: Input: 121
+Output: true
+Example 2: Input: -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+Example 3: Input: 10
+Output: false
+Explanation: Reads 01 from right to left.</description>
+    </item>
     
     <item>
       <title>LeetCode - 6 - ZigZag Conversion [Medium]</title>

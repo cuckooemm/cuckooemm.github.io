@@ -5,8 +5,406 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LeetCode - 11 - Container With Most Water [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/11-container_with_most_water/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/11-container_with_most_water/</guid>
+      <description>
+
+&lt;h1 id=&#34;11-container-with-most-water&#34;&gt;11.Container With Most Water&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/container-with-most-water/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given n non-negative integers a&lt;sub&gt;1&lt;/sub&gt;, a&lt;sub&gt;2&lt;/sub&gt;, &amp;hellip;, a&lt;sub&gt;n&lt;/sub&gt; , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.&lt;/p&gt;
+
+&lt;p&gt;给定 n 个非负整数 a&lt;sub&gt;1&lt;/sub&gt;，a&lt;sub&gt;2&lt;/sub&gt;，&amp;hellip;，a&lt;sub&gt;n&lt;/sub&gt;，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;You may not slant the container and n is at least 2.&lt;br /&gt;
+你不能倾斜容器，且 n 的值至少为 2。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [1,8,6,2,5,4,8,3,7]&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 49&lt;/p&gt;
+
+&lt;h3 id=&#34;思考&#34;&gt;思考&lt;/h3&gt;
+
+&lt;h4 id=&#34;双指针法&#34;&gt;双指针法&lt;/h4&gt;
+
+&lt;p&gt;定义指向头的左指针和指向尾的右指针，比较每次的值取最大。&lt;br /&gt;
+因为横向只会减少，面积最大需要移动高小的值，所以选择左右指针值小的位置移动，左指针++，右指针&amp;ndash;。
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 16 ms, faster than 98.03% of C++ online submissions for Container With Most Water.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 9.9 MB, less than 54.65% of C++ online submissions for Container With Most Water.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    int maxArea(vector&amp;lt;int&amp;gt;&amp;amp; height) {
+        int maxArea = 0,l = 0,r = height.size() - 1;
+        while(l &amp;lt; r){
+            maxArea = max(maxArea,min(height[l],height[r]) * (r - l));  // 取最大值
+            if(height[l] &amp;lt; height[r])
+                ++l;
+            else
+                --r;
+        }
+        return maxArea;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 12 - Integer to Roman [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/12-integer_to_roman/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/12-integer_to_roman/</guid>
+      <description>
+
+&lt;h1 id=&#34;12-integer-to-roman&#34;&gt;12.Integer to Roman&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/integer-to-roman/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Roman numerals are represented by seven different symbols: &lt;strong&gt;I&lt;/strong&gt;, &lt;strong&gt;V&lt;/strong&gt;, &lt;strong&gt;X&lt;/strong&gt;, &lt;strong&gt;L&lt;/strong&gt;, &lt;strong&gt;C&lt;/strong&gt;, &lt;strong&gt;D&lt;/strong&gt; and &lt;strong&gt;M&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;罗马数字包含以下七种字符： &lt;strong&gt;I&lt;/strong&gt;， &lt;strong&gt;V&lt;/strong&gt;， &lt;strong&gt;X&lt;/strong&gt;， &lt;strong&gt;L&lt;/strong&gt;，&lt;strong&gt;C&lt;/strong&gt;，&lt;strong&gt;D&lt;/strong&gt; 和 &lt;strong&gt;M&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For example, two is written as &lt;strong&gt;II&lt;/strong&gt; in Roman numeral, just two one&amp;rsquo;s added together. Twelve is written as, &lt;strong&gt;XII&lt;/strong&gt;, which is simply &lt;strong&gt;X&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt;. The number twenty seven is written as &lt;strong&gt;XXVII&lt;/strong&gt;, which is &lt;strong&gt;XX&lt;/strong&gt; + &lt;strong&gt;V&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not &lt;strong&gt;IIII&lt;/strong&gt;. Instead, the number four is written as &lt;strong&gt;IV&lt;/strong&gt;. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as &lt;strong&gt;IX&lt;/strong&gt;. There are six instances where subtraction is used:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; can be placed before &lt;strong&gt;V&lt;/strong&gt; (5) and &lt;strong&gt;X&lt;/strong&gt; (10) to make 4 and 9.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt; can be placed before &lt;strong&gt;L&lt;/strong&gt; (50) and &lt;strong&gt;C&lt;/strong&gt; (100) to make 40 and 90.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; can be placed before &lt;strong&gt;D&lt;/strong&gt; (500) and &lt;strong&gt;M&lt;/strong&gt; (1000) to make 400 and 900.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.&lt;/p&gt;
+
+&lt;p&gt;例如， 罗马数字 2 写做 &lt;strong&gt;II&lt;/strong&gt; ，即为两个并列的 1。12 写做 &lt;strong&gt;XII&lt;/strong&gt; ，即为 &lt;strong&gt;X&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt; 。 27 写做  &lt;strong&gt;XXVII&lt;/strong&gt;, 即为 &lt;strong&gt;XX&lt;/strong&gt; + &lt;strong&gt;V&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;p&gt;通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 &lt;strong&gt;IIII&lt;/strong&gt;，而是 &lt;strong&gt;IV&lt;/strong&gt;。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 &lt;strong&gt;IX&lt;/strong&gt;。这个特殊的规则只适用于以下六种情况：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; 可以放在 &lt;strong&gt;V&lt;/strong&gt; (5) 和 &lt;strong&gt;X&lt;/strong&gt; (10) 的左边，来表示 4 和 9。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt; 可以放在 &lt;strong&gt;L&lt;/strong&gt; (50) 和 &lt;strong&gt;C&lt;/strong&gt; (100) 的左边，来表示 40 和 90。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; 可以放在 &lt;strong&gt;D&lt;/strong&gt; (500) 和 &lt;strong&gt;M&lt;/strong&gt; (1000) 的左边，来表示 400 和 900。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 3&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;III&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 4&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;IV&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 9&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;IX&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-4&#34;&gt;Example 4:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 58&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;LVIII&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; L = 50, V = 5, III = 3.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-5&#34;&gt;Example 5:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 1994&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;MCMXCIV&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;explanation-m-1000-cm-900-xc-90-and-iv-4&#34;&gt;Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.&lt;/h4&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;建立数字与罗马数字对应的两个数组。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(log&lt;sub&gt;10&lt;/sub&gt;(n)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 4 ms, faster than 98.84% of C++ online submissions for Integer to Roman.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.4 MB, less than 86.47% of C++ online submissions for Integer to Roman.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    string intToRoman(int num) {
+        int border[] = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        string symbols[] = {&amp;quot;M&amp;quot;,&amp;quot;CM&amp;quot;,&amp;quot;D&amp;quot;,&amp;quot;CD&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;XC&amp;quot;,&amp;quot;L&amp;quot;,&amp;quot;XL&amp;quot;,&amp;quot;X&amp;quot;,&amp;quot;IX&amp;quot;,&amp;quot;V&amp;quot;,&amp;quot;IV&amp;quot;,&amp;quot;I&amp;quot;};
+        string res = &amp;quot;&amp;quot;;
+        for(int i = 0; i &amp;lt; 13; ++i){
+            while(num &amp;gt;= border[i]){
+                num -= border[i];
+                res += symbols[i];
+            }
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 13 - Roman to Integer [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/13-roman_to_integer/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/13-roman_to_integer/</guid>
+      <description>
+
+&lt;h1 id=&#34;13-roman-to-integer&#34;&gt;13.Roman to Integer&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/roman-to-integer/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Roman numerals are represented by seven different symbols: &lt;strong&gt;I&lt;/strong&gt;, &lt;strong&gt;V&lt;/strong&gt;, &lt;strong&gt;X&lt;/strong&gt;, &lt;strong&gt;L&lt;/strong&gt;, &lt;strong&gt;C&lt;/strong&gt;, &lt;strong&gt;D&lt;/strong&gt; and &lt;strong&gt;M&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;罗马数字包含以下七种字符： &lt;strong&gt;I&lt;/strong&gt;， &lt;strong&gt;V&lt;/strong&gt;， &lt;strong&gt;X&lt;/strong&gt;， &lt;strong&gt;L&lt;/strong&gt;，&lt;strong&gt;C&lt;/strong&gt;，&lt;strong&gt;D&lt;/strong&gt; 和 &lt;strong&gt;M&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For example, two is written as &lt;strong&gt;II&lt;/strong&gt; in Roman numeral, just two one&amp;rsquo;s added together. Twelve is written as, &lt;strong&gt;XII&lt;/strong&gt;, which is simply &lt;strong&gt;X&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt;. The number twenty seven is written as &lt;strong&gt;XXVII&lt;/strong&gt;, which is &lt;strong&gt;XX&lt;/strong&gt; + &lt;strong&gt;V&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not &lt;strong&gt;IIII&lt;/strong&gt;. Instead, the number four is written as &lt;strong&gt;IV&lt;/strong&gt;. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as &lt;strong&gt;IX&lt;/strong&gt;. There are six instances where subtraction is used:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; can be placed before &lt;strong&gt;V&lt;/strong&gt; (5) and &lt;strong&gt;X&lt;/strong&gt; (10) to make 4 and 9.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt; can be placed before &lt;strong&gt;L&lt;/strong&gt; (50) and &lt;strong&gt;C&lt;/strong&gt; (100) to make 40 and 90.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; can be placed before &lt;strong&gt;D&lt;/strong&gt; (500) and &lt;strong&gt;M&lt;/strong&gt; (1000) to make 400 and 900.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.&lt;/p&gt;
+
+&lt;p&gt;例如， 罗马数字 2 写做 &lt;strong&gt;II&lt;/strong&gt; ，即为两个并列的 1。12 写做 &lt;strong&gt;XII&lt;/strong&gt; ，即为 &lt;strong&gt;X&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt; 。 27 写做  &lt;strong&gt;XXVII&lt;/strong&gt;, 即为 &lt;strong&gt;XX&lt;/strong&gt; + &lt;strong&gt;V&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;p&gt;通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 &lt;strong&gt;IIII&lt;/strong&gt;，而是 &lt;strong&gt;IV&lt;/strong&gt;。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 &lt;strong&gt;IX&lt;/strong&gt;。这个特殊的规则只适用于以下六种情况：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; 可以放在 &lt;strong&gt;V&lt;/strong&gt; (5) 和 &lt;strong&gt;X&lt;/strong&gt; (10) 的左边，来表示 4 和 9。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt; 可以放在 &lt;strong&gt;L&lt;/strong&gt; (50) 和 &lt;strong&gt;C&lt;/strong&gt; (100) 的左边，来表示 40 和 90。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; 可以放在 &lt;strong&gt;D&lt;/strong&gt; (500) 和 &lt;strong&gt;M&lt;/strong&gt; (1000) 的左边，来表示 400 和 900。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 3&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;III&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 4&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;IV&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 9&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;IX&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-4&#34;&gt;Example 4:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 58&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;LVIII&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; L = 50, V = 5, III = 3.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-5&#34;&gt;Example 5:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 1994&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;MCMXCIV&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; M = 1000, CM = 900, XC = 90 and IV = 4.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;字符串表示的罗马数字，最左边一定是代表最大的数，如果遍历中出现了左边值大于右边值，说明出现了&lt;strong&gt;CM&lt;/strong&gt;、&lt;strong&gt;XC&lt;/strong&gt;、&lt;strong&gt;IV&lt;/strong&gt;这种情况。&lt;br /&gt;
+减去小值加上大值，如：CM = -100 + 1000 = 900。&lt;br /&gt;
+用&lt;code&gt;switch&lt;/code&gt;优化了原先用hashMap的效率，省略了hashMap所带来的计算消耗。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 8 ms, faster than 98.36% of C++ online submissions for Roman to Integer.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.4 MB, less than 86.43% of C++ online submissions for Roman to Integer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+private:
+    int charToInt(char s){   // 替代 HashMap
+        switch(s){
+            case &#39;I&#39; :
+                return 1;
+                break;
+            case &#39;V&#39; :
+                return 5;
+                break;
+            case &#39;X&#39; :
+                return 10;
+                break;
+            case &#39;L&#39; :
+                return 50;
+                break;
+            case &#39;C&#39; :
+                return 100;
+                break;
+            case &#39;D&#39; :
+                return 500;
+                break;
+            case &#39;M&#39; :
+                return 1000;
+                break;
+            default:
+                return 0;
+        }
+    }
+public:
+    int romanToInt(string s) {
+        int res = 0;
+        for (int i = 0; i &amp;lt; s.size() - 1; ++i)
+	    {
+		    if (charToInt(s[i]) &amp;lt; charToInt(s[i+1]))
+                res -= charToInt(s[i]);
+		    else
+                res += charToInt(s[i]);
+	    }
+	    res += charToInt(s[s.size() - 1]);   // 加上最后一个值
+	    return res;
+    }
+
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 9 - Palindrome Number [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/9-palindrome_number/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/9-palindrome_number/</guid>
+      <description>
+
+&lt;h1 id=&#34;9-palindrome-number&#34;&gt;9.Palindrome Number&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/palindrome-number/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.&lt;br /&gt;
+判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 121&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; true&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; -121&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; false&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 10&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; false&lt;br /&gt;
+&lt;strong&gt;Explanation:&lt;/strong&gt; Reads 01 from right to left. Therefore it is not a palindrome.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;首先把负值、除0外末尾为0的数字排除。&lt;br /&gt;
+判断数字是否回文，我们可以翻转数字一半与前一半比较是否相等。&lt;br /&gt;
+当&lt;strong&gt;x&lt;/strong&gt;小于新的数时则完成了对半。&lt;br /&gt;
+数字个数有奇有偶，如果为偶，则新数等于x,如果为奇，则中间数字应在新数的个位上，新数除以10则长度与x相等，判断数是否相等。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(log&lt;sub&gt;10&lt;/sub&gt;(n)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 12 ms, faster than 93.35% of C++ online submissions for Palindrome Number.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.1 MB, less than 71.09% of C++ online submissions for Palindrome Number.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x &amp;lt; 0 || x % 10 == 0 &amp;amp;&amp;amp; x != 0) return false;   // 负值、除0外末尾为0的数字返回false
+        int res = 0;
+        while(x &amp;gt; res){
+            res = res * 10 + x % 10;                        // 反转数字
+            x /= 10;
+        }
+        return x == res || res / 10 == x;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>LeetCode - 6 - ZigZag Conversion [Medium]</title>
@@ -202,7 +600,7 @@ public:
 
 &lt;p&gt;If no valid conversion could be performed, a zero value is returned.&lt;/p&gt;
 
-&lt;p&gt;请你来实现一个 atoi 函数，使其能将字符串转换成整数。&lt;/p&gt;
+&lt;p&gt;实现一个 atoi 函数，使其能将字符串转换成整数。&lt;/p&gt;
 
 &lt;p&gt;首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。&lt;/p&gt;
 

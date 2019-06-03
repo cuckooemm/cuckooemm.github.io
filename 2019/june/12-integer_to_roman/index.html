@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/1-two_sum/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/7-reverse_integer/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/13-roman_to_integer/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/11-container_with_most_water/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/12-integer_to_roman/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           LeetCode - 8 - String to Integer(atoi) [Medium] | Cuckooemm&#39;s Blog
+           LeetCode - 12 - Integer to Roman [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="LeetCode - 8 - String to Integer(atoi) [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 12 - Integer to Roman [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "LeetCode - 8 - String to Integer(atoi) [Medium]",
-    "headline" : "LeetCode - 8 - String to Integer(atoi) [Medium]",
-    "description" : "8.String to Integer(atoi) 地址\n难度：Medium\n题目描述 Implement atoi which converts a string to an integer.\nThe function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.\nThe string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.",
+    "name" : "LeetCode - 12 - Integer to Roman [Medium]",
+    "headline" : "LeetCode - 12 - Integer to Roman [Medium]",
+    "description" : "12.Integer to Roman 地址\n难度：Medium\n题目描述 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.\n罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。\nSymbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written as II in Roman numeral, just two one\x26rsquo;s added together. Twelve is written as, XII, which is simply X \x2b II.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,10 +54,10 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-02 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-06-02 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/8-string_to_integer_atoi\/",
-    "wordCount" : "422",
+    "datePublished": "2019-06-03 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-03 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/12-integer_to_roman\/",
+    "wordCount" : "426",
     "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -116,11 +116,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">LeetCode - 8 - String to Integer(atoi) [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 12 - Integer to Roman [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-06-02 itemprop="datePublished">June 2, 2019</time>
+                on <time datetime=2019-06-03 itemprop="datePublished">June 3, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -148,122 +148,108 @@
 
           
 
-<h1 id="8-string-to-integer-atoi">8.String to Integer(atoi)</h1>
+<h1 id="12-integer-to-roman">12.Integer to Roman</h1>
 
-<p><a href="https://leetcode.com/problems/string-to-integer-atoi/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<p><a href="https://leetcode.com/problems/integer-to-roman/" rel="nofollow noreferrer" target="_blank">地址</a><br />
 <strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Implement atoi which converts a string to an integer.</p>
+<p>Roman numerals are represented by seven different symbols: <strong>I</strong>, <strong>V</strong>, <strong>X</strong>, <strong>L</strong>, <strong>C</strong>, <strong>D</strong> and <strong>M</strong>.</p>
 
-<p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
+<p>罗马数字包含以下七种字符： <strong>I</strong>， <strong>V</strong>， <strong>X</strong>， <strong>L</strong>，<strong>C</strong>，<strong>D</strong> 和 <strong>M</strong>。</p>
 
-<p>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.</p>
+<pre><code class="language-c">Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+</code></pre>
 
-<p>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.</p>
+<p>For example, two is written as <strong>II</strong> in Roman numeral, just two one&rsquo;s added together. Twelve is written as, <strong>XII</strong>, which is simply <strong>X</strong> + <strong>II</strong>. The number twenty seven is written as <strong>XXVII</strong>, which is <strong>XX</strong> + <strong>V</strong> + <strong>II</strong>.</p>
 
-<p>If no valid conversion could be performed, a zero value is returned.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not <strong>IIII</strong>. Instead, the number four is written as <strong>IV</strong>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as <strong>IX</strong>. There are six instances where subtraction is used:</p>
 
-<p>实现一个 atoi 函数，使其能将字符串转换成整数。</p>
+<ul>
+<li><strong>I</strong> can be placed before <strong>V</strong> (5) and <strong>X</strong> (10) to make 4 and 9.</li>
+<li><strong>X</strong> can be placed before <strong>L</strong> (50) and <strong>C</strong> (100) to make 40 and 90.</li>
+<li><strong>C</strong> can be placed before <strong>D</strong> (500) and <strong>M</strong> (1000) to make 400 and 900.</li>
+</ul>
 
-<p>首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。</p>
+<p>Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.</p>
 
-<p>当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。</p>
+<p>例如， 罗马数字 2 写做 <strong>II</strong> ，即为两个并列的 1。12 写做 <strong>XII</strong> ，即为 <strong>X</strong> + <strong>II</strong> 。 27 写做  <strong>XXVII</strong>, 即为 <strong>XX</strong> + <strong>V</strong> + <strong>II</strong> 。</p>
 
-<p>该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。</p>
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 <strong>IIII</strong>，而是 <strong>IV</strong>。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 <strong>IX</strong>。这个特殊的规则只适用于以下六种情况：</p>
 
-<p>注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。</p>
+<ul>
+<li><strong>I</strong> 可以放在 <strong>V</strong> (5) 和 <strong>X</strong> (10) 的左边，来表示 4 和 9。</li>
+<li><strong>X</strong> 可以放在 <strong>L</strong> (50) 和 <strong>C</strong> (100) 的左边，来表示 40 和 90。</li>
+<li><strong>C</strong> 可以放在 <strong>D</strong> (500) 和 <strong>M</strong> (1000) 的左边，来表示 400 和 900。</li>
+</ul>
 
-<p>在任何情况下，若函数不能进行有效的转换时，请返回 0。</p>
-
-<h4 id="note">Note:</h4>
-
-<p>Only the space character &lsquo; &rsquo; is considered as whitespace character.
-Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2<sup>31</sup>,  2<sup>31</sup> − 1]. If the numerical value is out of the range of representable values, INT_MAX (2<sup>31</sup> − 1) or INT_MIN (−2<sup>31</sup>) is returned.</p>
-
-<p>假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−2<sup>31</sup>,  2<sup>31</sup> − 1]。如果数值超过这个范围，qing返回  INT_MAX (2<sup>31</sup> − 1) 或 INT_MIN (−2<sup>31</sup>) 。</p>
+<p>给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。</p>
 
 <h3 id="示例">示例</h3>
 
 <h4 id="example-1">Example 1:</h4>
 
-<p><strong>Input:</strong> &ldquo;42&rdquo;<br />
-<strong>Output:</strong> 42</p>
+<p><strong>Input:</strong> 3<br />
+<strong>Output:</strong> &ldquo;III&rdquo;</p>
 
 <h4 id="example-2">Example 2:</h4>
 
-<p><strong>Input:</strong> &ldquo;   -42&rdquo;<br />
-<strong>Output:</strong> -42<br />
-<strong>Explanation:</strong> 第一个非空白字符为 &lsquo;-&rsquo;, 它是一个负号。我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。</p>
+<p><strong>Input:</strong> 4<br />
+<strong>Output:</strong> &ldquo;IV&rdquo;</p>
 
 <h4 id="example-3">Example 3:</h4>
 
-<p><strong>Input:</strong> &ldquo;4193 with words&rdquo;<br />
-<strong>Output:</strong> 4193<br />
-<strong>Explanation:</strong> 转换截止于数字 &lsquo;3&rsquo; ，因为它的下一个字符不为数字。</p>
+<p><strong>Input:</strong> 9<br />
+<strong>Output:</strong> &ldquo;IX&rdquo;</p>
 
 <h4 id="example-4">Example 4:</h4>
 
-<p><strong>Input:</strong> &ldquo;words and 987&rdquo;<br />
-<strong>Output:</strong> 0<br />
-<strong>Explanation:</strong> 第一个非空字符是 &lsquo;w&rsquo;, 但它不是数字或正、负号。因此无法执行有效的转换。</p>
+<p><strong>Input:</strong> 58<br />
+<strong>Output:</strong> &ldquo;LVIII&rdquo;<br />
+<strong>Explanation:</strong> L = 50, V = 5, III = 3.</p>
 
 <h4 id="example-5">Example 5:</h4>
 
-<p><strong>Input:</strong> &ldquo;-91283472332&rdquo;<br />
-<strong>Output:</strong> -2147483648<br />
-<strong>Explanation:</strong> 数字 &ldquo;-91283472332&rdquo; 超过 32 位有符号整数范围。 因此返回 INT_MIN (−2<sup>31</sup>) 。</p>
+<p><strong>Input:</strong> 1994<br />
+<strong>Output:</strong> &ldquo;MCMXCIV&rdquo;</p>
+
+<h4 id="explanation-m-1000-cm-900-xc-90-and-iv-4">Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</h4>
 
 <h3 id="思路">思路</h3>
 
-<p>先排除空格与确定正负号，遇到除了空格、数字和正负号的情况返回0。<br />
-用long long 类型做结果储存，减少冗余的判断溢出代码。<br />
-用字符的ASCII码减去48(&lsquo;0&rsquo;)即为int型数字。<br />
-<strong>时间复杂度:O(n)), 空间复杂度：O(1)</strong>。</p>
+<p>建立数字与罗马数字对应的两个数组。<br />
+<strong>时间复杂度:O(log<sub>10</sub>(n)), 空间复杂度：O(1)</strong>。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 4 ms, faster than 96.33% of C++ online submissions for String to Integer (atoi).</li>
-<li>Memory Usage: 8.3 MB, less than 87.42% of C++ online submissions for String to Integer (atoi).</li>
+<li>Runtime: 4 ms, faster than 98.84% of C++ online submissions for Integer to Roman.</li>
+<li>Memory Usage: 8.4 MB, less than 86.47% of C++ online submissions for Integer to Roman.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
 public:
-    int myAtoi(string str) {
-        int i = 0,flag = 1;              // 用 1、-1控制数字正负
-        for(;i &lt; str.size();++i){
-            if(str[i] &gt; 47 &amp;&amp; str[i] &lt; 58){
-                break;
-            }else if(str[i] == '+'){
-                ++i;
-                break;
-            }else if(str[i] == '-'){
-                ++i;
-                flag = -1;               // 负数置flag为-1
-                break;
-            }else if(str[i] == ' '){  
-                continue;
-            }else{
-                return 0;
+    string intToRoman(int num) {
+        int border[] = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        string symbols[] = {&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,&quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;};
+        string res = &quot;&quot;;
+        for(int i = 0; i &lt; 13; ++i){
+            while(num &gt;= border[i]){
+                num -= border[i];
+                res += symbols[i];
             }
         }
-        long long res = 0;
-        for(;i &lt; str.size();++i){
-            if(str[i] &gt; 47 &amp;&amp; str[i] &lt; 58){
-                res = res * 10 + str[i] - 48;
-                if(res * flag &lt; INT_MIN) // 判断溢出
-                    return INT_MIN;
-                if(res * flag &gt; INT_MAX)
-                    return INT_MAX;
-            }else{                       // 不为数字则不继续转换
-                break;
-            }
-        }
-        return res * flag;
+        return res;
     }
 };
 </code></pre>
@@ -281,7 +267,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/>https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/12-integer_to_roman/>https://cuckooemm.xyz/2019/june/12-integer_to_roman/</span>
             </p>
             
              
@@ -316,10 +302,10 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/1-two_sum/" class="prev" rel="prev" title="LeetCode - 1 - Two Sum [Easy]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 1 - Two Sum [Easy]</a>
+        <a href="https://cuckooemm.xyz/2019/june/13-roman_to_integer/" class="prev" rel="prev" title="LeetCode - 13 - Roman to Integer [Easy]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 13 - Roman to Integer [Easy]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/7-reverse_integer/" class="next" rel="next" title="LeetCode - 7 - Reverse Integer [Easy]">LeetCode - 7 - Reverse Integer [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/11-container_with_most_water/" class="next" rel="next" title="LeetCode - 11 - Container With Most Water [Medium]">LeetCode - 11 - Container With Most Water [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
