@@ -5,8 +5,381 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LeetCode - 17 - Letter Combinations of a Phone Number [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/</guid>
+      <description>
+
+&lt;h1 id=&#34;17-letter-combinations-of-a-phone-number&#34;&gt;17.Letter Combinations of a Phone Number&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/letter-combinations-of-a-phone-number/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a string containing digits from &lt;code&gt;2-9&lt;/code&gt; inclusive, return all possible letter combinations that the number could represent.&lt;/p&gt;
+
+&lt;p&gt;A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.&lt;/p&gt;
+
+&lt;p&gt;给定一个仅包含数字 &lt;code&gt;2-9&lt;/code&gt; 的字符串，返回所有它能表示的字母组合。&lt;/p&gt;
+
+&lt;p&gt;给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;23&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; [&amp;ldquo;ad&amp;rdquo;, &amp;ldquo;ae&amp;rdquo;, &amp;ldquo;af&amp;rdquo;, &amp;ldquo;bd&amp;rdquo;, &amp;ldquo;be&amp;rdquo;, &amp;ldquo;bf&amp;rdquo;, &amp;ldquo;cd&amp;rdquo;, &amp;ldquo;ce&amp;rdquo;, &amp;ldquo;cf&amp;rdquo;].&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;Although the above answer is in lexicographical order, your answer could be in any order you want.&lt;br /&gt;
+尽管上面的答案是按字典序排列的，但是你可以任意选择答案输出的顺序。&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;递归实现。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(3&lt;sup&gt;n&lt;/sup&gt; * 4&lt;sup&gt;m&lt;/sup&gt;), 空间复杂度：O(3&lt;sup&gt;n&lt;/sup&gt; * 4&lt;sup&gt;m&lt;/sup&gt;)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Letter Combinations of a Phone Number.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.7 MB, less than 50.00% of C++ online submissions for Letter Combinations of a Phone Number.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+private:
+    string phone(char i){
+        switch(i){
+            case &#39;2&#39; :
+                return &amp;quot;abc&amp;quot;;
+                break;
+            case &#39;3&#39; :
+                return &amp;quot;def&amp;quot;;
+                break;
+            case &#39;4&#39; :
+                return &amp;quot;ghi&amp;quot;;
+                break;
+            case &#39;5&#39; :
+                return &amp;quot;jkl&amp;quot;;
+                break;
+            case &#39;6&#39; :
+                return &amp;quot;mno&amp;quot;;
+                break;
+            case &#39;7&#39; :
+                return &amp;quot;pqrs&amp;quot;;
+                break;
+            case &#39;8&#39; :
+                return &amp;quot;tuv&amp;quot;;
+                break;
+            case &#39;9&#39; :
+                return &amp;quot;wxyz&amp;quot;;
+                break;
+            default:
+                return &amp;quot;&amp;quot;;
+        }
+    }
+public:
+    vector&amp;lt;string&amp;gt; res;
+    vector&amp;lt;string&amp;gt; letterCombinations(string digits) {
+        if(digits.size() == 0) return res;
+        string s = &amp;quot;&amp;quot;;
+        combination(s, digits);
+        return res;
+    }
+    void combination(string c,string digits){
+        if(digits.size() == 0){
+            res.push_back(c);
+            return;
+        }
+        string ch = phone(digits[0]);
+        for(int i = 0; i &amp;lt; ch.size(); ++i){
+            combination(c + ch[i],digits.substr(1));
+        }
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 19 - Remove Nth Node From End of List [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/</guid>
+      <description>
+
+&lt;h1 id=&#34;19-remove-nth-node-from-end-of-list&#34;&gt;19.Remove Nth Node From End of List&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/remove-nth-node-from-end-of-list/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a linked list, remove the n-th node from the end of list and return its head.&lt;/p&gt;
+
+&lt;p&gt;给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;p&gt;Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.&lt;/p&gt;
+
+&lt;p&gt;After removing the second node from the end, the linked list becomes 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;Given n will always be valid.&lt;/p&gt;
+
+&lt;h4 id=&#34;follow-up&#34;&gt;Follow up:&lt;/h4&gt;
+
+&lt;p&gt;Could you do this in one pass?&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;h4 id=&#34;双指针&#34;&gt;双指针&lt;/h4&gt;
+
+&lt;p&gt;右指针先走n次，左指针指向头结点，这时左指针一直指向当前右指针的倒数第n个节点，然后继续向后循环。&lt;br /&gt;
+当右指针到达链表尾部时，左指针指向的下一个节点即为要删除的节点。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 4 ms, faster than 96.74% of C++ online submissions for Remove Nth Node From End of List.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.7 MB, less than 49.56% of C++ online submissions for Remove Nth Node From End of List.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(n == 0){
+            return head;
+        }
+        ListNode* res = new ListNode(0);  // 建立头结点，防止出现n=链表长度删不掉头结点的情况
+        res-&amp;gt;next = head;
+        ListNode* temp = res;
+        for(int i = 1; i &amp;lt; n + 1; ++i){
+            head = head-&amp;gt;next;           
+        }
+        while(NULL != head){
+            head = head-&amp;gt;next;
+            temp = temp-&amp;gt;next;
+        }
+        temp-&amp;gt;next = temp-&amp;gt;next-&amp;gt;next;
+        return res-&amp;gt;next;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 20 - Valid Parentheses [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/20-valid_parentheses/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/20-valid_parentheses/</guid>
+      <description>
+
+&lt;h1 id=&#34;20-valid-parentheses&#34;&gt;20.Valid Parentheses&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/valid-parentheses/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a string containing just the characters &lt;code&gt;&#39;(&#39;&lt;/code&gt;, &lt;code&gt;&#39;)&#39;&lt;/code&gt;, &lt;code&gt;&#39;{&#39;&lt;/code&gt;, &lt;code&gt;&#39;}&#39;&lt;/code&gt;, &lt;code&gt;&#39;[&#39;&lt;/code&gt; and &lt;code&gt;&#39;]&#39;&lt;/code&gt;, determine if the input string is valid.&lt;/p&gt;
+
+&lt;p&gt;An input string is valid if:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Open brackets must be closed by the same type of brackets.&lt;/li&gt;
+&lt;li&gt;Open brackets must be closed in the correct order.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note that an empty string is also considered valid.&lt;/p&gt;
+
+&lt;p&gt;给定一个只包括 &lt;code&gt;&#39;(&#39;&lt;/code&gt;, &lt;code&gt;&#39;)&#39;&lt;/code&gt;, &lt;code&gt;&#39;{&#39;&lt;/code&gt;, &lt;code&gt;&#39;}&#39;&lt;/code&gt;, &lt;code&gt;&#39;[&#39;&lt;/code&gt; and &lt;code&gt;&#39;]&#39;&lt;/code&gt; 的字符串，判断字符串是否有效。&lt;/p&gt;
+
+&lt;p&gt;有效字符串需满足：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;左括号必须用相同类型的右括号闭合。&lt;/li&gt;
+&lt;li&gt;左括号必须以正确的顺序闭合。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;注意空字符串可被认为是有效字符串。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;()&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; true&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt;  &amp;ldquo;()[]{}&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; true&lt;/p&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt;  &amp;ldquo;(]&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; false&lt;/p&gt;
+
+&lt;h4 id=&#34;example-4&#34;&gt;Example 4:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt;  &amp;ldquo;([)]&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; false&lt;/p&gt;
+
+&lt;h4 id=&#34;example-5&#34;&gt;Example 5:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt;  &amp;ldquo;{[]}&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; true&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;使用栈。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(n)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Valid Parentheses.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.7 MB, less than 50.17% of C++ online submissions for Valid Parentheses.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    bool isValid(string s) {
+    if (s.size() == 0) return true;
+    if (s.size() % 1) return false;
+	stack&amp;lt;int&amp;gt; st;
+	for (int i = 0; i &amp;lt; s.size(); ++i)
+	{
+		if (s[i] == &#39;(&#39; || s[i] == &#39;[&#39; || s[i] == &#39;{&#39;){
+			st.push(s[i]);
+		}
+		else if (s[i] == &#39;)&#39;) {
+			if (i == 0 || st.empty() || st.top() != &#39;(&#39;) return false;
+			st.pop();
+		}
+		else if (s[i] == &#39;]&#39;) {
+			if (i == 0 || st.empty() || st.top() != &#39;[&#39;) return false;
+			st.pop();
+		}
+		else if(s[i] == &#39;}&#39;) {
+			if (i == 0 || st.empty() || st.top() != &#39;{&#39;) return false;
+			st.pop();
+		}
+	}
+	return st.empty();
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 21 - Merge Two Sorted Lists [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/21-merge_two_sorted_lists/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/21-merge_two_sorted_lists/</guid>
+      <description>
+
+&lt;h1 id=&#34;21-merge-two-sorted-lists&#34;&gt;21.Merge Two Sorted Lists&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/merge-two-sorted-lists/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.&lt;/p&gt;
+
+&lt;p&gt;将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;比较大小然后修改指针。
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Two Sorted Lists.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 9 MB, less than 60.71% of C++ online submissions for Merge Two Sorted Lists.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(NULL == l1) return l2;
+        if(NULL == l2) return l1;
+        ListNode* head = new ListNode(0);
+        ListNode* res = head;
+        while(l1 &amp;amp;&amp;amp; l2){
+            if(l1-&amp;gt;val &amp;lt;= l2-&amp;gt;val){
+                head-&amp;gt;next = l1;
+                l1 = l1-&amp;gt;next;
+            }else{
+                head-&amp;gt;next = l2;
+                l2 = l2-&amp;gt;next;
+            }
+            head = head-&amp;gt;next;
+        }
+        if(l1)
+            head-&amp;gt;next = l1;
+        else
+            head-&amp;gt;next = l2;
+        return res-&amp;gt;next;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>LeetCode - 11 - Container With Most Water [Medium]</title>
@@ -448,7 +821,7 @@ A solution set is:
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
 
 &lt;p&gt;首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。
-&lt;strong&gt;时间复杂度:O(n&lt;sup&gt;2&lt;/sup&gt;), 空间复杂度：O(n)&lt;/strong&gt;。&lt;/p&gt;
+&lt;strong&gt;时间复杂度:O(n&lt;sup&gt;2&lt;/sup&gt;), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
 
@@ -1013,577 +1386,6 @@ public:
 	return result;
     }
 };
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 2 - Add Two Numbers [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/2-add_two_number/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/2-add_two_number/</guid>
-      <description>
-
-&lt;h1 id=&#34;2-add-two-numbers&#34;&gt;2.Add Two Numbers&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/add-two-numbers/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.&lt;/p&gt;
-
-&lt;p&gt;You may assume the two numbers do not contain any leading zero, except the number 0 itself.&lt;/p&gt;
-
-&lt;p&gt;给定两个非空链表用来表示两个非负整数，它们各自的位数是按照逆序的方式存储的，并且每个节点只能存储一位数字。用链表返回它们的和。&lt;br /&gt;
-你可以假设它们都不会以0开头，除了数字0。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; (2 -&amp;gt; 4 -&amp;gt; 3) + (5 -&amp;gt; 6 -&amp;gt; 4)&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 7 -&amp;gt; 0 -&amp;gt; 8&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; 342 + 465 = 807.&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;用l1作为结果存放位置，节省空间与内存申请的时间。&lt;br /&gt;
-之前用第三个链表保存结果，这次写博客又想到了用&lt;code&gt;l1&lt;/code&gt;参数自身保存结果，空间复杂度降到了&lt;code&gt;O(1)&lt;/code&gt;。&lt;br /&gt;
-没什么说的，挺简单的中等难度题。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(max(l1,l2)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 20 ms, faster than 97.42% of C++ online submissions for Add Two Numbers.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 9.9 MB, less than 96.42% of C++ online submissions for Add Two Numbers.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        int t = 0;                 //保存进位
-        ListNode* list = l1;       // 保存头结点
-        ListNode* pre;             // 保存l1的上一个节点
-        while(l1 != NULL &amp;amp;&amp;amp; l2 != NULL){
-            t += l1-&amp;gt;val + l2-&amp;gt;val;
-            pre = l1;
-            l1-&amp;gt;val = t % 10;
-            t /= 10;
-            l1 = l1-&amp;gt;next;
-            l2 = l2-&amp;gt;next;
-        }
-        if(l2 != NULL){           // l2 不为NULL 
-           pre-&amp;gt;next = l2;        // 则把l2接到l1
-           l1 = pre-&amp;gt;next;        // 之前的l1指针已被更改 需重新赋值
-        }
-        while(l1 != NULL){
-            if(t != 0){           // 循环 存在 1 + 9一直存在进位的情况
-                t += l1-&amp;gt;val;
-                pre = l1;
-                l1-&amp;gt;val = t % 10;
-                t /= 10;
-                l1 = l1-&amp;gt;next;
-            }else{
-                return list;     // t=0 直接返回
-            }
-        }
-        if(t != 0){              // 如果l1 l2 同时为NULL 则可能产生进位情况
-            pre-&amp;gt;next = new ListNode(t);
-        }
-        return list;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/</guid>
-      <description>
-
-&lt;h1 id=&#34;3-longest-substring-without-repeating-characters&#34;&gt;3.Longest Substring Without Repeating Characters&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/longest-substring-without-repeating-characters/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given a string, find the length of the longest substring without repeating characters.&lt;/p&gt;
-
-&lt;p&gt;给定一个字符串，找出不含重复字符的最长子串。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;abcabcbb&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 3&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; The answer is &amp;ldquo;abc&amp;rdquo;, with the length of 3.&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;bbbbb&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 1&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; The answer is &amp;ldquo;b&amp;rdquo;, with the length of 1.&lt;/p&gt;
-
-&lt;h4 id=&#34;example-3&#34;&gt;Example 3&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;bbbbb&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 1&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; The answer is &amp;ldquo;b&amp;rdquo;, with the length of 1.&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;h4 id=&#34;双指针&#34;&gt;双指针&lt;/h4&gt;
-
-&lt;p&gt;用7位ASCII码值作为key保存出现过的字符，定义一个左指针，循环比较字典中保存的字符的索引是否大于左指针，如果当前字典中字符的值大于左指针，说明之前已经出现，把上次出现的索引保存到start,然后把新的出现的位置保存到字典，再比较本次长度与上次长度比较赋值给len,返回最大长度。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 12 ms, faster than 94.97% of C++ online submissions for Longest Substring Without Repeating Characters.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 9.8 MB, less than 85.66% of C++ online submissions for Longest Substring Without Repeating Characters.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    int lengthOfLongestSubstring(string s) {
-        vector&amp;lt;int&amp;gt; dict(128,-1);     // 用ASCII作key，初始值为-1(int数组无法赋初始值为-1，踩了半天这坑)。
-        int start = -1,len = 0;       // 初始左指针位置
-        for(int i = 0; i &amp;lt; s.size(); ++i){
-            if(dict[s[i]] &amp;gt; start){   // 值大于start说明出现重复
-                start = dict[s[i]];   // 把重复的位置保存到左指针
-            }
-            dict[s[i]] = i;           // 根据key把值改为索引
-            len = max(len,i - start); // 比较每次的字符串长度
-        }
-        return len;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Git(2)</title>
-      <link>https://cuckooemm.xyz/2019/may/git2/</link>
-      <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/may/git2/</guid>
-      <description>
-
-&lt;h3 id=&#34;分支&#34;&gt;分支&lt;/h3&gt;
-
-&lt;h4 id=&#34;创建分支&#34;&gt;创建分支&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;-b&lt;/code&gt; 表示创建并切换&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git checkout -b &amp;lt;name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;等同于&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git branch &amp;lt;name&amp;gt;
-git checkout &amp;lt;name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;查看当前分支&#34;&gt;查看当前分支&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;git branch&lt;/code&gt;命令会列出所有分支，当前分支前面会标一个&lt;code&gt;*&lt;/code&gt;号。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git branch
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;切换分支&#34;&gt;切换分支&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git checkout &amp;lt;name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;合并分支&#34;&gt;合并分支&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git merge &amp;lt;name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;git merge&lt;/code&gt;命令用于合并指定分支到当前分支。 &lt;code&gt;Fast-forward&lt;/code&gt; 信息表示快进模式&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git merge --no-ff -m &amp;quot;merge with no-ff&amp;quot; &amp;lt;name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;--no-ff&lt;/code&gt;参数，表示禁用&lt;code&gt;Fast forward&lt;/code&gt;
-因为本次合并要创建一个新的commit，所以加上&lt;code&gt;-m&lt;/code&gt;参数，把&lt;code&gt;commit&lt;/code&gt;描述写进去。&lt;/p&gt;
-
-&lt;h4 id=&#34;删除分支&#34;&gt;删除分支&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git branch -d &amp;lt;name&amp;gt; 
-git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;环境保存与恢复&#34;&gt;环境保存与恢复&lt;/h3&gt;
-
-&lt;h4 id=&#34;保存现场&#34;&gt;保存现场&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git stash
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;查看现场保存位置&#34;&gt;查看现场保存位置&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git stash list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;现场恢复&#34;&gt;现场恢复&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;git stash apply&lt;/code&gt; 恢复现场但不删除记录，调用&lt;code&gt;git stash drop&lt;/code&gt;删除&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;git stash pop&lt;/code&gt; 恢复且删除&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git stash &amp;lt;apply or pop&amp;gt; &amp;lt;stash&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;标签&#34;&gt;标签&lt;/h3&gt;
-
-&lt;h4 id=&#34;创建标签&#34;&gt;创建标签&lt;/h4&gt;
-
-&lt;p&gt;在当前分支打标签&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag &amp;lt;tagname&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;指定commitid 打标签&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag  &amp;lt;tagname&amp;gt; &amp;lt;commitid&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;为标签添加说明&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag -a &amp;lt;tagname&amp;gt; -m &amp;quot;explain&amp;quot; &amp;lt;commitid&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;查看所有标签&#34;&gt;查看所有标签&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;查看标签信息&#34;&gt;查看标签信息&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git show &amp;lt;tagname&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;标签删除&#34;&gt;标签删除&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git tag -d &amp;lt;tagname&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;远程删除&#34;&gt;远程删除&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;host&amp;gt; :refs/tags/&amp;lt;tagname&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;标签推送&#34;&gt;标签推送&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;host&amp;gt; &amp;lt;tagname&amp;gt;
-git push &amp;lt;host&amp;gt; --tags // 推送所有
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Git(1)</title>
-      <link>https://cuckooemm.xyz/2019/may/git1/</link>
-      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/may/git1/</guid>
-      <description>
-
-&lt;h1 id=&#34;git命令&#34;&gt;Git命令&lt;/h1&gt;
-
-&lt;p&gt;写一下git的命令以便忘记时查找&lt;/p&gt;
-
-&lt;h3 id=&#34;获取帮助&#34;&gt;获取帮助&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git help &amp;lt;verb&amp;gt;
-git &amp;lt;verb&amp;gt; --help
-man git-&amp;lt;verv&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;config&#34;&gt;config&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;git config针对一个git仓库&lt;/li&gt;
-&lt;li&gt;git config &amp;ndash;global针对一个用户&lt;/li&gt;
-&lt;li&gt;sudo git config &amp;ndash;system针对一个系统，因为是针对整个系统的，所以必须使用sudo&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;个人信息&#34;&gt;个人信息&lt;/h4&gt;
-
-&lt;p&gt;用于提交git时显示的个人信息&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global user.name &amp;quot;your name&amp;quot;
-git config --global user.email &amp;quot;your email&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;仓库独立指定&#34;&gt;仓库独立指定&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config user.name &amp;quot;your name&amp;quot;
-git config user.email &amp;quot;your email&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;不加 - -global&lt;/p&gt;
-
-&lt;h4 id=&#34;配置编辑器&#34;&gt;配置编辑器&lt;/h4&gt;
-
-&lt;p&gt;默认缺省编辑器 为vi or vim。 如想使用emacs&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global core.editor emacs
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;配置比较工具&#34;&gt;配置比较工具&lt;/h4&gt;
-
-&lt;p&gt;用于解决合并时的冲突，如vimdiff&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global merge.tool vimdiff
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;配置别名&#34;&gt;配置别名&lt;/h4&gt;
-
-&lt;p&gt;如 git status 设置别名 st&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global alias.st status
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;推荐设置别名&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global alias.lg &amp;quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&#39; --abbrev-commit&amp;quot; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;输入&lt;code&gt;q&lt;/code&gt;退出&lt;/p&gt;
-
-&lt;h4 id=&#34;检查配置&#34;&gt;检查配置&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;删除config-key值&#34;&gt;删除config key值&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git config --global --unset key
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;gitignore文件&#34;&gt;.gitignore文件&lt;/h4&gt;
-
-&lt;p&gt;设置文件监控规则
-文档描述gitignore语法规则有五条：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;忽略空白行或以#开始的行（注释）；&lt;/li&gt;
-&lt;li&gt;按照标准glob工作，并递归应用于整个工作目录（参考glob）；&lt;/li&gt;
-&lt;li&gt;模式以/打头，禁止递归工作；&lt;/li&gt;
-&lt;li&gt;模式以/结尾，限定特定目录；&lt;/li&gt;
-&lt;li&gt;使用感叹号!对模式含义取反；&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;gitignore规则细化补充如下：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;通用的规则应该写在前面，专有的放后面。&lt;/li&gt;
-&lt;li&gt;规则中不含有/的，则当作通配符处理，每个目录迭代检查；&lt;/li&gt;
-&lt;li&gt;规则以/结尾的，仅限于目录，而不包含同名的链接和文件；&lt;/li&gt;
-&lt;li&gt;模式以连续两个星号和/打头(**/)时，和移除**/含义相同；&lt;/li&gt;
-&lt;li&gt;模式以连续两个型号结尾时，表示匹配其下一切内容，含子目录；&lt;/li&gt;
-&lt;li&gt;模式中间包含/**/时，**匹配0个或多个目录；比如：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;克隆git仓库到本地&#34;&gt;克隆git仓库到本地&lt;/h3&gt;
-
-&lt;h4 id=&#34;clone&#34;&gt;clone&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git clone url //支持git、http(s)、ssh等协议
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;默认只有&lt;code&gt;master&lt;/code&gt;分支&lt;/p&gt;
-
-&lt;h5 id=&#34;链接分支&#34;&gt;链接分支&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;在本地创建和远程分支对应的分支，使用&lt;code&gt;git checkout -b branch-name origin/branch-name&lt;/code&gt;，本地和远程分支的名称最好一致&lt;/li&gt;
-&lt;li&gt;建立本地分支和远程分支的关联，使用git branch &amp;ndash;set-upstream branch-name origin/branch-name&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;fetch&#34;&gt;fetch&lt;/h4&gt;
-
-&lt;p&gt;拉取远程更新到本地，可指定分支 对本地代码无影响&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git fetch &amp;lt;shortname&amp;gt; &amp;lt;分支名&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;pull&#34;&gt;pull&lt;/h4&gt;
-
-&lt;p&gt;拉取远程分支的更新并合并 远程分支与当前分支合并可省略&lt;code&gt;:&lt;/code&gt;后部分&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git pull &amp;lt;shortname&amp;gt; &amp;lt;远程分之名&amp;gt;:&amp;lt;本地分支名&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;默认在本地分支与远程分支建立追踪关系
-也可以手动建立追踪关系&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git branch --set-upstream &amp;lt;分支&amp;gt; \&amp;lt;分支&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果远程分支已删除 pull不会删除本地分支&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git pull -p //本地删除远程已删除的分支
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;push&#34;&gt;push&lt;/h4&gt;
-
-&lt;p&gt;推送本地更新，与 pull相仿
-如果远程分支不存在，则新建&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;shortname&amp;gt; &amp;lt;本地分支&amp;gt;:&amp;lt;远程分支&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;省略本地分支名 等于删除远程分支&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;shortname&amp;gt; :&amp;lt;远程分支&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;等同&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git push &amp;lt;shortname&amp;gt; --delete master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果存在多个远程追踪关系，使用&lt;code&gt;-u&lt;/code&gt;指定一个默认主机&lt;/p&gt;
-
-&lt;h3 id=&#34;添加文件&#34;&gt;添加文件&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git add .  // 把所有变化提交到暂存区 包括修改和新建 不包括删除
-git add -u // 把添加的文件中修改的文件提交到暂存区(包含删除) 不添加新文件
-git add -A // all
-git add &amp;lt;file&amp;gt;... // 可添加多个文件
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://git-scm.com/docs/git-add&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;官网文档&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;查看当前文件状态&#34;&gt;查看当前文件状态&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git status
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;查看已暂存和未暂存的更改&#34;&gt;查看已暂存和未暂存的更改&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git diff
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;以暂存的和上次提交的更改&#34;&gt;以暂存的和上次提交的更改&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git diff --cached 
-git diff --staged
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;提交&#34;&gt;提交&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git commit //启动默认编辑器输入更新说明
-git commit -m &amp;quot;更新内容&amp;quot; // 加-m 在之后输入更新说明
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;跳过使用暂存区域&#34;&gt;跳过使用暂存区域&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git commit -a // 跳过 add 步骤
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;移除文件&#34;&gt;移除文件&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;rm &amp;lt;file&amp;gt;...&lt;/code&gt;
-移除版本控制并从工作目录中删除&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;git rm -f &amp;lt;file&amp;gt;...&lt;/code&gt;
-移除已添加到暂存区的文件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;git rm --cached &amp;lt;file&amp;gt;&lt;/code&gt;
-不进行版本控制但保留文件&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;移动文件-or-改名&#34;&gt;移动文件 or 改名&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git mv file_from file_to 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;运行&lt;code&gt;git mv&lt;/code&gt;相当于下面三条命令&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;mv README.txt README
-git rm README.txt
-git add README
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;撤销修改&#34;&gt;撤销修改&lt;/h3&gt;
-
-&lt;p&gt;使文件回到最后一次&lt;code&gt;add&lt;/code&gt; or &lt;code&gt;commit&lt;/code&gt; 时的状态&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git checkout -- &amp;lt;file&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;版本回退&#34;&gt;版本回退&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git log  查看记录
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;HEAD 表示当前版本&lt;/li&gt;
-&lt;li&gt;上一个为 HEAD^&lt;/li&gt;
-&lt;li&gt;上上个为 HEAD^^&lt;/li&gt;
-&lt;li&gt;上100个为 HEAD~100&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;也可指定回退版本的commitid
-&lt;code&gt;--hard&lt;/code&gt; 彻底回退到某个版本
-&lt;code&gt;--soft&lt;/code&gt; 只回退 commit 信息&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git rest --hard HEAD^
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;撤销回退&#34;&gt;撤销回退&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git rest --hard commitid
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;git reflog&lt;/code&gt; 记录HEAD的修改&lt;/p&gt;
-
-&lt;h3 id=&#34;远程库管理&#34;&gt;远程库管理&lt;/h3&gt;
-
-&lt;h4 id=&#34;列出管理的远程库&#34;&gt;列出管理的远程库&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote -v 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;本地关联远程库&#34;&gt;本地关联远程库&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote add &amp;lt;shortname&amp;gt; url
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;远程库重命名&#34;&gt;远程库重命名&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote rename &amp;lt;oldname&amp;gt; &amp;lt;newname&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;删除关联远程库&#34;&gt;删除关联远程库&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;git remote rm &amp;lt;shortname&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

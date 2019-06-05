@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/12-integer_to_roman/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/21-merge_two_sorted_lists/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/11-container_with_most_water/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/20-valid_parentheses/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           LeetCode - 11 - Container With Most Water [Medium] | Cuckooemm&#39;s Blog
+           LeetCode - 19 - Remove Nth Node From End of List [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="LeetCode - 11 - Container With Most Water [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 19 - Remove Nth Node From End of List [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "LeetCode - 11 - Container With Most Water [Medium]",
-    "headline" : "LeetCode - 11 - Container With Most Water [Medium]",
-    "description" : "11.Container With Most Water 地址\n难度：Medium\n题目描述 Given n non-negative integers a1, a2, \x26hellip;, an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.\n给定 n 个非负整数 a1，a2，\x26hellip;，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。",
+    "name" : "LeetCode - 19 - Remove Nth Node From End of List [Medium]",
+    "headline" : "LeetCode - 19 - Remove Nth Node From End of List [Medium]",
+    "description" : "19.Remove Nth Node From End of List 地址\n难度：Medium\n题目描述 Given a linked list, remove the n-th node from the end of list and return its head.\n给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。\n示例 Example: Given linked list: 1-\x26gt;2-\x26gt;3-\x26gt;4-\x26gt;5, and n = 2.\nAfter removing the second node from the end, the linked list becomes 1-\x26gt;2-\x26gt;3-\x26gt;5.\nNote: Given n will always be valid.\nFollow up: Could you do this in one pass?",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,10 +54,10 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-03 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-06-03 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/11-container_with_most_water\/",
-    "wordCount" : "184",
+    "datePublished": "2019-06-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/19-remove_nth_node_from_end_of_list\/",
+    "wordCount" : "201",
     "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -116,11 +116,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">LeetCode - 11 - Container With Most Water [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 19 - Remove Nth Node From End of List [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-06-03 itemprop="datePublished">June 3, 2019</time>
+                on <time datetime=2019-06-05 itemprop="datePublished">June 5, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -148,58 +148,76 @@
 
           
 
-<h1 id="11-container-with-most-water">11.Container With Most Water</h1>
+<h1 id="19-remove-nth-node-from-end-of-list">19.Remove Nth Node From End of List</h1>
 
-<p><a href="https://leetcode.com/problems/container-with-most-water/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" rel="nofollow noreferrer" target="_blank">地址</a><br />
 <strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Given n non-negative integers a<sub>1</sub>, a<sub>2</sub>, &hellip;, a<sub>n</sub> , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p>
+<p>Given a linked list, remove the n-th node from the end of list and return its head.</p>
 
-<p>给定 n 个非负整数 a<sub>1</sub>，a<sub>2</sub>，&hellip;，a<sub>n</sub>，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
-
-<h4 id="note">Note:</h4>
-
-<p>You may not slant the container and n is at least 2.<br />
-你不能倾斜容器，且 n 的值至少为 2。</p>
+<p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
 
 <h3 id="示例">示例</h3>
 
 <h4 id="example">Example:</h4>
 
-<p><strong>Input:</strong> [1,8,6,2,5,4,8,3,7]<br />
-<strong>Output:</strong> 49</p>
+<p>Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.</p>
 
-<h3 id="思考">思考</h3>
+<p>After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.</p>
 
-<h4 id="双指针法">双指针法</h4>
+<h4 id="note">Note:</h4>
 
-<p>定义指向头的左指针和指向尾的右指针，比较每次的值取最大。<br />
-因为横向只会减少，面积最大需要移动高小的值，所以选择左右指针值小的位置移动，左指针++，右指针&ndash;。
+<p>Given n will always be valid.</p>
+
+<h4 id="follow-up">Follow up:</h4>
+
+<p>Could you do this in one pass?</p>
+
+<h3 id="思路">思路</h3>
+
+<h4 id="双指针">双指针</h4>
+
+<p>右指针先走n次，左指针指向头结点，这时左指针一直指向当前右指针的倒数第n个节点，然后继续向后循环。<br />
+当右指针到达链表尾部时，左指针指向的下一个节点即为要删除的节点。<br />
 <strong>时间复杂度:O(n), 空间复杂度：O(1)</strong>。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 16 ms, faster than 98.03% of C++ online submissions for Container With Most Water.</li>
-<li>Memory Usage: 9.9 MB, less than 54.65% of C++ online submissions for Container With Most Water.</li>
+<li>Runtime: 4 ms, faster than 96.74% of C++ online submissions for Remove Nth Node From End of List.</li>
+<li>Memory Usage: 8.7 MB, less than 49.56% of C++ online submissions for Remove Nth Node From End of List.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
-<pre><code class="language-c++">class Solution {
+<pre><code class="language-c++">/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
 public:
-    int maxArea(vector&lt;int&gt;&amp; height) {
-        int maxArea = 0,l = 0,r = height.size() - 1;
-        while(l &lt; r){
-            maxArea = max(maxArea,min(height[l],height[r]) * (r - l));  // 取最大值
-            if(height[l] &lt; height[r])
-                ++l;
-            else
-                --r;
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(n == 0){
+            return head;
         }
-        return maxArea;
+        ListNode* res = new ListNode(0);  // 建立头结点，防止出现n=链表长度删不掉头结点的情况
+        res-&gt;next = head;
+        ListNode* temp = res;
+        for(int i = 1; i &lt; n + 1; ++i){
+            head = head-&gt;next;           
+        }
+        while(NULL != head){
+            head = head-&gt;next;
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = temp-&gt;next-&gt;next;
+        return res-&gt;next;
     }
 };
 </code></pre>
@@ -217,7 +235,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/11-container_with_most_water/>https://cuckooemm.xyz/2019/june/11-container_with_most_water/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/>https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/</span>
             </p>
             
              
@@ -252,10 +270,10 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/12-integer_to_roman/" class="prev" rel="prev" title="LeetCode - 12 - Integer to Roman [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 12 - Integer to Roman [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/june/20-valid_parentheses/" class="prev" rel="prev" title="LeetCode - 20 - Valid Parentheses [Easy]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 20 - Valid Parentheses [Easy]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/21-merge_two_sorted_lists/" class="next" rel="next" title="LeetCode - 21 - Merge Two Sorted Lists [Easy]">LeetCode - 21 - Merge Two Sorted Lists [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/" class="next" rel="next" title="LeetCode - 17 - Letter Combinations of a Phone Number [Medium]">LeetCode - 17 - Letter Combinations of a Phone Number [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

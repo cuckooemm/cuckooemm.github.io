@@ -6,10 +6,42 @@
     <description>Recent content in LeetCode-Medium on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/tags/leetcode-medium/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LeetCode - 17 - Letter Combinations of a Phone Number [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/</guid>
+      <description>17.Letter Combinations of a Phone Number 地址
+难度：Medium
+题目描述 Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
+A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
+给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+示例 Example: Input: &amp;ldquo;23&amp;rdquo;
+Output: [&amp;ldquo;ad&amp;rdquo;, &amp;ldquo;ae&amp;rdquo;, &amp;ldquo;af&amp;rdquo;, &amp;ldquo;bd&amp;rdquo;, &amp;ldquo;be&amp;rdquo;, &amp;ldquo;bf&amp;rdquo;, &amp;ldquo;cd&amp;rdquo;, &amp;ldquo;ce&amp;rdquo;, &amp;ldquo;cf&amp;rdquo;].</description>
+    </item>
+    
+    <item>
+      <title>LeetCode - 19 - Remove Nth Node From End of List [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/</guid>
+      <description>19.Remove Nth Node From End of List 地址
+难度：Medium
+题目描述 Given a linked list, remove the n-th node from the end of list and return its head.
+给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+示例 Example: Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.
+After removing the second node from the end, the linked list becomes 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.
+Note: Given n will always be valid.
+Follow up: Could you do this in one pass?</description>
+    </item>
     
     <item>
       <title>LeetCode - 11 - Container With Most Water [Medium]</title>
@@ -48,7 +80,7 @@ Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written a
 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
 Note: The solution set must not contain duplicate triplets.
 答案中不可以包含重复的三元组。
-示例 Example: Given array nums = [-1, 0, 1, 2, -1, -4], A solution set is: [ [-1, 0, 1], [-1, -1, 2] ]  思路 首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。 时间复杂度:O(n2), 空间复杂度：O(n)。</description>
+示例 Example: Given array nums = [-1, 0, 1, 2, -1, -4], A solution set is: [ [-1, 0, 1], [-1, -1, 2] ]  思路 首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。 时间复杂度:O(n2), 空间复杂度：O(1)。</description>
     </item>
     
     <item>
