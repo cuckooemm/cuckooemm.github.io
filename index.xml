@@ -5,8 +5,95 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LeetCode - 23 - Merge k Sorted Lists [Hard]</title>
+      <link>https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/</guid>
+      <description>
+
+&lt;h1 id=&#34;23-merge-k-sorted-lists&#34;&gt;23.Merge k Sorted Lists&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/merge-k-sorted-lists/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Hard&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.&lt;/p&gt;
+
+&lt;p&gt;合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。&lt;/p&gt;
+
+&lt;h3 id=&#34;实例&#34;&gt;实例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt;&lt;br /&gt;
+[&lt;br /&gt;
+  1-&amp;gt;4-&amp;gt;5,&lt;br /&gt;
+  1-&amp;gt;3-&amp;gt;4,&lt;br /&gt;
+  2-&amp;gt;6&lt;br /&gt;
+]&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5-&amp;gt;6&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;使用优先队列解决。
+&lt;strong&gt;时间复杂度:O(n log k), 空间复杂度：O(k)。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 20 ms, faster than 99.55% of C++ online submissions for Merge k Sorted Lists.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 11.3 MB, less than 65.67% of C++ online submissions for Merge k Sorted Lists.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+private:
+    struct cmp{
+        bool operator()(ListNode* l,ListNode* r){
+            return l-&amp;gt;val &amp;gt; r-&amp;gt;val;
+        }
+    };
+public:
+    ListNode* mergeKLists(vector&amp;lt;ListNode*&amp;gt;&amp;amp; lists) {
+        if(lists.empty()) return NULL;
+        priority_queue&amp;lt;ListNode*,vector&amp;lt;ListNode*&amp;gt;,cmp&amp;gt; p;
+        ListNode* head = new ListNode(0);
+        ListNode* cur = head;
+        for(int i = 0; i &amp;lt; lists.size(); ++i){
+            if(lists[i] != NULL){                  // 不为空加入优先队列
+                p.push(lists[i]);
+            }
+        }
+        while(!p.empty()){
+            cur-&amp;gt;next = p.top();
+            cur = cur-&amp;gt;next;
+            p.pop();
+            if(cur-&amp;gt;next != NULL){
+                p.push(cur-&amp;gt;next);         
+            }
+        }
+        return head-&amp;gt;next;
+    }
+    
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>LeetCode - 17 - Letter Combinations of a Phone Number [Medium]</title>
@@ -1247,136 +1334,6 @@ public:
             rev = rev * 10 + pop;
         }
         return rev;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 8 - String to Integer(atoi) [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/</guid>
-      <description>
-
-&lt;h1 id=&#34;8-string-to-integer-atoi&#34;&gt;8.String to Integer(atoi)&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/string-to-integer-atoi/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Implement atoi which converts a string to an integer.&lt;/p&gt;
-
-&lt;p&gt;The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.&lt;/p&gt;
-
-&lt;p&gt;The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.&lt;/p&gt;
-
-&lt;p&gt;If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.&lt;/p&gt;
-
-&lt;p&gt;If no valid conversion could be performed, a zero value is returned.&lt;/p&gt;
-
-&lt;p&gt;实现一个 atoi 函数，使其能将字符串转换成整数。&lt;/p&gt;
-
-&lt;p&gt;首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。&lt;/p&gt;
-
-&lt;p&gt;当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。&lt;/p&gt;
-
-&lt;p&gt;该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。&lt;/p&gt;
-
-&lt;p&gt;注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。&lt;/p&gt;
-
-&lt;p&gt;在任何情况下，若函数不能进行有效的转换时，请返回 0。&lt;/p&gt;
-
-&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
-
-&lt;p&gt;Only the space character &amp;lsquo; &amp;rsquo; is considered as whitespace character.
-Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1]. If the numerical value is out of the range of representable values, INT_MAX (2&lt;sup&gt;31&lt;/sup&gt; − 1) or INT_MIN (−2&lt;sup&gt;31&lt;/sup&gt;) is returned.&lt;/p&gt;
-
-&lt;p&gt;假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1]。如果数值超过这个范围，qing返回  INT_MAX (2&lt;sup&gt;31&lt;/sup&gt; − 1) 或 INT_MIN (−2&lt;sup&gt;31&lt;/sup&gt;) 。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;42&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 42&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;   -42&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; -42&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; 第一个非空白字符为 &amp;lsquo;-&amp;rsquo;, 它是一个负号。我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。&lt;/p&gt;
-
-&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;4193 with words&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 4193&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; 转换截止于数字 &amp;lsquo;3&amp;rsquo; ，因为它的下一个字符不为数字。&lt;/p&gt;
-
-&lt;h4 id=&#34;example-4&#34;&gt;Example 4:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;words and 987&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 0&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; 第一个非空字符是 &amp;lsquo;w&amp;rsquo;, 但它不是数字或正、负号。因此无法执行有效的转换。&lt;/p&gt;
-
-&lt;h4 id=&#34;example-5&#34;&gt;Example 5:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;-91283472332&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; -2147483648&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; 数字 &amp;ldquo;-91283472332&amp;rdquo; 超过 32 位有符号整数范围。 因此返回 INT_MIN (−2&lt;sup&gt;31&lt;/sup&gt;) 。&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;先排除空格与确定正负号，遇到除了空格、数字和正负号的情况返回0。&lt;br /&gt;
-用long long 类型做结果储存，减少冗余的判断溢出代码。&lt;br /&gt;
-用字符的ASCII码减去48(&amp;lsquo;0&amp;rsquo;)即为int型数字。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(n)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 4 ms, faster than 96.33% of C++ online submissions for String to Integer (atoi).&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.3 MB, less than 87.42% of C++ online submissions for String to Integer (atoi).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    int myAtoi(string str) {
-        int i = 0,flag = 1;              // 用 1、-1控制数字正负
-        for(;i &amp;lt; str.size();++i){
-            if(str[i] &amp;gt; 47 &amp;amp;&amp;amp; str[i] &amp;lt; 58){
-                break;
-            }else if(str[i] == &#39;+&#39;){
-                ++i;
-                break;
-            }else if(str[i] == &#39;-&#39;){
-                ++i;
-                flag = -1;               // 负数置flag为-1
-                break;
-            }else if(str[i] == &#39; &#39;){  
-                continue;
-            }else{
-                return 0;
-            }
-        }
-        long long res = 0;
-        for(;i &amp;lt; str.size();++i){
-            if(str[i] &amp;gt; 47 &amp;amp;&amp;amp; str[i] &amp;lt; 58){
-                res = res * 10 + str[i] - 48;
-                if(res * flag &amp;lt; INT_MIN) // 判断溢出
-                    return INT_MIN;
-                if(res * flag &amp;gt; INT_MAX)
-                    return INT_MAX;
-            }else{                       // 不为数字则不继续转换
-                break;
-            }
-        }
-        return res * flag;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
