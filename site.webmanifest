@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "cuckooemm",
+    "short_name": "博客",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
