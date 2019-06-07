@@ -5,8 +5,85 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 06 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LeetCode - 24 - Swap Nodes in Pairs [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/</guid>
+      <description>
+
+&lt;h1 id=&#34;24-swap-nodes-in-pairs&#34;&gt;24.Swap Nodes in Pairs&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/swap-nodes-in-pairs/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a linked list, swap every two adjacent nodes and return its head.&lt;/p&gt;
+
+&lt;p&gt;You may not modify the values in the list&amp;rsquo;s nodes, only nodes itself may be changed.&lt;/p&gt;
+
+&lt;p&gt;给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。&lt;/p&gt;
+
+&lt;p&gt;你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;p&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;交换指针。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Swap Nodes in Pairs.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.8 MB, less than 47.42% of C++ online submissions for Swap Nodes in Pairs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        if(head == NULL) return head;
+        ListNode* cur = new ListNode(0);
+        ListNode* res = cur;
+        res-&amp;gt;next = head;
+        ListNode* temp;
+        while(head){
+            if(head-&amp;gt;next == NULL) break;
+                temp = head;
+                cur-&amp;gt;next = head-&amp;gt;next;
+                cur = cur-&amp;gt;next;
+                head = head-&amp;gt;next-&amp;gt;next;
+                cur-&amp;gt;next = temp;
+                cur = cur-&amp;gt;next;
+                cur-&amp;gt;next = head;
+            
+        }
+        return res-&amp;gt;next;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>LeetCode - 23 - Merge k Sorted Lists [Hard]</title>
@@ -1260,80 +1337,6 @@ public:
             }
         }
         return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 7 - Reverse Integer [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/7-reverse_integer/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/7-reverse_integer/</guid>
-      <description>
-
-&lt;h1 id=&#34;7-reverse-integer&#34;&gt;7.Reverse Integer&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/reverse-integer/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given a 32-bit signed integer, reverse digits of an integer.&lt;/p&gt;
-
-&lt;p&gt;给定一个32位有符号整数，对整数的每位数字进行反转。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 123&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 321&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; -123&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; -321&lt;/p&gt;
-
-&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 120&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 21&lt;/p&gt;
-
-&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
-
-&lt;p&gt;Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.&lt;/p&gt;
-
-&lt;p&gt;假设我们的环境只能存储32位范围内的带符号整数：[−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1]。整数反转溢出时返回0。&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;主要是溢出判断&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(log&lt;sub&gt;10&lt;/sub&gt;(x)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Reverse Integer.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.5 MB, less than 54.65% of C++ online submissions for Reverse Integer.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    int reverse(int x) {
-        int rev = 0;
-        while (x != 0) {
-            int pop = x % 10;
-            x /= 10;
-            if (rev &amp;gt; INT_MAX / 10 || (rev == INT_MAX / 10 &amp;amp;&amp;amp; pop &amp;gt; 7)) return 0;
-            if (rev &amp;lt; INT_MIN / 10 || (rev == INT_MIN / 10 &amp;amp;&amp;amp; pop &amp;lt; -8)) return 0;
-            rev = rev * 10 + pop;
-        }
-        return rev;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;

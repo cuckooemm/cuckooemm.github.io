@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           LeetCode - 23 - Merge k Sorted Lists [Hard] | Cuckooemm&#39;s Blog
+           LeetCode - 24 - Swap Nodes in Pairs [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="LeetCode - 23 - Merge k Sorted Lists [Hard] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 24 - Swap Nodes in Pairs [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "LeetCode - 23 - Merge k Sorted Lists [Hard]",
-    "headline" : "LeetCode - 23 - Merge k Sorted Lists [Hard]",
-    "description" : "23.Merge k Sorted Lists 地址\n难度：Hard\n题目描述 Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.\n合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。\n实例 Example: Input:\n[\n1-\x26gt;4-\x26gt;5,\n1-\x26gt;3-\x26gt;4,\n2-\x26gt;6\n]\nOutput: 1-\x26gt;1-\x26gt;2-\x26gt;3-\x26gt;4-\x26gt;4-\x26gt;5-\x26gt;6\n思路 使用优先队列解决。 时间复杂度:O(n log k), 空间复杂度：O(k)。\nAC  Runtime: 20 ms, faster than 99.55% of C\x2b\x2b online submissions for Merge k Sorted Lists. Memory Usage: 11.3 MB, less than 65.67% of C\x2b\x2b online submissions for Merge k Sorted Lists.",
+    "name" : "LeetCode - 24 - Swap Nodes in Pairs [Medium]",
+    "headline" : "LeetCode - 24 - Swap Nodes in Pairs [Medium]",
+    "description" : "24.Swap Nodes in Pairs 地址\n难度：Medium\n题目描述 Given a linked list, swap every two adjacent nodes and return its head.\nYou may not modify the values in the list\x26rsquo;s nodes, only nodes itself may be changed.\n给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。\n你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。\n示例 Example: Given 1-\x26gt;2-\x26gt;3-\x26gt;4, you should return the list as 2-\x26gt;1-\x26gt;4-\x26gt;3.\n思路 交换指针。\n时间复杂度:O(n), 空间复杂度：O(1)。\nAC  Runtime: 0 ms, faster than 100.00% of C\x2b\x2b online submissions for Swap Nodes in Pairs.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-06 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-06-06 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/23-merge_k_sorted_lists\/",
-    "wordCount" : "171",
-    "keywords" : [ "algorithm","LeetCode-Hard","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-06-07 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-07 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/24-swap_nodes_in_pairs\/",
+    "wordCount" : "170",
+    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,11 +124,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">LeetCode - 23 - Merge k Sorted Lists [Hard]</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 24 - Swap Nodes in Pairs [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-06-06 itemprop="datePublished">June 6, 2019</time>
+                on <time datetime=2019-06-07 itemprop="datePublished">June 7, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -156,39 +156,37 @@
 
           
 
-<h1 id="23-merge-k-sorted-lists">23.Merge k Sorted Lists</h1>
+<h1 id="24-swap-nodes-in-pairs">24.Swap Nodes in Pairs</h1>
 
-<p><a href="https://leetcode.com/problems/merge-k-sorted-lists/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Hard</strong></p>
+<p><a href="https://leetcode.com/problems/swap-nodes-in-pairs/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
+<p>Given a linked list, swap every two adjacent nodes and return its head.</p>
 
-<p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
+<p>You may not modify the values in the list&rsquo;s nodes, only nodes itself may be changed.</p>
 
-<h3 id="实例">实例</h3>
+<p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
+
+<p>你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
+
+<h3 id="示例">示例</h3>
 
 <h4 id="example">Example:</h4>
 
-<p><strong>Input:</strong><br />
-[<br />
-  1-&gt;4-&gt;5,<br />
-  1-&gt;3-&gt;4,<br />
-  2-&gt;6<br />
-]<br />
-<strong>Output:</strong> 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</p>
+<p>Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.</p>
 
 <h3 id="思路">思路</h3>
 
-<p>使用优先队列解决。
-<strong>时间复杂度:O(n log k), 空间复杂度：O(k)。</strong></p>
+<p>交换指针。<br />
+<strong>时间复杂度:O(n), 空间复杂度：O(1)。</strong></p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 20 ms, faster than 99.55% of C++ online submissions for Merge k Sorted Lists.</li>
-<li>Memory Usage: 11.3 MB, less than 65.67% of C++ online submissions for Merge k Sorted Lists.</li>
+<li>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Swap Nodes in Pairs.</li>
+<li>Memory Usage: 8.8 MB, less than 47.42% of C++ online submissions for Swap Nodes in Pairs.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
@@ -202,34 +200,26 @@
  * };
  */
 class Solution {
-private:
-    struct cmp{
-        bool operator()(ListNode* l,ListNode* r){
-            return l-&gt;val &gt; r-&gt;val;
-        }
-    };
 public:
-    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) {
-        if(lists.empty()) return NULL;
-        priority_queue&lt;ListNode*,vector&lt;ListNode*&gt;,cmp&gt; p;
-        ListNode* head = new ListNode(0);
-        ListNode* cur = head;
-        for(int i = 0; i &lt; lists.size(); ++i){
-            if(lists[i] != NULL){                  // 不为空加入优先队列
-                p.push(lists[i]);
-            }
+    ListNode* swapPairs(ListNode* head) {
+        if(head == NULL) return head;
+        ListNode* cur = new ListNode(0);
+        ListNode* res = cur;
+        res-&gt;next = head;
+        ListNode* temp;
+        while(head){
+            if(head-&gt;next == NULL) break;
+                temp = head;
+                cur-&gt;next = head-&gt;next;
+                cur = cur-&gt;next;
+                head = head-&gt;next-&gt;next;
+                cur-&gt;next = temp;
+                cur = cur-&gt;next;
+                cur-&gt;next = head;
+            
         }
-        while(!p.empty()){
-            cur-&gt;next = p.top();
-            cur = cur-&gt;next;
-            p.pop();
-            if(cur-&gt;next != NULL){
-                p.push(cur-&gt;next);         
-            }
-        }
-        return head-&gt;next;
+        return res-&gt;next;
     }
-    
 };
 </code></pre>
 
@@ -246,7 +236,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/>https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/>https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/</span>
             </p>
             
              
@@ -265,8 +255,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-hard/">
-                    #LeetCode-Hard</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
+                    #LeetCode-Medium</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -281,10 +271,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/" class="prev" rel="prev" title="LeetCode - 17 - Letter Combinations of a Phone Number [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 17 - Letter Combinations of a Phone Number [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/" class="prev" rel="prev" title="LeetCode - 23 - Merge k Sorted Lists [Hard]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 23 - Merge k Sorted Lists [Hard]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/" class="next" rel="next" title="LeetCode - 24 - Swap Nodes in Pairs [Medium]">LeetCode - 24 - Swap Nodes in Pairs [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
