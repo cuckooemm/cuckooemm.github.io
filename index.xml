@@ -5,8 +5,104 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 07 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Leetcode - 25 - Reverse Nodes in k Group [Hard]</title>
+      <link>https://cuckooemm.xyz/2019/june/25-reverse_nodes_in_k-group/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/25-reverse_nodes_in_k-group/</guid>
+      <description>
+
+&lt;h1 id=&#34;25-reverse-nodes-in-k-group&#34;&gt;25.Reverse Nodes in k Group&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/reverse-nodes-in-k-group/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Hard&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.&lt;/p&gt;
+
+&lt;p&gt;k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.&lt;/p&gt;
+
+&lt;p&gt;给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。&lt;/p&gt;
+
+&lt;p&gt;k 是一个正整数，它的值小于或等于链表的长度。&lt;/p&gt;
+
+&lt;p&gt;如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。&lt;/p&gt;
+
+&lt;h3 id=&#34;实例&#34;&gt;实例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
+
+&lt;p&gt;Given this linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5&lt;/p&gt;
+
+&lt;p&gt;For k = 2, you should return: 2-&amp;gt;1-&amp;gt;4-&amp;gt;3-&amp;gt;5&lt;/p&gt;
+
+&lt;p&gt;For k = 3, you should return: 3-&amp;gt;2-&amp;gt;1-&amp;gt;4-&amp;gt;5&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;Only constant extra memory is allowed.&lt;br /&gt;
+You may not alter the values in the list&amp;rsquo;s nodes, only nodes itself may be changed.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;首先循环k次，则k以前的链表则是需要交换的链表。&lt;br /&gt;
+可以使用递归的方法，&lt;strong&gt;空间复杂度O(k)。&lt;/strong&gt;&lt;br /&gt;
+在这里使用了指针交换的方法。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 20 ms, faster than 91.59% of C++ online submissions for Reverse Nodes in k-Group.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 9.9 MB, less than 56.39% of C++ online submissions for Reverse Nodes in k-Group.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if(head == NULL) return head;
+        ListNode* res = new ListNode(0);
+        ListNode* cur = head;
+        res-&amp;gt;next = head;
+        ListNode* resc = res;
+        ListNode* curp;
+        while(head != NULL){
+            cur = head;
+            for(int i = 0; i &amp;lt; k; ++i){                // 判断下一个轮是否够k个数
+                if(head == NULL) return  res-&amp;gt;next;
+                head = head-&amp;gt;next;
+            }
+            for(int i = 1; i &amp;lt; k; ++i){                // N数只需交换n-1次
+                curp = cur-&amp;gt;next;
+                cur-&amp;gt;next = curp-&amp;gt;next;
+                curp-&amp;gt;next = resc-&amp;gt;next;
+                resc-&amp;gt;next = curp;                
+            }
+            for(int i = 0; i &amp;lt; k; ++i){
+                resc = resc-&amp;gt;next;                     // 更新头部指针
+            }
+        }
+        return res-&amp;gt;next;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>LeetCode - 24 - Swap Nodes in Pairs [Medium]</title>
@@ -1242,101 +1338,6 @@ public:
             x /= 10;
         }
         return x == res || res / 10 == x;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 6 - ZigZag Conversion [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/6-zigzag_conversion/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/6-zigzag_conversion/</guid>
-      <description>
-
-&lt;h1 id=&#34;6-zigzag-conversion&#34;&gt;6.ZigZag Conversion&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/zigzag-conversion/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;The string &lt;code&gt;&amp;quot;PAYPALISHIRING&amp;quot;&lt;/code&gt; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)&lt;br /&gt;
-使字符串以给定行数上进行Z字形书写，像下面这样。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;P   A   H   N
-A P L S I I G
-Y   I   R
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And then read line by line: &lt;code&gt;&amp;quot;PAHNAPLSIIGYIR&amp;quot;&lt;/code&gt;&lt;br /&gt;
-然后一行一行的读。&lt;br /&gt;
-Write the code that will take a string and make this conversion given a number of rows:&lt;br /&gt;
-编写代码。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;string convert(string s, int numRows);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; s = &amp;ldquo;PAYPALISHIRING&amp;rdquo;, numRows = 3&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;PAHNAPLSIIGYIR&amp;rdquo;&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; s = &amp;ldquo;PAYPALISHIRING&amp;rdquo;, numRows = 4&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;PINALSIGYAHRPI&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;P     I    N
-A   L S  I G
-Y A   H R
-P     I
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;就是计算字符串下标。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;行&lt;code&gt;0&lt;/code&gt;中的字符位于索引&lt;code&gt;k&lt;/code&gt;(2 * numRows - 2)处。&lt;/li&gt;
-&lt;li&gt;行&lt;code&gt;numRows-1&lt;/code&gt;中的字符位于索引&lt;code&gt;k&lt;/code&gt;(2 * numRows − 2) + numRows − 1处;&lt;/li&gt;
-&lt;li&gt;内部的行&lt;code&gt;i&lt;/code&gt;中的字符位于索引&lt;code&gt;k&lt;/code&gt;(2 * numRows − 2) + i 以及 (2 * numRows − 2) − i处;&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(n)&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 12 ms, faster than 94.01% of C++ online submissions for ZigZag Conversion.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 10.2 MB, less than 85.33% of C++ online submissions for ZigZag Conversion.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    string convert(string s, int numRows) {
-        if(s.size() == 0 | numRows == 1){
-            return s;
-        }
-        string res = &amp;quot;&amp;quot;;
-        int n = s.size();
-        int size = (numRows &amp;lt;&amp;lt; 1) - 2;
-        int temp = 0;
-        for(int i = 0; i &amp;lt; numRows; ++i){
-            for(int j = i; j &amp;lt; n; j += size){
-                res += s[j];
-                temp = j + size - (i &amp;lt;&amp;lt; 1);
-                if(i != 0 &amp;amp;&amp;amp; i != numRows - 1 &amp;amp;&amp;amp; temp &amp;lt; n)
-                    res += s[temp];
-            }
-        }
-        return res;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
