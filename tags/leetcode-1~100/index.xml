@@ -25,6 +25,22 @@ k is a positive integer and is less than or equal to the length of the linked li
     </item>
     
     <item>
+      <title>Leetcode - 26 - Remove Duplicates From Sorted Array [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/26-remove-duplicates-from-sorted-array/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/26-remove-duplicates-from-sorted-array/</guid>
+      <description>26.Remove Duplicates From Sorted Array 地址
+难度：Easy
+题目描述 Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+示例 Example 1: Given nums = [1,1,2],
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</description>
+    </item>
+    
+    <item>
       <title>LeetCode - 24 - Swap Nodes in Pairs [Medium]</title>
       <link>https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/</link>
       <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>

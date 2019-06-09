@@ -9,6 +9,308 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Golang 内存对齐</title>
+      <link>https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</guid>
+      <description>
+
+&lt;h1 id=&#34;golang-内存对齐&#34;&gt;Golang 内存对齐&lt;/h1&gt;
+
+&lt;p&gt;golang结构体中变量的顺序不同为结构体分配的内存大小也不同。&lt;/p&gt;
+
+&lt;p&gt;先来看一个例子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;type Part1 struct {
+	a bool
+	b int32
+	c int8
+	d int64
+	e byte
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bool  一个字节&lt;/li&gt;
+&lt;li&gt;int32 四个字节&lt;/li&gt;
+&lt;li&gt;int8  一个字节&lt;/li&gt;
+&lt;li&gt;int64 八个字节&lt;/li&gt;
+&lt;li&gt;byte  一个字节&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;所以应分配的内存空间为&lt;code&gt;1 + 4 + 1 + 8 + 1 = 15&lt;/code&gt;个字节。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;type Part1 struct {
+    a bool
+	b int32
+	c int8
+	d int64
+	e byte
+}
+
+func main() {
+	part1 := Part1{}
+	fmt.Printf(&amp;quot;part1 size: %d, align: %d\n&amp;quot;, unsafe.Sizeof(part1), unsafe.Alignof(part1))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;结果&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;part1 size: 32, align: 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最终输出占用内存为32字节，与前面的计算结果并不一致。&lt;br /&gt;
+而造成这种情况的原因就是内存对齐。&lt;br /&gt;
+接下来改变一下字段的顺序。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;type Part1 struct {
+	a bool
+	b int32
+	c int8
+	d int64
+	e byte
+}
+
+type Part2 struct {
+	e byte
+	c int8
+	a bool
+	b int32
+	d int64
+}
+
+func main() {
+	part1 := Part1{}
+	part2 := Part2{}
+
+	fmt.Printf(&amp;quot;part1 size: %d, align: %d\n&amp;quot;, unsafe.Sizeof(part1), unsafe.Alignof(part1))
+	fmt.Printf(&amp;quot;part2 size: %d, align: %d\n&amp;quot;, unsafe.Sizeof(part2), unsafe.Alignof(part2))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;结果：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;part1 size: 32, align: 8
+part2 size: 16, align: 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可以发现，仅仅只是改变的结构体字段的顺序，内存占用的空间就减少了一半。&lt;/p&gt;
+
+&lt;h3 id=&#34;为什么要内存对齐&#34;&gt;为什么要内存对齐&lt;/h3&gt;
+
+&lt;p&gt;CPU读取主存是一件耗时的操作，所以CPU并不会一个一个字节的去内存读取数据，而是以块为单位在内存上读取数据。块的大小可以为：2、4、8、16 字节等大小，称其为内存访问粒度。如果访问未对齐的内存，一次访问能完成的事情便需要两次，并且为了提高内存的利用率，我们需要进行内存对齐。&lt;/p&gt;
+
+&lt;h3 id=&#34;默认系数&#34;&gt;默认系数&lt;/h3&gt;
+
+&lt;p&gt;在不同平台上的编译器都有自己默认的 “对齐系数”，可通过预编译命令 #pragma pack(n) 进行变更，n 就是代指 “对齐系数”。一般来讲，我们常用的平台的系数如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;32 位：4&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;64 位：8&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;另外要注意，不同硬件平台占用的大小和对齐值都可能是不一样的。&lt;/p&gt;
+
+&lt;h3 id=&#34;成员对齐&#34;&gt;成员对齐&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;func main() {
+	fmt.Printf(&amp;quot;bool align: %d\n&amp;quot;, unsafe.Alignof(bool(true)))
+	fmt.Printf(&amp;quot;int32 align: %d\n&amp;quot;, unsafe.Alignof(int32(0)))
+	fmt.Printf(&amp;quot;int8 align: %d\n&amp;quot;, unsafe.Alignof(int8(0)))
+	fmt.Printf(&amp;quot;int64 align: %d\n&amp;quot;, unsafe.Alignof(int64(0)))
+	fmt.Printf(&amp;quot;byte align: %d\n&amp;quot;, unsafe.Alignof(byte(0)))
+	fmt.Printf(&amp;quot;string align: %d\n&amp;quot;, unsafe.Alignof(&amp;quot;EDDYCJY&amp;quot;))
+	fmt.Printf(&amp;quot;map align: %d\n&amp;quot;, unsafe.Alignof(map[string]string{}))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输出结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;bool align: 1
+int32 align: 4
+int8 align: 1
+int64 align: 8
+byte align: 1
+string align: 8
+map align: 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 Go 中可以调用 &lt;code&gt;unsafe.Alignof()&lt;/code&gt; 来返回相应类型的对齐系数。通过观察输出结果，可得知基本都是 2&lt;sup&gt;n&lt;/sup&gt;，最大也不会超过 8。64位机编译器默认对齐系数是 8，因此最大值不会超过这个数。&lt;/p&gt;
+
+&lt;h3 id=&#34;对齐规则&#34;&gt;对齐规则&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;结构体的成员变量，第一个成员变量的偏移量为 0。往后的每个成员变量的对齐值必须为编译器默认对齐长度（#pragma pack(n)）或当前成员变量类型的长度（unsafe.Sizeof），取最小值作为当前类型的对齐值。其偏移量必须为对齐值的整数倍&lt;/li&gt;
+&lt;li&gt;结构体本身，对齐值必须为编译器默认对齐长度（#pragma pack(n)）或结构体的所有成员变量类型中的最大长度，取最大数的最小整数倍作为对齐值&lt;/li&gt;
+&lt;li&gt;结合以上两点，可得知若编译器默认对齐长度（#pragma pack(n)）超过结构体内成员变量的类型最大长度时，默认对齐长度是没有任何意义的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;成员变量&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;类型&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;偏移量&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;自身占用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;a&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;bool&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;字节对齐&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;无&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;b&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;int32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;c&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;int8&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;8&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;字节对齐&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;无&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;9&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;d&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;int64&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;e&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;byte&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;24&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;字节对齐&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;无&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;25&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;总占用大小&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;内存分配分析&#34;&gt;内存分配分析&lt;/h3&gt;
+
+&lt;h4 id=&#34;未进行内存对齐&#34;&gt;未进行内存对齐&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第一个成员 a
+
+&lt;ul&gt;
+&lt;li&gt;类型为 bool&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
+&lt;li&gt;初始地址，偏移量为 0。占用了第 1 位&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第二个成员 b
+
+&lt;ul&gt;
+&lt;li&gt;类型为 int32&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 4 字节&lt;/li&gt;
+&lt;li&gt;根据规则 1，其偏移量必须为 4 的整数倍。确定偏移量为 4，因此 2-4 位为 Padding。而当前数值从第 5 位开始填充，到第 8 位。如下：axxx|bbbb&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第三个成员 c
+
+&lt;ul&gt;
+&lt;li&gt;类型为 int8&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
+&lt;li&gt;根据规则1，其偏移量必须为 1 的整数倍。当前偏移量为 8。不需要额外对齐，填充 1 个字节到第 9 位。如下：axxx|bbbb|c&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第四个成员 d
+
+&lt;ul&gt;
+&lt;li&gt;类型为 int64&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 8 字节&lt;/li&gt;
+&lt;li&gt;根据规则 1，其偏移量必须为 8 的整数倍。确定偏移量为 16，因此 9-16 位为 Padding。而当前数值从第 17 位开始写入，到第 24 位。如下：axxx|bbbb|cxxx|xxxx|dddd|dddd&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第五个成员 e
+
+&lt;ul&gt;
+&lt;li&gt;类型为 byte&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
+&lt;li&gt;根据规则 1，其偏移量必须为 1 的整数倍。当前偏移量为 24。不需要额外对齐，填充 1 个字节到第 25 位。如下：axxx|bbbb|cxxx|xxxx|dddd|dddd|e&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;内存对齐之后&#34;&gt;内存对齐之后&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第一个成员 e
+
+&lt;ul&gt;
+&lt;li&gt;类型为 byte&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
+&lt;li&gt;初始地址，偏移量为 0。占用了第 1 位&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第二个成员 c
+
+&lt;ul&gt;
+&lt;li&gt;类型为 int8&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
+&lt;li&gt;根据规则1，其偏移量必须为 1 的整数倍。当前偏移量为 2。不需要额外对齐&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第三个成员 a
+
+&lt;ul&gt;
+&lt;li&gt;类型为 bool&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
+&lt;li&gt;根据规则1，其偏移量必须为 1 的整数倍。当前偏移量为 3。不需要额外对齐&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第四个成员 b
+
+&lt;ul&gt;
+&lt;li&gt;类型为 int32&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 4 字节&lt;/li&gt;
+&lt;li&gt;根据规则1，其偏移量必须为 4 的整数倍。确定偏移量为 4，因此第 3 位为 Padding。而当前数值从第 4 位开始填充，到第 8 位。如下：ecax|bbbb&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第五个成员 d
+
+&lt;ul&gt;
+&lt;li&gt;类型为 int64&lt;/li&gt;
+&lt;li&gt;大小/对齐值为 8 字节&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;结果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Part1 内存布局：axxx|bbbb|cxxx|xxxx|dddd|dddd|exxx|xxxx
+Part2 内存布局：ecax|bbbb|dddd|dddd&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Leetcode - 25 - Reverse Nodes in k Group [Hard]</title>
       <link>https://cuckooemm.xyz/2019/june/25-reverse_nodes_in_k-group/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
@@ -99,6 +401,95 @@ public:
         }
         return res-&amp;gt;next;
     }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Leetcode - 26 - Remove Duplicates From Sorted Array [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/26-remove-duplicates-from-sorted-array/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/26-remove-duplicates-from-sorted-array/</guid>
+      <description>
+
+&lt;h1 id=&#34;26-remove-duplicates-from-sorted-array&#34;&gt;26.Remove Duplicates From Sorted Array&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/remove-duplicates-from-sorted-array/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.&lt;/p&gt;
+
+&lt;p&gt;Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.&lt;/p&gt;
+
+&lt;p&gt;给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。&lt;/p&gt;
+
+&lt;p&gt;不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;Given nums = [1,1,2],&lt;/p&gt;
+
+&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;rsquo;t matter what you leave beyond the returned length.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;Given nums = [0,0,1,1,1,2,2,3,3,4],&lt;/p&gt;
+
+&lt;p&gt;Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;rsquo;t matter what values are set beyond the returned length.&lt;/p&gt;
+
+&lt;h4 id=&#34;clarification&#34;&gt;Clarification:&lt;/h4&gt;
+
+&lt;p&gt;Confused why the returned value is an integer but your answer is an array?&lt;/p&gt;
+
+&lt;p&gt;Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.&lt;/p&gt;
+
+&lt;p&gt;Internally you can think of this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// nums is passed in by reference. (i.e., without making a copy)
+int len = removeDuplicates(nums);
+
+// any modification to nums in your function would be known by the caller.
+// using the length returned by your function, it prints the first len elements.
+for (int i = 0; i &amp;lt; len; i++) {
+    print(nums[i]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;因数组有序，定义左指针，当不相等时左指针加一，又因两个指针起点不一，把左指针的右边一位数重新赋值为最右边指针的数据。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 16 ms, faster than 99.66% of C++ online submissions for Remove Duplicates from Sorted Array.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 10 MB, less than 50.23% of C++ online submissions for Remove Duplicates from Sorted Array.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    int removeDuplicates(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+        if(nums.size() &amp;lt; 1) return 0;
+        int l = 0;
+        for(int i = 1; i &amp;lt; nums.size(); ++i){
+            if(nums[l] != nums[i])
+                nums[++l] = nums[i];
+        }
+        return ++l;
+    }   
 };
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -1191,153 +1582,6 @@ public:
             }
         }
         return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 16 - 3Sum Closest [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/16-3sum_closest/</link>
-      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/16-3sum_closest/</guid>
-      <description>
-
-&lt;h1 id=&#34;16-3sum-closest&#34;&gt;16.3Sum Closest&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/3sum-closest/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.&lt;/p&gt;
-
-&lt;p&gt;给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
-
-&lt;p&gt;Given array nums = [-1, 2, 1, -4], and target = 1.&lt;/p&gt;
-
-&lt;p&gt;The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;同样排序与双指针。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(n&lt;sup&gt;2&lt;/sup&gt;), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 8 ms, faster than 94.76% of C++ online submissions for 3Sum Closest.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.9 MB, less than 51.23% of C++ online submissions for 3Sum Closest.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;class Solution {
-public:
-    int threeSumClosest(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
-        if(nums.size() &amp;lt; 3) return 0;
-        int res = nums[0] + nums[1] + nums[2];                                     // 先计算一个近似值
-        int begin,end,sum;
-        sort(nums.begin(),nums.end());
-        for(int i = 0; i &amp;lt; nums.size() -2; ++i){
-            if(i &amp;gt; 0 &amp;amp;&amp;amp; nums[i] == nums[i - 1]) continue;                          // 排除重复
-            begin = i + 1;
-            end = nums.size() - 1;
-            while(begin &amp;lt; end){
-                sum = nums[i] + nums[begin] + nums[end];
-                if(abs(res - target) &amp;gt; abs(sum - target)){                         // 如果新值比旧值近似则更改
-                    res = sum;
-                }
-                if(sum &amp;lt; target){
-                    ++begin;
-                    while(begin &amp;lt; end &amp;amp;&amp;amp; nums[begin] == nums[begin - 1]) ++begin;  // 排除重复
-                }
-                else if(sum &amp;gt; target) {
-                    --end;
-                    while(begin &amp;lt; end &amp;amp;&amp;amp; nums[end] == nums[end + 1]) --end;        // 排除重复
-                }
-                else{
-                    return sum;                                                    // 相等直接返回
-                }
-            }
-        }
-        return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 9 - Palindrome Number [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/9-palindrome_number/</link>
-      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/9-palindrome_number/</guid>
-      <description>
-
-&lt;h1 id=&#34;9-palindrome-number&#34;&gt;9.Palindrome Number&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/palindrome-number/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.&lt;br /&gt;
-判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 121&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; true&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; -121&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; false&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.&lt;/p&gt;
-
-&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 10&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; false&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; Reads 01 from right to left. Therefore it is not a palindrome.&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;首先把负值、除0外末尾为0的数字排除。&lt;br /&gt;
-判断数字是否回文，我们可以翻转数字一半与前一半比较是否相等。&lt;br /&gt;
-当&lt;strong&gt;x&lt;/strong&gt;小于新的数时则完成了对半。&lt;br /&gt;
-数字个数有奇有偶，如果为偶，则新数等于x,如果为奇，则中间数字应在新数的个位上，新数除以10则长度与x相等，判断数是否相等。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(log&lt;sub&gt;10&lt;/sub&gt;(n)), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 12 ms, faster than 93.35% of C++ online submissions for Palindrome Number.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.1 MB, less than 71.09% of C++ online submissions for Palindrome Number.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    bool isPalindrome(int x) {
-        if (x &amp;lt; 0 || x % 10 == 0 &amp;amp;&amp;amp; x != 0) return false;   // 负值、除0外末尾为0的数字返回false
-        int res = 0;
-        while(x &amp;gt; res){
-            res = res * 10 + x % 10;                        // 反转数字
-            x /= 10;
-        }
-        return x == res || res / 10 == x;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;

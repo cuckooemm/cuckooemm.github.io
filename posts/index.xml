@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Golang 内存对齐</title>
+      <link>https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</guid>
+      <description>Golang 内存对齐 golang结构体中变量的顺序不同为结构体分配的内存大小也不同。
+先来看一个例子：
+type Part1 struct { a bool b int32 c int8 d int64 e byte }   bool 一个字节 int32 四个字节 int8 一个字节 int64 八个字节 byte 一个字节  所以应分配的内存空间为1 + 4 + 1 + 8 + 1 = 15个字节。
+type Part1 struct { a bool b int32 c int8 d int64 e byte } func main() { part1 := Part1{} fmt.Printf(&amp;quot;part1 size: %d, align: %d\n&amp;quot;, unsafe.</description>
+    </item>
+    
+    <item>
       <title>Leetcode - 25 - Reverse Nodes in k Group [Hard]</title>
       <link>https://cuckooemm.xyz/2019/june/25-reverse_nodes_in_k-group/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
@@ -22,6 +34,22 @@
 题目描述 Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
 k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。</description>
+    </item>
+    
+    <item>
+      <title>Leetcode - 26 - Remove Duplicates From Sorted Array [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/26-remove-duplicates-from-sorted-array/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/26-remove-duplicates-from-sorted-array/</guid>
+      <description>26.Remove Duplicates From Sorted Array 地址
+难度：Easy
+题目描述 Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+示例 Example 1: Given nums = [1,1,2],
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</description>
     </item>
     
     <item>
@@ -386,9 +414,11 @@ git config --global merge.</description>
       <description>Golang defer解析 概念 在go语言中，defer 是用来在函数作用域结束之后执行函数的关键字，在当前函数返回前调用。延迟函数defer的实现是由编译器很运行时共同完成的。
 作用域 func main() { { defer fmt.Println(&amp;quot;defer runs&amp;quot;) fmt.Println(&amp;quot;code block ends&amp;quot;) } fmt.Println(&amp;quot;func ends&amp;quot;) }  从这里我们可以看出，defer并不是在退出当前代码块的作用域之前执行的，defer只会在当前函数返回之前被调用。
 defer规则 1、执行顺序 定义defer类似于入栈，defer的执行顺序类似于出栈，即先出现的defer最后执行。 例如在for循环中defer打印的结果为：4、3、2、1、0。
-func main() { for i := 0; i &amp;lt; 5; i++ { defer fmt.Println(i) } }  defer的设计初衷是简化函数返回时资源清理的动作。 资源往往有依赖，如申请A资源，在A的基础上申请B资源，再在B的基础上申请C资源，资源的申请顺序为：A-&amp;gt;B-&amp;gt;C;释放时则需要反向进行：C-&amp;gt;B-&amp;gt;A。这就是把defer设计成FIFO的原因。
+func main() { for i := 0; i &amp;lt; 5; i++ { defer fmt.Println(i) } }  defer的设计初衷是简化函数返回时资源清理的动作。
+资源往往有依赖，如申请A资源，在A的基础上申请B资源，再在B的基础上申请C资源，资源的申请顺序为：A-&amp;gt;B-&amp;gt;C;释放时则需要反向进行：C-&amp;gt;B-&amp;gt;A。这就是把defer设计成FIFO的原因。
 2、参数确定 Golang中所有的函数参数传递都是值传递，延迟函数的参数在defer定义时就已确定下来。
-func main() { // main函数没有参数也没有返回值 i := 0 defer fmt.Println(i) i++ }  在defer定义时就已经把参数通过值传递传给了defer函数，在defer函数之后对参数i的操作并不会影响defer函数中的参数i的值，因此函数的打印结果为0。 接下来再看一段代码
+func main() { // main函数没有参数也没有返回值 i := 0 defer fmt.Println(i) i++ }  在defer定义时就已经把参数通过值传递传给了defer函数，在defer函数之后对参数i的操作并不会影响defer函数中的参数i的值，因此函数的打印结果为0。
+接下来再看一段代码
 func main(){ i := 0 defer func(i int) { fmt.</description>
     </item>
     
