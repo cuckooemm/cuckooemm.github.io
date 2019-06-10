@@ -5,8 +5,107 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 09 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Leetcode - 27 - Remove Element [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/27-remove-element/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/27-remove-element/</guid>
+      <description>
+
+&lt;h1 id=&#34;27-remove-element&#34;&gt;27.Remove Element&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/remove-element/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given an array nums and a value val, remove all instances of that value in-place and return the new length.&lt;/p&gt;
+
+&lt;p&gt;Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.&lt;/p&gt;
+
+&lt;p&gt;The order of elements can be changed. It doesn&amp;rsquo;t matter what you leave beyond the new length.&lt;/p&gt;
+
+&lt;p&gt;给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。&lt;/p&gt;
+
+&lt;p&gt;不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。&lt;/p&gt;
+
+&lt;p&gt;元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;Given nums = [3,2,2,3], val = 3,&lt;/p&gt;
+
+&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 2.&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;rsquo;t matter what you leave beyond the returned length.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;Given nums = [0,1,2,2,3,0,4,2], val = 2,&lt;/p&gt;
+
+&lt;p&gt;Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.&lt;/p&gt;
+
+&lt;p&gt;Note that the order of those five elements can be arbitrary.&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;rsquo;t matter what values are set beyond the returned length.&lt;/p&gt;
+
+&lt;h4 id=&#34;clarification&#34;&gt;Clarification:&lt;/h4&gt;
+
+&lt;p&gt;Confused why the returned value is an integer but your answer is an array?&lt;/p&gt;
+
+&lt;p&gt;Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.&lt;/p&gt;
+
+&lt;p&gt;Internally you can think of this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// nums is passed in by reference. (i.e., without making a copy)
+int len = removeElement(nums, val);
+
+// any modification to nums in your function would be known by the caller.
+// using the length returned by your function, it prints the first len elements.
+for (int i = 0; i &amp;lt; len; i++) {
+    print(nums[i]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;遍历nums,如果数组内值与目标值不等，且当前已经出现过目标值，则把i位置的值赋给l位置。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 4 ms, faster than 89.95% of C++ online submissions for Remove Element.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.7 MB, less than 54.44% of C++ online submissions for Remove Element.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    int removeElement(vector&amp;lt;int&amp;gt;&amp;amp; nums, int val) {
+        int l = 0;
+        for(int i = 0; i &amp;lt; nums.size(); ++i){
+            if(nums[i] != val){
+                if(i != l){
+                    nums[l++] = nums[i];
+                }else{
+                    ++l;
+                }
+            }
+        }
+        return l;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Golang 内存对齐</title>
@@ -1495,93 +1594,6 @@ public:
 		}
 	}
 	return result;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 15 - 3Sum [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/15-3sum/</link>
-      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/15-3sum/</guid>
-      <description>
-
-&lt;h1 id=&#34;15-3sum&#34;&gt;15.3Sum&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/3sum/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given an array nums of n integers, are there elements a, b, c in &lt;code&gt;nums&lt;/code&gt; such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.&lt;/p&gt;
-
-&lt;p&gt;给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。&lt;/p&gt;
-
-&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
-
-&lt;p&gt;The solution set must not contain duplicate triplets.&lt;/p&gt;
-
-&lt;p&gt;答案中不可以包含重复的三元组。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;Given array nums = [-1, 0, 1, 2, -1, -4],
-
-A solution set is:
-[
-  [-1, 0, 1],
-  [-1, -1, 2]
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。
-&lt;strong&gt;时间复杂度:O(n&lt;sup&gt;2&lt;/sup&gt;), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 92 ms, faster than 98.40% of C++ online submissions for 3Sum.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 14.8 MB, less than 76.43% of C++ online submissions for 3Sum.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; threeSum(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-        vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res;
-        if(nums.size() &amp;lt; 3) return res;
-        sort(nums.begin(),nums.end());                                  // 排序
-        vector&amp;lt;int&amp;gt; t(3);
-        int begin,end,sum;
- 
-        for(int i = 0; i &amp;lt; nums.size() - 2; ++i){
-            if(nums[i] &amp;gt; 0) break;                                      // 如果值大于0，那么和无论如何不会等于0
-            if(i &amp;gt; 0 &amp;amp;&amp;amp; nums[i] == nums[i - 1]) continue;               // 排除重复
-            begin = i + 1;
-            end = nums.size() - 1;
-            while(begin &amp;lt; end){
-                sum = nums[i] + nums[begin] + nums[end];
-                if(sum &amp;gt; 0) --end;
-                else if(sum &amp;lt; 0) ++begin;
-                else{
-                    t[0] = nums[i];
-                    t[1] = nums[begin];
-                    t[2] = nums[end];
-                    res.push_back(t);
-                    while(begin &amp;lt; end &amp;amp;&amp;amp; nums[begin] == t[1]) ++begin;  //排除重复
-                    while(begin &amp;lt; end &amp;amp;&amp;amp; nums[end] == t[2]) --end;      //排除重复
-                }
-            }
-        }
-        return res;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;

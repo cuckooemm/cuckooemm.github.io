@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Cuckooemm">
+  <meta name="description" content="个人博客">
+  <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
+  
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/27-remove-element/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Leetcode - 27 - Remove Element [Easy] | Cuckooemm&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Leetcode - 27 - Remove Element [Easy] | Cuckooemm&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/cuckooemm.xyz\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Leetcode - 27 - Remove Element [Easy]",
+    "headline" : "Leetcode - 27 - Remove Element [Easy]",
+    "description" : "27.Remove Element 地址\n难度：Easy\n题目描述 Given an array nums and a value val, remove all instances of that value in-place and return the new length.\nDo not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.\nThe order of elements can be changed. It doesn\x26rsquo;t matter what you leave beyond the new length.\n给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。",
+    "inLanguage" : "zh-CN",
+    "author" : "Cuckooemm",
+    "creator" : "Cuckooemm",
+    "publisher": "Cuckooemm",
+    "accountablePerson" : "Cuckooemm",
+    "copyrightHolder" : "Cuckooemm",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-06-10 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-10 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/27-remove-element\/",
+    "wordCount" : "338",
+    "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://cuckooemm.xyz/">Cuckooemm&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://cuckooemm.xyz/">Cuckooemm&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Leetcode - 27 - Remove Element [Easy]</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-06-10 itemprop="datePublished">June 10, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://cuckooemm.xyz/categories/algorithm/"> algorithm </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="27-remove-element">27.Remove Element</h1>
+
+<p><a href="https://leetcode.com/problems/remove-element/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Easy</strong></p>
+
+<h3 id="题目描述">题目描述</h3>
+
+<p>Given an array nums and a value val, remove all instances of that value in-place and return the new length.</p>
+
+<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
+
+<p>The order of elements can be changed. It doesn&rsquo;t matter what you leave beyond the new length.</p>
+
+<p>给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。</p>
+
+<p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p>
+
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+
+<h3 id="示例">示例</h3>
+
+<h4 id="example-1">Example 1:</h4>
+
+<p>Given nums = [3,2,2,3], val = 3,</p>
+
+<p>Your function should return length = 2, with the first two elements of nums being 2.</p>
+
+<p>It doesn&rsquo;t matter what you leave beyond the returned length.</p>
+
+<h4 id="example-2">Example 2:</h4>
+
+<p>Given nums = [0,1,2,2,3,0,4,2], val = 2,</p>
+
+<p>Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.</p>
+
+<p>Note that the order of those five elements can be arbitrary.</p>
+
+<p>It doesn&rsquo;t matter what values are set beyond the returned length.</p>
+
+<h4 id="clarification">Clarification:</h4>
+
+<p>Confused why the returned value is an integer but your answer is an array?</p>
+
+<p>Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.</p>
+
+<p>Internally you can think of this:</p>
+
+<pre><code class="language-c">// nums is passed in by reference. (i.e., without making a copy)
+int len = removeElement(nums, val);
+
+// any modification to nums in your function would be known by the caller.
+// using the length returned by your function, it prints the first len elements.
+for (int i = 0; i &lt; len; i++) {
+    print(nums[i]);
+}
+</code></pre>
+
+<h3 id="思路">思路</h3>
+
+<p>遍历nums,如果数组内值与目标值不等，且当前已经出现过目标值，则把i位置的值赋给l位置。<br />
+<strong>时间复杂度:O(n), 空间复杂度：O(1)。</strong></p>
+
+<h3 id="ac">AC</h3>
+
+<ul>
+<li>Runtime: 4 ms, faster than 89.95% of C++ online submissions for Remove Element.</li>
+<li>Memory Usage: 8.7 MB, less than 54.44% of C++ online submissions for Remove Element.</li>
+</ul>
+
+<h3 id="代码">代码</h3>
+
+<pre><code class="language-c++">class Solution {
+public:
+    int removeElement(vector&lt;int&gt;&amp; nums, int val) {
+        int l = 0;
+        for(int i = 0; i &lt; nums.size(); ++i){
+            if(nums[i] != val){
+                if(i != l){
+                    nums[l++] = nums[i];
+                }else{
+                    ++l;
+                }
+            }
+        }
+        return l;
+    }
+};
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Cuckooemm </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://cuckooemm.xyz/2019/june/27-remove-element/>https://cuckooemm.xyz/2019/june/27-remove-element/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
+                    #algorithm</a></span>
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-easy/">
+                    #LeetCode-Easy</a></span>
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
+                    #LeetCode-1~100</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://cuckooemm.xyz/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/" class="prev" rel="prev" title="Golang 内存对齐"><i class="iconfont icon-left"></i>&nbsp;Golang 内存对齐</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        
+            
+        
+        
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'b9a368387109551e31bd',
+    clientSecret: '83d5e0526e549e07ca398f1e9f9cce8a2f5e5384',
+    repo: 'cuckooemm.github.io',
+    owner: 'Cuckooemm',
+    admin: ['Cuckooemm'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://cuckooemm.xyz/">Cuckooemm</a></span> 
+            <center>
+               已建立 <SPAN id=span_dt_dt style="color: #0196e3;"></SPAN>
+               <SCRIPT language=javascript>
+               function show_date_time(){
+               window.setTimeout("show_date_time()", 1000);
+               BirthDay=new Date("05/18/2019 00:00:00");
+               today=new Date();
+               timeold=(today.getTime()-BirthDay.getTime());
+               sectimeold=timeold/1000
+               secondsold=Math.floor(sectimeold);
+               msPerDay=24*60*60*1000
+               e_daysold=timeold/msPerDay
+               daysold=Math.floor(e_daysold);
+               e_hrsold=(e_daysold-daysold)*24;
+               hrsold=Math.floor(e_hrsold);
+               e_minsold=(e_hrsold-hrsold)*60;
+               minsold=Math.floor((e_hrsold-hrsold)*60);
+               seconds=Math.floor((e_minsold-minsold)*60);
+               span_dt_dt.innerHTML=""+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+               }
+               show_date_time();
+               </SCRIPT>
+               </center>
+         
+
+         
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-141694746-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+
+     </div>
+  </body>
+</html>
