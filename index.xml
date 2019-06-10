@@ -305,7 +305,7 @@ map align: 8
 
 &lt;p&gt;&lt;strong&gt;结果&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Part1 内存布局：axxx|bbbb|cxxx|xxxx|dddd|dddd|exxx|xxxx
+&lt;p&gt;Part1 内存布局：axxx|bbbb|cxxx|xxxx|dddd|dddd|exxx|xxxx&lt;br /&gt;
 Part2 内存布局：ecax|bbbb|dddd|dddd&lt;/p&gt;
 </description>
     </item>
