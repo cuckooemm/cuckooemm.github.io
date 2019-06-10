@@ -43,10 +43,10 @@ Your function should return length = 2, with the first two elements of nums bein
     
     <item>
       <title>LeetCode - 20 - Valid Parentheses [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/20-valid_parentheses/</link>
+      <link>https://cuckooemm.xyz/2019/june/20-valid-parentheses/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/20-valid_parentheses/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/20-valid-parentheses/</guid>
       <description>20.Valid Parentheses 地址
 难度：Easy
 题目描述 Given a string containing just the characters &#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39; and &#39;]&#39;, determine if the input string is valid.
@@ -57,10 +57,10 @@ An input string is valid if:
     
     <item>
       <title>LeetCode - 21 - Merge Two Sorted Lists [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/21-merge_two_sorted_lists/</link>
+      <link>https://cuckooemm.xyz/2019/june/21-merge-two-sorted-lists/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/21-merge_two_sorted_lists/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/21-merge-two-sorted-lists/</guid>
       <description>21.Merge Two Sorted Lists 地址
 难度：Easy
 题目描述 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
@@ -73,10 +73,10 @@ AC  Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Two S
     
     <item>
       <title>LeetCode - 13 - Roman to Integer [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/13-roman_to_integer/</link>
+      <link>https://cuckooemm.xyz/2019/june/13-roman-to-integer/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/13-roman_to_integer/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/13-roman-to-integer/</guid>
       <description>13.Roman to Integer 地址
 难度：Easy
 题目描述 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -86,10 +86,10 @@ Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written a
     
     <item>
       <title>LeetCode - 14 - Longest_Common_Prefix [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/14-longest_common_prefix/</link>
+      <link>https://cuckooemm.xyz/2019/june/14-longest-common-prefix/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/14-longest_common_prefix/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/14-longest-common-prefix/</guid>
       <description>14.Longest_Common_Prefix 地址
 难度：Easy
 题目描述 Write a function to find the longest common prefix string amongst an array of strings.
@@ -109,10 +109,10 @@ AC  Runtime: 4 ms, faster than 98.77% of C++ online submissions for Longest Comm
     
     <item>
       <title>LeetCode - 9 - Palindrome Number [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/9-palindrome_number/</link>
+      <link>https://cuckooemm.xyz/2019/june/9-palindrome-number/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/9-palindrome_number/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/9-palindrome-number/</guid>
       <description>9.Palindrome Number 地址
 难度：Easy
 题目描述 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
@@ -129,10 +129,10 @@ Explanation: Reads 01 from right to left.</description>
     
     <item>
       <title>LeetCode - 7 - Reverse Integer [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/7-reverse_integer/</link>
+      <link>https://cuckooemm.xyz/2019/june/7-reverse-integer/</link>
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/7-reverse_integer/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/7-reverse-integer/</guid>
       <description>7.Reverse Integer 地址
 难度：Easy
 题目描述 Given a 32-bit signed integer, reverse digits of an integer.
@@ -148,10 +148,10 @@ Note: Assume we are dealing with an environment which could only store integers 
     
     <item>
       <title>LeetCode - 1 - Two Sum [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/1-two_sum/</link>
+      <link>https://cuckooemm.xyz/2019/june/1-two-sum/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/1-two_sum/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/1-two-sum/</guid>
       <description>1.Tow Sum 地址
 难度：Easy
 题目描述 Given an array of integers, return indices of the two numbers such that they add up to a specific target.

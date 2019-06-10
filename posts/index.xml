@@ -39,10 +39,10 @@ type Part1 struct { a bool b int32 c int8 d int64 e byte } func main() { part1 :
     
     <item>
       <title>Leetcode - 25 - Reverse Nodes in k Group [Hard]</title>
-      <link>https://cuckooemm.xyz/2019/june/25-reverse_nodes_in_k-group/</link>
+      <link>https://cuckooemm.xyz/2019/june/25-reverse-nodes-in-k-group/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/25-reverse_nodes_in_k-group/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/25-reverse-nodes-in-k-group/</guid>
       <description>25.Reverse Nodes in k Group 地址
 难度：Hard
 题目描述 Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
@@ -68,10 +68,10 @@ Your function should return length = 2, with the first two elements of nums bein
     
     <item>
       <title>LeetCode - 24 - Swap Nodes in Pairs [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/</link>
+      <link>https://cuckooemm.xyz/2019/june/24-swap-nodes-in-pairs/</link>
       <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/24-swap_nodes_in_pairs/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/24-swap-nodes-in-pairs/</guid>
       <description>24.Swap Nodes in Pairs 地址
 难度：Medium
 题目描述 Given a linked list, swap every two adjacent nodes and return its head.
@@ -86,10 +86,10 @@ AC  Runtime: 0 ms, faster than 100.00% of C++ online submissions for Swap Nodes 
     
     <item>
       <title>LeetCode - 23 - Merge k Sorted Lists [Hard]</title>
-      <link>https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/</link>
+      <link>https://cuckooemm.xyz/2019/june/23-merge-k-sorted-lists/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/23-merge_k_sorted_lists/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/23-merge-k-sorted-lists/</guid>
       <description>23.Merge k Sorted Lists 地址
 难度：Hard
 题目描述 Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
@@ -107,10 +107,10 @@ AC  Runtime: 20 ms, faster than 99.55% of C++ online submissions for Merge k Sor
     
     <item>
       <title>LeetCode - 17 - Letter Combinations of a Phone Number [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/</link>
+      <link>https://cuckooemm.xyz/2019/june/17-letter-combinations-of-a-phone-number/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/17-letter_combinations_of_a_phone_number/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/17-letter-combinations-of-a-phone-number/</guid>
       <description>17.Letter Combinations of a Phone Number 地址
 难度：Medium
 题目描述 Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
@@ -123,10 +123,10 @@ Output: [&amp;ldquo;ad&amp;rdquo;, &amp;ldquo;ae&amp;rdquo;, &amp;ldquo;af&amp;r
     
     <item>
       <title>LeetCode - 19 - Remove Nth Node From End of List [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/</link>
+      <link>https://cuckooemm.xyz/2019/june/19-remove-nth-node-from-end-of-list/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/19-remove_nth_node_from_end_of_list/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/19-remove-nth-node-from-end-of-list/</guid>
       <description>19.Remove Nth Node From End of List 地址
 难度：Medium
 题目描述 Given a linked list, remove the n-th node from the end of list and return its head.
@@ -139,10 +139,10 @@ Follow up: Could you do this in one pass?</description>
     
     <item>
       <title>LeetCode - 20 - Valid Parentheses [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/20-valid_parentheses/</link>
+      <link>https://cuckooemm.xyz/2019/june/20-valid-parentheses/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/20-valid_parentheses/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/20-valid-parentheses/</guid>
       <description>20.Valid Parentheses 地址
 难度：Easy
 题目描述 Given a string containing just the characters &#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39; and &#39;]&#39;, determine if the input string is valid.
@@ -153,10 +153,10 @@ An input string is valid if:
     
     <item>
       <title>LeetCode - 21 - Merge Two Sorted Lists [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/21-merge_two_sorted_lists/</link>
+      <link>https://cuckooemm.xyz/2019/june/21-merge-two-sorted-lists/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/21-merge_two_sorted_lists/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/21-merge-two-sorted-lists/</guid>
       <description>21.Merge Two Sorted Lists 地址
 难度：Easy
 题目描述 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
@@ -169,10 +169,10 @@ AC  Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Two S
     
     <item>
       <title>LeetCode - 22 - Generate_Parentheses [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/22-generate_parentheses/</link>
+      <link>https://cuckooemm.xyz/2019/june/22-generate-parentheses/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/22-generate_parentheses/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/22-generate-parentheses/</guid>
       <description>22.Generate_Parentheses 地址
 难度：Medium
 题目描述 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
@@ -185,10 +185,10 @@ AC  Runtime: 4 ms, faster than 96.72% of C++ online submissions for Generate Par
     
     <item>
       <title>LeetCode - 11 - Container With Most Water [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/11-container_with_most_water/</link>
+      <link>https://cuckooemm.xyz/2019/june/11-container-with-most-water/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/11-container_with_most_water/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/11-container-with-most-water/</guid>
       <description>11.Container With Most Water 地址
 难度：Medium
 题目描述 Given n non-negative integers a1, a2, &amp;hellip;, an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
@@ -197,10 +197,10 @@ AC  Runtime: 4 ms, faster than 96.72% of C++ online submissions for Generate Par
     
     <item>
       <title>LeetCode - 12 - Integer to Roman [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/12-integer_to_roman/</link>
+      <link>https://cuckooemm.xyz/2019/june/12-integer-to-roman/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/12-integer_to_roman/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/12-integer-to-roman/</guid>
       <description>12.Integer to Roman 地址
 难度：Medium
 题目描述 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -210,10 +210,10 @@ Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written a
     
     <item>
       <title>LeetCode - 13 - Roman to Integer [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/13-roman_to_integer/</link>
+      <link>https://cuckooemm.xyz/2019/june/13-roman-to-integer/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/13-roman_to_integer/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/13-roman-to-integer/</guid>
       <description>13.Roman to Integer 地址
 难度：Easy
 题目描述 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -223,10 +223,10 @@ Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written a
     
     <item>
       <title>LeetCode - 14 - Longest_Common_Prefix [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/14-longest_common_prefix/</link>
+      <link>https://cuckooemm.xyz/2019/june/14-longest-common-prefix/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/14-longest_common_prefix/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/14-longest-common-prefix/</guid>
       <description>14.Longest_Common_Prefix 地址
 难度：Easy
 题目描述 Write a function to find the longest common prefix string amongst an array of strings.
@@ -261,10 +261,10 @@ Note: The solution set must not contain duplicate triplets.
     
     <item>
       <title>LeetCode - 16 - 3Sum Closest [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/16-3sum_closest/</link>
+      <link>https://cuckooemm.xyz/2019/june/16-3sum-closest/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/16-3sum_closest/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/16-3sum-closest/</guid>
       <description>16.3Sum Closest 地址
 难度：Medium
 题目描述 Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
@@ -274,10 +274,10 @@ Note: The solution set must not contain duplicate triplets.
     
     <item>
       <title>LeetCode - 9 - Palindrome Number [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/9-palindrome_number/</link>
+      <link>https://cuckooemm.xyz/2019/june/9-palindrome-number/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/9-palindrome_number/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/9-palindrome-number/</guid>
       <description>9.Palindrome Number 地址
 难度：Easy
 题目描述 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
@@ -294,10 +294,10 @@ Explanation: Reads 01 from right to left.</description>
     
     <item>
       <title>LeetCode - 6 - ZigZag Conversion [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/6-zigzag_conversion/</link>
+      <link>https://cuckooemm.xyz/2019/june/6-zigzag-conversion/</link>
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/6-zigzag_conversion/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/6-zigzag-conversion/</guid>
       <description>6.ZigZag Conversion 地址
 难度：Medium
 题目描述 The string &amp;quot;PAYPALISHIRING&amp;quot; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
@@ -309,10 +309,10 @@ Write the code that will take a string and make this conversion given a number o
     
     <item>
       <title>LeetCode - 7 - Reverse Integer [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/7-reverse_integer/</link>
+      <link>https://cuckooemm.xyz/2019/june/7-reverse-integer/</link>
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/7-reverse_integer/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/7-reverse-integer/</guid>
       <description>7.Reverse Integer 地址
 难度：Easy
 题目描述 Given a 32-bit signed integer, reverse digits of an integer.
@@ -328,10 +328,10 @@ Note: Assume we are dealing with an environment which could only store integers 
     
     <item>
       <title>LeetCode - 8 - String to Integer(atoi) [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/</link>
+      <link>https://cuckooemm.xyz/2019/june/8-string-to-integer-atoi/</link>
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/8-string_to_integer_atoi/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/8-string-to-integer-atoi/</guid>
       <description>8.String to Integer(atoi) 地址
 难度：Medium
 题目描述 Implement atoi which converts a string to an integer.
@@ -341,10 +341,10 @@ The string can contain additional characters after those that form the integral 
     
     <item>
       <title>LeetCode - 1 - Two Sum [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/1-two_sum/</link>
+      <link>https://cuckooemm.xyz/2019/june/1-two-sum/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/1-two_sum/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/1-two-sum/</guid>
       <description>1.Tow Sum 地址
 难度：Easy
 题目描述 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -357,10 +357,10 @@ return [0, 1].</description>
     
     <item>
       <title>LeetCode - 2 - Add Two Numbers [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/2-add_two_number/</link>
+      <link>https://cuckooemm.xyz/2019/june/2-add-two-number/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/2-add_two_number/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/2-add-two-number/</guid>
       <description>2.Add Two Numbers 地址
 难度：Medium
 题目描述 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
@@ -372,10 +372,10 @@ You may assume the two numbers do not contain any leading zero, except the numbe
     
     <item>
       <title>LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/</link>
+      <link>https://cuckooemm.xyz/2019/june/3-longest_substring-without-repeating-characters/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://cuckooemm.xyz/2019/june/3-longest_substring_without_repeating_characters/</guid>
+      <guid>https://cuckooemm.xyz/2019/june/3-longest_substring-without-repeating-characters/</guid>
       <description>3.Longest Substring Without Repeating Characters 地址
 难度：Medium
 题目描述 Given a string, find the length of the longest substring without repeating characters.

@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/16-3sum-closest/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/14-longest-common-prefix/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/15-3sum/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/14-longest-common-prefix/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/12-integer-to-roman/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/13-roman-to-integer/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           LeetCode - 15 - 3Sum [Medium] | Cuckooemm&#39;s Blog
+           LeetCode - 13 - Roman to Integer [Easy] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="LeetCode - 15 - 3Sum [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 13 - Roman to Integer [Easy] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "LeetCode - 15 - 3Sum [Medium]",
-    "headline" : "LeetCode - 15 - 3Sum [Medium]",
-    "description" : "15.3Sum 地址\n难度：Medium\n题目描述 Given an array nums of n integers, are there elements a, b, c in nums such that a \x2b b \x2b c = 0? Find all unique triplets in the array which gives the sum of zero.\n给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a \x2b b \x2b c = 0 ？找出所有满足条件且不重复的三元组。\nNote: The solution set must not contain duplicate triplets.\n答案中不可以包含重复的三元组。\n示例 Example: Given array nums = [-1, 0, 1, 2, -1, -4], A solution set is: [ [-1, 0, 1], [-1, -1, 2] ]  思路 首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。 时间复杂度:O(n2), 空间复杂度：O(1)。",
+    "name" : "LeetCode - 13 - Roman to Integer [Easy]",
+    "headline" : "LeetCode - 13 - Roman to Integer [Easy]",
+    "description" : "13.Roman to Integer 地址\n难度：Easy\n题目描述 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.\n罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。\nSymbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written as II in Roman numeral, just two one\x26rsquo;s added together. Twelve is written as, XII, which is simply X \x2b II.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -56,9 +56,9 @@
     "copyrightYear" : "2019",
     "datePublished": "2019-06-03 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-06-03 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/15-3sum\/",
-    "wordCount" : "237",
-    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/13-roman-to-integer\/",
+    "wordCount" : "493",
+    "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,7 +124,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">LeetCode - 15 - 3Sum [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 13 - Roman to Integer [Easy]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
@@ -156,80 +156,139 @@
 
           
 
-<h1 id="15-3sum">15.3Sum</h1>
+<h1 id="13-roman-to-integer">13.Roman to Integer</h1>
 
-<p><a href="https://leetcode.com/problems/3sum/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Medium</strong></p>
+<p><a href="https://leetcode.com/problems/roman-to-integer/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Easy</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Given an array nums of n integers, are there elements a, b, c in <code>nums</code> such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
+<p>Roman numerals are represented by seven different symbols: <strong>I</strong>, <strong>V</strong>, <strong>X</strong>, <strong>L</strong>, <strong>C</strong>, <strong>D</strong> and <strong>M</strong>.</p>
 
-<p>给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</p>
+<p>罗马数字包含以下七种字符： <strong>I</strong>， <strong>V</strong>， <strong>X</strong>， <strong>L</strong>，<strong>C</strong>，<strong>D</strong> 和 <strong>M</strong>。</p>
 
-<h4 id="note">Note:</h4>
+<pre><code class="language-c">Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+</code></pre>
 
-<p>The solution set must not contain duplicate triplets.</p>
+<p>For example, two is written as <strong>II</strong> in Roman numeral, just two one&rsquo;s added together. Twelve is written as, <strong>XII</strong>, which is simply <strong>X</strong> + <strong>II</strong>. The number twenty seven is written as <strong>XXVII</strong>, which is <strong>XX</strong> + <strong>V</strong> + <strong>II</strong>.</p>
 
-<p>答案中不可以包含重复的三元组。</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not <strong>IIII</strong>. Instead, the number four is written as <strong>IV</strong>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as <strong>IX</strong>. There are six instances where subtraction is used:</p>
+
+<ul>
+<li><strong>I</strong> can be placed before <strong>V</strong> (5) and <strong>X</strong> (10) to make 4 and 9.</li>
+<li><strong>X</strong> can be placed before <strong>L</strong> (50) and <strong>C</strong> (100) to make 40 and 90.</li>
+<li><strong>C</strong> can be placed before <strong>D</strong> (500) and <strong>M</strong> (1000) to make 400 and 900.</li>
+</ul>
+
+<p>Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.</p>
+
+<p>例如， 罗马数字 2 写做 <strong>II</strong> ，即为两个并列的 1。12 写做 <strong>XII</strong> ，即为 <strong>X</strong> + <strong>II</strong> 。 27 写做  <strong>XXVII</strong>, 即为 <strong>XX</strong> + <strong>V</strong> + <strong>II</strong> 。</p>
+
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 <strong>IIII</strong>，而是 <strong>IV</strong>。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 <strong>IX</strong>。这个特殊的规则只适用于以下六种情况：</p>
+
+<ul>
+<li><strong>I</strong> 可以放在 <strong>V</strong> (5) 和 <strong>X</strong> (10) 的左边，来表示 4 和 9。</li>
+<li><strong>X</strong> 可以放在 <strong>L</strong> (50) 和 <strong>C</strong> (100) 的左边，来表示 40 和 90。</li>
+<li><strong>C</strong> 可以放在 <strong>D</strong> (500) 和 <strong>M</strong> (1000) 的左边，来表示 400 和 900。</li>
+</ul>
+
+<p>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p>
 
 <h3 id="示例">示例</h3>
 
-<h4 id="example">Example:</h4>
+<h4 id="example-1">Example 1:</h4>
 
-<pre><code class="language-c">Given array nums = [-1, 0, 1, 2, -1, -4],
+<p><strong>Input:</strong> 3<br />
+<strong>Output:</strong> &ldquo;III&rdquo;</p>
 
-A solution set is:
-[
-  [-1, 0, 1],
-  [-1, -1, 2]
-]
-</code></pre>
+<h4 id="example-2">Example 2:</h4>
+
+<p><strong>Input:</strong> 4<br />
+<strong>Output:</strong> &ldquo;IV&rdquo;</p>
+
+<h4 id="example-3">Example 3:</h4>
+
+<p><strong>Input:</strong> 9<br />
+<strong>Output:</strong> &ldquo;IX&rdquo;</p>
+
+<h4 id="example-4">Example 4:</h4>
+
+<p><strong>Input:</strong> 58<br />
+<strong>Output:</strong> &ldquo;LVIII&rdquo;<br />
+<strong>Explanation:</strong> L = 50, V = 5, III = 3.</p>
+
+<h4 id="example-5">Example 5:</h4>
+
+<p><strong>Input:</strong> 1994<br />
+<strong>Output:</strong> &ldquo;MCMXCIV&rdquo;<br />
+<strong>Explanation:</strong> M = 1000, CM = 900, XC = 90 and IV = 4.</p>
 
 <h3 id="思路">思路</h3>
 
-<p>首先对数组进行排序，选择一个数，然后用双指针法对比，如果和大于0，左移右指针，反之，右移左指针。
-<strong>时间复杂度:O(n<sup>2</sup>), 空间复杂度：O(1)</strong>。</p>
+<p>字符串表示的罗马数字，最左边一定是代表最大的数，如果遍历中出现了左边值大于右边值，说明出现了<strong>CM</strong>、<strong>XC</strong>、<strong>IV</strong>这种情况。<br />
+减去小值加上大值，如：CM = -100 + 1000 = 900。<br />
+用<code>switch</code>优化了原先用hashMap的效率，省略了hashMap所带来的计算消耗。<br />
+<strong>时间复杂度:O(n), 空间复杂度：O(1)</strong>。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 92 ms, faster than 98.40% of C++ online submissions for 3Sum.</li>
-<li>Memory Usage: 14.8 MB, less than 76.43% of C++ online submissions for 3Sum.</li>
+<li>Runtime: 8 ms, faster than 98.36% of C++ online submissions for Roman to Integer.</li>
+<li>Memory Usage: 8.4 MB, less than 86.43% of C++ online submissions for Roman to Integer.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
-public:
-    vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) {
-        vector&lt;vector&lt;int&gt;&gt; res;
-        if(nums.size() &lt; 3) return res;
-        sort(nums.begin(),nums.end());                                  // 排序
-        vector&lt;int&gt; t(3);
-        int begin,end,sum;
- 
-        for(int i = 0; i &lt; nums.size() - 2; ++i){
-            if(nums[i] &gt; 0) break;                                      // 如果值大于0，那么和无论如何不会等于0
-            if(i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) continue;               // 排除重复
-            begin = i + 1;
-            end = nums.size() - 1;
-            while(begin &lt; end){
-                sum = nums[i] + nums[begin] + nums[end];
-                if(sum &gt; 0) --end;
-                else if(sum &lt; 0) ++begin;
-                else{
-                    t[0] = nums[i];
-                    t[1] = nums[begin];
-                    t[2] = nums[end];
-                    res.push_back(t);
-                    while(begin &lt; end &amp;&amp; nums[begin] == t[1]) ++begin;  //排除重复
-                    while(begin &lt; end &amp;&amp; nums[end] == t[2]) --end;      //排除重复
-                }
-            }
+private:
+    int charToInt(char s){   // 替代 HashMap
+        switch(s){
+            case 'I' :
+                return 1;
+                break;
+            case 'V' :
+                return 5;
+                break;
+            case 'X' :
+                return 10;
+                break;
+            case 'L' :
+                return 50;
+                break;
+            case 'C' :
+                return 100;
+                break;
+            case 'D' :
+                return 500;
+                break;
+            case 'M' :
+                return 1000;
+                break;
+            default:
+                return 0;
         }
-        return res;
     }
+public:
+    int romanToInt(string s) {
+        int res = 0;
+        for (int i = 0; i &lt; s.size() - 1; ++i)
+	    {
+		    if (charToInt(s[i]) &lt; charToInt(s[i+1]))
+                res -= charToInt(s[i]);
+		    else
+                res += charToInt(s[i]);
+	    }
+	    res += charToInt(s[s.size() - 1]);   // 加上最后一个值
+	    return res;
+    }
+
 };
 </code></pre>
 
@@ -246,7 +305,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/15-3sum/>https://cuckooemm.xyz/2019/june/15-3sum/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/13-roman-to-integer/>https://cuckooemm.xyz/2019/june/13-roman-to-integer/</span>
             </p>
             
              
@@ -265,8 +324,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
-                    #LeetCode-Medium</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-easy/">
+                    #LeetCode-Easy</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -281,10 +340,10 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/16-3sum-closest/" class="prev" rel="prev" title="LeetCode - 16 - 3Sum Closest [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 16 - 3Sum Closest [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/june/14-longest-common-prefix/" class="prev" rel="prev" title="LeetCode - 14 - Longest_Common_Prefix [Easy]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 14 - Longest_Common_Prefix [Easy]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/14-longest-common-prefix/" class="next" rel="next" title="LeetCode - 14 - Longest_Common_Prefix [Easy]">LeetCode - 14 - Longest_Common_Prefix [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/12-integer-to-roman/" class="next" rel="next" title="LeetCode - 12 - Integer to Roman [Medium]">LeetCode - 12 - Integer to Roman [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/may/git1/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/3-longest_substring-without-repeating-characters/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/may/git2/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/15-3sum/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/13-roman-to-integer/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/14-longest-common-prefix/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Git(2) | Cuckooemm&#39;s Blog
+           LeetCode - 14 - Longest_Common_Prefix [Easy] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Git(2) | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 14 - Longest_Common_Prefix [Easy] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Git(2)",
-    "headline" : "Git(2)",
-    "description" : "分支 创建分支 -b 表示创建并切换\ngit checkout -b \x26lt;name\x26gt;  等同于\ngit branch \x26lt;name\x26gt; git checkout \x26lt;name\x26gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。\ngit branch  切换分支 git checkout \x26lt;name\x26gt;  合并分支 git merge \x26lt;name\x26gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式\ngit merge --no-ff -m \x26quot;merge with no-ff\x26quot; \x26lt;name\x26gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。\n删除分支 git branch -d \x26lt;name\x26gt; git branch -D \x26lt;name\x26gt; \/\/未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除  git stash \x26lt;apply or pop\x26gt; \x26lt;stash\x26gt;  标签 创建标签 在当前分支打标签",
+    "name" : "LeetCode - 14 - Longest_Common_Prefix [Easy]",
+    "headline" : "LeetCode - 14 - Longest_Common_Prefix [Easy]",
+    "description" : "14.Longest_Common_Prefix 地址\n难度：Easy\n题目描述 Write a function to find the longest common prefix string amongst an array of strings.\nIf there is no common prefix, return an empty string \x26ldquo;\x26rdquo;.\n编写一个函数来查找字符串数组中的最长公共前缀。\n如果不存在公共前缀，返回空字符串 \x26ldquo;\x26ldquo;。\n示例 Example 1: Input: [\x26ldquo;flower\x26rdquo;,\x26ldquo;flow\x26rdquo;,\x26ldquo;flight\x26rdquo;]\nOutput: \x26ldquo;fl\x26rdquo;\nExample 2: Input: [\x26ldquo;dog\x26rdquo;,\x26ldquo;racecar\x26rdquo;,\x26ldquo;car\x26rdquo;]\nOutput: \x26ldquo;\x26rdquo;\nExplanation: There is no common prefix among the input strings.\n思路 把第一个元素拷贝，然后依次比较之后的string。\n遇到不同则裁剪字符串并跳去循环，开始下一个string。\n时间复杂度:O(S), 空间复杂度：O(1)。\nAC  Runtime: 4 ms, faster than 98.77% of C\x2b\x2b online submissions for Longest Common Prefix.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-25 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-25 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/may\/git2\/",
-    "wordCount" : "126",
-    "keywords" : [ "git", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-06-03 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-03 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/14-longest-common-prefix\/",
+    "wordCount" : "147",
+    "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,16 +124,16 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Git(2)</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 14 - Longest_Common_Prefix [Easy]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-05-25 itemprop="datePublished">May 25, 2019</time>
+                on <time datetime=2019-06-03 itemprop="datePublished">June 3, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://cuckooemm.xyz/categories/git/"> Git </a>
+                        <a href="https://cuckooemm.xyz/categories/algorithm/"> algorithm </a>
                         
                 </span>
         </div>
@@ -156,117 +156,65 @@
 
           
 
-<h3 id="分支">分支</h3>
+<h1 id="14-longest-common-prefix">14.Longest_Common_Prefix</h1>
 
-<h4 id="创建分支">创建分支</h4>
+<p><a href="https://leetcode.com/problems/longest-common-prefix/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Easy</strong></p>
 
-<p><code>-b</code> 表示创建并切换</p>
+<h3 id="题目描述">题目描述</h3>
 
-<pre><code class="language-git">git checkout -b &lt;name&gt;
-</code></pre>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
 
-<p>等同于</p>
+<p>If there is no common prefix, return an empty string &ldquo;&rdquo;.</p>
 
-<pre><code class="language-git">git branch &lt;name&gt;
-git checkout &lt;name&gt;
-</code></pre>
+<p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 
-<h4 id="查看当前分支">查看当前分支</h4>
+<p>如果不存在公共前缀，返回空字符串 &ldquo;&ldquo;。</p>
 
-<p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。</p>
+<h3 id="示例">示例</h3>
 
-<pre><code class="language-git">git branch
-</code></pre>
+<h4 id="example-1">Example 1:</h4>
 
-<h4 id="切换分支">切换分支</h4>
+<p><strong>Input:</strong> [&ldquo;flower&rdquo;,&ldquo;flow&rdquo;,&ldquo;flight&rdquo;]<br />
+<strong>Output:</strong> &ldquo;fl&rdquo;</p>
 
-<pre><code class="language-git">git checkout &lt;name&gt;
-</code></pre>
+<h4 id="example-2">Example 2:</h4>
 
-<h4 id="合并分支">合并分支</h4>
+<p><strong>Input:</strong> [&ldquo;dog&rdquo;,&ldquo;racecar&rdquo;,&ldquo;car&rdquo;]<br />
+<strong>Output:</strong> &ldquo;&rdquo;<br />
+<strong>Explanation:</strong> There is no common prefix among the input strings.</p>
 
-<pre><code class="language-git">git merge &lt;name&gt;
-</code></pre>
+<h3 id="思路">思路</h3>
 
-<p><code>git merge</code>命令用于合并指定分支到当前分支。 <code>Fast-forward</code> 信息表示快进模式</p>
+<p>把第一个元素拷贝，然后依次比较之后的string。<br />
+遇到不同则裁剪字符串并跳去循环，开始下一个string。<br />
+<strong>时间复杂度:O(S), 空间复杂度：O(1)</strong>。</p>
 
-<pre><code class="language-git">git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;
-</code></pre>
-
-<p><code>--no-ff</code>参数，表示禁用<code>Fast forward</code>
-因为本次合并要创建一个新的commit，所以加上<code>-m</code>参数，把<code>commit</code>描述写进去。</p>
-
-<h4 id="删除分支">删除分支</h4>
-
-<pre><code class="language-git">git branch -d &lt;name&gt; 
-git branch -D &lt;name&gt; //未合并过的分支删除
-</code></pre>
-
-<h3 id="环境保存与恢复">环境保存与恢复</h3>
-
-<h4 id="保存现场">保存现场</h4>
-
-<pre><code class="language-git">git stash
-</code></pre>
-
-<h4 id="查看现场保存位置">查看现场保存位置</h4>
-
-<pre><code class="language-git">git stash list
-</code></pre>
-
-<h4 id="现场恢复">现场恢复</h4>
+<h3 id="ac">AC</h3>
 
 <ul>
-<li><code>git stash apply</code> 恢复现场但不删除记录，调用<code>git stash drop</code>删除</li>
-<li><code>git stash pop</code> 恢复且删除</li>
+<li>Runtime: 4 ms, faster than 98.77% of C++ online submissions for Longest Common Prefix.</li>
+<li>Memory Usage: 8.8 MB, less than 85.87% of C++ online submissions for Longest Common Prefix.</li>
 </ul>
 
-<pre><code class="language-git">git stash &lt;apply or pop&gt; &lt;stash&gt;
-</code></pre>
+<h3 id="代码">代码</h3>
 
-<h3 id="标签">标签</h3>
-
-<h4 id="创建标签">创建标签</h4>
-
-<p>在当前分支打标签</p>
-
-<pre><code class="language-git">git tag &lt;tagname&gt;
-</code></pre>
-
-<p>指定commitid 打标签</p>
-
-<pre><code class="language-git">git tag  &lt;tagname&gt; &lt;commitid&gt;
-</code></pre>
-
-<p>为标签添加说明</p>
-
-<pre><code class="language-git">git tag -a &lt;tagname&gt; -m &quot;explain&quot; &lt;commitid&gt;
-</code></pre>
-
-<h4 id="查看所有标签">查看所有标签</h4>
-
-<pre><code class="language-git">git tag 
-</code></pre>
-
-<h4 id="查看标签信息">查看标签信息</h4>
-
-<pre><code class="language-git">git show &lt;tagname&gt;
-</code></pre>
-
-<h4 id="标签删除">标签删除</h4>
-
-<pre><code class="language-git">git tag -d &lt;tagname&gt;
-</code></pre>
-
-<h5 id="远程删除">远程删除</h5>
-
-<pre><code class="language-git">git push &lt;host&gt; :refs/tags/&lt;tagname&gt;
-</code></pre>
-
-<h4 id="标签推送">标签推送</h4>
-
-<pre><code class="language-git">git push &lt;host&gt; &lt;tagname&gt;
-git push &lt;host&gt; --tags // 推送所有
+<pre><code class="language-c++">class Solution {
+public:
+    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+	if (strs.size() == 0) return &quot;&quot;;
+    string result = strs[0];
+	for (int i = 1; i &lt; strs.size(); i++) {
+		for (int j = 0; j &lt; result.length(); j++) {
+			if (result[j] != strs[i][j]) {
+				result = result.substr(0, j);
+				break;
+			}
+		}
+	}
+	return result;
+    }
+};
 </code></pre>
 
     </div>
@@ -282,7 +230,7 @@ git push &lt;host&gt; --tags // 推送所有
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/may/git2/>https://cuckooemm.xyz/2019/may/git2/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/14-longest-common-prefix/>https://cuckooemm.xyz/2019/june/14-longest-common-prefix/</span>
             </p>
             
              
@@ -298,8 +246,14 @@ git push &lt;host&gt; --tags // 推送所有
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/git/">
-                    #git</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
+                    #algorithm</a></span>
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-easy/">
+                    #LeetCode-Easy</a></span>
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
+                    #LeetCode-1~100</a></span>
             
             </section>
         
@@ -311,10 +265,10 @@ git push &lt;host&gt; --tags // 推送所有
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/may/git1/" class="prev" rel="prev" title="Git(1)"><i class="iconfont icon-left"></i>&nbsp;Git(1)</a>
+        <a href="https://cuckooemm.xyz/2019/june/15-3sum/" class="prev" rel="prev" title="LeetCode - 15 - 3Sum [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 15 - 3Sum [Medium]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/3-longest_substring-without-repeating-characters/" class="next" rel="next" title="LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]">LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/13-roman-to-integer/" class="next" rel="next" title="LeetCode - 13 - Roman to Integer [Easy]">LeetCode - 13 - Roman to Integer [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

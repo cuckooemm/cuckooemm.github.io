@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/may/git1/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/3-longest_substring-without-repeating-characters/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/may/git2/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/13-roman-to-integer/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/11-container-with-most-water/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/12-integer-to-roman/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Git(2) | Cuckooemm&#39;s Blog
+           LeetCode - 12 - Integer to Roman [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Git(2) | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 12 - Integer to Roman [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Git(2)",
-    "headline" : "Git(2)",
-    "description" : "分支 创建分支 -b 表示创建并切换\ngit checkout -b \x26lt;name\x26gt;  等同于\ngit branch \x26lt;name\x26gt; git checkout \x26lt;name\x26gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。\ngit branch  切换分支 git checkout \x26lt;name\x26gt;  合并分支 git merge \x26lt;name\x26gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式\ngit merge --no-ff -m \x26quot;merge with no-ff\x26quot; \x26lt;name\x26gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。\n删除分支 git branch -d \x26lt;name\x26gt; git branch -D \x26lt;name\x26gt; \/\/未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除  git stash \x26lt;apply or pop\x26gt; \x26lt;stash\x26gt;  标签 创建标签 在当前分支打标签",
+    "name" : "LeetCode - 12 - Integer to Roman [Medium]",
+    "headline" : "LeetCode - 12 - Integer to Roman [Medium]",
+    "description" : "12.Integer to Roman 地址\n难度：Medium\n题目描述 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.\n罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。\nSymbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000  For example, two is written as II in Roman numeral, just two one\x26rsquo;s added together. Twelve is written as, XII, which is simply X \x2b II.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-25 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-25 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/may\/git2\/",
-    "wordCount" : "126",
-    "keywords" : [ "git", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-06-03 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-03 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/12-integer-to-roman\/",
+    "wordCount" : "426",
+    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,16 +124,16 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Git(2)</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 12 - Integer to Roman [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-05-25 itemprop="datePublished">May 25, 2019</time>
+                on <time datetime=2019-06-03 itemprop="datePublished">June 3, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://cuckooemm.xyz/categories/git/"> Git </a>
+                        <a href="https://cuckooemm.xyz/categories/algorithm/"> algorithm </a>
                         
                 </span>
         </div>
@@ -156,117 +156,110 @@
 
           
 
-<h3 id="分支">分支</h3>
+<h1 id="12-integer-to-roman">12.Integer to Roman</h1>
 
-<h4 id="创建分支">创建分支</h4>
+<p><a href="https://leetcode.com/problems/integer-to-roman/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
-<p><code>-b</code> 表示创建并切换</p>
+<h3 id="题目描述">题目描述</h3>
 
-<pre><code class="language-git">git checkout -b &lt;name&gt;
+<p>Roman numerals are represented by seven different symbols: <strong>I</strong>, <strong>V</strong>, <strong>X</strong>, <strong>L</strong>, <strong>C</strong>, <strong>D</strong> and <strong>M</strong>.</p>
+
+<p>罗马数字包含以下七种字符： <strong>I</strong>， <strong>V</strong>， <strong>X</strong>， <strong>L</strong>，<strong>C</strong>，<strong>D</strong> 和 <strong>M</strong>。</p>
+
+<pre><code class="language-c">Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
 </code></pre>
 
-<p>等同于</p>
+<p>For example, two is written as <strong>II</strong> in Roman numeral, just two one&rsquo;s added together. Twelve is written as, <strong>XII</strong>, which is simply <strong>X</strong> + <strong>II</strong>. The number twenty seven is written as <strong>XXVII</strong>, which is <strong>XX</strong> + <strong>V</strong> + <strong>II</strong>.</p>
 
-<pre><code class="language-git">git branch &lt;name&gt;
-git checkout &lt;name&gt;
-</code></pre>
-
-<h4 id="查看当前分支">查看当前分支</h4>
-
-<p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。</p>
-
-<pre><code class="language-git">git branch
-</code></pre>
-
-<h4 id="切换分支">切换分支</h4>
-
-<pre><code class="language-git">git checkout &lt;name&gt;
-</code></pre>
-
-<h4 id="合并分支">合并分支</h4>
-
-<pre><code class="language-git">git merge &lt;name&gt;
-</code></pre>
-
-<p><code>git merge</code>命令用于合并指定分支到当前分支。 <code>Fast-forward</code> 信息表示快进模式</p>
-
-<pre><code class="language-git">git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;
-</code></pre>
-
-<p><code>--no-ff</code>参数，表示禁用<code>Fast forward</code>
-因为本次合并要创建一个新的commit，所以加上<code>-m</code>参数，把<code>commit</code>描述写进去。</p>
-
-<h4 id="删除分支">删除分支</h4>
-
-<pre><code class="language-git">git branch -d &lt;name&gt; 
-git branch -D &lt;name&gt; //未合并过的分支删除
-</code></pre>
-
-<h3 id="环境保存与恢复">环境保存与恢复</h3>
-
-<h4 id="保存现场">保存现场</h4>
-
-<pre><code class="language-git">git stash
-</code></pre>
-
-<h4 id="查看现场保存位置">查看现场保存位置</h4>
-
-<pre><code class="language-git">git stash list
-</code></pre>
-
-<h4 id="现场恢复">现场恢复</h4>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not <strong>IIII</strong>. Instead, the number four is written as <strong>IV</strong>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as <strong>IX</strong>. There are six instances where subtraction is used:</p>
 
 <ul>
-<li><code>git stash apply</code> 恢复现场但不删除记录，调用<code>git stash drop</code>删除</li>
-<li><code>git stash pop</code> 恢复且删除</li>
+<li><strong>I</strong> can be placed before <strong>V</strong> (5) and <strong>X</strong> (10) to make 4 and 9.</li>
+<li><strong>X</strong> can be placed before <strong>L</strong> (50) and <strong>C</strong> (100) to make 40 and 90.</li>
+<li><strong>C</strong> can be placed before <strong>D</strong> (500) and <strong>M</strong> (1000) to make 400 and 900.</li>
 </ul>
 
-<pre><code class="language-git">git stash &lt;apply or pop&gt; &lt;stash&gt;
-</code></pre>
+<p>Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.</p>
 
-<h3 id="标签">标签</h3>
+<p>例如， 罗马数字 2 写做 <strong>II</strong> ，即为两个并列的 1。12 写做 <strong>XII</strong> ，即为 <strong>X</strong> + <strong>II</strong> 。 27 写做  <strong>XXVII</strong>, 即为 <strong>XX</strong> + <strong>V</strong> + <strong>II</strong> 。</p>
 
-<h4 id="创建标签">创建标签</h4>
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 <strong>IIII</strong>，而是 <strong>IV</strong>。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 <strong>IX</strong>。这个特殊的规则只适用于以下六种情况：</p>
 
-<p>在当前分支打标签</p>
+<ul>
+<li><strong>I</strong> 可以放在 <strong>V</strong> (5) 和 <strong>X</strong> (10) 的左边，来表示 4 和 9。</li>
+<li><strong>X</strong> 可以放在 <strong>L</strong> (50) 和 <strong>C</strong> (100) 的左边，来表示 40 和 90。</li>
+<li><strong>C</strong> 可以放在 <strong>D</strong> (500) 和 <strong>M</strong> (1000) 的左边，来表示 400 和 900。</li>
+</ul>
 
-<pre><code class="language-git">git tag &lt;tagname&gt;
-</code></pre>
+<p>给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。</p>
 
-<p>指定commitid 打标签</p>
+<h3 id="示例">示例</h3>
 
-<pre><code class="language-git">git tag  &lt;tagname&gt; &lt;commitid&gt;
-</code></pre>
+<h4 id="example-1">Example 1:</h4>
 
-<p>为标签添加说明</p>
+<p><strong>Input:</strong> 3<br />
+<strong>Output:</strong> &ldquo;III&rdquo;</p>
 
-<pre><code class="language-git">git tag -a &lt;tagname&gt; -m &quot;explain&quot; &lt;commitid&gt;
-</code></pre>
+<h4 id="example-2">Example 2:</h4>
 
-<h4 id="查看所有标签">查看所有标签</h4>
+<p><strong>Input:</strong> 4<br />
+<strong>Output:</strong> &ldquo;IV&rdquo;</p>
 
-<pre><code class="language-git">git tag 
-</code></pre>
+<h4 id="example-3">Example 3:</h4>
 
-<h4 id="查看标签信息">查看标签信息</h4>
+<p><strong>Input:</strong> 9<br />
+<strong>Output:</strong> &ldquo;IX&rdquo;</p>
 
-<pre><code class="language-git">git show &lt;tagname&gt;
-</code></pre>
+<h4 id="example-4">Example 4:</h4>
 
-<h4 id="标签删除">标签删除</h4>
+<p><strong>Input:</strong> 58<br />
+<strong>Output:</strong> &ldquo;LVIII&rdquo;<br />
+<strong>Explanation:</strong> L = 50, V = 5, III = 3.</p>
 
-<pre><code class="language-git">git tag -d &lt;tagname&gt;
-</code></pre>
+<h4 id="example-5">Example 5:</h4>
 
-<h5 id="远程删除">远程删除</h5>
+<p><strong>Input:</strong> 1994<br />
+<strong>Output:</strong> &ldquo;MCMXCIV&rdquo;</p>
 
-<pre><code class="language-git">git push &lt;host&gt; :refs/tags/&lt;tagname&gt;
-</code></pre>
+<h4 id="explanation-m-1000-cm-900-xc-90-and-iv-4">Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</h4>
 
-<h4 id="标签推送">标签推送</h4>
+<h3 id="思路">思路</h3>
 
-<pre><code class="language-git">git push &lt;host&gt; &lt;tagname&gt;
-git push &lt;host&gt; --tags // 推送所有
+<p>建立数字与罗马数字对应的两个数组。<br />
+<strong>时间复杂度:O(log<sub>10</sub>(n)), 空间复杂度：O(1)</strong>。</p>
+
+<h3 id="ac">AC</h3>
+
+<ul>
+<li>Runtime: 4 ms, faster than 98.84% of C++ online submissions for Integer to Roman.</li>
+<li>Memory Usage: 8.4 MB, less than 86.47% of C++ online submissions for Integer to Roman.</li>
+</ul>
+
+<h3 id="代码">代码</h3>
+
+<pre><code class="language-c++">class Solution {
+public:
+    string intToRoman(int num) {
+        int border[] = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        string symbols[] = {&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,&quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;};
+        string res = &quot;&quot;;
+        for(int i = 0; i &lt; 13; ++i){
+            while(num &gt;= border[i]){
+                num -= border[i];
+                res += symbols[i];
+            }
+        }
+        return res;
+    }
+};
 </code></pre>
 
     </div>
@@ -282,7 +275,7 @@ git push &lt;host&gt; --tags // 推送所有
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/may/git2/>https://cuckooemm.xyz/2019/may/git2/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/12-integer-to-roman/>https://cuckooemm.xyz/2019/june/12-integer-to-roman/</span>
             </p>
             
              
@@ -298,8 +291,14 @@ git push &lt;host&gt; --tags // 推送所有
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/git/">
-                    #git</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
+                    #algorithm</a></span>
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
+                    #LeetCode-Medium</a></span>
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
+                    #LeetCode-1~100</a></span>
             
             </section>
         
@@ -311,10 +310,10 @@ git push &lt;host&gt; --tags // 推送所有
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/may/git1/" class="prev" rel="prev" title="Git(1)"><i class="iconfont icon-left"></i>&nbsp;Git(1)</a>
+        <a href="https://cuckooemm.xyz/2019/june/13-roman-to-integer/" class="prev" rel="prev" title="LeetCode - 13 - Roman to Integer [Easy]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 13 - Roman to Integer [Easy]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/3-longest_substring-without-repeating-characters/" class="next" rel="next" title="LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]">LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/11-container-with-most-water/" class="next" rel="next" title="LeetCode - 11 - Container With Most Water [Medium]">LeetCode - 11 - Container With Most Water [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

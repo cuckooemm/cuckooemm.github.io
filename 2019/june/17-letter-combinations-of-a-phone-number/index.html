@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/may/git1/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/3-longest_substring-without-repeating-characters/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/may/git2/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/19-remove-nth-node-from-end-of-list/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/23-merge-k-sorted-lists/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/17-letter-combinations-of-a-phone-number/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Git(2) | Cuckooemm&#39;s Blog
+           LeetCode - 17 - Letter Combinations of a Phone Number [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Git(2) | Cuckooemm&#39;s Blog">
+  <meta name="title" content="LeetCode - 17 - Letter Combinations of a Phone Number [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Git(2)",
-    "headline" : "Git(2)",
-    "description" : "分支 创建分支 -b 表示创建并切换\ngit checkout -b \x26lt;name\x26gt;  等同于\ngit branch \x26lt;name\x26gt; git checkout \x26lt;name\x26gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。\ngit branch  切换分支 git checkout \x26lt;name\x26gt;  合并分支 git merge \x26lt;name\x26gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式\ngit merge --no-ff -m \x26quot;merge with no-ff\x26quot; \x26lt;name\x26gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。\n删除分支 git branch -d \x26lt;name\x26gt; git branch -D \x26lt;name\x26gt; \/\/未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除  git stash \x26lt;apply or pop\x26gt; \x26lt;stash\x26gt;  标签 创建标签 在当前分支打标签",
+    "name" : "LeetCode - 17 - Letter Combinations of a Phone Number [Medium]",
+    "headline" : "LeetCode - 17 - Letter Combinations of a Phone Number [Medium]",
+    "description" : "17.Letter Combinations of a Phone Number 地址\n难度：Medium\n题目描述 Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.\nA mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.\n给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。\n给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。\n示例 Example: Input: \x26ldquo;23\x26rdquo;\nOutput: [\x26ldquo;ad\x26rdquo;, \x26ldquo;ae\x26rdquo;, \x26ldquo;af\x26rdquo;, \x26ldquo;bd\x26rdquo;, \x26ldquo;be\x26rdquo;, \x26ldquo;bf\x26rdquo;, \x26ldquo;cd\x26rdquo;, \x26ldquo;ce\x26rdquo;, \x26ldquo;cf\x26rdquo;].",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-25 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-25 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/may\/git2\/",
-    "wordCount" : "126",
-    "keywords" : [ "git", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-06-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/17-letter-combinations-of-a-phone-number\/",
+    "wordCount" : "245",
+    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,16 +124,16 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Git(2)</h1>
+        <h1 class="post-title" itemprop="name headline">LeetCode - 17 - Letter Combinations of a Phone Number [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-05-25 itemprop="datePublished">May 25, 2019</time>
+                on <time datetime=2019-06-05 itemprop="datePublished">June 5, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://cuckooemm.xyz/categories/git/"> Git </a>
+                        <a href="https://cuckooemm.xyz/categories/algorithm/"> algorithm </a>
                         
                 </span>
         </div>
@@ -156,117 +156,98 @@
 
           
 
-<h3 id="分支">分支</h3>
+<h1 id="17-letter-combinations-of-a-phone-number">17.Letter Combinations of a Phone Number</h1>
 
-<h4 id="创建分支">创建分支</h4>
+<p><a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
-<p><code>-b</code> 表示创建并切换</p>
+<h3 id="题目描述">题目描述</h3>
 
-<pre><code class="language-git">git checkout -b &lt;name&gt;
-</code></pre>
+<p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent.</p>
 
-<p>等同于</p>
+<p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
 
-<pre><code class="language-git">git branch &lt;name&gt;
-git checkout &lt;name&gt;
-</code></pre>
+<p>给定一个仅包含数字 <code>2-9</code> 的字符串，返回所有它能表示的字母组合。</p>
 
-<h4 id="查看当前分支">查看当前分支</h4>
+<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
 
-<p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。</p>
+<h3 id="示例">示例</h3>
 
-<pre><code class="language-git">git branch
-</code></pre>
+<h4 id="example">Example:</h4>
 
-<h4 id="切换分支">切换分支</h4>
+<p><strong>Input:</strong> &ldquo;23&rdquo;<br />
+<strong>Output:</strong> [&ldquo;ad&rdquo;, &ldquo;ae&rdquo;, &ldquo;af&rdquo;, &ldquo;bd&rdquo;, &ldquo;be&rdquo;, &ldquo;bf&rdquo;, &ldquo;cd&rdquo;, &ldquo;ce&rdquo;, &ldquo;cf&rdquo;].</p>
 
-<pre><code class="language-git">git checkout &lt;name&gt;
-</code></pre>
+<h4 id="note">Note:</h4>
 
-<h4 id="合并分支">合并分支</h4>
+<p>Although the above answer is in lexicographical order, your answer could be in any order you want.<br />
+尽管上面的答案是按字典序排列的，但是你可以任意选择答案输出的顺序。</p>
 
-<pre><code class="language-git">git merge &lt;name&gt;
-</code></pre>
+<h3 id="思路">思路</h3>
 
-<p><code>git merge</code>命令用于合并指定分支到当前分支。 <code>Fast-forward</code> 信息表示快进模式</p>
+<p>递归实现。<br />
+<strong>时间复杂度:O(3<sup>n</sup> * 4<sup>m</sup>), 空间复杂度：O(3<sup>n</sup> * 4<sup>m</sup>)</strong>。</p>
 
-<pre><code class="language-git">git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;
-</code></pre>
-
-<p><code>--no-ff</code>参数，表示禁用<code>Fast forward</code>
-因为本次合并要创建一个新的commit，所以加上<code>-m</code>参数，把<code>commit</code>描述写进去。</p>
-
-<h4 id="删除分支">删除分支</h4>
-
-<pre><code class="language-git">git branch -d &lt;name&gt; 
-git branch -D &lt;name&gt; //未合并过的分支删除
-</code></pre>
-
-<h3 id="环境保存与恢复">环境保存与恢复</h3>
-
-<h4 id="保存现场">保存现场</h4>
-
-<pre><code class="language-git">git stash
-</code></pre>
-
-<h4 id="查看现场保存位置">查看现场保存位置</h4>
-
-<pre><code class="language-git">git stash list
-</code></pre>
-
-<h4 id="现场恢复">现场恢复</h4>
+<h3 id="ac">AC</h3>
 
 <ul>
-<li><code>git stash apply</code> 恢复现场但不删除记录，调用<code>git stash drop</code>删除</li>
-<li><code>git stash pop</code> 恢复且删除</li>
+<li>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Letter Combinations of a Phone Number.</li>
+<li>Memory Usage: 8.7 MB, less than 50.00% of C++ online submissions for Letter Combinations of a Phone Number.</li>
 </ul>
 
-<pre><code class="language-git">git stash &lt;apply or pop&gt; &lt;stash&gt;
-</code></pre>
+<h3 id="代码">代码</h3>
 
-<h3 id="标签">标签</h3>
-
-<h4 id="创建标签">创建标签</h4>
-
-<p>在当前分支打标签</p>
-
-<pre><code class="language-git">git tag &lt;tagname&gt;
-</code></pre>
-
-<p>指定commitid 打标签</p>
-
-<pre><code class="language-git">git tag  &lt;tagname&gt; &lt;commitid&gt;
-</code></pre>
-
-<p>为标签添加说明</p>
-
-<pre><code class="language-git">git tag -a &lt;tagname&gt; -m &quot;explain&quot; &lt;commitid&gt;
-</code></pre>
-
-<h4 id="查看所有标签">查看所有标签</h4>
-
-<pre><code class="language-git">git tag 
-</code></pre>
-
-<h4 id="查看标签信息">查看标签信息</h4>
-
-<pre><code class="language-git">git show &lt;tagname&gt;
-</code></pre>
-
-<h4 id="标签删除">标签删除</h4>
-
-<pre><code class="language-git">git tag -d &lt;tagname&gt;
-</code></pre>
-
-<h5 id="远程删除">远程删除</h5>
-
-<pre><code class="language-git">git push &lt;host&gt; :refs/tags/&lt;tagname&gt;
-</code></pre>
-
-<h4 id="标签推送">标签推送</h4>
-
-<pre><code class="language-git">git push &lt;host&gt; &lt;tagname&gt;
-git push &lt;host&gt; --tags // 推送所有
+<pre><code class="language-c++">class Solution {
+private:
+    string phone(char i){
+        switch(i){
+            case '2' :
+                return &quot;abc&quot;;
+                break;
+            case '3' :
+                return &quot;def&quot;;
+                break;
+            case '4' :
+                return &quot;ghi&quot;;
+                break;
+            case '5' :
+                return &quot;jkl&quot;;
+                break;
+            case '6' :
+                return &quot;mno&quot;;
+                break;
+            case '7' :
+                return &quot;pqrs&quot;;
+                break;
+            case '8' :
+                return &quot;tuv&quot;;
+                break;
+            case '9' :
+                return &quot;wxyz&quot;;
+                break;
+            default:
+                return &quot;&quot;;
+        }
+    }
+public:
+    vector&lt;string&gt; res;
+    vector&lt;string&gt; letterCombinations(string digits) {
+        if(digits.size() == 0) return res;
+        string s = &quot;&quot;;
+        combination(s, digits);
+        return res;
+    }
+    void combination(string c,string digits){
+        if(digits.size() == 0){
+            res.push_back(c);
+            return;
+        }
+        string ch = phone(digits[0]);
+        for(int i = 0; i &lt; ch.size(); ++i){
+            combination(c + ch[i],digits.substr(1));
+        }
+    }
+};
 </code></pre>
 
     </div>
@@ -282,7 +263,7 @@ git push &lt;host&gt; --tags // 推送所有
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/may/git2/>https://cuckooemm.xyz/2019/may/git2/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/17-letter-combinations-of-a-phone-number/>https://cuckooemm.xyz/2019/june/17-letter-combinations-of-a-phone-number/</span>
             </p>
             
              
@@ -298,8 +279,14 @@ git push &lt;host&gt; --tags // 推送所有
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/git/">
-                    #git</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
+                    #algorithm</a></span>
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
+                    #LeetCode-Medium</a></span>
+            
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
+                    #LeetCode-1~100</a></span>
             
             </section>
         
@@ -311,10 +298,10 @@ git push &lt;host&gt; --tags // 推送所有
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/may/git1/" class="prev" rel="prev" title="Git(1)"><i class="iconfont icon-left"></i>&nbsp;Git(1)</a>
+        <a href="https://cuckooemm.xyz/2019/june/19-remove-nth-node-from-end-of-list/" class="prev" rel="prev" title="LeetCode - 19 - Remove Nth Node From End of List [Medium]"><i class="iconfont icon-left"></i>&nbsp;LeetCode - 19 - Remove Nth Node From End of List [Medium]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/3-longest_substring-without-repeating-characters/" class="next" rel="next" title="LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]">LeetCode - 3 - Longest Substring Without Repeating Characters [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/23-merge-k-sorted-lists/" class="next" rel="next" title="LeetCode - 23 - Merge k Sorted Lists [Hard]">LeetCode - 23 - Merge k Sorted Lists [Hard]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
