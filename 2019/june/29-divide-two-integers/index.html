@@ -57,7 +57,7 @@
     "datePublished": "2019-06-11 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-06-11 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/29-divide-two-integers\/",
-    "wordCount" : "282",
+    "wordCount" : "281",
     "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -210,8 +210,7 @@ For the purpose of this problem, assume that your function returns 2<sup>31</sup
 
 <h3 id="代码">代码</h3>
 
-<p>```c++
-class Solution {
+<pre><code class="language-c++">class Solution {
 public:
     int divide(int dividend, int divisor) {
         if(dividend == -2147483648 &amp;&amp; divisor == -1) return INT_MAX;   // 溢出的输入直接返回
@@ -233,7 +232,8 @@ public:
         }
         return (dividend ^ divisor) &gt;= 0 ? res : -res;                 // 异或判断符号是否不等
     }
-};</p>
+};
+</code></pre>
 
     </div>
 

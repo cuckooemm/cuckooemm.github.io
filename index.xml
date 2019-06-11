@@ -70,8 +70,7 @@ For the purpose of this problem, assume that your function returns 2&lt;sup&gt;3
 
 &lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
 
-&lt;p&gt;```c++
-class Solution {
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
 public:
     int divide(int dividend, int divisor) {
         if(dividend == -2147483648 &amp;amp;&amp;amp; divisor == -1) return INT_MAX;   // 溢出的输入直接返回
@@ -93,7 +92,8 @@ public:
         }
         return (dividend ^ divisor) &amp;gt;= 0 ? res : -res;                 // 异或判断符号是否不等
     }
-};&lt;/p&gt;
+};
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
