@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode - 29 - Divide Two Integers [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/29-divide-two-integers/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/29-divide-two-integers/</guid>
+      <description>29.Divide Two Integers 地址
+难度：Medium
+题目描述 Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.
+Return the quotient after dividing dividend by divisor.
+The integer division should truncate toward zero.
+给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。
+返回被除数 dividend 除以除数 divisor 得到的商。
+示例 Example 1: Input: dividend = 10, divisor = 3
+Output: 3
+Example 2: Input: dividend = 7, divisor = -3</description>
+    </item>
     
     <item>
       <title>Leetcode - 27 - Remove Element [Easy]</title>
@@ -23,6 +41,25 @@
 Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
 The order of elements can be changed. It doesn&amp;rsquo;t matter what you leave beyond the new length.
 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。</description>
+    </item>
+    
+    <item>
+      <title>Leetcode - 28 - Implment StrStr() [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/28-implment-strstr/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/28-implment-strstr/</guid>
+      <description>28.Implment StrStr() 地址
+难度：Easy
+题目描述 Implement strStr().
+Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack
+实现 strStr() 函数。
+给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回 -1。
+示例 Example 1: Input: haystack = &amp;ldquo;hello&amp;rdquo;, needle = &amp;ldquo;ll&amp;rdquo;
+Output: 2
+Example 2: Input: haystack = &amp;ldquo;aaaaa&amp;rdquo;, needle = &amp;ldquo;bba&amp;rdquo;
+Output: -1
+Clarification: What should we return when needle is an empty string?</description>
     </item>
     
     <item>

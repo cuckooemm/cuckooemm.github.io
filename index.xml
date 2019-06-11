@@ -5,8 +5,97 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Leetcode - 29 - Divide Two Integers [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/june/29-divide-two-integers/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/29-divide-two-integers/</guid>
+      <description>
+
+&lt;h1 id=&#34;29-divide-two-integers&#34;&gt;29.Divide Two Integers&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/divide-two-integers/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.&lt;/p&gt;
+
+&lt;p&gt;Return the quotient after dividing dividend by divisor.&lt;/p&gt;
+
+&lt;p&gt;The integer division should truncate toward zero.&lt;/p&gt;
+
+&lt;p&gt;给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。&lt;/p&gt;
+
+&lt;p&gt;返回被除数 dividend 除以除数 divisor 得到的商。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; dividend = 10, divisor = 3&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 3&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; dividend = 7, divisor = -3&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; -2&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;Both dividend and divisor will be 32-bit signed integers.&lt;br /&gt;
+The divisor will never be 0.&lt;br /&gt;
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2&lt;sup&gt;31&lt;/sup&gt;,  2&lt;sup&gt;31&lt;/sup&gt; − 1].
+For the purpose of this problem, assume that your function returns 2&lt;sup&gt;31&lt;/sup&gt; − 1 when the division result overflows.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;余数可以用被除数减去除数求得。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;每次减完除数翻倍，倍数记录翻的倍数。如果当前除数大于被除数，则缩小。位移操作实现。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;异或判断符号。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(log(n)), 空间复杂度：O(1)。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 4 ms, faster than 93.13% of C++ online submissions for Divide Two Integers.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.3 MB, less than 53.98% of C++ online submissions for Divide Two Integers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;p&gt;```c++
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        if(dividend == -2147483648 &amp;amp;&amp;amp; divisor == -1) return INT_MAX;   // 溢出的输入直接返回
+        if(divisor == 1) return dividend;                              // 除数为1直接返回
+        long long dd = abs((long long)dividend);                       // -2147483648 的绝对值大于int类型的最大整数
+        long long dr = abs((long long)divisor);
+        int res = 0;                                                   // 保存结果
+        int times = 1;                                                 // 倍数
+        while(dd &amp;gt;= dr || times &amp;gt; 1){
+            if(dd &amp;gt;= dr){
+                dd -= dr;
+                res += times;
+                dr = dr &amp;lt;&amp;lt; 1;                                          // 除数扩大一倍
+                times = times &amp;lt;&amp;lt; 1;                                    // 倍数也扩大一倍
+            }else{
+                dr = dr &amp;gt;&amp;gt; 1;                                          // 除数缩小一倍
+                times = times &amp;gt;&amp;gt; 1;                                    // 倍数缩小一倍
+            }
+        }
+        return (dividend ^ divisor) &amp;gt;= 0 ? res : -res;                 // 异或判断符号是否不等
+    }
+};&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Leetcode - 27 - Remove Element [Easy]</title>
@@ -101,6 +190,82 @@ public:
             }
         }
         return l;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Leetcode - 28 - Implment StrStr() [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/june/28-implment-strstr/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/june/28-implment-strstr/</guid>
+      <description>
+
+&lt;h1 id=&#34;28-implment-strstr&#34;&gt;28.Implment StrStr()&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/implement-strstr/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Implement strStr().&lt;/p&gt;
+
+&lt;p&gt;Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack&lt;/p&gt;
+
+&lt;p&gt;实现 strStr() 函数。&lt;/p&gt;
+
+&lt;p&gt;给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; haystack = &amp;ldquo;hello&amp;rdquo;, needle = &amp;ldquo;ll&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 2&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; haystack = &amp;ldquo;aaaaa&amp;rdquo;, needle = &amp;ldquo;bba&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; -1&lt;/p&gt;
+
+&lt;h4 id=&#34;clarification&#34;&gt;Clarification:&lt;/h4&gt;
+
+&lt;p&gt;What should we return when needle is an empty string? This is a great question to ask during an interview.&lt;/p&gt;
+
+&lt;p&gt;For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C&amp;rsquo;s strstr() and Java&amp;rsquo;s indexOf().&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;haystack字符串减去needle字符串长度减少循环的次数。&lt;br /&gt;
+如果当前haystack字符串中有字符等于needle的首字符，则开启循环遍历。&lt;br /&gt;
+如果循环的次数等于needle字符串长度，则说明字符串匹配，返回开始匹配的首字符的索引。&lt;br /&gt;
+&lt;strong&gt;时间复杂度:O(n*j), 空间复杂度：O(1)。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 4 ms, faster than 97.03% of C++ online submissions for Implement strStr().&lt;/li&gt;
+&lt;li&gt;Memory Usage: 9.1 MB, less than 74.01% of C++ online submissions for Implement strStr().&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int lenh = haystack.size();
+        int lenn = needle.size();
+        if(lenn == 0) return 0;
+        for(int i = 0; i &amp;lt;= lenh - lenn; ++i){
+            if(haystack[i] == needle[0]){
+                for(int j = 0; j &amp;lt; lenn &amp;amp;&amp;amp; haystack[i + j] == needle[j]; ++j)
+                    if(j == lenn - 1) return i; 
+            }
+        }
+        return -1;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
@@ -1377,223 +1542,6 @@ public:
             }
         }
         return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 13 - Roman to Integer [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/13-roman-to-integer/</link>
-      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/13-roman-to-integer/</guid>
-      <description>
-
-&lt;h1 id=&#34;13-roman-to-integer&#34;&gt;13.Roman to Integer&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/roman-to-integer/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Roman numerals are represented by seven different symbols: &lt;strong&gt;I&lt;/strong&gt;, &lt;strong&gt;V&lt;/strong&gt;, &lt;strong&gt;X&lt;/strong&gt;, &lt;strong&gt;L&lt;/strong&gt;, &lt;strong&gt;C&lt;/strong&gt;, &lt;strong&gt;D&lt;/strong&gt; and &lt;strong&gt;M&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;罗马数字包含以下七种字符： &lt;strong&gt;I&lt;/strong&gt;， &lt;strong&gt;V&lt;/strong&gt;， &lt;strong&gt;X&lt;/strong&gt;， &lt;strong&gt;L&lt;/strong&gt;，&lt;strong&gt;C&lt;/strong&gt;，&lt;strong&gt;D&lt;/strong&gt; 和 &lt;strong&gt;M&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;Symbol       Value
-I             1
-V             5
-X             10
-L             50
-C             100
-D             500
-M             1000
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For example, two is written as &lt;strong&gt;II&lt;/strong&gt; in Roman numeral, just two one&amp;rsquo;s added together. Twelve is written as, &lt;strong&gt;XII&lt;/strong&gt;, which is simply &lt;strong&gt;X&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt;. The number twenty seven is written as &lt;strong&gt;XXVII&lt;/strong&gt;, which is &lt;strong&gt;XX&lt;/strong&gt; + &lt;strong&gt;V&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not &lt;strong&gt;IIII&lt;/strong&gt;. Instead, the number four is written as &lt;strong&gt;IV&lt;/strong&gt;. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as &lt;strong&gt;IX&lt;/strong&gt;. There are six instances where subtraction is used:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; can be placed before &lt;strong&gt;V&lt;/strong&gt; (5) and &lt;strong&gt;X&lt;/strong&gt; (10) to make 4 and 9.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt; can be placed before &lt;strong&gt;L&lt;/strong&gt; (50) and &lt;strong&gt;C&lt;/strong&gt; (100) to make 40 and 90.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; can be placed before &lt;strong&gt;D&lt;/strong&gt; (500) and &lt;strong&gt;M&lt;/strong&gt; (1000) to make 400 and 900.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.&lt;/p&gt;
-
-&lt;p&gt;例如， 罗马数字 2 写做 &lt;strong&gt;II&lt;/strong&gt; ，即为两个并列的 1。12 写做 &lt;strong&gt;XII&lt;/strong&gt; ，即为 &lt;strong&gt;X&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt; 。 27 写做  &lt;strong&gt;XXVII&lt;/strong&gt;, 即为 &lt;strong&gt;XX&lt;/strong&gt; + &lt;strong&gt;V&lt;/strong&gt; + &lt;strong&gt;II&lt;/strong&gt; 。&lt;/p&gt;
-
-&lt;p&gt;通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 &lt;strong&gt;IIII&lt;/strong&gt;，而是 &lt;strong&gt;IV&lt;/strong&gt;。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 &lt;strong&gt;IX&lt;/strong&gt;。这个特殊的规则只适用于以下六种情况：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; 可以放在 &lt;strong&gt;V&lt;/strong&gt; (5) 和 &lt;strong&gt;X&lt;/strong&gt; (10) 的左边，来表示 4 和 9。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt; 可以放在 &lt;strong&gt;L&lt;/strong&gt; (50) 和 &lt;strong&gt;C&lt;/strong&gt; (100) 的左边，来表示 40 和 90。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; 可以放在 &lt;strong&gt;D&lt;/strong&gt; (500) 和 &lt;strong&gt;M&lt;/strong&gt; (1000) 的左边，来表示 400 和 900。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 3&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;III&amp;rdquo;&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 4&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;IV&amp;rdquo;&lt;/p&gt;
-
-&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 9&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;IX&amp;rdquo;&lt;/p&gt;
-
-&lt;h4 id=&#34;example-4&#34;&gt;Example 4:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 58&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;LVIII&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; L = 50, V = 5, III = 3.&lt;/p&gt;
-
-&lt;h4 id=&#34;example-5&#34;&gt;Example 5:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 1994&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;MCMXCIV&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; M = 1000, CM = 900, XC = 90 and IV = 4.&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;字符串表示的罗马数字，最左边一定是代表最大的数，如果遍历中出现了左边值大于右边值，说明出现了&lt;strong&gt;CM&lt;/strong&gt;、&lt;strong&gt;XC&lt;/strong&gt;、&lt;strong&gt;IV&lt;/strong&gt;这种情况。&lt;br /&gt;
-减去小值加上大值，如：CM = -100 + 1000 = 900。&lt;br /&gt;
-用&lt;code&gt;switch&lt;/code&gt;优化了原先用hashMap的效率，省略了hashMap所带来的计算消耗。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 8 ms, faster than 98.36% of C++ online submissions for Roman to Integer.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.4 MB, less than 86.43% of C++ online submissions for Roman to Integer.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-private:
-    int charToInt(char s){   // 替代 HashMap
-        switch(s){
-            case &#39;I&#39; :
-                return 1;
-                break;
-            case &#39;V&#39; :
-                return 5;
-                break;
-            case &#39;X&#39; :
-                return 10;
-                break;
-            case &#39;L&#39; :
-                return 50;
-                break;
-            case &#39;C&#39; :
-                return 100;
-                break;
-            case &#39;D&#39; :
-                return 500;
-                break;
-            case &#39;M&#39; :
-                return 1000;
-                break;
-            default:
-                return 0;
-        }
-    }
-public:
-    int romanToInt(string s) {
-        int res = 0;
-        for (int i = 0; i &amp;lt; s.size() - 1; ++i)
-	    {
-		    if (charToInt(s[i]) &amp;lt; charToInt(s[i+1]))
-                res -= charToInt(s[i]);
-		    else
-                res += charToInt(s[i]);
-	    }
-	    res += charToInt(s[s.size() - 1]);   // 加上最后一个值
-	    return res;
-    }
-
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 14 - Longest_Common_Prefix [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/14-longest-common-prefix/</link>
-      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/14-longest-common-prefix/</guid>
-      <description>
-
-&lt;h1 id=&#34;14-longest-common-prefix&#34;&gt;14.Longest_Common_Prefix&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/longest-common-prefix/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Write a function to find the longest common prefix string amongst an array of strings.&lt;/p&gt;
-
-&lt;p&gt;If there is no common prefix, return an empty string &amp;ldquo;&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;编写一个函数来查找字符串数组中的最长公共前缀。&lt;/p&gt;
-
-&lt;p&gt;如果不存在公共前缀，返回空字符串 &amp;ldquo;&amp;ldquo;。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [&amp;ldquo;flower&amp;rdquo;,&amp;ldquo;flow&amp;rdquo;,&amp;ldquo;flight&amp;rdquo;]&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;fl&amp;rdquo;&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [&amp;ldquo;dog&amp;rdquo;,&amp;ldquo;racecar&amp;rdquo;,&amp;ldquo;car&amp;rdquo;]&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Explanation:&lt;/strong&gt; There is no common prefix among the input strings.&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;把第一个元素拷贝，然后依次比较之后的string。&lt;br /&gt;
-遇到不同则裁剪字符串并跳去循环，开始下一个string。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(S), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 4 ms, faster than 98.77% of C++ online submissions for Longest Common Prefix.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.8 MB, less than 85.87% of C++ online submissions for Longest Common Prefix.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) {
-	if (strs.size() == 0) return &amp;quot;&amp;quot;;
-    string result = strs[0];
-	for (int i = 1; i &amp;lt; strs.size(); i++) {
-		for (int j = 0; j &amp;lt; result.length(); j++) {
-			if (result[j] != strs[i][j]) {
-				result = result.substr(0, j);
-				break;
-			}
-		}
-	}
-	return result;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;

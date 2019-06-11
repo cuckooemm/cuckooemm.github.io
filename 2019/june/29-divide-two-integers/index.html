@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/28-implment-strstr/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/29-divide-two-integers/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/27-remove-element/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/27-remove-element/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/29-divide-two-integers/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 27 - Remove Element [Easy] | Cuckooemm&#39;s Blog
+           Leetcode - 29 - Divide Two Integers [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 27 - Remove Element [Easy] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Leetcode - 29 - Divide Two Integers [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 27 - Remove Element [Easy]",
-    "headline" : "Leetcode - 27 - Remove Element [Easy]",
-    "description" : "27.Remove Element 地址\n难度：Easy\n题目描述 Given an array nums and a value val, remove all instances of that value in-place and return the new length.\nDo not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.\nThe order of elements can be changed. It doesn\x26rsquo;t matter what you leave beyond the new length.\n给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。",
+    "name" : "Leetcode - 29 - Divide Two Integers [Medium]",
+    "headline" : "Leetcode - 29 - Divide Two Integers [Medium]",
+    "description" : "29.Divide Two Integers 地址\n难度：Medium\n题目描述 Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.\nReturn the quotient after dividing dividend by divisor.\nThe integer division should truncate toward zero.\n给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。\n返回被除数 dividend 除以除数 divisor 得到的商。\n示例 Example 1: Input: dividend = 10, divisor = 3\nOutput: 3\nExample 2: Input: dividend = 7, divisor = -3",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-10 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-06-10 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/27-remove-element\/",
-    "wordCount" : "338",
-    "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-06-11 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-06-11 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/29-divide-two-integers\/",
+    "wordCount" : "282",
+    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,11 +124,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 27 - Remove Element [Easy]</h1>
+        <h1 class="post-title" itemprop="name headline">Leetcode - 29 - Divide Two Integers [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-06-10 itemprop="datePublished">June 10, 2019</time>
+                on <time datetime=2019-06-11 itemprop="datePublished">June 11, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -156,94 +156,84 @@
 
           
 
-<h1 id="27-remove-element">27.Remove Element</h1>
+<h1 id="29-divide-two-integers">29.Divide Two Integers</h1>
 
-<p><a href="https://leetcode.com/problems/remove-element/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Easy</strong></p>
+<p><a href="https://leetcode.com/problems/divide-two-integers/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Given an array nums and a value val, remove all instances of that value in-place and return the new length.</p>
+<p>Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.</p>
 
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
+<p>Return the quotient after dividing dividend by divisor.</p>
 
-<p>The order of elements can be changed. It doesn&rsquo;t matter what you leave beyond the new length.</p>
+<p>The integer division should truncate toward zero.</p>
 
-<p>给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。</p>
+<p>给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。</p>
 
-<p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p>
-
-<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p>返回被除数 dividend 除以除数 divisor 得到的商。</p>
 
 <h3 id="示例">示例</h3>
 
 <h4 id="example-1">Example 1:</h4>
 
-<p>Given nums = [3,2,2,3], val = 3,</p>
-
-<p>Your function should return length = 2, with the first two elements of nums being 2.</p>
-
-<p>It doesn&rsquo;t matter what you leave beyond the returned length.</p>
+<p><strong>Input:</strong> dividend = 10, divisor = 3<br />
+<strong>Output:</strong> 3</p>
 
 <h4 id="example-2">Example 2:</h4>
 
-<p>Given nums = [0,1,2,2,3,0,4,2], val = 2,</p>
+<p><strong>Input:</strong> dividend = 7, divisor = -3<br />
+<strong>Output:</strong> -2</p>
 
-<p>Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.</p>
+<h4 id="note">Note:</h4>
 
-<p>Note that the order of those five elements can be arbitrary.</p>
-
-<p>It doesn&rsquo;t matter what values are set beyond the returned length.</p>
-
-<h4 id="clarification">Clarification:</h4>
-
-<p>Confused why the returned value is an integer but your answer is an array?</p>
-
-<p>Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.</p>
-
-<p>Internally you can think of this:</p>
-
-<pre><code class="language-c">// nums is passed in by reference. (i.e., without making a copy)
-int len = removeElement(nums, val);
-
-// any modification to nums in your function would be known by the caller.
-// using the length returned by your function, it prints the first len elements.
-for (int i = 0; i &lt; len; i++) {
-    print(nums[i]);
-}
-</code></pre>
+<p>Both dividend and divisor will be 32-bit signed integers.<br />
+The divisor will never be 0.<br />
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2<sup>31</sup>,  2<sup>31</sup> − 1].
+For the purpose of this problem, assume that your function returns 2<sup>31</sup> − 1 when the division result overflows.</p>
 
 <h3 id="思路">思路</h3>
 
-<p>遍历nums,如果数组内值与目标值不等，且当前已经出现过目标值，则把i位置的值赋给l位置。<br />
-<strong>时间复杂度:O(n), 空间复杂度：O(1)。</strong></p>
+<ul>
+<li>余数可以用被除数减去除数求得。<br /></li>
+<li>每次减完除数翻倍，倍数记录翻的倍数。如果当前除数大于被除数，则缩小。位移操作实现。<br /></li>
+<li>异或判断符号。<br />
+<strong>时间复杂度:O(log(n)), 空间复杂度：O(1)。</strong></li>
+</ul>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 4 ms, faster than 89.95% of C++ online submissions for Remove Element.</li>
-<li>Memory Usage: 8.7 MB, less than 54.44% of C++ online submissions for Remove Element.</li>
+<li>Runtime: 4 ms, faster than 93.13% of C++ online submissions for Divide Two Integers.</li>
+<li>Memory Usage: 8.3 MB, less than 53.98% of C++ online submissions for Divide Two Integers.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
-<pre><code class="language-c++">class Solution {
+<p>```c++
+class Solution {
 public:
-    int removeElement(vector&lt;int&gt;&amp; nums, int val) {
-        int l = 0;
-        for(int i = 0; i &lt; nums.size(); ++i){
-            if(nums[i] != val){
-                if(i != l){
-                    nums[l++] = nums[i];
-                }else{
-                    ++l;
-                }
+    int divide(int dividend, int divisor) {
+        if(dividend == -2147483648 &amp;&amp; divisor == -1) return INT_MAX;   // 溢出的输入直接返回
+        if(divisor == 1) return dividend;                              // 除数为1直接返回
+        long long dd = abs((long long)dividend);                       // -2147483648 的绝对值大于int类型的最大整数
+        long long dr = abs((long long)divisor);
+        int res = 0;                                                   // 保存结果
+        int times = 1;                                                 // 倍数
+        while(dd &gt;= dr || times &gt; 1){
+            if(dd &gt;= dr){
+                dd -= dr;
+                res += times;
+                dr = dr &lt;&lt; 1;                                          // 除数扩大一倍
+                times = times &lt;&lt; 1;                                    // 倍数也扩大一倍
+            }else{
+                dr = dr &gt;&gt; 1;                                          // 除数缩小一倍
+                times = times &gt;&gt; 1;                                    // 倍数缩小一倍
             }
         }
-        return l;
+        return (dividend ^ divisor) &gt;= 0 ? res : -res;                 // 异或判断符号是否不等
     }
-};
-</code></pre>
+};</p>
 
     </div>
 
@@ -258,7 +248,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/27-remove-element/>https://cuckooemm.xyz/2019/june/27-remove-element/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/29-divide-two-integers/>https://cuckooemm.xyz/2019/june/29-divide-two-integers/</span>
             </p>
             
              
@@ -277,8 +267,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-easy/">
-                    #LeetCode-Easy</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
+                    #LeetCode-Medium</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -293,10 +283,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/28-implment-strstr/" class="prev" rel="prev" title="Leetcode - 28 - Implment StrStr() [Easy]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 28 - Implment StrStr() [Easy]</a>
+        <a href="https://cuckooemm.xyz/2019/june/27-remove-element/" class="prev" rel="prev" title="Leetcode - 27 - Remove Element [Easy]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 27 - Remove Element [Easy]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/june/29-divide-two-integers/" class="next" rel="next" title="Leetcode - 29 - Divide Two Integers [Medium]">Leetcode - 29 - Divide Two Integers [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/28-implment-strstr/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/june/29-divide-two-integers/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/27-remove-element/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/june/27-remove-element/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/28-implment-strstr/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 27 - Remove Element [Easy] | Cuckooemm&#39;s Blog
+           Leetcode - 28 - Implment StrStr() [Easy] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 27 - Remove Element [Easy] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Leetcode - 28 - Implment StrStr() [Easy] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 27 - Remove Element [Easy]",
-    "headline" : "Leetcode - 27 - Remove Element [Easy]",
-    "description" : "27.Remove Element 地址\n难度：Easy\n题目描述 Given an array nums and a value val, remove all instances of that value in-place and return the new length.\nDo not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.\nThe order of elements can be changed. It doesn\x26rsquo;t matter what you leave beyond the new length.\n给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。",
+    "name" : "Leetcode - 28 - Implment StrStr() [Easy]",
+    "headline" : "Leetcode - 28 - Implment StrStr() [Easy]",
+    "description" : "28.Implment StrStr() 地址\n难度：Easy\n题目描述 Implement strStr().\nReturn the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack\n实现 strStr() 函数。\n给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回 -1。\n示例 Example 1: Input: haystack = \x26ldquo;hello\x26rdquo;, needle = \x26ldquo;ll\x26rdquo;\nOutput: 2\nExample 2: Input: haystack = \x26ldquo;aaaaa\x26rdquo;, needle = \x26ldquo;bba\x26rdquo;\nOutput: -1\nClarification: What should we return when needle is an empty string?",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -56,8 +56,8 @@
     "copyrightYear" : "2019",
     "datePublished": "2019-06-10 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-06-10 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/27-remove-element\/",
-    "wordCount" : "338",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/28-implment-strstr\/",
+    "wordCount" : "208",
     "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -124,7 +124,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 27 - Remove Element [Easy]</h1>
+        <h1 class="post-title" itemprop="name headline">Leetcode - 28 - Implment StrStr() [Easy]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
@@ -156,91 +156,68 @@
 
           
 
-<h1 id="27-remove-element">27.Remove Element</h1>
+<h1 id="28-implment-strstr">28.Implment StrStr()</h1>
 
-<p><a href="https://leetcode.com/problems/remove-element/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<p><a href="https://leetcode.com/problems/implement-strstr/" rel="nofollow noreferrer" target="_blank">地址</a><br />
 <strong>难度：Easy</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Given an array nums and a value val, remove all instances of that value in-place and return the new length.</p>
+<p>Implement strStr().</p>
 
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
+<p>Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack</p>
 
-<p>The order of elements can be changed. It doesn&rsquo;t matter what you leave beyond the new length.</p>
+<p>实现 strStr() 函数。</p>
 
-<p>给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。</p>
-
-<p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p>
-
-<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p>给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。</p>
 
 <h3 id="示例">示例</h3>
 
 <h4 id="example-1">Example 1:</h4>
 
-<p>Given nums = [3,2,2,3], val = 3,</p>
-
-<p>Your function should return length = 2, with the first two elements of nums being 2.</p>
-
-<p>It doesn&rsquo;t matter what you leave beyond the returned length.</p>
+<p><strong>Input:</strong> haystack = &ldquo;hello&rdquo;, needle = &ldquo;ll&rdquo;<br />
+<strong>Output:</strong> 2</p>
 
 <h4 id="example-2">Example 2:</h4>
 
-<p>Given nums = [0,1,2,2,3,0,4,2], val = 2,</p>
-
-<p>Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.</p>
-
-<p>Note that the order of those five elements can be arbitrary.</p>
-
-<p>It doesn&rsquo;t matter what values are set beyond the returned length.</p>
+<p><strong>Input:</strong> haystack = &ldquo;aaaaa&rdquo;, needle = &ldquo;bba&rdquo;<br />
+<strong>Output:</strong> -1</p>
 
 <h4 id="clarification">Clarification:</h4>
 
-<p>Confused why the returned value is an integer but your answer is an array?</p>
+<p>What should we return when needle is an empty string? This is a great question to ask during an interview.</p>
 
-<p>Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.</p>
-
-<p>Internally you can think of this:</p>
-
-<pre><code class="language-c">// nums is passed in by reference. (i.e., without making a copy)
-int len = removeElement(nums, val);
-
-// any modification to nums in your function would be known by the caller.
-// using the length returned by your function, it prints the first len elements.
-for (int i = 0; i &lt; len; i++) {
-    print(nums[i]);
-}
-</code></pre>
+<p>For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C&rsquo;s strstr() and Java&rsquo;s indexOf().</p>
 
 <h3 id="思路">思路</h3>
 
-<p>遍历nums,如果数组内值与目标值不等，且当前已经出现过目标值，则把i位置的值赋给l位置。<br />
-<strong>时间复杂度:O(n), 空间复杂度：O(1)。</strong></p>
+<p>haystack字符串减去needle字符串长度减少循环的次数。<br />
+如果当前haystack字符串中有字符等于needle的首字符，则开启循环遍历。<br />
+如果循环的次数等于needle字符串长度，则说明字符串匹配，返回开始匹配的首字符的索引。<br />
+<strong>时间复杂度:O(n*j), 空间复杂度：O(1)。</strong></p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 4 ms, faster than 89.95% of C++ online submissions for Remove Element.</li>
-<li>Memory Usage: 8.7 MB, less than 54.44% of C++ online submissions for Remove Element.</li>
+<li>Runtime: 4 ms, faster than 97.03% of C++ online submissions for Implement strStr().</li>
+<li>Memory Usage: 9.1 MB, less than 74.01% of C++ online submissions for Implement strStr().</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
 public:
-    int removeElement(vector&lt;int&gt;&amp; nums, int val) {
-        int l = 0;
-        for(int i = 0; i &lt; nums.size(); ++i){
-            if(nums[i] != val){
-                if(i != l){
-                    nums[l++] = nums[i];
-                }else{
-                    ++l;
-                }
+    int strStr(string haystack, string needle) {
+        int lenh = haystack.size();
+        int lenn = needle.size();
+        if(lenn == 0) return 0;
+        for(int i = 0; i &lt;= lenh - lenn; ++i){
+            if(haystack[i] == needle[0]){
+                for(int j = 0; j &lt; lenn &amp;&amp; haystack[i + j] == needle[j]; ++j)
+                    if(j == lenn - 1) return i; 
             }
         }
-        return l;
+        return -1;
     }
 };
 </code></pre>
@@ -258,7 +235,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/27-remove-element/>https://cuckooemm.xyz/2019/june/27-remove-element/</span>
+                    <a href=https://cuckooemm.xyz/2019/june/28-implment-strstr/>https://cuckooemm.xyz/2019/june/28-implment-strstr/</span>
             </p>
             
              
@@ -293,10 +270,10 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/28-implment-strstr/" class="prev" rel="prev" title="Leetcode - 28 - Implment StrStr() [Easy]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 28 - Implment StrStr() [Easy]</a>
+        <a href="https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/" class="prev" rel="prev" title="Golang 内存对齐"><i class="iconfont icon-left"></i>&nbsp;Golang 内存对齐</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/june/29-divide-two-integers/" class="next" rel="next" title="Leetcode - 29 - Divide Two Integers [Medium]">Leetcode - 29 - Divide Two Integers [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/june/27-remove-element/" class="next" rel="next" title="Leetcode - 27 - Remove Element [Easy]">Leetcode - 27 - Remove Element [Easy]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
