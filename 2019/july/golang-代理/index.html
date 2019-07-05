@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/june/31-next-permutation/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/june/29-divide-two-integers/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/june/29-divide-two-integers/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 29 - Divide Two Integers [Medium] | Cuckooemm&#39;s Blog
+           Golang 代理 | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 29 - Divide Two Integers [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Golang 代理 | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 29 - Divide Two Integers [Medium]",
-    "headline" : "Leetcode - 29 - Divide Two Integers [Medium]",
-    "description" : "29.Divide Two Integers 地址\n难度：Medium\n题目描述 Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.\nReturn the quotient after dividing dividend by divisor.\nThe integer division should truncate toward zero.\n给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。\n返回被除数 dividend 除以除数 divisor 得到的商。\n示例 Example 1: Input: dividend = 10, divisor = 3\nOutput: 3\nExample 2: Input: dividend = 7, divisor = -3",
+    "name" : "Golang 代理",
+    "headline" : "Golang 代理",
+    "description" : " 解决golang依赖网络问题 添加环境变量\nkey: GOPROXY value: https:\/\/goproxy.io  ",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-11 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-06-11 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/june\/29-divide-two-integers\/",
-    "wordCount" : "281",
-    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-07-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-07-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/golang-%E4%BB%A3%E7%90%86\/",
+    "wordCount" : "6",
+    "keywords" : [ "golang", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,16 +124,16 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 29 - Divide Two Integers [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">Golang 代理</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-06-11 itemprop="datePublished">June 11, 2019</time>
+                on <time datetime=2019-07-05 itemprop="datePublished">July 5, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://cuckooemm.xyz/categories/algorithm/"> algorithm </a>
+                        <a href="https://cuckooemm.xyz/categories/golang/"> golang </a>
                         
                 </span>
         </div>
@@ -156,83 +156,11 @@
 
           
 
-<h1 id="29-divide-two-integers">29.Divide Two Integers</h1>
+<h1 id="解决golang依赖网络问题">解决golang依赖网络问题</h1>
 
-<p><a href="https://leetcode.com/problems/divide-two-integers/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Medium</strong></p>
+<p>添加环境变量</p>
 
-<h3 id="题目描述">题目描述</h3>
-
-<p>Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.</p>
-
-<p>Return the quotient after dividing dividend by divisor.</p>
-
-<p>The integer division should truncate toward zero.</p>
-
-<p>给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。</p>
-
-<p>返回被除数 dividend 除以除数 divisor 得到的商。</p>
-
-<h3 id="示例">示例</h3>
-
-<h4 id="example-1">Example 1:</h4>
-
-<p><strong>Input:</strong> dividend = 10, divisor = 3<br />
-<strong>Output:</strong> 3</p>
-
-<h4 id="example-2">Example 2:</h4>
-
-<p><strong>Input:</strong> dividend = 7, divisor = -3<br />
-<strong>Output:</strong> -2</p>
-
-<h4 id="note">Note:</h4>
-
-<p>Both dividend and divisor will be 32-bit signed integers.<br />
-The divisor will never be 0.<br />
-Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2<sup>31</sup>,  2<sup>31</sup> − 1].
-For the purpose of this problem, assume that your function returns 2<sup>31</sup> − 1 when the division result overflows.</p>
-
-<h3 id="思路">思路</h3>
-
-<ul>
-<li>余数可以用被除数减去除数求得。<br /></li>
-<li>每次减完除数翻倍，倍数记录翻的倍数。如果当前除数大于被除数，则缩小。位移操作实现。<br /></li>
-<li>异或判断符号。<br />
-<strong>时间复杂度:O(log(n)), 空间复杂度：O(1)。</strong></li>
-</ul>
-
-<h3 id="ac">AC</h3>
-
-<ul>
-<li>Runtime: 4 ms, faster than 93.13% of C++ online submissions for Divide Two Integers.</li>
-<li>Memory Usage: 8.3 MB, less than 53.98% of C++ online submissions for Divide Two Integers.</li>
-</ul>
-
-<h3 id="代码">代码</h3>
-
-<pre><code class="language-c++">class Solution {
-public:
-    int divide(int dividend, int divisor) {
-        if(dividend == -2147483648 &amp;&amp; divisor == -1) return INT_MAX;   // 溢出的输入直接返回
-        if(divisor == 1) return dividend;                              // 除数为1直接返回
-        long long dd = abs((long long)dividend);                       // -2147483648 的绝对值大于int类型的最大整数
-        long long dr = abs((long long)divisor);
-        int res = 0;                                                   // 保存结果
-        int times = 1;                                                 // 倍数
-        while(dd &gt;= dr || times &gt; 1){
-            if(dd &gt;= dr){
-                dd -= dr;
-                res += times;
-                dr = dr &lt;&lt; 1;                                          // 除数扩大一倍
-                times = times &lt;&lt; 1;                                    // 倍数也扩大一倍
-            }else{
-                dr = dr &gt;&gt; 1;                                          // 除数缩小一倍
-                times = times &gt;&gt; 1;                                    // 倍数缩小一倍
-            }
-        }
-        return (dividend ^ divisor) &gt;= 0 ? res : -res;                 // 异或判断符号是否不等
-    }
-};
+<pre><code class="language-c">key: GOPROXY     value: https://goproxy.io
 </code></pre>
 
     </div>
@@ -248,7 +176,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/june/29-divide-two-integers/>https://cuckooemm.xyz/2019/june/29-divide-two-integers/</span>
+                    <a href=https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/>https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/</span>
             </p>
             
              
@@ -264,14 +192,8 @@ public:
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
-                    #algorithm</a></span>
-            
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
-                    #LeetCode-Medium</a></span>
-            
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
-                    #LeetCode-1~100</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/golang/">
+                    #golang</a></span>
             
             </section>
         
@@ -283,10 +205,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/june/31-next-permutation/" class="prev" rel="prev" title="Leetcode - 31 - Next Permutation [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 31 - Next Permutation [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/june/29-divide-two-integers/" class="prev" rel="prev" title="Leetcode - 29 - Divide Two Integers [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 29 - Divide Two Integers [Medium]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/" class="next" rel="next" title="Golang 代理">Golang 代理&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

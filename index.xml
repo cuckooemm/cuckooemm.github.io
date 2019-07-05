@@ -5,8 +5,25 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Golang 代理</title>
+      <link>https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/</guid>
+      <description>
+
+&lt;h1 id=&#34;解决golang依赖网络问题&#34;&gt;解决golang依赖网络问题&lt;/h1&gt;
+
+&lt;p&gt;添加环境变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;key: GOPROXY     value: https://goproxy.io
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Leetcode - 29 - Divide Two Integers [Medium]</title>
@@ -1443,72 +1460,6 @@ public:
     vector&amp;lt;string&amp;gt; generateParenthesis(int n) {
         generate(&amp;quot;&amp;quot;,0,0,n);
         return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 11 - Container With Most Water [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/11-container-with-most-water/</link>
-      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/11-container-with-most-water/</guid>
-      <description>
-
-&lt;h1 id=&#34;11-container-with-most-water&#34;&gt;11.Container With Most Water&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/container-with-most-water/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given n non-negative integers a&lt;sub&gt;1&lt;/sub&gt;, a&lt;sub&gt;2&lt;/sub&gt;, &amp;hellip;, a&lt;sub&gt;n&lt;/sub&gt; , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.&lt;/p&gt;
-
-&lt;p&gt;给定 n 个非负整数 a&lt;sub&gt;1&lt;/sub&gt;，a&lt;sub&gt;2&lt;/sub&gt;，&amp;hellip;，a&lt;sub&gt;n&lt;/sub&gt;，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。&lt;/p&gt;
-
-&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
-
-&lt;p&gt;You may not slant the container and n is at least 2.&lt;br /&gt;
-你不能倾斜容器，且 n 的值至少为 2。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [1,8,6,2,5,4,8,3,7]&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 49&lt;/p&gt;
-
-&lt;h3 id=&#34;思考&#34;&gt;思考&lt;/h3&gt;
-
-&lt;h4 id=&#34;双指针法&#34;&gt;双指针法&lt;/h4&gt;
-
-&lt;p&gt;定义指向头的左指针和指向尾的右指针，比较每次的值取最大。&lt;br /&gt;
-因为横向只会减少，面积最大需要移动高小的值，所以选择左右指针值小的位置移动，左指针++，右指针&amp;ndash;。
-&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 16 ms, faster than 98.03% of C++ online submissions for Container With Most Water.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 9.9 MB, less than 54.65% of C++ online submissions for Container With Most Water.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    int maxArea(vector&amp;lt;int&amp;gt;&amp;amp; height) {
-        int maxArea = 0,l = 0,r = height.size() - 1;
-        while(l &amp;lt; r){
-            maxArea = max(maxArea,min(height[l],height[r]) * (r - l));  // 取最大值
-            if(height[l] &amp;lt; height[r])
-                ++l;
-            else
-                --r;
-        }
-        return maxArea;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;

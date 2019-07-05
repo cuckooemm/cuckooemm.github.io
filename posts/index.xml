@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang 代理</title>
+      <link>https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/golang-%E4%BB%A3%E7%90%86/</guid>
+      <description> 解决golang依赖网络问题 添加环境变量
+key: GOPROXY value: https://goproxy.io  </description>
+    </item>
     
     <item>
       <title>Leetcode - 29 - Divide Two Integers [Medium]</title>
