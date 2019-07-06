@@ -5,8 +5,188 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 05 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Leetcode - 33 - Search in Rotated Sorted Array [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/july/33-search-in-rotated-sorted-array/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/33-search-in-rotated-sorted-array/</guid>
+      <description>
+
+&lt;h1 id=&#34;33-search-in-rotated-sorted-array&#34;&gt;33.Search in Rotated Sorted Array&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/search-in-rotated-sorted-array/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.&lt;/p&gt;
+
+&lt;p&gt;(i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).&lt;/p&gt;
+
+&lt;p&gt;You are given a target value to search. If found in the array return its index, otherwise return -1.&lt;/p&gt;
+
+&lt;p&gt;You may assume no duplicate exists in the array.&lt;/p&gt;
+
+&lt;p&gt;Your algorithm&amp;rsquo;s runtime complexity must be in the order of O(log n).&lt;/p&gt;
+
+&lt;p&gt;假设按照升序排序的数组在预先未知的某个点上进行了旋转。&lt;/p&gt;
+
+&lt;p&gt;( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。&lt;/p&gt;
+
+&lt;p&gt;搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。&lt;/p&gt;
+
+&lt;p&gt;你可以假设数组中不存在重复的元素。&lt;/p&gt;
+
+&lt;p&gt;你的算法时间复杂度必须是 O(log n) 级别。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; nums = [4,5,6,7,0,1,2], target = 0&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 4&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; nums = [4,5,6,7,0,1,2], target = 3&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; -1&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;题目要求 O(log n) 级别复杂度，所以采用&lt;strong&gt;二分法&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Search in Rotated Sorted Array.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.5 MB, less than 99.60% of C++ online submissions for Search in Rotated Sorted Array.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    int search(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
+        int l = 0,r = nums.size() - 1;
+        int mid = 0;
+        while(l &amp;lt;= r){
+            mid = (r - l &amp;gt;&amp;gt; 1) + l;                             // 防止加法溢出
+            if(nums[mid] == target) return mid; 
+            if(nums[mid] &amp;gt;= nums[l]){                           // 说明mid左边有序
+                if(nums[mid] &amp;gt; target &amp;amp;&amp;amp; nums[l] &amp;lt;= target)     // 查看mid是否在左区间
+                    r = mid - 1;
+                else
+                    l = mid + 1;
+            }else{                                              // 等同 mid &amp;lt; r
+                if(nums[mid] &amp;lt; target &amp;amp;&amp;amp; nums[r] &amp;gt;= target)     // 查看mid是否在右区间
+                    l = mid + 1;
+                else
+                    r = mid - 1;
+            }
+        }
+        return -1;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Leetcode - 34 - Find First and Last Position of Element in Sorted Array [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/july/34-find-first-and-last-position-of-element-in-sorted-array/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/34-find-first-and-last-position-of-element-in-sorted-array/</guid>
+      <description>
+
+&lt;h1 id=&#34;34-find-first-and-last-position-of-element-in-sorted-array&#34;&gt;34.Find First and Last Position of Element in Sorted Array&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given an array of integers nums sorted in ascending order, find the starting and ending position of a given target value.&lt;/p&gt;
+
+&lt;p&gt;Your algorithm&amp;rsquo;s runtime complexity must be in the order of O(log n).&lt;/p&gt;
+
+&lt;p&gt;If the target is not found in the array, return [-1, -1].&lt;/p&gt;
+
+&lt;p&gt;给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。&lt;/p&gt;
+
+&lt;p&gt;你的算法时间复杂度必须是 O(log n) 级别。&lt;/p&gt;
+
+&lt;p&gt;如果数组中不存在目标值，返回 [-1, -1]。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; nums = [5,7,7,8,8,10], target = 8&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; [3,4]&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; nums = [5,7,7,8,8,10], target = 6&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; [-1,-1]&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;题目要求 O(log n) 级别复杂度，所以采用&lt;strong&gt;二分法&lt;/strong&gt;。&lt;br /&gt;
+先找到target的索引，然后以此为中心，在左半区找最小索引，右半区找最大索引。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 8 ms, faster than 90.94% of C++ online submissions for Find First and Last Position of Element in Sorted Array.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 10.2 MB, less than 76.14% of C++ online submissions for Find First and Last Position of Element in Sorted Array.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    vector&amp;lt;int&amp;gt; searchRange(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
+        int mid = 0, l = 0, r = nums.size() - 1;
+        int lm = l, rm = r;
+        vector&amp;lt;int&amp;gt; res(2,-1);
+        while(l &amp;lt;= r){
+            mid = (r - l &amp;gt;&amp;gt; 1) + l;
+            if(nums[mid] == target){
+                lm = mid;
+                rm = mid;
+                while(l &amp;lt;= lm){                 // 在[l,lm]中找最小索引
+                    mid = (lm - l &amp;gt;&amp;gt; 1) + l;
+                    if(nums[mid] == target){
+                        lm = mid - 1;
+                        res[0] = mid;
+                    }else
+                        l = mid + 1;
+                }
+                while(rm &amp;lt;= r){                 // 在[rm,r]中找最大索引
+                    mid = (r - rm &amp;gt;&amp;gt; 1) + rm;
+                    if(nums[mid] == target){
+                        rm = mid + 1;
+                        res[1] = mid;
+                    }else
+                        r = mid - 1;
+                }
+                break;                          // 跳出循环
+            }else if(target &amp;gt; nums[mid]){
+                l = mid + 1;
+            }else
+                r = mid - 1;
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Golang 代理</title>
@@ -1314,152 +1494,6 @@ public:
 		}
 	}
 	return st.empty();
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 21 - Merge Two Sorted Lists [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/21-merge-two-sorted-lists/</link>
-      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/21-merge-two-sorted-lists/</guid>
-      <description>
-
-&lt;h1 id=&#34;21-merge-two-sorted-lists&#34;&gt;21.Merge Two Sorted Lists&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/merge-two-sorted-lists/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.&lt;/p&gt;
-
-&lt;p&gt;将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;比较大小然后修改指针。
-&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Two Sorted Lists.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 9 MB, less than 60.71% of C++ online submissions for Merge Two Sorted Lists.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        if(NULL == l1) return l2;
-        if(NULL == l2) return l1;
-        ListNode* head = new ListNode(0);
-        ListNode* res = head;
-        while(l1 &amp;amp;&amp;amp; l2){
-            if(l1-&amp;gt;val &amp;lt;= l2-&amp;gt;val){
-                head-&amp;gt;next = l1;
-                l1 = l1-&amp;gt;next;
-            }else{
-                head-&amp;gt;next = l2;
-                l2 = l2-&amp;gt;next;
-            }
-            head = head-&amp;gt;next;
-        }
-        if(l1)
-            head-&amp;gt;next = l1;
-        else
-            head-&amp;gt;next = l2;
-        return res-&amp;gt;next;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 22 - Generate_Parentheses [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/22-generate-parentheses/</link>
-      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/22-generate-parentheses/</guid>
-      <description>
-
-&lt;h1 id=&#34;22-generate-parentheses&#34;&gt;22.Generate_Parentheses&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/generate-parentheses/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.&lt;/p&gt;
-
-&lt;p&gt;For example, given n = 3, a solution set is:&lt;/p&gt;
-
-&lt;p&gt;给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;p&gt;例如，给出 n = 3，生成结果为：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;[
-  &amp;quot;((()))&amp;quot;,
-  &amp;quot;(()())&amp;quot;,
-  &amp;quot;(())()&amp;quot;,
-  &amp;quot;()(())&amp;quot;,
-  &amp;quot;()()()&amp;quot;
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;使用递归。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 4 ms, faster than 96.72% of C++ online submissions for Generate Parentheses.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 17.5 MB, less than 22.52% of C++ online submissions for Generate Parentheses.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-private:
-    void generate(string s,int l,int r,int n){
-        if(s.size() == n &amp;lt;&amp;lt; 1){
-            res.push_back(s);
-            return;
-        }
-        if(l &amp;lt; n)
-            generate(s + &#39;(&#39;,l + 1,r,n);
-        if(r &amp;lt; l)
-            generate(s + &#39;)&#39;,l,r + 1,n);
-    }
-public:
-    vector&amp;lt;string&amp;gt; res;
-    vector&amp;lt;string&amp;gt; generateParenthesis(int n) {
-        generate(&amp;quot;&amp;quot;,0,0,n);
-        return res;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
