@@ -5,8 +5,105 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 07 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 17:32:57 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Leetcode - 38 - Count and Say [Easy]</title>
+      <link>https://cuckooemm.xyz/2019/july/38-count-and-say/</link>
+      <pubDate>Mon, 08 Jul 2019 17:32:57 +0800</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/38-count-and-say/</guid>
+      <description>
+
+&lt;h1 id=&#34;38-count-and-say&#34;&gt;38.Count and Say&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/count-and-say/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;The count-and-say sequence is the sequence of integers with the first five terms as following:&lt;/p&gt;
+
+&lt;p&gt;报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;     1
+     11
+     21
+     1211
+     111221
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1 is read off as &amp;ldquo;one 1&amp;rdquo; or 11.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;11 is read off as &amp;ldquo;two 1s&amp;rdquo; or 21.&lt;br /&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;21 is read off as &amp;ldquo;one 2, then one 1&amp;rdquo; or 1211.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 被读作  &amp;rdquo;one 1&amp;rdquo;  (&amp;ldquo;一个一&amp;rdquo;) , 即 11。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;11 被读作 &amp;rdquo;two 1s&amp;rdquo; (&amp;ldquo;两个一&amp;rdquo;）, 即 21。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;21 被读作 &amp;rdquo;one 2&amp;rdquo;,  &amp;rdquo;one 1&amp;rdquo; （&amp;rdquo;一个二&amp;rdquo; ,  &amp;rdquo;一个一&amp;rdquo;) , 即 1211。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence.&lt;/p&gt;
+
+&lt;p&gt;给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。&lt;/p&gt;
+
+&lt;h4 id=&#34;note-each-term-of-the-sequence-of-integers-will-be-represented-as-a-string&#34;&gt;Note: Each term of the sequence of integers will be represented as a string.&lt;/h4&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 1&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;1&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; 4&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;1211&amp;rdquo;&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;使用循环依次计算后项。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Count and Say.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.7 MB, less than 80.15% of C++ online submissions for Count and Say.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    string countAndSay(int n) {
+        string curRes = &amp;quot;1&amp;quot;;
+        string res = &amp;quot;&amp;quot;;
+        int curIndex = 2,count = 1;
+        while(curIndex &amp;lt;= n){
+            res = &amp;quot;&amp;quot;;
+            for(int i = 0; i &amp;lt; curRes.size(); ++i){
+                if(i+1 &amp;lt; curRes.size() &amp;amp;&amp;amp; curRes[i] == curRes[i + 1]){
+                    ++count;
+                }else{
+                    res.push_back(count + 48);
+                    res.push_back(curRes[i]);
+                    count = 1;
+                }
+            }
+            curRes = res;
+            ++curIndex;
+        }
+        return curRes;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Leetcode - 35 - Search Insert Position [Easy]</title>
@@ -80,6 +177,127 @@ public:
                 l = mid + 1;
         }
         return l;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Leetcode - 36 - Valid Sudoku [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/july/36-valid-sudoku/</link>
+      <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/36-valid-sudoku/</guid>
+      <description>
+
+&lt;h1 id=&#34;36-valid-sudoku&#34;&gt;36.Valid Sudoku&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/valid-sudoku/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:&lt;/p&gt;
+
+&lt;p&gt;1.Each row must contain the digits 1-9 without repetition.&lt;br /&gt;
+2.Each column must contain the digits 1-9 without repetition.&lt;br /&gt;
+3.Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.&lt;/p&gt;
+
+&lt;p&gt;The Sudoku board could be partially filled, where empty cells are filled with the character &amp;lsquo;.&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。&lt;/p&gt;
+
+&lt;p&gt;数字 1-9 在每一行只能出现一次。&lt;br /&gt;
+数字 1-9 在每一列只能出现一次。&lt;br /&gt;
+数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。&lt;/p&gt;
+
+&lt;p&gt;数独部分空格内已填入了数字，空白格用 &amp;rsquo;.&amp;lsquo; 表示。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;[
+  [&amp;quot;5&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;7&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;],
+  [&amp;quot;6&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;9&amp;quot;,&amp;quot;5&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;],
+  [&amp;quot;.&amp;quot;,&amp;quot;9&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;.&amp;quot;],
+  [&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;3&amp;quot;],
+  [&amp;quot;4&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;1&amp;quot;],
+  [&amp;quot;7&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;6&amp;quot;],
+  [&amp;quot;.&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;],
+  [&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;9&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;5&amp;quot;],
+  [&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;7&amp;quot;,&amp;quot;9&amp;quot;]
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Output:&lt;/strong&gt; true&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;[
+  [&amp;quot;8&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;7&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;],
+  [&amp;quot;6&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;9&amp;quot;,&amp;quot;5&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;],
+  [&amp;quot;.&amp;quot;,&amp;quot;9&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;.&amp;quot;],
+  [&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;3&amp;quot;],
+  [&amp;quot;4&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;1&amp;quot;],
+  [&amp;quot;7&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;6&amp;quot;],
+  [&amp;quot;.&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;],
+  [&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;9&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;5&amp;quot;],
+  [&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;.&amp;quot;,&amp;quot;7&amp;quot;,&amp;quot;9&amp;quot;]
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Output:&lt;/strong&gt; false
+&lt;strong&gt;Explanation:&lt;/strong&gt; Same as Example 1, except with the 5 in the top left corner being modified to 8. Since there are two 8&amp;rsquo;s in the top left 3x3 sub-box, it is invalid.&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;A Sudoku board (partially filled) could be valid but is not necessarily solvable.&lt;br /&gt;
+Only the filled cells need to be validated according to the mentioned rules.&lt;br /&gt;
+The given board contain only digits 1-9 and the character &amp;lsquo;.&amp;rsquo;.&lt;br /&gt;
+The given board size is always 9x9.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;使用数组分别保存每行每列出现过的数字。&lt;br /&gt;
+期中，box_index = row / 3 * 3 + columns / 3。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 20 ms, faster than 43.73% of C++ online submissions for Valid Sudoku.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 10.8 MB, less than 28.58% of C++ online submissions for Valid Sudoku.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    bool isValidSudoku(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board) {
+        vector&amp;lt;vector&amp;lt;bool&amp;gt;&amp;gt; r(9,vector&amp;lt;bool&amp;gt;(9,false));
+        vector&amp;lt;vector&amp;lt;bool&amp;gt;&amp;gt; c(9,vector&amp;lt;bool&amp;gt;(9,false));
+        vector&amp;lt;vector&amp;lt;bool&amp;gt;&amp;gt; b(9,vector&amp;lt;bool&amp;gt;(9,false));
+        int index = 0,b_index = 0;
+        for(int i = 0; i &amp;lt; 9; ++i)
+            for(int j = 0; j &amp;lt; 9; ++j){
+                if(board[i][j] != &#39;.&#39;){
+                    index = board[i][j] - 49;
+                    b_index = i / 3 * 3 + j / 3;
+                    if(r[i][index] || c[j][index] || b[b_index][index]){
+                        return false;
+                    }else{
+                        r[i][index] = true;
+                        c[j][index] = true;
+                        b[b_index][index] = true;
+                    }
+                }
+            }
+        return true;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
@@ -1276,194 +1494,6 @@ public:
         return head-&amp;gt;next;
     }
     
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 17 - Letter Combinations of a Phone Number [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/17-letter-combinations-of-a-phone-number/</link>
-      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/17-letter-combinations-of-a-phone-number/</guid>
-      <description>
-
-&lt;h1 id=&#34;17-letter-combinations-of-a-phone-number&#34;&gt;17.Letter Combinations of a Phone Number&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/letter-combinations-of-a-phone-number/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given a string containing digits from &lt;code&gt;2-9&lt;/code&gt; inclusive, return all possible letter combinations that the number could represent.&lt;/p&gt;
-
-&lt;p&gt;A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.&lt;/p&gt;
-
-&lt;p&gt;给定一个仅包含数字 &lt;code&gt;2-9&lt;/code&gt; 的字符串，返回所有它能表示的字母组合。&lt;/p&gt;
-
-&lt;p&gt;给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; &amp;ldquo;23&amp;rdquo;&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; [&amp;ldquo;ad&amp;rdquo;, &amp;ldquo;ae&amp;rdquo;, &amp;ldquo;af&amp;rdquo;, &amp;ldquo;bd&amp;rdquo;, &amp;ldquo;be&amp;rdquo;, &amp;ldquo;bf&amp;rdquo;, &amp;ldquo;cd&amp;rdquo;, &amp;ldquo;ce&amp;rdquo;, &amp;ldquo;cf&amp;rdquo;].&lt;/p&gt;
-
-&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
-
-&lt;p&gt;Although the above answer is in lexicographical order, your answer could be in any order you want.&lt;br /&gt;
-尽管上面的答案是按字典序排列的，但是你可以任意选择答案输出的顺序。&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;递归实现。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(3&lt;sup&gt;n&lt;/sup&gt; * 4&lt;sup&gt;m&lt;/sup&gt;), 空间复杂度：O(3&lt;sup&gt;n&lt;/sup&gt; * 4&lt;sup&gt;m&lt;/sup&gt;)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Letter Combinations of a Phone Number.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.7 MB, less than 50.00% of C++ online submissions for Letter Combinations of a Phone Number.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-private:
-    string phone(char i){
-        switch(i){
-            case &#39;2&#39; :
-                return &amp;quot;abc&amp;quot;;
-                break;
-            case &#39;3&#39; :
-                return &amp;quot;def&amp;quot;;
-                break;
-            case &#39;4&#39; :
-                return &amp;quot;ghi&amp;quot;;
-                break;
-            case &#39;5&#39; :
-                return &amp;quot;jkl&amp;quot;;
-                break;
-            case &#39;6&#39; :
-                return &amp;quot;mno&amp;quot;;
-                break;
-            case &#39;7&#39; :
-                return &amp;quot;pqrs&amp;quot;;
-                break;
-            case &#39;8&#39; :
-                return &amp;quot;tuv&amp;quot;;
-                break;
-            case &#39;9&#39; :
-                return &amp;quot;wxyz&amp;quot;;
-                break;
-            default:
-                return &amp;quot;&amp;quot;;
-        }
-    }
-public:
-    vector&amp;lt;string&amp;gt; res;
-    vector&amp;lt;string&amp;gt; letterCombinations(string digits) {
-        if(digits.size() == 0) return res;
-        string s = &amp;quot;&amp;quot;;
-        combination(s, digits);
-        return res;
-    }
-    void combination(string c,string digits){
-        if(digits.size() == 0){
-            res.push_back(c);
-            return;
-        }
-        string ch = phone(digits[0]);
-        for(int i = 0; i &amp;lt; ch.size(); ++i){
-            combination(c + ch[i],digits.substr(1));
-        }
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 19 - Remove Nth Node From End of List [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/19-remove-nth-node-from-end-of-list/</link>
-      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/19-remove-nth-node-from-end-of-list/</guid>
-      <description>
-
-&lt;h1 id=&#34;19-remove-nth-node-from-end-of-list&#34;&gt;19.Remove Nth Node From End of List&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/remove-nth-node-from-end-of-list/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given a linked list, remove the n-th node from the end of list and return its head.&lt;/p&gt;
-
-&lt;p&gt;给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
-
-&lt;p&gt;Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.&lt;/p&gt;
-
-&lt;p&gt;After removing the second node from the end, the linked list becomes 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.&lt;/p&gt;
-
-&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
-
-&lt;p&gt;Given n will always be valid.&lt;/p&gt;
-
-&lt;h4 id=&#34;follow-up&#34;&gt;Follow up:&lt;/h4&gt;
-
-&lt;p&gt;Could you do this in one pass?&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;h4 id=&#34;双指针&#34;&gt;双指针&lt;/h4&gt;
-
-&lt;p&gt;右指针先走n次，左指针指向头结点，这时左指针一直指向当前右指针的倒数第n个节点，然后继续向后循环。&lt;br /&gt;
-当右指针到达链表尾部时，左指针指向的下一个节点即为要删除的节点。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 4 ms, faster than 96.74% of C++ online submissions for Remove Nth Node From End of List.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.7 MB, less than 49.56% of C++ online submissions for Remove Nth Node From End of List.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        if(n == 0){
-            return head;
-        }
-        ListNode* res = new ListNode(0);  // 建立头结点，防止出现n=链表长度删不掉头结点的情况
-        res-&amp;gt;next = head;
-        ListNode* temp = res;
-        for(int i = 1; i &amp;lt; n + 1; ++i){
-            head = head-&amp;gt;next;           
-        }
-        while(NULL != head){
-            head = head-&amp;gt;next;
-            temp = temp-&amp;gt;next;
-        }
-        temp-&amp;gt;next = temp-&amp;gt;next-&amp;gt;next;
-        return res-&amp;gt;next;
-    }
 };
 &lt;/code&gt;&lt;/pre&gt;
 </description>

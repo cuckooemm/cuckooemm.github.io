@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/july/34-find-first-and-last-position-of-element-in-sorted-array/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/july/36-valid-sudoku/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/33-search-in-rotated-sorted-array/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/july/35-search-insert-position/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/38-count-and-say/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 33 - Search in Rotated Sorted Array [Medium] | Cuckooemm&#39;s Blog
+           Leetcode - 38 - Count and Say [Easy] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 33 - Search in Rotated Sorted Array [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Leetcode - 38 - Count and Say [Easy] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 33 - Search in Rotated Sorted Array [Medium]",
-    "headline" : "Leetcode - 33 - Search in Rotated Sorted Array [Medium]",
-    "description" : "33.Search in Rotated Sorted Array 地址\n难度：Medium\n题目描述 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.\n(i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).\nYou are given a target value to search. If found in the array return its index, otherwise return -1.\nYou may assume no duplicate exists in the array.\nYour algorithm\x26rsquo;s runtime complexity must be in the order of O(log n).",
+    "name" : "Leetcode - 38 - Count and Say [Easy]",
+    "headline" : "Leetcode - 38 - Count and Say [Easy]",
+    "description" : "38.Count and Say 地址\n难度：Easy\n题目描述 The count-and-say sequence is the sequence of integers with the first five terms as following:\n报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：\n1 11 21 1211 111221   1 is read off as \x26ldquo;one 1\x26rdquo; or 11.\n 11 is read off as \x26ldquo;two 1s\x26rdquo; or 21.\n 21 is read off as \x26ldquo;one 2, then one 1\x26rdquo; or 1211.\n 1 被读作 \x26rdquo;one 1\x26rdquo; (\x26ldquo;一个一\x26rdquo;) , 即 11。",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-07-06 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-07-06 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/33-search-in-rotated-sorted-array\/",
-    "wordCount" : "245",
-    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-07-08 17:32:57 \x2b0800 CST",
+    "dateModified" : "2019-07-08 17:32:57 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/38-count-and-say\/",
+    "wordCount" : "235",
+    "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,11 +124,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 33 - Search in Rotated Sorted Array [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">Leetcode - 38 - Count and Say [Easy]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-07-06 itemprop="datePublished">July 6, 2019</time>
+                on <time datetime=2019-07-08 itemprop="datePublished">July 8, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -156,79 +156,89 @@
 
           
 
-<h1 id="33-search-in-rotated-sorted-array">33.Search in Rotated Sorted Array</h1>
+<h1 id="38-count-and-say">38.Count and Say</h1>
 
-<p><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Medium</strong></p>
+<p><a href="https://leetcode.com/problems/count-and-say/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Easy</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p>
+<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
 
-<p>(i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).</p>
+<p>报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：</p>
 
-<p>You are given a target value to search. If found in the array return its index, otherwise return -1.</p>
+<pre><code class="language-git">     1
+     11
+     21
+     1211
+     111221
+</code></pre>
 
-<p>You may assume no duplicate exists in the array.</p>
+<ul>
+<li>1 is read off as &ldquo;one 1&rdquo; or 11.<br /></li>
+<li>11 is read off as &ldquo;two 1s&rdquo; or 21.<br /></li>
 
-<p>Your algorithm&rsquo;s runtime complexity must be in the order of O(log n).</p>
+<li><p>21 is read off as &ldquo;one 2, then one 1&rdquo; or 1211.</p></li>
 
-<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>
+<li><p>1 被读作  &rdquo;one 1&rdquo;  (&ldquo;一个一&rdquo;) , 即 11。</p></li>
 
-<p>( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。</p>
+<li><p>11 被读作 &rdquo;two 1s&rdquo; (&ldquo;两个一&rdquo;）, 即 21。</p></li>
 
-<p>搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。</p>
+<li><p>21 被读作 &rdquo;one 2&rdquo;,  &rdquo;one 1&rdquo; （&rdquo;一个二&rdquo; ,  &rdquo;一个一&rdquo;) , 即 1211。</p></li>
+</ul>
 
-<p>你可以假设数组中不存在重复的元素。</p>
+<p>Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence.</p>
 
-<p>你的算法时间复杂度必须是 O(log n) 级别。</p>
+<p>给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。</p>
+
+<h4 id="note-each-term-of-the-sequence-of-integers-will-be-represented-as-a-string">Note: Each term of the sequence of integers will be represented as a string.</h4>
 
 <h3 id="示例">示例</h3>
 
 <h4 id="example-1">Example 1:</h4>
 
-<p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0<br />
-<strong>Output:</strong> 4</p>
+<p><strong>Input:</strong> 1<br />
+<strong>Output:</strong> &ldquo;1&rdquo;</p>
 
 <h4 id="example-2">Example 2:</h4>
 
-<p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 3<br />
-<strong>Output:</strong> -1</p>
+<p><strong>Input:</strong> 4<br />
+<strong>Output:</strong> &ldquo;1211&rdquo;</p>
 
 <h3 id="思路">思路</h3>
 
-<p>题目要求 O(log n) 级别复杂度，所以采用<strong>二分法</strong>。</p>
+<p>使用循环依次计算后项。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Search in Rotated Sorted Array.</li>
-<li>Memory Usage: 8.5 MB, less than 99.60% of C++ online submissions for Search in Rotated Sorted Array.</li>
+<li>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Count and Say.</li>
+<li>Memory Usage: 8.7 MB, less than 80.15% of C++ online submissions for Count and Say.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
 public:
-    int search(vector&lt;int&gt;&amp; nums, int target) {
-        int l = 0,r = nums.size() - 1;
-        int mid = 0;
-        while(l &lt;= r){
-            mid = (r - l &gt;&gt; 1) + l;                             // 防止加法溢出
-            if(nums[mid] == target) return mid; 
-            if(nums[mid] &gt;= nums[l]){                           // 说明mid左边有序
-                if(nums[mid] &gt; target &amp;&amp; nums[l] &lt;= target)     // 查看mid是否在左区间
-                    r = mid - 1;
-                else
-                    l = mid + 1;
-            }else{                                              // 等同 mid &lt; r
-                if(nums[mid] &lt; target &amp;&amp; nums[r] &gt;= target)     // 查看mid是否在右区间
-                    l = mid + 1;
-                else
-                    r = mid - 1;
+    string countAndSay(int n) {
+        string curRes = &quot;1&quot;;
+        string res = &quot;&quot;;
+        int curIndex = 2,count = 1;
+        while(curIndex &lt;= n){
+            res = &quot;&quot;;
+            for(int i = 0; i &lt; curRes.size(); ++i){
+                if(i+1 &lt; curRes.size() &amp;&amp; curRes[i] == curRes[i + 1]){
+                    ++count;
+                }else{
+                    res.push_back(count + 48);
+                    res.push_back(curRes[i]);
+                    count = 1;
+                }
             }
+            curRes = res;
+            ++curIndex;
         }
-        return -1;
+        return curRes;
     }
 };
 </code></pre>
@@ -246,7 +256,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/july/33-search-in-rotated-sorted-array/>https://cuckooemm.xyz/2019/july/33-search-in-rotated-sorted-array/</span>
+                    <a href=https://cuckooemm.xyz/2019/july/38-count-and-say/>https://cuckooemm.xyz/2019/july/38-count-and-say/</span>
             </p>
             
              
@@ -265,8 +275,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
-                    #LeetCode-Medium</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-easy/">
+                    #LeetCode-Easy</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -281,10 +291,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/july/34-find-first-and-last-position-of-element-in-sorted-array/" class="prev" rel="prev" title="Leetcode - 34 - Find First and Last Position of Element in Sorted Array [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 34 - Find First and Last Position of Element in Sorted Array [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/july/35-search-insert-position/" class="prev" rel="prev" title="Leetcode - 35 - Search Insert Position [Easy]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 35 - Search Insert Position [Easy]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/july/36-valid-sudoku/" class="next" rel="next" title="Leetcode - 36 - Valid Sudoku [Medium]">Leetcode - 36 - Valid Sudoku [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

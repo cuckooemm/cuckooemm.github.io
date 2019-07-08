@@ -6,10 +6,25 @@
     <description>Recent content in LeetCode-Medium on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/tags/leetcode-medium/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode - 36 - Valid Sudoku [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/july/36-valid-sudoku/</link>
+      <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/36-valid-sudoku/</guid>
+      <description>36.Valid Sudoku 地址
+难度：Medium
+题目描述 Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+1.Each row must contain the digits 1-9 without repetition.
+2.Each column must contain the digits 1-9 without repetition.
+3.Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+The Sudoku board could be partially filled, where empty cells are filled with the character &amp;lsquo;.</description>
+    </item>
     
     <item>
       <title>Leetcode - 33 - Search in Rotated Sorted Array [Medium]</title>
