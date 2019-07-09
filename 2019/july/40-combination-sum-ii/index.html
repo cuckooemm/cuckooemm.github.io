@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/july/35-search-insert-position/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/july/39-combination-sum/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/38-count-and-say/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/july/39-combination-sum/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/40-combination-sum-ii/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 38 - Count and Say [Easy] | Cuckooemm&#39;s Blog
+           Leetcode - 40 - Combination Sum II [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 38 - Count and Say [Easy] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Leetcode - 40 - Combination Sum II [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 38 - Count and Say [Easy]",
-    "headline" : "Leetcode - 38 - Count and Say [Easy]",
-    "description" : "38.Count and Say 地址\n难度：Easy\n题目描述 The count-and-say sequence is the sequence of integers with the first five terms as following:\n报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：\n1 11 21 1211 111221   1 is read off as \x26ldquo;one 1\x26rdquo; or 11.\n 11 is read off as \x26ldquo;two 1s\x26rdquo; or 21.\n 21 is read off as \x26ldquo;one 2, then one 1\x26rdquo; or 1211.\n 1 被读作 \x26rdquo;one 1\x26rdquo; (\x26ldquo;一个一\x26rdquo;) , 即 11。",
+    "name" : "Leetcode - 40 - Combination Sum II [Medium]",
+    "headline" : "Leetcode - 40 - Combination Sum II [Medium]",
+    "description" : "40.Combination Sum II 地址\n难度：Medium\n题目描述 Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.\nEach number in candidates may only be used once in the combination.\n给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。\ncandidates 中的每个数字在每个组合中只能使用一次。\nNote:  All numbers (including target) will be positive integers. The solution set must not contain duplicate combinations.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-07-08 17:32:57 \x2b0800 CST",
-    "dateModified" : "2019-07-08 17:32:57 \x2b0800 CST",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/38-count-and-say\/",
-    "wordCount" : "235",
-    "keywords" : [ "algorithm","LeetCode-Easy","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-07-09 22:22:41 \x2b0800 CST",
+    "dateModified" : "2019-07-09 22:22:41 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/40-combination-sum-ii\/",
+    "wordCount" : "215",
+    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,11 +124,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 38 - Count and Say [Easy]</h1>
+        <h1 class="post-title" itemprop="name headline">Leetcode - 40 - Combination Sum II [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-07-08 itemprop="datePublished">July 8, 2019</time>
+                on <time datetime=2019-07-09 itemprop="datePublished">July 9, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -156,89 +156,93 @@
 
           
 
-<h1 id="38-count-and-say">38.Count and Say</h1>
+<h1 id="40-combination-sum-ii">40.Combination Sum II</h1>
 
-<p><a href="https://leetcode.com/problems/count-and-say/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Easy</strong></p>
+<p><a href="https://leetcode.com/problems/combination-sum-ii/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
+<p>Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.</p>
 
-<p>报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：</p>
+<p>Each number in candidates may only be used once in the combination.</p>
 
-<pre><code class="language-git">     1
-     11
-     21
-     1211
-     111221
-</code></pre>
+<p>给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。</p>
+
+<p>candidates 中的每个数字在每个组合中只能使用一次。</p>
+
+<h4 id="note">Note:</h4>
 
 <ul>
-<li>1 is read off as &ldquo;one 1&rdquo; or 11.<br /></li>
-<li>11 is read off as &ldquo;two 1s&rdquo; or 21.<br /></li>
+<li>All numbers (including target) will be positive integers.</li>
 
-<li><p>21 is read off as &ldquo;one 2, then one 1&rdquo; or 1211.</p></li>
+<li><p>The solution set must not contain duplicate combinations.</p></li>
 
-<li><p>1 被读作  &rdquo;one 1&rdquo;  (&ldquo;一个一&rdquo;) , 即 11。</p></li>
+<li><p>所有数字（包括目标数）都是正整数。</p></li>
 
-<li><p>11 被读作 &rdquo;two 1s&rdquo; (&ldquo;两个一&rdquo;）, 即 21。</p></li>
-
-<li><p>21 被读作 &rdquo;one 2&rdquo;,  &rdquo;one 1&rdquo; （&rdquo;一个二&rdquo; ,  &rdquo;一个一&rdquo;) , 即 1211。</p></li>
+<li><p>解集不能包含重复的组合。</p></li>
 </ul>
-
-<p>Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence.</p>
-
-<p>给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。</p>
-
-<h4 id="note-each-term-of-the-sequence-of-integers-will-be-represented-as-a-string">Note: Each term of the sequence of integers will be represented as a string.</h4>
 
 <h3 id="示例">示例</h3>
 
 <h4 id="example-1">Example 1:</h4>
 
-<p><strong>Input:</strong> 1<br />
-<strong>Output:</strong> &ldquo;1&rdquo;</p>
+<p><strong>Input:</strong> candidates = [10,1,2,7,6,1,5], target = 8,<br />
+A solution set is:</p>
+
+<pre><code class="language-git">[
+  [1, 7],
+  [1, 2, 5],
+  [2, 6],
+  [1, 1, 6]
+]
+</code></pre>
 
 <h4 id="example-2">Example 2:</h4>
 
-<p><strong>Input:</strong> 4<br />
-<strong>Output:</strong> &ldquo;1211&rdquo;</p>
+<p><strong>Input:</strong> candidates = [2,5,2,1,2], target = 5,<br />
+A solution set is:</p>
+
+<pre><code class="language-git">[
+  [1,2,2],
+  [5]
+]
+</code></pre>
 
 <h3 id="思路">思路</h3>
 
-<p>使用循环依次计算后项。</p>
+<p>与Combination Sum 方法一致，因不包含重复项所以递归时从当前push数组下标的下一个位置开始。排序解决重复项问题。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Count and Say.</li>
-<li>Memory Usage: 8.7 MB, less than 80.15% of C++ online submissions for Count and Say.</li>
+<li>Runtime: 4 ms, faster than 99.44% of C++ online submissions for Combination Sum II.</li>
+<li>Memory Usage: 9.1 MB, less than 59.13% of C++ online submissions for Combination Sum II.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
-public:
-    string countAndSay(int n) {
-        string curRes = &quot;1&quot;;
-        string res = &quot;&quot;;
-        int curIndex = 2,count = 1;
-        while(curIndex &lt;= n){
-            res = &quot;&quot;;
-            for(int i = 0; i &lt; curRes.size(); ++i){
-                if(i+1 &lt; curRes.size() &amp;&amp; curRes[i] == curRes[i + 1]){
-                    ++count;
-                }else{
-                    res.push_back(count + 48);
-                    res.push_back(curRes[i]);
-                    count = 1;
-                }
-            }
-            curRes = res;
-            ++curIndex;
+private:
+    vector&lt;vector&lt;int&gt;&gt; res;
+    vector&lt;int&gt; tmp;
+    void dfs(vector&lt;int&gt;&amp; candidates,int target,int index){
+        if(target == 0)
+            return res.push_back(tmp);
+        for(int i = index; i &lt; candidates.size(); ++i){
+            if(candidates[i] &gt; target) break;
+            if(index != i &amp;&amp; candidates[i] == candidates[i - 1])
+                continue;
+            tmp.push_back(candidates[i]);
+            dfs(candidates,target - candidates[i],i + 1);            // 数字只能选取一次，从当前索引位置+1
+            tmp.pop_back();
         }
-        return curRes;
+    }
+public:
+    vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&lt;int&gt;&amp; candidates, int target) {
+        sort(candidates.begin(),candidates.end());
+        dfs(candidates,target,0);
+        return res;
     }
 };
 </code></pre>
@@ -256,7 +260,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/july/38-count-and-say/>https://cuckooemm.xyz/2019/july/38-count-and-say/</span>
+                    <a href=https://cuckooemm.xyz/2019/july/40-combination-sum-ii/>https://cuckooemm.xyz/2019/july/40-combination-sum-ii/</span>
             </p>
             
              
@@ -275,8 +279,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-easy/">
-                    #LeetCode-Easy</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
+                    #LeetCode-Medium</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -291,10 +295,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/july/35-search-insert-position/" class="prev" rel="prev" title="Leetcode - 35 - Search Insert Position [Easy]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 35 - Search Insert Position [Easy]</a>
+        <a href="https://cuckooemm.xyz/2019/july/39-combination-sum/" class="prev" rel="prev" title="Leetcode - 39 - Combination Sum [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 39 - Combination Sum [Medium]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/july/39-combination-sum/" class="next" rel="next" title="Leetcode - 39 - Combination Sum [Medium]">Leetcode - 39 - Combination Sum [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

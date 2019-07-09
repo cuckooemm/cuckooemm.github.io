@@ -5,8 +5,206 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 08 Jul 2019 17:32:57 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jul 2019 22:22:41 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Leetcode - 40 - Combination Sum II [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/july/40-combination-sum-ii/</link>
+      <pubDate>Tue, 09 Jul 2019 22:22:41 +0800</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/40-combination-sum-ii/</guid>
+      <description>
+
+&lt;h1 id=&#34;40-combination-sum-ii&#34;&gt;40.Combination Sum II&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/combination-sum-ii/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.&lt;/p&gt;
+
+&lt;p&gt;Each number in candidates may only be used once in the combination.&lt;/p&gt;
+
+&lt;p&gt;给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。&lt;/p&gt;
+
+&lt;p&gt;candidates 中的每个数字在每个组合中只能使用一次。&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All numbers (including target) will be positive integers.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The solution set must not contain duplicate combinations.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;所有数字（包括目标数）都是正整数。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;解集不能包含重复的组合。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; candidates = [10,1,2,7,6,1,5], target = 8,&lt;br /&gt;
+A solution set is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;[
+  [1, 7],
+  [1, 2, 5],
+  [2, 6],
+  [1, 1, 6]
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; candidates = [2,5,2,1,2], target = 5,&lt;br /&gt;
+A solution set is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;[
+  [1,2,2],
+  [5]
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;与Combination Sum 方法一致，因不包含重复项所以递归时从当前push数组下标的下一个位置开始。排序解决重复项问题。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 4 ms, faster than 99.44% of C++ online submissions for Combination Sum II.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 9.1 MB, less than 59.13% of C++ online submissions for Combination Sum II.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+private:
+    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res;
+    vector&amp;lt;int&amp;gt; tmp;
+    void dfs(vector&amp;lt;int&amp;gt;&amp;amp; candidates,int target,int index){
+        if(target == 0)
+            return res.push_back(tmp);
+        for(int i = index; i &amp;lt; candidates.size(); ++i){
+            if(candidates[i] &amp;gt; target) break;
+            if(index != i &amp;amp;&amp;amp; candidates[i] == candidates[i - 1])
+                continue;
+            tmp.push_back(candidates[i]);
+            dfs(candidates,target - candidates[i],i + 1);            // 数字只能选取一次，从当前索引位置+1
+            tmp.pop_back();
+        }
+    }
+public:
+    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; combinationSum2(vector&amp;lt;int&amp;gt;&amp;amp; candidates, int target) {
+        sort(candidates.begin(),candidates.end());
+        dfs(candidates,target,0);
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Leetcode - 39 - Combination Sum [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/july/39-combination-sum/</link>
+      <pubDate>Tue, 09 Jul 2019 16:25:26 +0800</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/39-combination-sum/</guid>
+      <description>
+
+&lt;h1 id=&#34;39-combination-sum&#34;&gt;39.Combination Sum&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/combination-sum/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.&lt;/p&gt;
+
+&lt;p&gt;The same repeated number may be chosen from candidates unlimited number of times.&lt;/p&gt;
+
+&lt;p&gt;给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。&lt;/p&gt;
+
+&lt;p&gt;candidates 中的数字可以无限制重复被选取。&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All numbers (including target) will be positive integers.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The solution set must not contain duplicate combinations.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;所有数字（包括 target）都是正整数。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;解集不能包含重复的组合。 &lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; candidates = [2,3,6,7], target = 7,&lt;br /&gt;
+A solution set is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;[  
+  [7],  
+  [2,2,3]  
+]  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; candidates = [2,3,5], target = 8,&lt;br /&gt;
+A solution set is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;[  
+  [2,2,2,2],  
+  [2,3,3],  
+  [3,5]  
+]  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;递归回溯。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 8 ms, faster than 98.70% of C++ online submissions for Combination Sum.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 9.7 MB, less than 58.59% of C++ online submissions for Combination Sum.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+private:
+    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res;
+    vector&amp;lt;int&amp;gt; temp;
+    void dfs(vector&amp;lt;int&amp;gt;&amp;amp; candidates,int target,int index){
+        if(target == 0)
+            return res.push_back(temp);
+        for(; index &amp;lt; candidates.size(); ++index){
+            if(candidates[index] &amp;gt; target) continue;
+            temp.push_back(candidates[index]);
+            dfs(candidates,target - candidates[index],index);        // 数字可被无限次选取，沿用当前位置索引
+            temp.pop_back();
+        }
+    }
+public:
+    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; combinationSum(vector&amp;lt;int&amp;gt;&amp;amp; candidates, int target) {
+        dfs(candidates,target,0);
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Leetcode - 38 - Count and Say [Easy]</title>
@@ -1330,170 +1528,6 @@ public:
         }
         return ++l;
     }   
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 24 - Swap Nodes in Pairs [Medium]</title>
-      <link>https://cuckooemm.xyz/2019/june/24-swap-nodes-in-pairs/</link>
-      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/24-swap-nodes-in-pairs/</guid>
-      <description>
-
-&lt;h1 id=&#34;24-swap-nodes-in-pairs&#34;&gt;24.Swap Nodes in Pairs&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/swap-nodes-in-pairs/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given a linked list, swap every two adjacent nodes and return its head.&lt;/p&gt;
-
-&lt;p&gt;You may not modify the values in the list&amp;rsquo;s nodes, only nodes itself may be changed.&lt;/p&gt;
-
-&lt;p&gt;给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。&lt;/p&gt;
-
-&lt;p&gt;你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
-
-&lt;p&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;交换指针。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for Swap Nodes in Pairs.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.8 MB, less than 47.42% of C++ online submissions for Swap Nodes in Pairs.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* swapPairs(ListNode* head) {
-        if(head == NULL) return head;
-        ListNode* cur = new ListNode(0);
-        ListNode* res = cur;
-        res-&amp;gt;next = head;
-        ListNode* temp;
-        while(head){
-            if(head-&amp;gt;next == NULL) break;
-                temp = head;
-                cur-&amp;gt;next = head-&amp;gt;next;
-                cur = cur-&amp;gt;next;
-                head = head-&amp;gt;next-&amp;gt;next;
-                cur-&amp;gt;next = temp;
-                cur = cur-&amp;gt;next;
-                cur-&amp;gt;next = head;
-            
-        }
-        return res-&amp;gt;next;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LeetCode - 23 - Merge k Sorted Lists [Hard]</title>
-      <link>https://cuckooemm.xyz/2019/june/23-merge-k-sorted-lists/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/23-merge-k-sorted-lists/</guid>
-      <description>
-
-&lt;h1 id=&#34;23-merge-k-sorted-lists&#34;&gt;23.Merge k Sorted Lists&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/merge-k-sorted-lists/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Hard&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.&lt;/p&gt;
-
-&lt;p&gt;合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。&lt;/p&gt;
-
-&lt;h3 id=&#34;实例&#34;&gt;实例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example&#34;&gt;Example:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt;&lt;br /&gt;
-[&lt;br /&gt;
-  1-&amp;gt;4-&amp;gt;5,&lt;br /&gt;
-  1-&amp;gt;3-&amp;gt;4,&lt;br /&gt;
-  2-&amp;gt;6&lt;br /&gt;
-]&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5-&amp;gt;6&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;使用优先队列解决。
-&lt;strong&gt;时间复杂度:O(n log k), 空间复杂度：O(k)。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 20 ms, faster than 99.55% of C++ online submissions for Merge k Sorted Lists.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 11.3 MB, less than 65.67% of C++ online submissions for Merge k Sorted Lists.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-private:
-    struct cmp{
-        bool operator()(ListNode* l,ListNode* r){
-            return l-&amp;gt;val &amp;gt; r-&amp;gt;val;
-        }
-    };
-public:
-    ListNode* mergeKLists(vector&amp;lt;ListNode*&amp;gt;&amp;amp; lists) {
-        if(lists.empty()) return NULL;
-        priority_queue&amp;lt;ListNode*,vector&amp;lt;ListNode*&amp;gt;,cmp&amp;gt; p;
-        ListNode* head = new ListNode(0);
-        ListNode* cur = head;
-        for(int i = 0; i &amp;lt; lists.size(); ++i){
-            if(lists[i] != NULL){                  // 不为空加入优先队列
-                p.push(lists[i]);
-            }
-        }
-        while(!p.empty()){
-            cur-&amp;gt;next = p.top();
-            cur = cur-&amp;gt;next;
-            p.pop();
-            if(cur-&amp;gt;next != NULL){
-                p.push(cur-&amp;gt;next);         
-            }
-        }
-        return head-&amp;gt;next;
-    }
-    
 };
 &lt;/code&gt;&lt;/pre&gt;
 </description>
