@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/july/40-combination-sum-ii/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/july/42-trapping-rain-water/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/41-first-missing-positive/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/july/41-first-missing-positive/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/42-trapping-rain-water/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 41 - First Missing Positive [Hard] | Cuckooemm&#39;s Blog
+           Leetcode - 42 - Trapping Rain Water [Hard] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 41 - First Missing Positive [Hard] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Leetcode - 42 - Trapping Rain Water [Hard] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 41 - First Missing Positive [Hard]",
-    "headline" : "Leetcode - 41 - First Missing Positive [Hard]",
-    "description" : "41.First Missing Positive 地址\n难度：Hard\n题目描述 Given an unsorted integer array, find the smallest missing positive integer.\n给定一个未排序的整数数组，找出其中没有出现的最小的正整数。\n示例 Example 1: Input: [1,2,0]\nOutput: 3\nExample 2: Input: [3,4,-1,1]\nOutput: 2\nExample 3: Input: [7,8,9,11,12]\nOutput: 1\nNote: Your algorithm should run in O(n) time and uses constant extra space.\n思路 利用桶排序的思路。\n负数与大于数组长度的数字不考虑。\n用数组中的数当作索引，存放在nums[i] - 1 的索引位置。\nAC  Runtime: 0 ms, faster than 100.00% of C\x2b\x2b online submissions for First Missing Positive.",
+    "name" : "Leetcode - 42 - Trapping Rain Water [Hard]",
+    "headline" : "Leetcode - 42 - Trapping Rain Water [Hard]",
+    "description" : "42.Trapping Rain Water 地址\n难度：Hard\n题目描述 Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.\n给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。\n示例 Example: Input: [0,1,0,2,1,0,1,3,2,1,2,1]\nOutput: 6\n思路 使用双指针指向两端，积水高度由两边指针决定。\n遍历时维护lmax和rmax，如果当前高度低于*max，则计算积水量。\n如果当前高度高于或等于*max，则更改lmax(rmax)。\nAC  Runtime: 8 ms, faster than 72.98% of C\x2b\x2b online submissions for Trapping Rain Water. Memory Usage: 9 MB, less than 86.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,10 +54,10 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-07-11 13:09:57 \x2b0800 CST",
-    "dateModified" : "2019-07-11 13:09:57 \x2b0800 CST",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/41-first-missing-positive\/",
-    "wordCount" : "152",
+    "datePublished": "2019-07-11 21:48:35 \x2b0800 CST",
+    "dateModified" : "2019-07-11 21:48:35 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/42-trapping-rain-water\/",
+    "wordCount" : "146",
     "keywords" : [ "algorithm","LeetCode-Hard","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -124,7 +124,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 41 - First Missing Positive [Hard]</h1>
+        <h1 class="post-title" itemprop="name headline">Leetcode - 42 - Trapping Rain Water [Hard]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
@@ -156,69 +156,61 @@
 
           
 
-<h1 id="41-first-missing-positive">41.First Missing Positive</h1>
+<h1 id="42-trapping-rain-water">42.Trapping Rain Water</h1>
 
-<p><a href="https://leetcode.com/problems/first-missing-positive/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<p><a href="https://leetcode.com/problems/trapping-rain-water/" rel="nofollow noreferrer" target="_blank">地址</a><br />
 <strong>难度：Hard</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Given an unsorted integer array, find the smallest missing positive integer.</p>
+<p>Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p>
 
-<p>给定一个未排序的整数数组，找出其中没有出现的最小的正整数。</p>
+<p>给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。</p>
 
 <h3 id="示例">示例</h3>
 
-<h4 id="example-1">Example 1:</h4>
+<h4 id="example">Example:</h4>
 
-<p><strong>Input:</strong> [1,2,0]<br />
-<strong>Output:</strong> 3</p>
-
-<h4 id="example-2">Example 2:</h4>
-
-<p><strong>Input:</strong> [3,4,-1,1]<br />
-<strong>Output:</strong> 2</p>
-
-<h4 id="example-3">Example 3:</h4>
-
-<p><strong>Input:</strong> [7,8,9,11,12]<br />
-<strong>Output:</strong> 1</p>
-
-<h4 id="note">Note:</h4>
-
-<p>Your algorithm should run in O(n) time and uses constant extra space.</p>
+<p><strong>Input:</strong> [0,1,0,2,1,0,1,3,2,1,2,1]<br />
+<strong>Output:</strong> 6</p>
 
 <h3 id="思路">思路</h3>
 
-<p>利用桶排序的思路。<br />
-负数与大于数组长度的数字不考虑。<br />
-用数组中的数当作索引，存放在nums[i] - 1 的索引位置。</p>
+<p>使用双指针指向两端，积水高度由两边指针决定。<br />
+遍历时维护lmax和rmax，如果当前高度低于*max，则计算积水量。<br />
+如果当前高度高于或等于*max，则更改lmax(rmax)。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 0 ms, faster than 100.00% of C++ online submissions for First Missing Positive.</li>
-<li>Memory Usage: 8.7 MB, less than 30.44% of C++ online submissions for First Missing Positive.</li>
+<li>Runtime: 8 ms, faster than 72.98% of C++ online submissions for Trapping Rain Water.</li>
+<li>Memory Usage: 9 MB, less than 86.30% of C++ online submissions for Trapping Rain Water.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
 public:
-    int firstMissingPositive(vector&lt;int&gt;&amp; nums) {
-        if(nums.size() &lt; 1)
-            return 1;
-        for(int i = 0; i &lt; nums.size(); ++i){
-            while(nums[i] &gt; 0 &amp;&amp; nums[i] &lt;= nums.size() &amp;&amp; nums[nums[i] - 1] != nums[i]){
-                swap(nums[i],nums[nums[i] - 1]);
+    int trap(vector&lt;int&gt;&amp; height) {
+        int l = 0, r = height.size() - 1;
+        int res  = 0;
+        int lmax = 0, rmax = 0;
+        while(l &lt; r){
+            if(height[l] &lt; height[r]){
+                if(height[l] &gt;= lmax)
+                    lmax = height[l];
+                else
+                    res += lmax - height[l];
+                ++l;
+            }else{
+                if(height[r] &gt;= rmax)
+                    rmax = height[r];
+                else
+                    res += rmax - height[r];
+                --r;
             }
         }
-        for(int i = 0; i &lt; nums.size(); ++i){
-            if(nums[i] != i + 1){
-                return i + 1;
-            }
-        }
-        return nums.size() + 1;
+        return res;
     }
 };
 </code></pre>
@@ -236,7 +228,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/july/41-first-missing-positive/>https://cuckooemm.xyz/2019/july/41-first-missing-positive/</span>
+                    <a href=https://cuckooemm.xyz/2019/july/42-trapping-rain-water/>https://cuckooemm.xyz/2019/july/42-trapping-rain-water/</span>
             </p>
             
              
@@ -271,10 +263,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/july/40-combination-sum-ii/" class="prev" rel="prev" title="Leetcode - 40 - Combination Sum II [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 40 - Combination Sum II [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/july/41-first-missing-positive/" class="prev" rel="prev" title="Leetcode - 41 - First Missing Positive [Hard]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 41 - First Missing Positive [Hard]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/july/42-trapping-rain-water/" class="next" rel="next" title="Leetcode - 42 - Trapping Rain Water [Hard]">Leetcode - 42 - Trapping Rain Water [Hard]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
