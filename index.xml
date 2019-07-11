@@ -5,8 +5,88 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 11 Jul 2019 21:48:35 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 23:58:01 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Leetcode - 43 - Multiply Strings [Medium]</title>
+      <link>https://cuckooemm.xyz/2019/july/43-multiply-strings/</link>
+      <pubDate>Thu, 11 Jul 2019 23:58:01 +0800</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/43-multiply-strings/</guid>
+      <description>
+
+&lt;h1 id=&#34;43-multiply-strings&#34;&gt;43.Multiply Strings&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/multiply-strings/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Medium&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.&lt;/p&gt;
+
+&lt;p&gt;给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The length of both num1 and num2 is &amp;lt; 110.&lt;/li&gt;
+&lt;li&gt;Both num1 and num2 contain only digits 0-9.&lt;/li&gt;
+&lt;li&gt;Both num1 and num2 do not contain any leading zero, except the number 0 itself.&lt;/li&gt;
+&lt;li&gt;You must not use any built-in BigInteger library or convert the inputs to integer directly.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; num1 = &amp;ldquo;2&amp;rdquo;, num2 = &amp;ldquo;3&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;6&amp;rdquo;&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; num1 = &amp;ldquo;123&amp;rdquo;, num2 = &amp;ldquo;456&amp;rdquo;&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; &amp;ldquo;56088&amp;rdquo;&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;两个字符串位数从右往左数，第一个数的第i位与第二个数的第j位相乘，会影响乘积的第i+j和第i+j-1位。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 8 ms, faster than 74.92% of C++ online submissions for Multiply Strings.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 9 MB, less than 39.84% of C++ online submissions for Multiply Strings.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    string multiply(string num1, string num2) {
+        if(num1 == &amp;quot;0&amp;quot; || num2 == &amp;quot;0&amp;quot;) return &amp;quot;0&amp;quot;;
+        int len1 = num1.size(), len2 = num2.size(),tmpl;
+        string res = &amp;quot;&amp;quot;;
+        vector&amp;lt;int&amp;gt; tmp(len1 + len2);
+        for(int i = len1 - 1; i &amp;gt;= 0; --i){
+            tmpl = len1 + len2 - 2 - i;
+            for(int j = len2 - 1; j &amp;gt;= 0; --j){
+                tmp[tmpl - j] += (num1[i] - 48) * (num2[j] - 48);
+            }
+        }
+        for(int i = 0; i &amp;lt; len1 + len2 - 1; ++i){
+            tmp[i + 1] += tmp[i] / 10;
+            tmp[i] %= 10;
+            res.insert(0,1,tmp[i] + 48);
+        }
+        if(0 != tmp[len1 + len2 - 1])
+            res.insert(0,1,tmp[len1 + len2 - 1] + 48);
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Leetcode - 42 - Trapping Rain Water [Hard]</title>
@@ -1189,308 +1269,6 @@ public:
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Golang 内存对齐</title>
-      <link>https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</link>
-      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/golang-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</guid>
-      <description>
-
-&lt;h1 id=&#34;golang-内存对齐&#34;&gt;Golang 内存对齐&lt;/h1&gt;
-
-&lt;p&gt;golang结构体中变量的顺序不同为结构体分配的内存大小也不同。&lt;/p&gt;
-
-&lt;p&gt;先来看一个例子：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;type Part1 struct {
-	a bool
-	b int32
-	c int8
-	d int64
-	e byte
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;bool  一个字节&lt;/li&gt;
-&lt;li&gt;int32 四个字节&lt;/li&gt;
-&lt;li&gt;int8  一个字节&lt;/li&gt;
-&lt;li&gt;int64 八个字节&lt;/li&gt;
-&lt;li&gt;byte  一个字节&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;所以应分配的内存空间为&lt;code&gt;1 + 4 + 1 + 8 + 1 = 15&lt;/code&gt;个字节。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;type Part1 struct {
-    a bool
-	b int32
-	c int8
-	d int64
-	e byte
-}
-
-func main() {
-	part1 := Part1{}
-	fmt.Printf(&amp;quot;part1 size: %d, align: %d\n&amp;quot;, unsafe.Sizeof(part1), unsafe.Alignof(part1))
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;结果&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;part1 size: 32, align: 8
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;最终输出占用内存为32字节，与前面的计算结果并不一致。&lt;br /&gt;
-而造成这种情况的原因就是内存对齐。&lt;br /&gt;
-接下来改变一下字段的顺序。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;type Part1 struct {
-	a bool
-	b int32
-	c int8
-	d int64
-	e byte
-}
-
-type Part2 struct {
-	e byte
-	c int8
-	a bool
-	b int32
-	d int64
-}
-
-func main() {
-	part1 := Part1{}
-	part2 := Part2{}
-
-	fmt.Printf(&amp;quot;part1 size: %d, align: %d\n&amp;quot;, unsafe.Sizeof(part1), unsafe.Alignof(part1))
-	fmt.Printf(&amp;quot;part2 size: %d, align: %d\n&amp;quot;, unsafe.Sizeof(part2), unsafe.Alignof(part2))
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;结果：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;part1 size: 32, align: 8
-part2 size: 16, align: 8
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;可以发现，仅仅只是改变的结构体字段的顺序，内存占用的空间就减少了一半。&lt;/p&gt;
-
-&lt;h3 id=&#34;为什么要内存对齐&#34;&gt;为什么要内存对齐&lt;/h3&gt;
-
-&lt;p&gt;CPU读取主存是一件耗时的操作，所以CPU并不会一个一个字节的去内存读取数据，而是以块为单位在内存上读取数据。块的大小可以为：2、4、8、16 字节等大小，称其为内存访问粒度。如果访问未对齐的内存，一次访问能完成的事情便需要两次，并且为了提高内存的利用率，我们需要进行内存对齐。&lt;/p&gt;
-
-&lt;h3 id=&#34;默认系数&#34;&gt;默认系数&lt;/h3&gt;
-
-&lt;p&gt;在不同平台上的编译器都有自己默认的 “对齐系数”，可通过预编译命令 #pragma pack(n) 进行变更，n 就是代指 “对齐系数”。一般来讲，我们常用的平台的系数如下：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;32 位：4&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;64 位：8&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;另外要注意，不同硬件平台占用的大小和对齐值都可能是不一样的。&lt;/p&gt;
-
-&lt;h3 id=&#34;成员对齐&#34;&gt;成员对齐&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;func main() {
-	fmt.Printf(&amp;quot;bool align: %d\n&amp;quot;, unsafe.Alignof(bool(true)))
-	fmt.Printf(&amp;quot;int32 align: %d\n&amp;quot;, unsafe.Alignof(int32(0)))
-	fmt.Printf(&amp;quot;int8 align: %d\n&amp;quot;, unsafe.Alignof(int8(0)))
-	fmt.Printf(&amp;quot;int64 align: %d\n&amp;quot;, unsafe.Alignof(int64(0)))
-	fmt.Printf(&amp;quot;byte align: %d\n&amp;quot;, unsafe.Alignof(byte(0)))
-	fmt.Printf(&amp;quot;string align: %d\n&amp;quot;, unsafe.Alignof(&amp;quot;EDDYCJY&amp;quot;))
-	fmt.Printf(&amp;quot;map align: %d\n&amp;quot;, unsafe.Alignof(map[string]string{}))
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;输出结果：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;bool align: 1
-int32 align: 4
-int8 align: 1
-int64 align: 8
-byte align: 1
-string align: 8
-map align: 8
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在 Go 中可以调用 &lt;code&gt;unsafe.Alignof()&lt;/code&gt; 来返回相应类型的对齐系数。通过观察输出结果，可得知基本都是 2&lt;sup&gt;n&lt;/sup&gt;，最大也不会超过 8。64位机编译器默认对齐系数是 8，因此最大值不会超过这个数。&lt;/p&gt;
-
-&lt;h3 id=&#34;对齐规则&#34;&gt;对齐规则&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;结构体的成员变量，第一个成员变量的偏移量为 0。往后的每个成员变量的对齐值必须为编译器默认对齐长度（#pragma pack(n)）或当前成员变量类型的长度（unsafe.Sizeof），取最小值作为当前类型的对齐值。其偏移量必须为对齐值的整数倍&lt;/li&gt;
-&lt;li&gt;结构体本身，对齐值必须为编译器默认对齐长度（#pragma pack(n)）或结构体的所有成员变量类型中的最大长度，取最大数的最小整数倍作为对齐值&lt;/li&gt;
-&lt;li&gt;结合以上两点，可得知若编译器默认对齐长度（#pragma pack(n)）超过结构体内成员变量的类型最大长度时，默认对齐长度是没有任何意义的&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;center&#34;&gt;成员变量&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;类型&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;偏移量&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;自身占用&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;a&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;bool&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;字节对齐&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;无&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;b&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;int32&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;c&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;int8&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;8&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;字节对齐&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;无&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;9&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;d&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;int64&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;16&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;e&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;byte&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;24&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;字节对齐&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;无&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;25&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;总占用大小&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;32&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;内存分配分析&#34;&gt;内存分配分析&lt;/h3&gt;
-
-&lt;h4 id=&#34;未进行内存对齐&#34;&gt;未进行内存对齐&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;第一个成员 a
-
-&lt;ul&gt;
-&lt;li&gt;类型为 bool&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
-&lt;li&gt;初始地址，偏移量为 0。占用了第 1 位&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;第二个成员 b
-
-&lt;ul&gt;
-&lt;li&gt;类型为 int32&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 4 字节&lt;/li&gt;
-&lt;li&gt;根据规则 1，其偏移量必须为 4 的整数倍。确定偏移量为 4，因此 2-4 位为 Padding。而当前数值从第 5 位开始填充，到第 8 位。如下：axxx|bbbb&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;第三个成员 c
-
-&lt;ul&gt;
-&lt;li&gt;类型为 int8&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
-&lt;li&gt;根据规则1，其偏移量必须为 1 的整数倍。当前偏移量为 8。不需要额外对齐，填充 1 个字节到第 9 位。如下：axxx|bbbb|c&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;第四个成员 d
-
-&lt;ul&gt;
-&lt;li&gt;类型为 int64&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 8 字节&lt;/li&gt;
-&lt;li&gt;根据规则 1，其偏移量必须为 8 的整数倍。确定偏移量为 16，因此 9-16 位为 Padding。而当前数值从第 17 位开始写入，到第 24 位。如下：axxx|bbbb|cxxx|xxxx|dddd|dddd&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;第五个成员 e
-
-&lt;ul&gt;
-&lt;li&gt;类型为 byte&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
-&lt;li&gt;根据规则 1，其偏移量必须为 1 的整数倍。当前偏移量为 24。不需要额外对齐，填充 1 个字节到第 25 位。如下：axxx|bbbb|cxxx|xxxx|dddd|dddd|e&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;内存对齐之后&#34;&gt;内存对齐之后&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;第一个成员 e
-
-&lt;ul&gt;
-&lt;li&gt;类型为 byte&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
-&lt;li&gt;初始地址，偏移量为 0。占用了第 1 位&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;第二个成员 c
-
-&lt;ul&gt;
-&lt;li&gt;类型为 int8&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
-&lt;li&gt;根据规则1，其偏移量必须为 1 的整数倍。当前偏移量为 2。不需要额外对齐&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;第三个成员 a
-
-&lt;ul&gt;
-&lt;li&gt;类型为 bool&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 1 字节&lt;/li&gt;
-&lt;li&gt;根据规则1，其偏移量必须为 1 的整数倍。当前偏移量为 3。不需要额外对齐&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;第四个成员 b
-
-&lt;ul&gt;
-&lt;li&gt;类型为 int32&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 4 字节&lt;/li&gt;
-&lt;li&gt;根据规则1，其偏移量必须为 4 的整数倍。确定偏移量为 4，因此第 3 位为 Padding。而当前数值从第 4 位开始填充，到第 8 位。如下：ecax|bbbb&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;第五个成员 d
-
-&lt;ul&gt;
-&lt;li&gt;类型为 int64&lt;/li&gt;
-&lt;li&gt;大小/对齐值为 8 字节&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;结果&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Part1 内存布局：axxx|bbbb|cxxx|xxxx|dddd|dddd|exxx|xxxx&lt;br /&gt;
-Part2 内存布局：ecax|bbbb|dddd|dddd&lt;/p&gt;
 </description>
     </item>
     

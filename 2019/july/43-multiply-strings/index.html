@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/july/41-first-missing-positive/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/july/43-multiply-strings/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/42-trapping-rain-water/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/july/42-trapping-rain-water/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/43-multiply-strings/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 42 - Trapping Rain Water [Hard] | Cuckooemm&#39;s Blog
+           Leetcode - 43 - Multiply Strings [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 42 - Trapping Rain Water [Hard] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Leetcode - 43 - Multiply Strings [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 42 - Trapping Rain Water [Hard]",
-    "headline" : "Leetcode - 42 - Trapping Rain Water [Hard]",
-    "description" : "42.Trapping Rain Water 地址\n难度：Hard\n题目描述 Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.\n给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。\n示例 Example: Input: [0,1,0,2,1,0,1,3,2,1,2,1]\nOutput: 6\n思路 使用双指针指向两端，积水高度由两边指针决定。\n遍历时维护lmax和rmax，如果当前高度低于*max，则计算积水量。\n如果当前高度高于或等于*max，则更改lmax(rmax)。\nAC  Runtime: 8 ms, faster than 72.98% of C\x2b\x2b online submissions for Trapping Rain Water. Memory Usage: 9 MB, less than 86.",
+    "name" : "Leetcode - 43 - Multiply Strings [Medium]",
+    "headline" : "Leetcode - 43 - Multiply Strings [Medium]",
+    "description" : "43.Multiply Strings 地址\n难度：Medium\n题目描述 Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.\n给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。\nNote:  The length of both num1 and num2 is \x26lt; 110. Both num1 and num2 contain only digits 0-9. Both num1 and num2 do not contain any leading zero, except the number 0 itself.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-07-11 21:48:35 \x2b0800 CST",
-    "dateModified" : "2019-07-11 21:48:35 \x2b0800 CST",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/42-trapping-rain-water\/",
-    "wordCount" : "146",
-    "keywords" : [ "algorithm","LeetCode-Hard","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-07-11 23:58:01 \x2b0800 CST",
+    "dateModified" : "2019-07-11 23:58:01 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/43-multiply-strings\/",
+    "wordCount" : "258",
+    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,7 +124,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 42 - Trapping Rain Water [Hard]</h1>
+        <h1 class="post-title" itemprop="name headline">Leetcode - 43 - Multiply Strings [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
@@ -156,60 +156,71 @@
 
           
 
-<h1 id="42-trapping-rain-water">42.Trapping Rain Water</h1>
+<h1 id="43-multiply-strings">43.Multiply Strings</h1>
 
-<p><a href="https://leetcode.com/problems/trapping-rain-water/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Hard</strong></p>
+<p><a href="https://leetcode.com/problems/multiply-strings/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p>
+<p>Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.</p>
 
-<p>给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。</p>
+<p>给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。</p>
+
+<h4 id="note">Note:</h4>
+
+<ul>
+<li>The length of both num1 and num2 is &lt; 110.</li>
+<li>Both num1 and num2 contain only digits 0-9.</li>
+<li>Both num1 and num2 do not contain any leading zero, except the number 0 itself.</li>
+<li>You must not use any built-in BigInteger library or convert the inputs to integer directly.</li>
+</ul>
 
 <h3 id="示例">示例</h3>
 
-<h4 id="example">Example:</h4>
+<h4 id="example-1">Example 1:</h4>
 
-<p><strong>Input:</strong> [0,1,0,2,1,0,1,3,2,1,2,1]<br />
-<strong>Output:</strong> 6</p>
+<p><strong>Input:</strong> num1 = &ldquo;2&rdquo;, num2 = &ldquo;3&rdquo;<br />
+<strong>Output:</strong> &ldquo;6&rdquo;</p>
+
+<h4 id="example-2">Example 2:</h4>
+
+<p><strong>Input:</strong> num1 = &ldquo;123&rdquo;, num2 = &ldquo;456&rdquo;<br />
+<strong>Output:</strong> &ldquo;56088&rdquo;</p>
 
 <h3 id="思路">思路</h3>
 
-<p>使用双指针指向两端，积水高度由两边指针决定。<br />
-遍历时维护lmax和rmax，如果当前高度低于*max，则计算积水量。<br />
-如果当前高度高于或等于*max，则更改lmax(rmax)。</p>
+<p>两个字符串位数从右往左数，第一个数的第i位与第二个数的第j位相乘，会影响乘积的第i+j和第i+j-1位。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 8 ms, faster than 72.98% of C++ online submissions for Trapping Rain Water.</li>
-<li>Memory Usage: 9 MB, less than 86.30% of C++ online submissions for Trapping Rain Water.</li>
+<li>Runtime: 8 ms, faster than 74.92% of C++ online submissions for Multiply Strings.</li>
+<li>Memory Usage: 9 MB, less than 39.84% of C++ online submissions for Multiply Strings.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
 public:
-    int trap(vector&lt;int&gt;&amp; height) {
-        int l = 0, r = height.size() - 1;
-        int res  = 0;
-        int lmax = 0, rmax = 0;
-        while(l &lt; r){
-            if(height[l] &lt; height[r]){
-                if(height[l] &gt;= lmax)
-                    lmax = height[l];
-                else
-                    res += lmax - height[l];
-                ++l;
-            }else{
-                if(height[r] &gt;= rmax)
-                    rmax = height[r];
-                else
-                    res += rmax - height[r];
-                --r;
+    string multiply(string num1, string num2) {
+        if(num1 == &quot;0&quot; || num2 == &quot;0&quot;) return &quot;0&quot;;
+        int len1 = num1.size(), len2 = num2.size(),tmpl;
+        string res = &quot;&quot;;
+        vector&lt;int&gt; tmp(len1 + len2);
+        for(int i = len1 - 1; i &gt;= 0; --i){
+            tmpl = len1 + len2 - 2 - i;
+            for(int j = len2 - 1; j &gt;= 0; --j){
+                tmp[tmpl - j] += (num1[i] - 48) * (num2[j] - 48);
             }
         }
+        for(int i = 0; i &lt; len1 + len2 - 1; ++i){
+            tmp[i + 1] += tmp[i] / 10;
+            tmp[i] %= 10;
+            res.insert(0,1,tmp[i] + 48);
+        }
+        if(0 != tmp[len1 + len2 - 1])
+            res.insert(0,1,tmp[len1 + len2 - 1] + 48);
         return res;
     }
 };
@@ -228,7 +239,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/july/42-trapping-rain-water/>https://cuckooemm.xyz/2019/july/42-trapping-rain-water/</span>
+                    <a href=https://cuckooemm.xyz/2019/july/43-multiply-strings/>https://cuckooemm.xyz/2019/july/43-multiply-strings/</span>
             </p>
             
              
@@ -247,8 +258,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-hard/">
-                    #LeetCode-Hard</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
+                    #LeetCode-Medium</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -263,10 +274,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/july/41-first-missing-positive/" class="prev" rel="prev" title="Leetcode - 41 - First Missing Positive [Hard]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 41 - First Missing Positive [Hard]</a>
+        <a href="https://cuckooemm.xyz/2019/july/42-trapping-rain-water/" class="prev" rel="prev" title="Leetcode - 42 - Trapping Rain Water [Hard]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 42 - Trapping Rain Water [Hard]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/july/43-multiply-strings/" class="next" rel="next" title="Leetcode - 43 - Multiply Strings [Medium]">Leetcode - 43 - Multiply Strings [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
