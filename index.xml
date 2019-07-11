@@ -5,8 +5,85 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jul 2019 22:22:41 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 13:09:57 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Leetcode - 41 - First Missing Positive [Hard]</title>
+      <link>https://cuckooemm.xyz/2019/july/41-first-missing-positive/</link>
+      <pubDate>Thu, 11 Jul 2019 13:09:57 +0800</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/july/41-first-missing-positive/</guid>
+      <description>
+
+&lt;h1 id=&#34;41-first-missing-positive&#34;&gt;41.First Missing Positive&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/first-missing-positive/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;难度：Hard&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
+
+&lt;p&gt;Given an unsorted integer array, find the smallest missing positive integer.&lt;/p&gt;
+
+&lt;p&gt;给定一个未排序的整数数组，找出其中没有出现的最小的正整数。&lt;/p&gt;
+
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [1,2,0]&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 3&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [3,4,-1,1]&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 2&lt;/p&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [7,8,9,11,12]&lt;br /&gt;
+&lt;strong&gt;Output:&lt;/strong&gt; 1&lt;/p&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;Your algorithm should run in O(n) time and uses constant extra space.&lt;/p&gt;
+
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+
+&lt;p&gt;利用桶排序的思路。&lt;br /&gt;
+负数与大于数组长度的数字不考虑。&lt;br /&gt;
+用数组中的数当作索引，存放在nums[i] - 1 的索引位置。&lt;/p&gt;
+
+&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Runtime: 0 ms, faster than 100.00% of C++ online submissions for First Missing Positive.&lt;/li&gt;
+&lt;li&gt;Memory Usage: 8.7 MB, less than 30.44% of C++ online submissions for First Missing Positive.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
+public:
+    int firstMissingPositive(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+        if(nums.size() &amp;lt; 1)
+            return 1;
+        for(int i = 0; i &amp;lt; nums.size(); ++i){
+            while(nums[i] &amp;gt; 0 &amp;amp;&amp;amp; nums[i] &amp;lt;= nums.size() &amp;amp;&amp;amp; nums[nums[i] - 1] != nums[i]){
+                swap(nums[i],nums[nums[i] - 1]);
+            }
+        }
+        for(int i = 0; i &amp;lt; nums.size(); ++i){
+            if(nums[i] != i + 1){
+                return i + 1;
+            }
+        }
+        return nums.size() + 1;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Leetcode - 40 - Combination Sum II [Medium]</title>
@@ -1439,95 +1516,6 @@ public:
         }
         return res-&amp;gt;next;
     }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Leetcode - 26 - Remove Duplicates From Sorted Array [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/june/26-remove-duplicates-from-sorted-array/</link>
-      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/june/26-remove-duplicates-from-sorted-array/</guid>
-      <description>
-
-&lt;h1 id=&#34;26-remove-duplicates-from-sorted-array&#34;&gt;26.Remove Duplicates From Sorted Array&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/remove-duplicates-from-sorted-array/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.&lt;/p&gt;
-
-&lt;p&gt;Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.&lt;/p&gt;
-
-&lt;p&gt;给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。&lt;/p&gt;
-
-&lt;p&gt;不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
-
-&lt;p&gt;Given nums = [1,1,2],&lt;/p&gt;
-
-&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.&lt;/p&gt;
-
-&lt;p&gt;It doesn&amp;rsquo;t matter what you leave beyond the returned length.&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
-
-&lt;p&gt;Given nums = [0,0,1,1,1,2,2,3,3,4],&lt;/p&gt;
-
-&lt;p&gt;Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.&lt;/p&gt;
-
-&lt;p&gt;It doesn&amp;rsquo;t matter what values are set beyond the returned length.&lt;/p&gt;
-
-&lt;h4 id=&#34;clarification&#34;&gt;Clarification:&lt;/h4&gt;
-
-&lt;p&gt;Confused why the returned value is an integer but your answer is an array?&lt;/p&gt;
-
-&lt;p&gt;Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.&lt;/p&gt;
-
-&lt;p&gt;Internally you can think of this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// nums is passed in by reference. (i.e., without making a copy)
-int len = removeDuplicates(nums);
-
-// any modification to nums in your function would be known by the caller.
-// using the length returned by your function, it prints the first len elements.
-for (int i = 0; i &amp;lt; len; i++) {
-    print(nums[i]);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;因数组有序，定义左指针，当不相等时左指针加一，又因两个指针起点不一，把左指针的右边一位数重新赋值为最右边指针的数据。&lt;br /&gt;
-&lt;strong&gt;时间复杂度:O(n), 空间复杂度：O(1)。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 16 ms, faster than 99.66% of C++ online submissions for Remove Duplicates from Sorted Array.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 10 MB, less than 50.23% of C++ online submissions for Remove Duplicates from Sorted Array.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    int removeDuplicates(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-        if(nums.size() &amp;lt; 1) return 0;
-        int l = 0;
-        for(int i = 1; i &amp;lt; nums.size(); ++i){
-            if(nums[l] != nums[i])
-                nums[++l] = nums[i];
-        }
-        return ++l;
-    }   
 };
 &lt;/code&gt;&lt;/pre&gt;
 </description>

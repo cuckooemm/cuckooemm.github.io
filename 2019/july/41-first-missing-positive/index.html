@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/july/39-combination-sum/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/july/41-first-missing-positive/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/40-combination-sum-ii/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/july/40-combination-sum-ii/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/41-first-missing-positive/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 40 - Combination Sum II [Medium] | Cuckooemm&#39;s Blog
+           Leetcode - 41 - First Missing Positive [Hard] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 40 - Combination Sum II [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Leetcode - 41 - First Missing Positive [Hard] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 40 - Combination Sum II [Medium]",
-    "headline" : "Leetcode - 40 - Combination Sum II [Medium]",
-    "description" : "40.Combination Sum II 地址\n难度：Medium\n题目描述 Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.\nEach number in candidates may only be used once in the combination.\n给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。\ncandidates 中的每个数字在每个组合中只能使用一次。\nNote:  All numbers (including target) will be positive integers. The solution set must not contain duplicate combinations.",
+    "name" : "Leetcode - 41 - First Missing Positive [Hard]",
+    "headline" : "Leetcode - 41 - First Missing Positive [Hard]",
+    "description" : "41.First Missing Positive 地址\n难度：Hard\n题目描述 Given an unsorted integer array, find the smallest missing positive integer.\n给定一个未排序的整数数组，找出其中没有出现的最小的正整数。\n示例 Example 1: Input: [1,2,0]\nOutput: 3\nExample 2: Input: [3,4,-1,1]\nOutput: 2\nExample 3: Input: [7,8,9,11,12]\nOutput: 1\nNote: Your algorithm should run in O(n) time and uses constant extra space.\n思路 利用桶排序的思路。\n负数与大于数组长度的数字不考虑。\n用数组中的数当作索引，存放在nums[i] - 1 的索引位置。\nAC  Runtime: 0 ms, faster than 100.00% of C\x2b\x2b online submissions for First Missing Positive.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-07-09 22:22:41 \x2b0800 CST",
-    "dateModified" : "2019-07-09 22:22:41 \x2b0800 CST",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/40-combination-sum-ii\/",
-    "wordCount" : "215",
-    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-07-11 13:09:57 \x2b0800 CST",
+    "dateModified" : "2019-07-11 13:09:57 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/41-first-missing-positive\/",
+    "wordCount" : "152",
+    "keywords" : [ "algorithm","LeetCode-Hard","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -124,11 +124,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 40 - Combination Sum II [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">Leetcode - 41 - First Missing Positive [Hard]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-07-09 itemprop="datePublished">July 9, 2019</time>
+                on <time datetime=2019-07-11 itemprop="datePublished">July 11, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -156,93 +156,69 @@
 
           
 
-<h1 id="40-combination-sum-ii">40.Combination Sum II</h1>
+<h1 id="41-first-missing-positive">41.First Missing Positive</h1>
 
-<p><a href="https://leetcode.com/problems/combination-sum-ii/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Medium</strong></p>
+<p><a href="https://leetcode.com/problems/first-missing-positive/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Hard</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.</p>
+<p>Given an unsorted integer array, find the smallest missing positive integer.</p>
 
-<p>Each number in candidates may only be used once in the combination.</p>
-
-<p>给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。</p>
-
-<p>candidates 中的每个数字在每个组合中只能使用一次。</p>
-
-<h4 id="note">Note:</h4>
-
-<ul>
-<li>All numbers (including target) will be positive integers.</li>
-
-<li><p>The solution set must not contain duplicate combinations.</p></li>
-
-<li><p>所有数字（包括目标数）都是正整数。</p></li>
-
-<li><p>解集不能包含重复的组合。</p></li>
-</ul>
+<p>给定一个未排序的整数数组，找出其中没有出现的最小的正整数。</p>
 
 <h3 id="示例">示例</h3>
 
 <h4 id="example-1">Example 1:</h4>
 
-<p><strong>Input:</strong> candidates = [10,1,2,7,6,1,5], target = 8,<br />
-A solution set is:</p>
-
-<pre><code class="language-git">[
-  [1, 7],
-  [1, 2, 5],
-  [2, 6],
-  [1, 1, 6]
-]
-</code></pre>
+<p><strong>Input:</strong> [1,2,0]<br />
+<strong>Output:</strong> 3</p>
 
 <h4 id="example-2">Example 2:</h4>
 
-<p><strong>Input:</strong> candidates = [2,5,2,1,2], target = 5,<br />
-A solution set is:</p>
+<p><strong>Input:</strong> [3,4,-1,1]<br />
+<strong>Output:</strong> 2</p>
 
-<pre><code class="language-git">[
-  [1,2,2],
-  [5]
-]
-</code></pre>
+<h4 id="example-3">Example 3:</h4>
+
+<p><strong>Input:</strong> [7,8,9,11,12]<br />
+<strong>Output:</strong> 1</p>
+
+<h4 id="note">Note:</h4>
+
+<p>Your algorithm should run in O(n) time and uses constant extra space.</p>
 
 <h3 id="思路">思路</h3>
 
-<p>与Combination Sum 方法一致，因不包含重复项所以递归时从当前push数组下标的下一个位置开始。排序解决重复项问题。</p>
+<p>利用桶排序的思路。<br />
+负数与大于数组长度的数字不考虑。<br />
+用数组中的数当作索引，存放在nums[i] - 1 的索引位置。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 4 ms, faster than 99.44% of C++ online submissions for Combination Sum II.</li>
-<li>Memory Usage: 9.1 MB, less than 59.13% of C++ online submissions for Combination Sum II.</li>
+<li>Runtime: 0 ms, faster than 100.00% of C++ online submissions for First Missing Positive.</li>
+<li>Memory Usage: 8.7 MB, less than 30.44% of C++ online submissions for First Missing Positive.</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
-private:
-    vector&lt;vector&lt;int&gt;&gt; res;
-    vector&lt;int&gt; tmp;
-    void dfs(vector&lt;int&gt;&amp; candidates,int target,int index){
-        if(target == 0)
-            return res.push_back(tmp);
-        for(int i = index; i &lt; candidates.size(); ++i){
-            if(candidates[i] &gt; target) break;
-            if(index != i &amp;&amp; candidates[i] == candidates[i - 1])
-                continue;
-            tmp.push_back(candidates[i]);
-            dfs(candidates,target - candidates[i],i + 1);            // 数字只能选取一次，从当前索引位置+1
-            tmp.pop_back();
-        }
-    }
 public:
-    vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&lt;int&gt;&amp; candidates, int target) {
-        sort(candidates.begin(),candidates.end());
-        dfs(candidates,target,0);
-        return res;
+    int firstMissingPositive(vector&lt;int&gt;&amp; nums) {
+        if(nums.size() &lt; 1)
+            return 1;
+        for(int i = 0; i &lt; nums.size(); ++i){
+            while(nums[i] &gt; 0 &amp;&amp; nums[i] &lt;= nums.size() &amp;&amp; nums[nums[i] - 1] != nums[i]){
+                swap(nums[i],nums[nums[i] - 1]);
+            }
+        }
+        for(int i = 0; i &lt; nums.size(); ++i){
+            if(nums[i] != i + 1){
+                return i + 1;
+            }
+        }
+        return nums.size() + 1;
     }
 };
 </code></pre>
@@ -260,7 +236,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/july/40-combination-sum-ii/>https://cuckooemm.xyz/2019/july/40-combination-sum-ii/</span>
+                    <a href=https://cuckooemm.xyz/2019/july/41-first-missing-positive/>https://cuckooemm.xyz/2019/july/41-first-missing-positive/</span>
             </p>
             
              
@@ -279,8 +255,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
-                    #LeetCode-Medium</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-hard/">
+                    #LeetCode-Hard</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -295,10 +271,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/july/39-combination-sum/" class="prev" rel="prev" title="Leetcode - 39 - Combination Sum [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 39 - Combination Sum [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/july/40-combination-sum-ii/" class="prev" rel="prev" title="Leetcode - 40 - Combination Sum II [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 40 - Combination Sum II [Medium]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/july/41-first-missing-positive/" class="next" rel="next" title="Leetcode - 41 - First Missing Positive [Hard]">Leetcode - 41 - First Missing Positive [Hard]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
