@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/july/43-multiply-strings/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/july/45-jump-game-ii/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/44-wildcard-matching/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/july/48-rotate-image/" />
+  <link rel="next" href="https://cuckooemm.xyz/2019/july/50-pow/" />
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/49-group-anagrams/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 44 - Wildcard Matching [Hard] | Cuckooemm&#39;s Blog
+           Leetcode - 49 - Group Anagrams [Medium] | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 44 - Wildcard Matching [Hard] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="Leetcode - 49 - Group Anagrams [Medium] | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 44 - Wildcard Matching [Hard]",
-    "headline" : "Leetcode - 44 - Wildcard Matching [Hard]",
-    "description" : "44.Wildcard Matching 地址\n难度：Hard\n题目描述 Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for \x26lsquo;?\x26rsquo; and \x26lsquo;*\x26lsquo;.\n\x26rsquo;?\x26rsquo; Matches any single character.\n\x26lsquo;*\x26rsquo; Matches any sequence of characters (including the empty sequence).\nThe matching should cover the entire input string (not partial).\n给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 \x26rsquo;?\x26lsquo; 和 \x26rsquo;*\x26lsquo; 的通配符匹配。\n\x26rsquo;?\x26rsquo; 可以匹配任何单个字符。\n\x26lsquo;*\x26rsquo; 可以匹配任意字符串（包括空字符串）。\n两个字符串完全匹配才算匹配成功。\nNote:  s could be empty and contains only lowercase letters a-z.",
+    "name" : "Leetcode - 49 - Group Anagrams [Medium]",
+    "headline" : "Leetcode - 49 - Group Anagrams [Medium]",
+    "description" : "49.Group Anagrams 地址\n难度：Medium\n题目描述 Given an array of strings, group anagrams together.\nAll inputs will be in lowercase. The order of your output does not matter.\n给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。\n示例 Example: Input: [\x26ldquo;eat\x26rdquo;, \x26ldquo;tea\x26rdquo;, \x26ldquo;tan\x26rdquo;, \x26ldquo;ate\x26rdquo;, \x26ldquo;nat\x26rdquo;, \x26ldquo;bat\x26rdquo;],\nOutput:\n[ [\x26quot;ate\x26quot;,\x26quot;eat\x26quot;,\x26quot;tea\x26quot;], [\x26quot;nat\x26quot;,\x26quot;tan\x26quot;], [\x26quot;bat\x26quot;] ]  思路 用质数代表各个字母,字符串中所有字符质数相乘得到唯一的积。如果不同字符串乘积相等，则字符串由同样的字符组成。\nAC  Runtime: 36 ms, faster than 92.92% of C\x2b\x2b online submissions for Group Anagrams. Memory Usage: 17.5 MB, less than 93.13% of C\x2b\x2b online submissions for Group  代码 class Solution { public: vector\x26lt;vector\x26lt;string\x26gt;\x26gt; groupAnagrams(vector\x26lt;string\x26gt;\x26amp; strs) { vector\x26lt;vector\x26lt;string\x26gt;\x26gt; res; unordered_map\x26lt;double,int\x26gt; index; double z; int prime[] = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101 }; for(int i = 0; i \x26lt; strs.",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-07-12 13:15:52 \x2b0800 CST",
-    "dateModified" : "2019-07-12 13:15:52 \x2b0800 CST",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/44-wildcard-matching\/",
-    "wordCount" : "437",
-    "keywords" : [ "algorithm","LeetCode-Hard","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-07-13 16:34:53 \x2b0800 CST",
+    "dateModified" : "2019-07-13 16:34:53 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/49-group-anagrams\/",
+    "wordCount" : "140",
+    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -118,11 +118,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 44 - Wildcard Matching [Hard]</h1>
+        <h1 class="post-title" itemprop="name headline">Leetcode - 49 - Group Anagrams [Medium]</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-07-12 itemprop="datePublished">July 12, 2019</time>
+                on <time datetime=2019-07-13 itemprop="datePublished">July 13, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -150,135 +150,69 @@
 
           
 
-<h1 id="44-wildcard-matching">44.Wildcard Matching</h1>
+<h1 id="49-group-anagrams">49.Group Anagrams</h1>
 
-<p><a href="https://leetcode.com/problems/wildcard-matching/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Hard</strong></p>
+<p><a href="https://leetcode.com/problems/group-anagrams/" rel="nofollow noreferrer" target="_blank">地址</a><br />
+<strong>难度：Medium</strong></p>
 
 <h3 id="题目描述">题目描述</h3>
 
-<p>Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for &lsquo;?&rsquo; and &lsquo;*&lsquo;.</p>
+<p>Given an array of strings, group anagrams together.</p>
 
-<p>&rsquo;?&rsquo; Matches any single character.<br />
-&lsquo;*&rsquo; Matches any sequence of characters (including the empty sequence).</p>
+<p>All inputs will be in lowercase.
+The order of your output does not matter.</p>
 
-<p>The matching should cover the entire input string (not partial).</p>
-
-<p>给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 &rsquo;?&lsquo; 和 &rsquo;*&lsquo; 的通配符匹配。</p>
-
-<p>&rsquo;?&rsquo; 可以匹配任何单个字符。<br />
-&lsquo;*&rsquo; 可以匹配任意字符串（包括空字符串）。</p>
-
-<p>两个字符串完全匹配才算匹配成功。</p>
-
-<h4 id="note">Note:</h4>
-
-<ul>
-<li>s could be empty and contains only lowercase letters a-z.</li>
-<li>p could be empty and contains only lowercase letters a-z, and characters like ? or *.</li>
-</ul>
+<p>给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。</p>
 
 <h3 id="示例">示例</h3>
 
-<h4 id="example-1">Example 1:</h4>
+<h4 id="example">Example:</h4>
 
-<p><strong>Input:</strong><br />
-s = &ldquo;aa&rdquo;<br />
-p = &ldquo;a&rdquo;<br />
-<strong>Output:</strong> false<br />
-<strong>Explanation:</strong> &ldquo;a&rdquo; does not match the entire string &ldquo;aa&rdquo;.</p>
+<p><strong>Input:</strong> [&ldquo;eat&rdquo;, &ldquo;tea&rdquo;, &ldquo;tan&rdquo;, &ldquo;ate&rdquo;, &ldquo;nat&rdquo;, &ldquo;bat&rdquo;],<br />
+<strong>Output:</strong></p>
 
-<h4 id="example-2">Example 2:</h4>
-
-<p><strong>Input:</strong><br />
-s = &ldquo;aa&rdquo;<br />
-p = &ldquo;*&rdquo;<br />
-<strong>Output:</strong> true<br />
-<strong>Explanation:</strong> &lsquo;*&rsquo; matches any sequence.</p>
-
-<h4 id="example-3">Example 3:</h4>
-
-<p><strong>Input:</strong><br />
-s = &ldquo;cb&rdquo;<br />
-p = &ldquo;?a&rdquo;<br />
-<strong>Output:</strong> false<br />
-<strong>Explanation:</strong> &lsquo;?&rsquo; matches &lsquo;c&rsquo;, but the second letter is &lsquo;a&rsquo;, which does not match &lsquo;b&rsquo;.</p>
-
-<h4 id="example-4">Example 4:</h4>
-
-<p><strong>Input:</strong><br />
-s = &ldquo;adceb&rdquo;<br />
-p = &ldquo;*a*b&rdquo;<br />
-<strong>Output:</strong> true<br />
-<strong>Explanation:</strong> The first &lsquo;<em>&rsquo; matches the empty sequence, while the second &lsquo;</em>&rsquo; matches the substring &ldquo;dce&rdquo;.</p>
-
-<h4 id="example-5">Example 5:</h4>
-
-<p><strong>Input:</strong><br />
-s = &ldquo;acdcb&rdquo;<br />
-p = &ldquo;a*c?b&rdquo;<br />
-<strong>Output:</strong> false</p>
+<pre><code class="language-git">[
+  [&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;],
+  [&quot;nat&quot;,&quot;tan&quot;],
+  [&quot;bat&quot;]
+]
+</code></pre>
 
 <h3 id="思路">思路</h3>
+
+<p>用质数代表各个字母,字符串中所有字符质数相乘得到唯一的积。如果不同字符串乘积相等，则字符串由同样的字符组成。</p>
 
 <h3 id="ac">AC</h3>
 
 <ul>
-<li>Runtime: 4 ms, faster than 99.25% of C++ online submissions for Wildcard Matching.</li>
-<li>Memory Usage: 8.7 MB, less than 94.48% of C++ online submissions for Wildcard Matching.</li>
+<li>Runtime: 36 ms, faster than 92.92% of C++ online submissions for Group Anagrams.</li>
+<li>Memory Usage: 17.5 MB, less than 93.13% of C++ online submissions for Group</li>
 </ul>
 
 <h3 id="代码">代码</h3>
 
 <pre><code class="language-c++">class Solution {
 public:
-    bool isMatch(string s, string p) {
-        int sl = s.size(),pl = p.size();
-        int i = 0, j = 0;
-        int start = -1, match = 0;
-        while(i &lt; sl){
-            if(j &lt; pl &amp;&amp; (s[i] == p[j] || p[j] == '?')){   // 匹配相等或p当前为 ? 符
-                ++i;
-                ++j;
-            }else if(j &lt; pl &amp;&amp; p[j] == '*'){               // * 匹配任意 并记录当前 * 开始的位置 与 s 字符串中当前位置
-                start = j;
-                match = i;
-                ++j;
-            }else if(start != -1){                         // 已遇到过 * 并把上次记录p的索引位置+1 赋值给 j s索引i从记录位置的下一位开始
-                j = start + 1;
-                i = ++match;
-            }else{                                         // 不匹配返回
-                return false;
+    vector&lt;vector&lt;string&gt;&gt; groupAnagrams(vector&lt;string&gt;&amp; strs) {
+        vector&lt;vector&lt;string&gt;&gt; res;
+        unordered_map&lt;double,int&gt; index;
+        double z;
+        int prime[] = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101 };
+        for(int i = 0; i &lt; strs.size(); ++i){
+            z = 1;
+            for(int j = 0; j &lt; strs[i].size(); ++j){
+                z *= prime[strs[i][j] - 97];
+            }
+            auto it = index.find(z);
+            if(it != index.end()){
+                res[it-&gt;second].push_back(strs[i]);
+            }else{
+                vector&lt;string&gt; t{strs[i]};
+                res.push_back(t);
+                index[z] = res.size() - 1;
             }
         }
-        while(j &lt; pl &amp;&amp; p[j] == '*'){                      // 如果s已匹配完 p未完，如果p剩下字符为 * 则继续自增p的索引
-            ++j;
-        }
-        if(j != pl)                                        // 如果p的索引没有走到末尾，则返回false.
-            return false;
-        return true;
-    }
-};
-</code></pre>
-
-<h4 id="动态规划解法">动态规划解法</h4>
-
-<pre><code class="language-c++">class Solution {
-public:
-    bool isMatch(string s, string p) {
-        vector&lt;vector&lt;bool&gt;&gt; dp(p.size() + 1,vector&lt;bool&gt;(s.size() + 1,false));
-        dp[0][0] = true;
-        for(int i = 1; i &lt;= p.size(); ++i){
-            dp[i][0] = p[i - 1] == '*' ? dp[i - 1][0] : false;
-            for(int j = 1; j &lt;= s.size(); ++j){
-                if(p[i - 1] == '*'){
-                    dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
-                }else if(p[i - 1] == '?' || p[i - 1] == s[j - 1]){
-                    dp[i][j] = dp[i - 1][j - 1];
-                }
-            }
-        }
-        return dp[p.size()][s.size()];
+        return res;
     }
 };
 </code></pre>
@@ -296,7 +230,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/july/44-wildcard-matching/>https://cuckooemm.xyz/2019/july/44-wildcard-matching/</span>
+                    <a href=https://cuckooemm.xyz/2019/july/49-group-anagrams/>https://cuckooemm.xyz/2019/july/49-group-anagrams/</span>
             </p>
             
              
@@ -315,8 +249,8 @@ public:
             <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
                     #algorithm</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-hard/">
-                    #LeetCode-Hard</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
+                    #LeetCode-Medium</a></span>
             
             <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
                     #LeetCode-1~100</a></span>
@@ -331,10 +265,10 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/july/43-multiply-strings/" class="prev" rel="prev" title="Leetcode - 43 - Multiply Strings [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 43 - Multiply Strings [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/july/48-rotate-image/" class="prev" rel="prev" title="Leetcode - 48 - Rotate Image [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 48 - Rotate Image [Medium]</a>
          
         
-        <a href="https://cuckooemm.xyz/2019/july/45-jump-game-ii/" class="next" rel="next" title="Leetcode - 45 - Jump Game II [Hard]">Leetcode - 45 - Jump Game II [Hard]&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://cuckooemm.xyz/2019/july/50-pow/" class="next" rel="next" title="Leetcode - 50 - Pow(x,n) [Medium]">Leetcode - 50 - Pow(x,n) [Medium]&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
