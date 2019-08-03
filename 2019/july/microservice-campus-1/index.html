@@ -9,9 +9,9 @@
   <meta name="description" content="个人博客">
   <meta name="keywords" content="后端,Go,Sql,分布式,个人博客">
   
-  <link rel="prev" href="https://cuckooemm.xyz/2019/july/49-group-anagrams/" />
-  <link rel="next" href="https://cuckooemm.xyz/2019/july/microservice-campus-1/" />
-  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/50-pow/" />
+  <link rel="prev" href="https://cuckooemm.xyz/2019/july/50-pow/" />
+  
+  <link rel="canonical" href="https://cuckooemm.xyz/2019/july/microservice-campus-1/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Leetcode - 50 - Pow(x,n) [Medium] | Cuckooemm&#39;s Blog
+           微服务改造 - 1 | Cuckooemm&#39;s Blog
        
   </title>
-  <meta name="title" content="Leetcode - 50 - Pow(x,n) [Medium] | Cuckooemm&#39;s Blog">
+  <meta name="title" content="微服务改造 - 1 | Cuckooemm&#39;s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/cuckooemm.xyz\/"
     },
     "articleSection" : "posts",
-    "name" : "Leetcode - 50 - Pow(x,n) [Medium]",
-    "headline" : "Leetcode - 50 - Pow(x,n) [Medium]",
-    "description" : "50.Pow(x,n) 地址\n难度：Medium\n题目描述 Implement pow(x, n), which calculates x raised to the power n (xn).\n示例 Example 1: Input: 2.00000, 10\nOutput: 1024.00000\nExample 2: Input: 2.10000, 3\nOutput: 9.26100\nExample 3: Input: 2.00000, -2\nOutput: 0.25000\nExplanation: 2-2 = 1\x26frasl;22 = 1\x26frasl;4 = 0.25\n思路 快速幂。\nAC  Runtime: 4 ms, faster than 72.85% of C\x2b\x2b online submissions for Pow(x, n). Memory Usage: 8.5 MB, less than 21.",
+    "name" : "微服务改造 - 1",
+    "headline" : "微服务改造 - 1",
+    "description" : "校园墙微服务改造 想法 自从完成之前的校园墙APP的前后端开发后，已经懒得在之前基础上进行增加功能和升级。原因除了自身毕业后没啥动力继续开发，还有便是单体架构的自身缺陷了，因此便有了把这个项目改造成微服务的想法。\n之前项目已从阿里云下线，APP内域名已到期懒得重新编译，(也没人用)所以下线了服务端节省资源。\n本次改造的主要目的是通过这次改造认识后端开发中所可能产生的各种问题和与之对应的优雅的处理方案。\n目标 实现一个完整的微服务项目  构建微服务 Redis集群 配置下发 熔断，限流，负载均衡… 链路追踪，日志收集与展示 消息队列 单元测试 服务docker化 用k8s做服务注册与发现 使用k8s部署，并配置服务的水平扩展 持续集成  框架 经过几个框架的对比，最终选择了go-micro框架。\n模块 初步定为以下微服务模块:\n1.User:  为其他模块提供用户信息与身份认证  2.OSS:  自建一个阿里云OSS精简版  3.动态:  校园动态  4.短视频:  接触一下音视频的知识  5.PUSH  提供消息推送  6.评论  为其他模块添加评论的支持  如果上面完成则进行下面的尝试\n1.IM 2.直播",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -54,11 +54,11 @@
     "accountablePerson" : "Cuckooemm",
     "copyrightHolder" : "Cuckooemm",
     "copyrightYear" : "2019",
-    "datePublished": "2019-07-13 18:45:55 \x2b0800 CST",
-    "dateModified" : "2019-07-13 18:45:55 \x2b0800 CST",
-    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/50-pow\/",
-    "wordCount" : "126",
-    "keywords" : [ "algorithm","LeetCode-Medium","LeetCode-1~100", "Cuckooemm\x27s Blog"]
+    "datePublished": "2019-07-30 23:23:00 \x2b0800 CST",
+    "dateModified" : "2019-07-30 23:23:00 \x2b0800 CST",
+    "url" : "https:\/\/cuckooemm.xyz\/2019\/july\/microservice-campus-1\/",
+    "wordCount" : "37",
+    "keywords" : [ "golang","微服务", "Cuckooemm\x27s Blog"]
 }
 </script>
 
@@ -118,16 +118,16 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Leetcode - 50 - Pow(x,n) [Medium]</h1>
+        <h1 class="post-title" itemprop="name headline">微服务改造 - 1</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://cuckooemm.xyz/" rel="author">Cuckooemm</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-07-13 itemprop="datePublished">July 13, 2019</time>
+                on <time datetime=2019-07-30 itemprop="datePublished">July 30, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://cuckooemm.xyz/categories/algorithm/"> algorithm </a>
+                        <a href="https://cuckooemm.xyz/categories/project/"> project </a>
                         
                 </span>
         </div>
@@ -150,58 +150,82 @@
 
           
 
-<h1 id="50-pow-x-n">50.Pow(x,n)</h1>
+<h1 id="校园墙微服务改造">校园墙微服务改造</h1>
 
-<p><a href="https://leetcode.com/problems/powx-n/" rel="nofollow noreferrer" target="_blank">地址</a><br />
-<strong>难度：Medium</strong></p>
+<h3 id="想法">想法</h3>
 
-<h3 id="题目描述">题目描述</h3>
+<p>自从完成之前的校园墙APP的前后端开发后，已经懒得在之前基础上进行增加功能和升级。原因除了自身毕业后没啥动力继续开发，还有便是单体架构的自身缺陷了，因此便有了把这个项目改造成微服务的想法。</p>
 
-<p>Implement pow(x, n), which calculates x raised to the power n (xn).</p>
+<p>之前项目已从阿里云下线，APP内域名已到期懒得重新编译，(也没人用)所以下线了服务端节省资源。</p>
 
-<h3 id="示例">示例</h3>
+<p>本次改造的主要目的是通过这次改造认识后端开发中所可能产生的各种问题和与之对应的优雅的处理方案。</p>
 
-<h4 id="example-1">Example 1:</h4>
+<h3 id="目标">目标</h3>
 
-<p><strong>Input:</strong> 2.00000, 10<br />
-<strong>Output:</strong> 1024.00000</p>
-
-<h4 id="example-2">Example 2:</h4>
-
-<p><strong>Input:</strong> 2.10000, 3<br />
-<strong>Output:</strong> 9.26100</p>
-
-<h4 id="example-3">Example 3:</h4>
-
-<p><strong>Input:</strong> 2.00000, -2<br />
-<strong>Output:</strong> 0.25000<br />
-<strong>Explanation:</strong> 2-2 = <sup>1</sup>&frasl;<sub>22</sub> = <sup>1</sup>&frasl;<sub>4</sub> = 0.25</p>
-
-<h3 id="思路">思路</h3>
-
-<p>快速幂。</p>
-
-<h3 id="ac">AC</h3>
+<h4 id="实现一个完整的微服务项目">实现一个完整的微服务项目</h4>
 
 <ul>
-<li>Runtime: 4 ms, faster than 72.85% of C++ online submissions for Pow(x, n).</li>
-<li>Memory Usage: 8.5 MB, less than 21.03% of C++ online submissions for Pow(x, n).</li>
+<li>构建微服务</li>
+<li>Redis集群</li>
+<li>配置下发</li>
+<li>熔断，限流，负载均衡…</li>
+<li>链路追踪，日志收集与展示</li>
+<li>消息队列</li>
+<li>单元测试</li>
+<li>服务docker化</li>
+<li>用k8s做服务注册与发现</li>
+<li>使用k8s部署，并配置服务的水平扩展</li>
+<li>持续集成</li>
 </ul>
 
-<h3 id="代码">代码</h3>
+<h3 id="框架">框架</h3>
 
-<pre><code class="language-c++">class Solution {
-public:
-    double myPow(double x, int n) {
-        double res = 1.0;
-        for (int i = n; i != 0; i /= 2) {
-            if (i &amp; 1) res *= x;
-            x *= x;
-        }
-        return n &lt; 0 ? 1 / res : res;
-    }
-};
-</code></pre>
+<p>经过几个框架的对比，最终选择了<a href="https://github.com/micro/go-micro" rel="nofollow noreferrer" target="_blank">go-micro</a>框架。</p>
+
+<h3 id="模块">模块</h3>
+
+<p>初步定为以下微服务模块:</p>
+
+<h4 id="1-user">1.User:</h4>
+
+<ul>
+<li>为其他模块提供用户信息与身份认证</li>
+</ul>
+
+<h4 id="2-oss">2.OSS:</h4>
+
+<ul>
+<li>自建一个阿里云OSS精简版</li>
+</ul>
+
+<h4 id="3-动态">3.动态:</h4>
+
+<ul>
+<li>校园动态</li>
+</ul>
+
+<h4 id="4-短视频">4.短视频:</h4>
+
+<ul>
+<li>接触一下音视频的知识</li>
+</ul>
+
+<h4 id="5-push">5.PUSH</h4>
+
+<ul>
+<li>提供消息推送</li>
+</ul>
+
+<h4 id="6-评论">6.评论</h4>
+
+<ul>
+<li>为其他模块添加评论的支持</li>
+</ul>
+
+<p>如果上面完成则进行下面的尝试</p>
+
+<p>1.IM
+2.直播</p>
 
     </div>
 
@@ -216,7 +240,7 @@ public:
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://cuckooemm.xyz/2019/july/50-pow/>https://cuckooemm.xyz/2019/july/50-pow/</span>
+                    <a href=https://cuckooemm.xyz/2019/july/microservice-campus-1/>https://cuckooemm.xyz/2019/july/microservice-campus-1/</span>
             </p>
             
              
@@ -232,14 +256,11 @@ public:
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/algorithm/">
-                    #algorithm</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/golang/">
+                    #golang</a></span>
             
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-medium/">
-                    #LeetCode-Medium</a></span>
-            
-            <span class="tag"><a href="https://cuckooemm.xyz/tags/leetcode-1~100/">
-                    #LeetCode-1~100</a></span>
+            <span class="tag"><a href="https://cuckooemm.xyz/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                    #微服务</a></span>
             
             </section>
         
@@ -251,10 +272,8 @@ public:
 
     <div class="post-nav">
         
-        <a href="https://cuckooemm.xyz/2019/july/49-group-anagrams/" class="prev" rel="prev" title="Leetcode - 49 - Group Anagrams [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 49 - Group Anagrams [Medium]</a>
+        <a href="https://cuckooemm.xyz/2019/july/50-pow/" class="prev" rel="prev" title="Leetcode - 50 - Pow(x,n) [Medium]"><i class="iconfont icon-left"></i>&nbsp;Leetcode - 50 - Pow(x,n) [Medium]</a>
          
-        
-        <a href="https://cuckooemm.xyz/2019/july/microservice-campus-1/" class="next" rel="next" title="微服务改造 - 1">微服务改造 - 1&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
