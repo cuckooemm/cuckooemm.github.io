@@ -36,6 +36,7 @@
 &lt;li&gt;配置下发&lt;/li&gt;
 &lt;li&gt;熔断，限流，负载均衡…&lt;/li&gt;
 &lt;li&gt;链路追踪，日志收集与展示&lt;/li&gt;
+&lt;li&gt;中间件&lt;/li&gt;
 &lt;li&gt;消息队列&lt;/li&gt;
 &lt;li&gt;单元测试&lt;/li&gt;
 &lt;li&gt;服务docker化&lt;/li&gt;
@@ -90,7 +91,7 @@
 
 &lt;p&gt;如果上面完成则进行下面的尝试&lt;/p&gt;
 
-&lt;p&gt;1.IM
+&lt;p&gt;1.IM&lt;br /&gt;
 2.直播&lt;/p&gt;
 </description>
     </item>
