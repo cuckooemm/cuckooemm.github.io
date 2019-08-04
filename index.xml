@@ -5,8 +5,74 @@
     <description>Recent content in Cuckooemm&#39;s Blog on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 30 Jul 2019 23:23:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2019 00:06:25 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>微服务改造 - 2</title>
+      <link>https://cuckooemm.xyz/2019/august/microservice-campus-2/</link>
+      <pubDate>Sun, 04 Aug 2019 00:06:25 +0800</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/august/microservice-campus-2/</guid>
+      <description>
+
+&lt;h1 id=&#34;基础服务搭建&#34;&gt;基础服务搭建&lt;/h1&gt;
+
+&lt;h3 id=&#34;搭建数据库环境&#34;&gt;搭建数据库环境&lt;/h3&gt;
+
+&lt;h4 id=&#34;定义docker-compose-yml&#34;&gt;定义docker-compose.yml&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;version: &#39;3&#39;
+services:
+  postgres:                                  // SQL数据库
+    container_name: user-postgres            // 容器名称
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: user
+    networks:
+      - user-net
+    ports:
+      - &amp;quot;5432:5432&amp;quot;                         // 映射端口
+    expose:
+      - 5432                                // 为link链接 暴露端口
+
+  adminer:
+    container_name: user-psql-adminer
+    image: adminer                          // 数据库 webUI
+    restart: always
+    networks:
+      - user-net
+    links:
+      - postgres
+    ports:
+      - &amp;quot;15432:8080&amp;quot;                        // 映射端口
+
+  redis:
+    container_name: user-redis
+    image: redis
+    restart: always
+    networks:
+      - user-net
+    ports:
+      - &amp;quot;6379:6379&amp;quot;                         // 映射端口  
+
+networks:                                   // 自定义网段
+  user-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.1.0/24             // 可扩展254个实例
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;p&gt;测试环境没有映射数据库文件，容器不删除or重构，文件就不会丢失。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>微服务改造 - 1</title>
@@ -1208,84 +1274,6 @@ public:
             ++curIndex;
         }
         return curRes;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Leetcode - 35 - Search Insert Position [Easy]</title>
-      <link>https://cuckooemm.xyz/2019/july/35-search-insert-position/</link>
-      <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://cuckooemm.xyz/2019/july/35-search-insert-position/</guid>
-      <description>
-
-&lt;h1 id=&#34;35-search-insert-position&#34;&gt;35.Search Insert Position&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/search-insert-position/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;地址&lt;/a&gt;&lt;br /&gt;
-&lt;strong&gt;难度：Easy&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;题目描述&#34;&gt;题目描述&lt;/h3&gt;
-
-&lt;p&gt;Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.&lt;/p&gt;
-
-&lt;p&gt;You may assume no duplicates in the array.&lt;/p&gt;
-
-&lt;p&gt;给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。&lt;/p&gt;
-
-&lt;p&gt;你可以假设数组中无重复元素。&lt;/p&gt;
-
-&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [1,3,5,6], 5&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 2&lt;/p&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;Example 2:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [1,3,5,6], 2&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 1&lt;/p&gt;
-
-&lt;h4 id=&#34;example-3&#34;&gt;Example 3:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [1,3,5,6], 7&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 4&lt;/p&gt;
-
-&lt;h4 id=&#34;example-4&#34;&gt;Example 4:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; [1,3,5,6], 0&lt;br /&gt;
-&lt;strong&gt;Output:&lt;/strong&gt; 0&lt;/p&gt;
-
-&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;二分法。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;ac&#34;&gt;AC&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Runtime: 8 ms, faster than 74.90% of C++ online submissions for Search Insert Position.&lt;/li&gt;
-&lt;li&gt;Memory Usage: 8.9 MB, less than 59.90% of C++ online submissions for Search Insert Position.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution {
-public:
-    int searchInsert(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
-        int mid = 0, l = 0, r = nums.size() - 1;
-        while(l &amp;lt;= r){
-            mid = (r - l &amp;gt;&amp;gt; 1) + l;
-            if(nums[mid] == target)
-                return mid;
-            else if(nums[mid] &amp;gt; target)
-                r = mid - 1;
-            else
-                l = mid + 1;
-        }
-        return l;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;

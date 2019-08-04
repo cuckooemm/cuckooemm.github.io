@@ -4,7 +4,7 @@
     <url>
       <loc>https://cuckooemm.xyz/categories/</loc>
       
-      <lastmod>2019-07-30T23:23:00+08:00</lastmod>
+      <lastmod>2019-08-04T00:06:25+08:00</lastmod>
       
       
       
@@ -16,7 +16,7 @@
     <url>
       <loc>https://cuckooemm.xyz/</loc>
       
-      <lastmod>2019-07-30T23:23:00+08:00</lastmod>
+      <lastmod>2019-08-04T00:06:25+08:00</lastmod>
       
       
       
@@ -28,7 +28,7 @@
     <url>
       <loc>https://cuckooemm.xyz/posts/</loc>
       
-      <lastmod>2019-07-30T23:23:00+08:00</lastmod>
+      <lastmod>2019-08-04T00:06:25+08:00</lastmod>
       
       
       
@@ -40,7 +40,7 @@
     <url>
       <loc>https://cuckooemm.xyz/tags/</loc>
       
-      <lastmod>2019-07-30T23:23:00+08:00</lastmod>
+      <lastmod>2019-08-04T00:06:25+08:00</lastmod>
       
       
       
@@ -52,7 +52,7 @@
     <url>
       <loc>https://cuckooemm.xyz/tags/golang/</loc>
       
-      <lastmod>2019-07-30T23:23:00+08:00</lastmod>
+      <lastmod>2019-08-04T00:06:25+08:00</lastmod>
       
       
       
@@ -64,7 +64,7 @@
     <url>
       <loc>https://cuckooemm.xyz/categories/project/</loc>
       
-      <lastmod>2019-07-30T23:23:00+08:00</lastmod>
+      <lastmod>2019-08-04T00:06:25+08:00</lastmod>
       
       
       
@@ -76,11 +76,21 @@
     <url>
       <loc>https://cuckooemm.xyz/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
       
-      <lastmod>2019-07-30T23:23:00+08:00</lastmod>
+      <lastmod>2019-08-04T00:06:25+08:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://cuckooemm.xyz/2019/august/microservice-campus-2/</loc>
+      
+      <lastmod>2019-08-04T00:06:25+08:00</lastmod>
+      
+      
       
       
     </url>

@@ -6,10 +6,19 @@
     <description>Recent content in 微服务 on Cuckooemm&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 30 Jul 2019 23:23:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2019 00:06:25 +0800</lastBuildDate>
     
 	<atom:link href="https://cuckooemm.xyz/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>微服务改造 - 2</title>
+      <link>https://cuckooemm.xyz/2019/august/microservice-campus-2/</link>
+      <pubDate>Sun, 04 Aug 2019 00:06:25 +0800</pubDate>
+      
+      <guid>https://cuckooemm.xyz/2019/august/microservice-campus-2/</guid>
+      <description>基础服务搭建 搭建数据库环境 定义docker-compose.yml version: &#39;3&#39; services: postgres: // SQL数据库 container_name: user-postgres // 容器名称 image: postgres restart: always environment: POSTGRES_PASSWORD: password POSTGRES_USER: user POSTGRES_DB: user networks: - user-net ports: - &amp;quot;5432:5432&amp;quot; // 映射端口 expose: - 5432 // 为link链接 暴露端口 adminer: container_name: user-psql-adminer image: adminer // 数据库 webUI restart: always networks: - user-net links: - postgres ports: - &amp;quot;15432:8080&amp;quot; // 映射端口 redis: container_name: user-redis image: redis restart: always networks: - user-net ports: - &amp;quot;6379:6379&amp;quot; // 映射端口 networks: // 自定义网段 user-net: driver: bridge ipam: driver: default config: - subnet: 172.</description>
+    </item>
     
     <item>
       <title>微服务改造 - 1</title>
