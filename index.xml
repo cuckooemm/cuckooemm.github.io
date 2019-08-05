@@ -85,8 +85,15 @@ networks:
 
 &lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
 
-&lt;p&gt;测试环境没有映射数据库文件，容器不删除or重构，文件就不会丢失。
+&lt;p&gt;测试环境没有映射数据库文件，容器不删除or重构，文件就不会丢失。&lt;br /&gt;
 通过指定ip：port 访问容器 避免单机下微服务模块端口污染&lt;/p&gt;
+
+&lt;h3 id=&#34;启动数据库&#34;&gt;启动数据库&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;docker-compose up -d
+#or
+docker-compose -f dicker-compose.yml -d 
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

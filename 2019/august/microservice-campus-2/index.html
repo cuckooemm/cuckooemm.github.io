@@ -57,7 +57,7 @@
     "datePublished": "2019-08-04 00:06:25 \x2b0800 CST",
     "dateModified" : "2019-08-04 00:06:25 \x2b0800 CST",
     "url" : "https:\/\/cuckooemm.xyz\/2019\/august\/microservice-campus-2\/",
-    "wordCount" : "107",
+    "wordCount" : "116",
     "keywords" : [ "golang","微服务", "Cuckooemm\x27s Blog"]
 }
 </script>
@@ -219,8 +219,15 @@ networks:
 
 <h4 id="note">Note:</h4>
 
-<p>测试环境没有映射数据库文件，容器不删除or重构，文件就不会丢失。
+<p>测试环境没有映射数据库文件，容器不删除or重构，文件就不会丢失。<br />
 通过指定ip：port 访问容器 避免单机下微服务模块端口污染</p>
+
+<h3 id="启动数据库">启动数据库</h3>
+
+<pre><code class="language-git">docker-compose up -d
+#or
+docker-compose -f dicker-compose.yml -d 
+</code></pre>
 
     </div>
 
