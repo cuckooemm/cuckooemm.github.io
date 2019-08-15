@@ -26,7 +26,8 @@
       <pubDate>Tue, 30 Jul 2019 23:23:00 +0800</pubDate>
       
       <guid>https://cuckooemm.xyz/2019/july/microservice-campus-1/</guid>
-      <description>校园墙微服务改造 想法 自从完成之前的校园墙APP的前后端开发后，已经懒得在之前基础上进行增加功能和升级。原因除了自身毕业后没啥动力继续开发，还有便是单体架构的自身缺陷了，因此便有了把这个项目改造成微服务的想法。
+      <description>校园墙微服务改造 项目地址 https://github.com/cuckooemm/micro-campus
+想法 自从完成之前的校园墙APP的前后端开发后，已经懒得在之前基础上进行增加功能和升级。原因除了自身毕业后没啥动力继续开发，还有便是单体架构的自身缺陷了，因此便有了把这个项目改造成微服务的想法。
 之前项目已从阿里云下线，APP内域名已到期懒得重新编译，(也没人用)所以下线了服务端节省资源。
 本次改造的主要目的是通过这次改造认识后端开发中所可能产生的各种问题和与之对应的优雅的处理方案。
 目标 实现一个完整的微服务项目  构建微服务 Redis集群 配置下发 熔断，限流，负载均衡… 链路追踪，日志收集与展示 中间件 消息队列 单元测试 服务docker化 用k8s做服务注册与发现 使用k8s部署，并配置服务的水平扩展 持续集成  框架 经过几个框架的对比，最终选择了go-micro框架。
@@ -778,7 +779,7 @@ git checkout -b &amp;lt;name&amp;gt;  等同于
 git branch &amp;lt;name&amp;gt; git checkout &amp;lt;name&amp;gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。
 git branch  切换分支 git checkout &amp;lt;name&amp;gt;  合并分支 git merge &amp;lt;name&amp;gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式
 git merge --no-ff -m &amp;quot;merge with no-ff&amp;quot; &amp;lt;name&amp;gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
-删除分支 git branch -d &amp;lt;name&amp;gt; git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除  git stash &amp;lt;apply or pop&amp;gt; &amp;lt;stash&amp;gt;  标签 创建标签 在当前分支打标签</description>
+删除分支 git branch -d &amp;lt;name&amp;gt; git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除</description>
     </item>
     
     <item>

@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Git(2)",
     "headline" : "Git(2)",
-    "description" : "分支 创建分支 -b 表示创建并切换\ngit checkout -b \x26lt;name\x26gt;  等同于\ngit branch \x26lt;name\x26gt; git checkout \x26lt;name\x26gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。\ngit branch  切换分支 git checkout \x26lt;name\x26gt;  合并分支 git merge \x26lt;name\x26gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式\ngit merge --no-ff -m \x26quot;merge with no-ff\x26quot; \x26lt;name\x26gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。\n删除分支 git branch -d \x26lt;name\x26gt; git branch -D \x26lt;name\x26gt; \/\/未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除  git stash \x26lt;apply or pop\x26gt; \x26lt;stash\x26gt;  标签 创建标签 在当前分支打标签",
+    "description" : "分支 创建分支 -b 表示创建并切换\ngit checkout -b \x26lt;name\x26gt;  等同于\ngit branch \x26lt;name\x26gt; git checkout \x26lt;name\x26gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。\ngit branch  切换分支 git checkout \x26lt;name\x26gt;  合并分支 git merge \x26lt;name\x26gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式\ngit merge --no-ff -m \x26quot;merge with no-ff\x26quot; \x26lt;name\x26gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。\n删除分支 git branch -d \x26lt;name\x26gt; git branch -D \x26lt;name\x26gt; \/\/未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除",
     "inLanguage" : "zh-CN",
     "author" : "Cuckooemm",
     "creator" : "Cuckooemm",
@@ -212,11 +212,12 @@ git branch -D &lt;name&gt; //未合并过的分支删除
 
 <ul>
 <li><code>git stash apply</code> 恢复现场但不删除记录，调用<code>git stash drop</code>删除</li>
-<li><code>git stash pop</code> 恢复且删除</li>
-</ul>
+
+<li><p><code>git stash pop</code> 恢复且删除</p>
 
 <pre><code class="language-git">git stash &lt;apply or pop&gt; &lt;stash&gt;
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="标签">标签</h3>
 

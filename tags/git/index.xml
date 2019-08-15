@@ -22,7 +22,7 @@ git checkout -b &amp;lt;name&amp;gt;  等同于
 git branch &amp;lt;name&amp;gt; git checkout &amp;lt;name&amp;gt;  查看当前分支 git branch命令会列出所有分支，当前分支前面会标一个*号。
 git branch  切换分支 git checkout &amp;lt;name&amp;gt;  合并分支 git merge &amp;lt;name&amp;gt;  git merge命令用于合并指定分支到当前分支。 Fast-forward 信息表示快进模式
 git merge --no-ff -m &amp;quot;merge with no-ff&amp;quot; &amp;lt;name&amp;gt;  --no-ff参数，表示禁用Fast forward 因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
-删除分支 git branch -d &amp;lt;name&amp;gt; git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除  git stash &amp;lt;apply or pop&amp;gt; &amp;lt;stash&amp;gt;  标签 创建标签 在当前分支打标签</description>
+删除分支 git branch -d &amp;lt;name&amp;gt; git branch -D &amp;lt;name&amp;gt; //未合并过的分支删除  环境保存与恢复 保存现场 git stash  查看现场保存位置 git stash list  现场恢复  git stash apply 恢复现场但不删除记录，调用git stash drop删除 git stash pop 恢复且删除</description>
     </item>
     
     <item>
